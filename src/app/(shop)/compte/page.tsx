@@ -1,0 +1,59 @@
+import Link from "next/link";
+import { redirect } from "next/navigation";
+import { LogOut, ClipboardList, MapPin, ShieldCheck } from "lucide-react";
+import { getCurrentUserAndProfile } from "@/lib/data";
+import { signOut } from "@/lib/actions/auth";
+
+export default async function AccountPage() {
+  const { user, profile } = await getCurrentUserAndProfile();
+  if (!user) redirect("/login?redirect=/compte");
+
+  return (
+    <div className="max-w-lg mx-auto px-4 py-6">
+      <h1 className="font-bold text-xl text-brand-ink mb-1">Mon compte</h1>
+      <p className="text-brand-gray text-sm mb-6">{user.email}</p>
+
+      <div className="border border-brand-border rounded-2xl p-5 mb-4">
+        <p className="font-semibold text-brand-ink">{profile?.full_name || "Client RapideVite"}</p>
+        {profile?.phone && <p className="text-brand-gray text-sm mt-1">{profile.phone}</p>}
+        {profile?.role !== "customer" && (
+          <span className="inline-flex items-center gap-1 mt-2 text-xs font-semibold text-brand-green">
+            <ShieldCheck className="w-3.5 h-3.5" /> Compte {profile?.role}
+          </span>
+        )}
+      </div>
+
+      <nav className="space-y-2">
+        <Link
+          href="/commandes"
+          className="flex items-center gap-3 border border-brand-border rounded-xl px-4 py-3.5 hover:border-brand-orange transition"
+        >
+          <ClipboardList className="w-5 h-5 text-brand-orange" />
+          <span className="text-sm font-medium text-brand-ink">Mes commandes</span>
+        </Link>
+        <div className="flex items-center gap-3 border border-brand-border rounded-xl px-4 py-3.5 opacity-60">
+          <MapPin className="w-5 h-5 text-brand-orange" />
+          <span className="text-sm font-medium text-brand-ink">Mes adresses (bientot disponible)</span>
+        </div>
+        {(profile?.role === "admin" || profile?.role === "staff") && (
+          <Link
+            href="/admin"
+            className="flex items-center gap-3 border border-brand-orange bg-brand-orange/5 rounded-xl px-4 py-3.5"
+          >
+            <ShieldCheck className="w-5 h-5 text-brand-orange" />
+            <span className="text-sm font-semibold text-brand-orange">Tableau de bord administrateur</span>
+          </Link>
+        )}
+      </nav>
+
+      <form action={signOut} className="mt-6">
+        <button
+          type="submit"
+          className="w-full flex items-center justify-center gap-2 border border-brand-border rounded-full py-3 text-sm font-semibold text-brand-ink hover:bg-brand-cream transition"
+        >
+          <LogOut className="w-4 h-4" /> Se deconnecter
+        </button>
+      </form>
+    </div>
+  );
+}

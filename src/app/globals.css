@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* RapideVite brand palette: bold red (speed/energy) + deep green (trust/fresh) */
+  --brand-orange: #E5231B;
+  --brand-orange-dark: #B91C1C;
+  --brand-green: #0F8A5F;
+  --brand-green-dark: #0B6B49;
+  --brand-cream: #FFF5F4;
+  --brand-ink: #1A1A1A;
+  --brand-gray: #6B7280;
+  --brand-border: #EDEDED;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-orange: var(--brand-orange);
+  --color-brand-orange-dark: var(--brand-orange-dark);
+  --color-brand-green: var(--brand-green);
+  --color-brand-green-dark: var(--brand-green-dark);
+  --color-brand-cream: var(--brand-cream);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-gray: var(--brand-gray);
+  --color-brand-border: var(--brand-border);
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Space for the sticky mobile bottom nav so content never hides behind it */
+.pb-bottom-nav {
+  padding-bottom: calc(72px + env(safe-area-inset-bottom));
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #eee 0px, #f6f6f6 40px, #eee 80px);
+  background-size: 600px;
+  animation: shimmer 1.4s infinite linear;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

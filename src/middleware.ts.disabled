@@ -1,0 +1,11 @@
+// Superseded by src/proxy.ts (Next.js 16 renamed the "middleware" file
+// convention to "proxy" - the real auth-session logic lives there now).
+// Next.js still requires this file to export a valid middleware function
+// if it exists at all, so this is a harmless passthrough. Delete this
+// file once you've confirmed src/proxy.ts is working - the sandbox that
+// built this project isn't able to remove it directly.
+import { NextResponse } from "next/server";
+
+export function middleware() {
+  return NextResponse.next();
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <rect width="200" height="200" fill="#FFF8F2"/>
+  <circle cx="100" cy="86" r="34" fill="#FFE1CF"/>
+  <rect x="60" y="120" width="80" height="46" rx="10" fill="#FFE1CF"/>
+  <text x="100" y="190" font-family="Arial, sans-serif" font-size="11" fill="#FF6A2B" text-anchor="middle">RapideVite</text>
+</svg>

@@ -1,0 +1,1660 @@
+[
+  {
+    "slug": "reddi-wip-original",
+    "name": "Reddi-wip Original",
+    "brand": "Reddi-wip",
+    "categorySlug": "epicerie",
+    "size": "184 g (6.5 oz)",
+    "description": "Creme fouettee laitiere en bombe, saveur originale. (Photo fournie manuellement - a verifier avant publication.)",
+    "imageFile": "reddiwip-original.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "reddi-wip-extra-creamy",
+    "name": "Reddi-wip Extra Creamy",
+    "brand": "Reddi-wip",
+    "categorySlug": "epicerie",
+    "size": "184 g (6.5 oz)",
+    "description": "Creme fouettee laitiere en bombe, version extra onctueuse. (Photo fournie manuellement - a verifier avant publication.)",
+    "imageFile": "reddiwip-extra-creamy.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "barilla-spaghetti-16oz",
+    "name": "Barilla Spaghetti",
+    "brand": "Barilla",
+    "categorySlug": "epicerie",
+    "size": "16 oz (1 lb / 454 g)",
+    "description": "Photo produit reelle provenant d'une fiche revendeur (https://www.sayweee.com/en/product/Barilla-Spaghetti-Pasta/47727). Correspondance: Exact. (Produit brouillon - verifier le format exact vendu localement, le code-barres, le prix et la disponibilite avant publication.)",
+    "imageFile": "barilla_spaghetti_16oz.png",
+    "price": 0,
+    "stock": 0,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "goya-black-beans-15-5oz",
+    "name": "Goya Black Beans",
+    "brand": "Goya",
+    "categorySlug": "epicerie",
+    "size": "15.5 oz (439 g)",
+    "description": "Photo produit reelle provenant d'une fiche revendeur (https://www.sayweee.com/en/product/Goya-Black-Beans/108711). Correspondance: Exact. (Produit brouillon - verifier le format exact vendu localement, le code-barres, le prix et la disponibilite avant publication.)",
+    "imageFile": "goya_black_beans_15_5oz.jpeg",
+    "price": 0,
+    "stock": 0,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "spam-classic-12oz",
+    "name": "SPAM Classic",
+    "brand": "SPAM",
+    "categorySlug": "epicerie",
+    "size": "12 oz (340 g)",
+    "description": "Photo produit reelle provenant d'une fiche revendeur (https://www.sayweee.com/product/Hormel-Classic-Spam/55189/). Correspondance: Exact. (Produit brouillon - verifier le format exact vendu localement, le code-barres, le prix et la disponibilite avant publication.)",
+    "imageFile": "spam_classic_12oz.png",
+    "price": 0,
+    "stock": 0,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "kelloggs-froot-loops-180g",
+    "name": "Kellogg's Froot Loops",
+    "brand": "Kellogg's",
+    "categorySlug": "pain-petit-dejeuner",
+    "size": "180 g",
+    "description": "Photo produit reelle provenant d'une fiche revendeur (https://www.sayweee.com/en/product/Kellogg-s-Froot-Loops/110508/). Correspondance: Exact package, Mexican-market label. (Produit brouillon - verifier le format exact vendu localement, le code-barres, le prix et la disponibilite avant publication.)",
+    "imageFile": "kelloggs_froot_loops_180g.jpeg",
+    "price": 0,
+    "stock": 0,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "frenchs-classic-yellow-mustard-14oz",
+    "name": "French's Classic Yellow Mustard",
+    "brand": "French's",
+    "categorySlug": "epicerie",
+    "size": "14 oz (396 g)",
+    "description": "Photo produit reelle provenant d'une fiche revendeur (https://www.sayweee.com/en/product/French-s-Classic-Yellow-Mustard/84826). Correspondance: Exact. (Produit brouillon - verifier le format exact vendu localement, le code-barres, le prix et la disponibilite avant publication.)",
+    "imageFile": "frenchs_classic_yellow_mustard_14oz.jpg",
+    "price": 0,
+    "stock": 0,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "ocean-spray-cranberry-juice-64oz",
+    "name": "Ocean Spray Original Cranberry Juice Cocktail",
+    "brand": "Ocean Spray",
+    "categorySlug": "boissons",
+    "size": "64 fl oz (1.89 L)",
+    "description": "Photo produit reelle provenant d'une fiche revendeur (https://www.sayweee.com/en/product/Ocean-Spray-Cranberry-Juice-Cocktail/48150). Correspondance: Exact. (Produit brouillon - verifier le format exact vendu localement, le code-barres, le prix et la disponibilite avant publication.)",
+    "imageFile": "ocean_spray_cranberry_juice_64oz.jpg",
+    "price": 0,
+    "stock": 0,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "nature-valley-crunchy-variety-24bars",
+    "name": "Nature Valley Crunchy Granola Bars Variety Pack",
+    "brand": "Nature Valley",
+    "categorySlug": "collations",
+    "size": "24 bars / 506 g",
+    "description": "Photo produit reelle provenant d'une fiche revendeur (https://www.sayweee.com/en/product/Nature-Valley-Crunchy-Granola-Bars-Variety-Pack--24-ct/88926). Correspondance: Exact. (Produit brouillon - verifier le format exact vendu localement, le code-barres, le prix et la disponibilite avant publication.)",
+    "imageFile": "nature_valley_crunchy_variety_24bars.png",
+    "price": 0,
+    "stock": 0,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "ortega-yellow-corn-taco-shells-12ct",
+    "name": "Ortega Yellow Corn Taco Shells",
+    "brand": "Ortega",
+    "categorySlug": "epicerie",
+    "size": "12 shells / 4.9 oz (140 g)",
+    "description": "Photo produit reelle provenant d'une fiche revendeur (https://www.sayweee.com/en/product/Ortega-Yellow-Corn-Taco-Shells/102146/). Correspondance: Exact. (Produit brouillon - verifier le format exact vendu localement, le code-barres, le prix et la disponibilite avant publication.)",
+    "imageFile": "ortega_yellow_corn_taco_shells_12ct.png",
+    "price": 0,
+    "stock": 0,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "josh-cabernet-sauvignon-750ml",
+    "name": "Josh Cellars Cabernet Sauvignon",
+    "brand": "Josh Cellars",
+    "categorySlug": "alcool-spiritueux",
+    "categoryName": "Alcool et spiritueux",
+    "size": "750 ml",
+    "description": "Vin rouge Cabernet Sauvignon. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "josh-cabernet-sauvignon-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "coronita-extra-mini-24pack",
+    "name": "Coronita Extra Mini Bottles (24-pack)",
+    "brand": "Corona",
+    "categorySlug": "alcool-spiritueux",
+    "size": "24 x 7 fl oz",
+    "description": "Biere importee, mini-bouteilles 7oz, pack de 24. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "coronita-extra-mini-24pack.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "simply-lemonade-original-52oz",
+    "name": "Simply Lemonade",
+    "brand": "Simply",
+    "categorySlug": "boissons",
+    "size": "52 fl oz",
+    "description": "Limonade naturelle, non issue de concentre. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "simply-lemonade-original-52oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "heineken-original-12pack",
+    "name": "Heineken Original (pack de 12)",
+    "brand": "Heineken",
+    "categorySlug": "alcool-spiritueux",
+    "size": "12 x 12 fl oz",
+    "description": "Biere importee, pack de 12 bouteilles. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "heineken-original-12pack.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "haagen-dazs-chocolate-14oz",
+    "name": "Haagen-Dazs Chocolate",
+    "brand": "Haagen-Dazs",
+    "categorySlug": "produits-surgeles",
+    "size": "14 fl oz",
+    "description": "Creme glacee chocolat. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "haagen-dazs-chocolate-14oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "new-amsterdam-vodka-175l",
+    "name": "New Amsterdam Vodka",
+    "brand": "New Amsterdam",
+    "categorySlug": "alcool-spiritueux",
+    "size": "1.75 L",
+    "description": "Vodka distillee 5 fois. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock, le format exact et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "new-amsterdam-vodka-175l.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "jose-cuervo-especial-silver-175l",
+    "name": "Jose Cuervo Especial Silver",
+    "brand": "Jose Cuervo",
+    "categorySlug": "alcool-spiritueux",
+    "size": "1.75 L",
+    "description": "Tequila silver a base d'agave bleue. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "jose-cuervo-especial-silver-175l.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "titos-handmade-vodka-750ml",
+    "name": "Tito's Handmade Vodka (750 ml)",
+    "brand": "Tito's",
+    "categorySlug": "alcool-spiritueux",
+    "size": "750 ml",
+    "description": "Vodka artisanale distillee a Austin, Texas. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "titos-handmade-vodka-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "jameson-irish-whiskey-175l",
+    "name": "Jameson Irish Whiskey",
+    "brand": "Jameson",
+    "categorySlug": "alcool-spiritueux",
+    "size": "1.75 L",
+    "description": "Whiskey irlandais triple distille. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock, le format exact et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "jameson-irish-whiskey-175l.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "malibu-original-175l",
+    "name": "Malibu Original",
+    "brand": "Malibu",
+    "categorySlug": "alcool-spiritueux",
+    "size": "1.75 L",
+    "description": "Rhum blanc a la liqueur de noix de coco. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "malibu-original-175l.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "yuengling-traditional-lager-12pack",
+    "name": "Yuengling Traditional Lager (pack de 12)",
+    "brand": "Yuengling",
+    "categorySlug": "alcool-spiritueux",
+    "size": "12 x 12 fl oz",
+    "description": "Biere lager americaine, pack de 12 bouteilles. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "yuengling-traditional-lager-12pack.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "smirnoff-no21-vodka-175l",
+    "name": "Smirnoff No. 21 Vodka",
+    "brand": "Smirnoff",
+    "categorySlug": "alcool-spiritueux",
+    "size": "1.75 L",
+    "description": "Vodka filtree 10 fois. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock, le format exact et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "smirnoff-no21-vodka-175l.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "haagen-dazs-dulce-de-leche-14oz",
+    "name": "Haagen-Dazs Dulce de Leche",
+    "brand": "Haagen-Dazs",
+    "categorySlug": "produits-surgeles",
+    "size": "14 fl oz",
+    "description": "Creme glacee dulce de leche. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "haagen-dazs-dulce-de-leche-14oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "simply-lemonade-raspberry-52oz",
+    "name": "Simply Lemonade with Raspberry",
+    "brand": "Simply",
+    "categorySlug": "boissons",
+    "size": "52 fl oz",
+    "description": "Limonade naturelle a la framboise, non issue de concentre. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "simply-lemonade-raspberry-52oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "canada-dry-ginger-ale-20oz",
+    "name": "Canada Dry Ginger Ale (sans cafeine)",
+    "brand": "Canada Dry",
+    "categorySlug": "boissons",
+    "size": "20 fl oz",
+    "description": "Soda au gingembre sans cafeine. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "canada-dry-ginger-ale-20oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "heineken-original-6pack",
+    "name": "Heineken Original (pack de 6)",
+    "brand": "Heineken",
+    "categorySlug": "alcool-spiritueux",
+    "size": "6 x 12 fl oz",
+    "description": "Biere importee, pack de 6 bouteilles. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "heineken-original-6pack.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "titos-handmade-vodka-175l-jug",
+    "name": "Tito's Handmade Vodka (1.75 L)",
+    "brand": "Tito's",
+    "categorySlug": "alcool-spiritueux",
+    "size": "1.75 L",
+    "description": "Vodka artisanale distillee a Austin, Texas, grand format avec poignee. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "titos-handmade-vodka-175l-jug.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "oreo-mini-big-bag",
+    "name": "Oreo Mini (Big Bag)",
+    "brand": "Oreo",
+    "categorySlug": "collations",
+    "size": null,
+    "description": "Biscuits sandwich au chocolat, format mini, gros sac. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock, le format exact et la disponibilite locale avant publication.)",
+    "imageFile": "oreo-mini-big-bag.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "silk-almond-vanilla-64oz",
+    "name": "Silk Almondmilk Vanille",
+    "brand": "Silk",
+    "categorySlug": "boissons",
+    "size": "64 fl oz",
+    "description": "Boisson a base d'amande, saveur vanille. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "silk-almond-vanilla-64oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "ferrero-rocher-t3",
+    "name": "Ferrero Rocher (3 pieces)",
+    "brand": "Ferrero Rocher",
+    "categorySlug": "collations",
+    "size": "3 pieces",
+    "description": "Chocolats pralines aux noisettes. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "ferrero-rocher-t3.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "red-onion",
+    "name": "Oignon rouge",
+    "brand": null,
+    "categorySlug": "fruits-legumes",
+    "size": null,
+    "description": "Oignon rouge frais. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et le poids/unite de vente avant publication.)",
+    "imageFile": "red-onion.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "cucumber",
+    "name": "Concombre",
+    "brand": null,
+    "categorySlug": "fruits-legumes",
+    "size": null,
+    "description": "Concombre frais. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et le poids/unite de vente avant publication.)",
+    "imageFile": "cucumber.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "basically-party-cups-20ct",
+    "name": "Gobelets de fete Basically (Le rouge)",
+    "brand": "Basically",
+    "categorySlug": "produits-menagers",
+    "size": "20 gobelets / 16 fl oz",
+    "description": "Gobelets en plastique rouges pour fete, paquet de 20. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "basically-party-cups-20ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "wing-corkscrew",
+    "name": "Tire-bouchon a ailettes",
+    "brand": null,
+    "categorySlug": "produits-menagers",
+    "size": null,
+    "description": "Tire-bouchon papillon en metal. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "wing-corkscrew.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "glenlivet-12yr-double-oak-750ml",
+    "name": "The Glenlivet 12 Year Double Oak",
+    "brand": "The Glenlivet",
+    "categorySlug": "alcool-spiritueux",
+    "size": "750 ml",
+    "description": "Whisky single malt ecossais, vieilli 12 ans, double futs de chene. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "glenlivet-12yr-double-oak-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "patron-silver-tequila-750ml",
+    "name": "Patron Silver",
+    "brand": "Patron",
+    "categorySlug": "alcool-spiritueux",
+    "size": "750 ml",
+    "description": "Tequila silver 100% agave. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "patron-silver-tequila-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "hennessy-vs-cognac-750ml",
+    "name": "Hennessy Very Special",
+    "brand": "Hennessy",
+    "categorySlug": "alcool-spiritueux",
+    "size": "750 ml",
+    "description": "Cognac produit et embouteille a Cognac, France. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "hennessy-vs-cognac-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "stella-artois-12pack",
+    "name": "Stella Artois (pack de 12)",
+    "brand": "Stella Artois",
+    "categorySlug": "alcool-spiritueux",
+    "size": "12 x 11.2 fl oz",
+    "description": "Biere lager belge premium, pack de 12 bouteilles. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "stella-artois-12pack.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "modelo-especial-24pack-bottles",
+    "name": "Modelo Especial (pack de 24 bouteilles)",
+    "brand": "Modelo",
+    "categorySlug": "alcool-spiritueux",
+    "size": "24 x 12 fl oz",
+    "description": "Biere lager mexicaine importee, pack de 24 bouteilles. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "modelo-especial-24pack-bottles.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "modelo-especial-24pack-cans",
+    "name": "Modelo Especial (pack de 24 canettes)",
+    "brand": "Modelo",
+    "categorySlug": "alcool-spiritueux",
+    "size": "24 x 12 fl oz",
+    "description": "Biere lager mexicaine importee, pack de 24 canettes. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "modelo-especial-24pack-cans.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "absolut-vodka-750ml",
+    "name": "Absolut Vodka",
+    "brand": "Absolut",
+    "categorySlug": "alcool-spiritueux",
+    "size": null,
+    "description": "Vodka suedoise. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock, le format exact et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "absolut-vodka-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "jack-daniels-no7-175l",
+    "name": "Jack Daniel's Old No. 7",
+    "brand": "Jack Daniel's",
+    "categorySlug": "alcool-spiritueux",
+    "size": "1.75 L",
+    "description": "Whiskey Tennessee sour mash. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock, le format exact et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "jack-daniels-no7-175l.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "lamarca-prosecco-750ml",
+    "name": "LaMarca Prosecco",
+    "brand": "LaMarca",
+    "categorySlug": "alcool-spiritueux",
+    "size": "750 ml",
+    "description": "Vin mousseux Prosecco DOC, produit d'Italie. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "lamarca-prosecco-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "pepsi-bottle",
+    "name": "Pepsi (bouteille)",
+    "brand": "Pepsi",
+    "categorySlug": "boissons",
+    "size": null,
+    "description": "Boisson gazeuse cola. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock, le format exact et la disponibilite locale avant publication.)",
+    "imageFile": "pepsi-bottle.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "pepsi-12pack-cans",
+    "name": "Pepsi (pack de 12 canettes)",
+    "brand": "Pepsi",
+    "categorySlug": "boissons",
+    "size": "12 x 12 fl oz",
+    "description": "Boisson gazeuse cola, pack de 12 canettes. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "pepsi-12pack-cans.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "dr-pepper-12pack-cans",
+    "name": "Dr Pepper (pack de 12 canettes)",
+    "brand": "Dr Pepper",
+    "categorySlug": "boissons",
+    "size": "12 x 12 fl oz",
+    "description": "Boisson gazeuse aux 23 saveurs, pack de 12 canettes. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "dr-pepper-12pack-cans.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "canada-dry-ginger-ale-12pack-cans",
+    "name": "Canada Dry Ginger Ale (pack de 12 canettes, sans cafeine)",
+    "brand": "Canada Dry",
+    "categorySlug": "boissons",
+    "size": "12 x 12 fl oz",
+    "description": "Soda au gingembre sans cafeine, pack de 12 canettes. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "canada-dry-ginger-ale-12pack-cans.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "simply-orange-46oz",
+    "name": "Simply Orange (sans pulpe)",
+    "brand": "Simply",
+    "categorySlug": "boissons",
+    "size": "46 fl oz",
+    "description": "Jus d'orange naturel sans pulpe, riche en vitamine C. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "simply-orange-46oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "organic-valley-whole-milk-halfgal",
+    "name": "Organic Valley Lait Entier",
+    "brand": "Organic Valley",
+    "categorySlug": "boissons",
+    "size": "64 fl oz (1/2 gal)",
+    "description": "Lait entier biologique, issu de petites fermes familiales. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "organic-valley-whole-milk-halfgal.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "haagen-dazs-almond-bars-3ct",
+    "name": "Haagen-Dazs Batonnets Vanille Chocolat Amande",
+    "brand": "Haagen-Dazs",
+    "categorySlug": "produits-surgeles",
+    "size": "3 batonnets",
+    "description": "Batonnets glaces vanille enrobes de chocolat et d'amandes. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "haagen-dazs-almond-bars-3ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "avocados-bag",
+    "name": "Avocats (sac filet)",
+    "brand": null,
+    "categorySlug": "fruits-legumes",
+    "size": null,
+    "description": "Sac filet d'avocats frais. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et le poids/unite de vente avant publication.)",
+    "imageFile": "avocados-bag.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "avocado-single",
+    "name": "Avocat",
+    "brand": null,
+    "categorySlug": "fruits-legumes",
+    "size": null,
+    "description": "Avocat frais, vendu a l'unite. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et le poids/unite de vente avant publication.)",
+    "imageFile": "avocado-single.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "strawberries",
+    "name": "Fraises",
+    "brand": null,
+    "categorySlug": "fruits-legumes",
+    "size": null,
+    "description": "Fraises fraiches en barquette. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et le format exact avant publication.)",
+    "imageFile": "strawberries.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "sweet-potato",
+    "name": "Patate douce",
+    "brand": null,
+    "categorySlug": "fruits-legumes",
+    "size": null,
+    "description": "Patate douce fraiche. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et le poids/unite de vente avant publication.)",
+    "imageFile": "sweet-potato.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "yellow-onion",
+    "name": "Oignon jaune",
+    "brand": null,
+    "categorySlug": "fruits-legumes",
+    "size": null,
+    "description": "Oignon jaune frais. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et le poids/unite de vente avant publication.)",
+    "imageFile": "yellow-onion.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "banana",
+    "name": "Banane",
+    "brand": null,
+    "categorySlug": "fruits-legumes",
+    "size": null,
+    "description": "Banane fraiche. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et le poids/unite de vente avant publication.)",
+    "imageFile": "banana.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "limes",
+    "name": "Citrons verts",
+    "brand": null,
+    "categorySlug": "fruits-legumes",
+    "size": null,
+    "description": "Citrons verts frais. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et le poids/unite de vente avant publication.)",
+    "imageFile": "limes.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "blueberries",
+    "name": "Myrtilles",
+    "brand": null,
+    "categorySlug": "fruits-legumes",
+    "size": null,
+    "description": "Myrtilles fraiches en barquette. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et le format exact avant publication.)",
+    "imageFile": "blueberries.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "basically-party-cups-50ct",
+    "name": "Gobelets de fete Basically (Le rouge, 50 gobelets)",
+    "brand": "Basically",
+    "categorySlug": "produits-menagers",
+    "size": "50 gobelets / 16 fl oz",
+    "description": "Gobelets en plastique rouges pour fete, paquet de 50. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "basically-party-cups-50ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "espolon-blanco-tequila-175l",
+    "name": "El Espolon Tequila Blanco",
+    "brand": "Espolon",
+    "categorySlug": "alcool-spiritueux",
+    "size": "1.75 L",
+    "description": "Tequila blanco 100% agave. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "espolon-blanco-tequila-175l.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "don-julio-blanco-750ml",
+    "name": "Don Julio Blanco",
+    "brand": "Don Julio",
+    "categorySlug": "alcool-spiritueux",
+    "size": "750 ml",
+    "description": "Tequila blanco 100% agave. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "don-julio-blanco-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "don-julio-reposado-750ml",
+    "name": "Don Julio Reposado",
+    "brand": "Don Julio",
+    "categorySlug": "alcool-spiritueux",
+    "size": "750 ml",
+    "description": "Tequila reposado 100% agave. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "don-julio-reposado-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "don-julio-anejo-750ml",
+    "name": "Don Julio Anejo",
+    "brand": "Don Julio",
+    "categorySlug": "alcool-spiritueux",
+    "size": "750 ml",
+    "description": "Tequila anejo 100% agave. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "don-julio-anejo-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "don-julio-70-anejo-claro-750ml",
+    "name": "Don Julio 70 Anejo Claro",
+    "brand": "Don Julio",
+    "categorySlug": "alcool-spiritueux",
+    "size": "750 ml",
+    "description": "Tequila anejo claro, edition limitee 70e anniversaire. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "don-julio-70-anejo-claro-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "don-julio-1942-750ml",
+    "name": "Don Julio 1942",
+    "brand": "Don Julio",
+    "categorySlug": "alcool-spiritueux",
+    "size": "750 ml",
+    "description": "Tequila anejo, gamme reserve de luxe. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "don-julio-1942-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "patron-reposado-750ml",
+    "name": "Patron Reposado",
+    "brand": "Patron",
+    "categorySlug": "alcool-spiritueux",
+    "size": "750 ml",
+    "description": "Tequila reposado 100% agave. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "patron-reposado-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "clase-azul-reposado-750ml",
+    "name": "Clase Azul Reposado",
+    "brand": "Clase Azul",
+    "categorySlug": "alcool-spiritueux",
+    "size": "750 ml",
+    "description": "Tequila reposado en carafe de ceramique artisanale peinte a la main. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "clase-azul-reposado-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "casamigos-blanco-tequila-750ml",
+    "name": "Casamigos Blanco",
+    "brand": "Casamigos",
+    "categorySlug": "alcool-spiritueux",
+    "size": "750 ml",
+    "description": "Tequila blanco 100% agave azul. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "casamigos-blanco-tequila-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "grey-goose-vodka-175l",
+    "name": "Grey Goose Vodka",
+    "brand": "Grey Goose",
+    "categorySlug": "alcool-spiritueux",
+    "size": "1.75 L",
+    "description": "Vodka francaise. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "grey-goose-vodka-175l.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "dusse-vsop-cognac-750ml",
+    "name": "D'Usse VSOP",
+    "brand": "D'Usse",
+    "categorySlug": "alcool-spiritueux",
+    "size": "750 ml",
+    "description": "Cognac VSOP francais. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication. Vente d'alcool: verifier les exigences legales de verification d'age avant la mise en ligne.)",
+    "imageFile": "dusse-vsop-cognac-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "eggs-dozen",
+    "name": "Oeufs (douzaine)",
+    "brand": null,
+    "categorySlug": "epicerie",
+    "size": "12 oeufs",
+    "description": "Oeufs frais, boite de 12. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "eggs-dozen.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "bananas-bunch",
+    "name": "Bananes (regime)",
+    "brand": null,
+    "categorySlug": "fruits-legumes",
+    "size": null,
+    "description": "Bananes fraiches, vendues en regime. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et le poids/unite de vente avant publication.)",
+    "imageFile": "bananas-bunch.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "garlic",
+    "name": "Ail",
+    "brand": null,
+    "categorySlug": "fruits-legumes",
+    "size": null,
+    "description": "Tete d'ail fraiche. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et le poids/unite de vente avant publication.)",
+    "imageFile": "garlic.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "red-bell-pepper",
+    "name": "Poivron rouge",
+    "brand": null,
+    "categorySlug": "fruits-legumes",
+    "size": null,
+    "description": "Poivron rouge frais. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et le poids/unite de vente avant publication.)",
+    "imageFile": "red-bell-pepper.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "raos-marinara-24oz",
+    "name": "Rao's Homemade Marinara",
+    "brand": "Rao's Homemade",
+    "categorySlug": "epicerie",
+    "size": "24 oz",
+    "description": "Sauce marinara tout naturel, premium. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "raos-marinara-24oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "bertolli-alfredo-sauce-15oz",
+    "name": "Bertolli Alfredo",
+    "brand": "Bertolli",
+    "categorySlug": "epicerie",
+    "size": "15 oz (425 g)",
+    "description": "Sauce alfredo a la creme fraiche et au parmesan. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "bertolli-alfredo-sauce-15oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "essential-everyday-sweet-corn-can",
+    "name": "Essential Everyday Mais Sucre en Grains Entiers",
+    "brand": "Essential Everyday",
+    "categorySlug": "epicerie",
+    "size": "15.25 oz",
+    "description": "Mais sucre en grains entiers, en conserve. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "essential-everyday-sweet-corn-can.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "old-bay-seasoning-262oz",
+    "name": "Old Bay Seasoning",
+    "brand": "Old Bay",
+    "categorySlug": "epicerie",
+    "size": "2.62 oz (74 g)",
+    "description": "Assaisonnement pour fruits de mer, volaille et salades. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "old-bay-seasoning-262oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "hidden-valley-ranch-16oz",
+    "name": "Hidden Valley The Original Ranch",
+    "brand": "Hidden Valley",
+    "categorySlug": "epicerie",
+    "size": "16 fl oz (473 mL)",
+    "description": "Sauce a salade et trempette ranch originale. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "hidden-valley-ranch-16oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "sabra-hummus-8oz",
+    "name": "Sabra Classic Hummus",
+    "brand": "Sabra",
+    "categorySlug": "epicerie",
+    "size": "8 oz (227 g)",
+    "description": "Houmous classique, sans gluten. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "sabra-hummus-8oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "oscar-mayer-deli-ham-9oz",
+    "name": "Oscar Mayer Deli Fresh Jambon Fume",
+    "brand": "Oscar Mayer",
+    "categorySlug": "epicerie",
+    "size": "9 oz",
+    "description": "Tranches de jambon fume non traite, qualite traiteur. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "oscar-mayer-deli-ham-9oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "hillshire-farm-salami-7oz",
+    "name": "Hillshire Farm Salami Fort Ultra Fin",
+    "brand": "Hillshire Farm",
+    "categorySlug": "epicerie",
+    "size": "7 oz",
+    "description": "Tranches de salami fort, coupe ultra fine. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "hillshire-farm-salami-7oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "wonderful-pistachios-6oz",
+    "name": "Wonderful Pistaches Grillees et Salees (sans coques)",
+    "brand": "Wonderful",
+    "categorySlug": "collations",
+    "size": "6 oz (170 g)",
+    "description": "Pistaches decortiquees, rotites et salees. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "wonderful-pistachios-6oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "tostitos-spicy-queso-15oz",
+    "name": "Tostitos Queso Epice (Hot)",
+    "brand": "Tostitos",
+    "categorySlug": "collations",
+    "size": "15 oz (425.2 g)",
+    "description": "Trempette queso epicee, faite avec du vrai fromage. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "tostitos-spicy-queso-15oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "dove-deodorant-cool-essentials-26oz",
+    "name": "Dove Advanced Care Go Fresh Cool Essentials",
+    "brand": "Dove",
+    "categorySlug": "soins-personnels",
+    "size": "2.6 oz (74 g)",
+    "description": "Deodorant anti-transpirant 48h, concombre et the vert. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "dove-deodorant-cool-essentials-26oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "sensodyne-pronamel-4oz",
+    "name": "Sensodyne Pronamel Blancheur Douce",
+    "brand": "Sensodyne",
+    "categorySlug": "soins-personnels",
+    "size": "4.0 oz (113 g)",
+    "description": "Dentifrice pour dents sensibles et prevention des caries, protection specialiste de l'email. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "sensodyne-pronamel-4oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "irish-spring-soap-3bars",
+    "name": "Irish Spring Original Clean (3 pains)",
+    "brand": "Irish Spring",
+    "categorySlug": "soins-personnels",
+    "size": "3 x 3.7 oz (314.4 g total)",
+    "description": "Pains de savon deodorant fraicheur 12h, a l'huile de lin. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "irish-spring-soap-3bars.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "vaseline-petroleum-jelly-175oz",
+    "name": "Vaseline Gelee de Petrole Originale",
+    "brand": "Vaseline",
+    "categorySlug": "soins-personnels",
+    "size": "1.75 oz (49 g)",
+    "description": "Gelee de petrole pure a 100%, protecteur cutane. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "vaseline-petroleum-jelly-175oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "ecotools-ecopouf",
+    "name": "EcoTools Delicate EcoPouf",
+    "brand": "EcoTools",
+    "categorySlug": "soins-personnels",
+    "size": null,
+    "description": "Eponge de bain douce pour nettoyer tout le corps, filet 100% recycle. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "ecotools-ecopouf.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "pepto-bismol-16oz",
+    "name": "Pepto-Bismol",
+    "brand": "Pepto-Bismol",
+    "categorySlug": "soins-personnels",
+    "size": "16 fl oz (473 mL)",
+    "description": "Sous-salicylate de bismuth, soulagement de 5 symptomes digestifs. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "pepto-bismol-16oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "hillshire-farm-turkey-breast-9oz",
+    "name": "Hillshire Farm Poitrine de Dinde Rotie Ultra Fine",
+    "brand": "Hillshire Farm",
+    "categorySlug": "epicerie",
+    "size": "9 oz",
+    "description": "Tranches de poitrine de dinde rotie au four, coupe ultra fine. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "hillshire-farm-turkey-breast-9oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "oscar-mayer-turkey-bacon-12oz",
+    "name": "Oscar Mayer Bacon de Dinde Original",
+    "brand": "Oscar Mayer",
+    "categorySlug": "epicerie",
+    "size": "12 oz",
+    "description": "Bacon de dinde original. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "oscar-mayer-turkey-bacon-12oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "kettle-fire-chicken-bone-broth-169oz",
+    "name": "Kettle & Fire Bouillon d'Os au Poulet",
+    "brand": "Kettle & Fire",
+    "categorySlug": "epicerie",
+    "size": "16.9 oz (479 g)",
+    "description": "Bouillon d'os biologique au poulet classique, sans conservateurs. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "kettle-fire-chicken-bone-broth-169oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "jif-creamy-peanut-butter-16oz",
+    "name": "Jif Beurre d'Arachide Creamy",
+    "brand": "Jif",
+    "categorySlug": "epicerie",
+    "size": "16 oz (454 g)",
+    "description": "Beurre d'arachide onctueux. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "jif-creamy-peanut-butter-16oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "carbone-spicy-vodka-sauce-24oz",
+    "name": "Carbone Sauce Vodka Epicee",
+    "brand": "Carbone",
+    "categorySlug": "epicerie",
+    "size": "24 oz (1 lb 8 oz / 680 g)",
+    "description": "Sauce vodka epicee, celebre recette de restaurant. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "carbone-spicy-vodka-sauce-24oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "carnation-condensed-milk-14oz",
+    "name": "Nestle Carnation Lait Concentre Sucre",
+    "brand": "Carnation",
+    "categorySlug": "epicerie",
+    "size": "14 oz (397 g)",
+    "description": "Lait concentre sucre. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "carnation-condensed-milk-14oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "oatly-oat-milk-64oz",
+    "name": "Oatly! The Original Boisson d'Avoine",
+    "brand": "Oatly",
+    "categorySlug": "boissons",
+    "size": "64 fl oz (1.89 L)",
+    "description": "Boisson vegetale a l'avoine, sans produits laitiers, sans noix, sans gluten. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "oatly-oat-milk-64oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "kelloggs-frosted-flakes-12oz",
+    "name": "Kellogg's Frosted Flakes",
+    "brand": "Kellogg's",
+    "categorySlug": "pain-petit-dejeuner",
+    "size": "12 oz",
+    "description": "Cereales de mais givrees. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "kelloggs-frosted-flakes-12oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "jet-puffed-marshmallows-12oz",
+    "name": "Jet-Puffed Guimauves",
+    "brand": "Jet-Puffed",
+    "categorySlug": "collations",
+    "size": "12 oz",
+    "description": "Guimauves classiques. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "jet-puffed-marshmallows-12oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "david-sunflower-seeds-525oz",
+    "name": "David Graines de Tournesol Jumbo Salees et Rotites",
+    "brand": "David",
+    "categorySlug": "collations",
+    "size": "5.25 oz (149 g)",
+    "description": "Graines de tournesol jumbo, salees et rotites, sachet refermable. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "david-sunflower-seeds-525oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "fresh-express-caesarlite-salad-kit",
+    "name": "Fresh Express Kit de Salade Caesarlite",
+    "brand": "Fresh Express",
+    "categorySlug": "fruits-legumes",
+    "size": "9.8 oz (278 g)",
+    "description": "Kit de salade pret a manger: laitue romaine, vinaigrette caesar allegee, croutons a l'ail. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "fresh-express-caesarlite-salad-kit.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "seapak-butterfly-shrimp-18oz",
+    "name": "SeaPak Crevettes Papillon Classic",
+    "brand": "SeaPak",
+    "categorySlug": "produits-surgeles",
+    "size": "18 oz",
+    "description": "Crevettes papillon panees, doree et croustillante, format familial, surgelees. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "seapak-butterfly-shrimp-18oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "tgi-fridays-honey-bbq-wings",
+    "name": "TGI Fridays Ailes de Poulet Honey BBQ",
+    "brand": "TGI Fridays",
+    "categorySlug": "produits-surgeles",
+    "size": null,
+    "description": "Ailes de poulet surgelees, sauce miel BBQ, pret a rechauffer. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "tgi-fridays-honey-bbq-wings.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "bubba-burger-original-6ct-32oz",
+    "name": "Bubba Burger Original (6 galettes de boeuf)",
+    "brand": "Bubba Burger",
+    "categorySlug": "produits-surgeles",
+    "size": "6 x 1/3 lb / 32 oz (2 lb)",
+    "description": "Galettes de boeuf hache 100% USDA Choice, surgelees. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "bubba-burger-original-6ct-32oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "colgate-cavity-protection-3pack",
+    "name": "Colgate Cavity Protection (pack de 3)",
+    "brand": "Colgate",
+    "categorySlug": "soins-personnels",
+    "size": "3 x 6.0 oz (18 oz / 510 g total)",
+    "description": "Dentifrice fluore anticarie, saveur regulier. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "colgate-cavity-protection-3pack.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "degree-men-cool-rush-deodorant-27oz",
+    "name": "Degree Men Cool Rush Antisudorifique",
+    "brand": "Degree",
+    "categorySlug": "soins-personnels",
+    "size": "2.7 oz",
+    "description": "Antisudorifique et deodorant 48h. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "degree-men-cool-rush-deodorant-27oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "native-deodorant-citrus-herbal-musk-265oz",
+    "name": "Native Deodorant Citrus & Herbal Musk",
+    "brand": "Native",
+    "categorySlug": "soins-personnels",
+    "size": "2.65 oz (75 g)",
+    "description": "Deodorant sans paraben ni aluminium. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "native-deodorant-citrus-herbal-musk-265oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "vaseline-cocoa-radiant-lotion-203oz",
+    "name": "Vaseline Intensive Care Cocoa Radiant Lotion",
+    "brand": "Vaseline",
+    "categorySlug": "soins-personnels",
+    "size": "20.3 fl oz (600 mL)",
+    "description": "Lotion hydratante 48h a base de beurre de cacao. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "vaseline-cocoa-radiant-lotion-203oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "tylenol-cold-flu-severe-24ct",
+    "name": "Tylenol Cold + Flu Severe (Jour et Nuit)",
+    "brand": "Tylenol",
+    "categorySlug": "soins-personnels",
+    "size": "24 caplets",
+    "description": "Caplets acetaminophene pour rhume et grippe severe, formule jour et nuit. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "tylenol-cold-flu-severe-24ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "nyquil-cold-flu-12oz",
+    "name": "Vicks NyQuil Rhume et Grippe",
+    "brand": "Vicks",
+    "categorySlug": "soins-personnels",
+    "size": "12 fl oz",
+    "description": "Sirop pour soulager les symptomes du rhume et de la grippe. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "nyquil-cold-flu-12oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "ragu-traditional-14oz",
+    "name": "Ragu Traditional",
+    "brand": "Ragu",
+    "categorySlug": "epicerie",
+    "size": "14 oz (396 g)",
+    "description": "Sauce tomate Old World Style, recette riche et epaisse, 2 portions de legumes par 1/2 tasse. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "ragu-traditional-14oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "organic-valley-free-range-eggs-1dz",
+    "name": "Organic Valley Oeufs Free Range (douzaine)",
+    "brand": "Organic Valley",
+    "categorySlug": "epicerie",
+    "size": "12 oeufs",
+    "description": "Oeufs biologiques en liberte (free range), poules elevees dans de petites fermes familiales biologiques, sans hormones synthetiques ni antibiotiques. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "organic-valley-free-range-eggs-1dz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "tyson-anytizers-buffalo-chicken-bites-24oz",
+    "name": "Tyson Any'tizers Bouchees de Poulet Buffalo",
+    "brand": "Tyson",
+    "categorySlug": "produits-surgeles",
+    "size": "24 oz (1.5 lb / 680 g)",
+    "description": "Bouchees de poulet sans os, panees, glacees a la sauce buffalo epicee, entierement cuites, a conserver au congelateur. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "tyson-anytizers-buffalo-chicken-bites-24oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "old-el-paso-taco-dinner-kit-hard-soft",
+    "name": "Old El Paso Kit Diner Tacos (Dur et Mou)",
+    "brand": "Old El Paso",
+    "categorySlug": "epicerie",
+    "size": "11.4 oz (323 g)",
+    "description": "Kit repas taco: 6 tortillas souples, 6 coquilles dures, sauce a taco douce et melange d'assaisonnement inclus. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "old-el-paso-taco-dinner-kit-hard-soft.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "mccormick-ground-cinnamon-237oz",
+    "name": "McCormick Cannelle Moulue",
+    "brand": "McCormick",
+    "categorySlug": "epicerie",
+    "size": "2.37 oz (67 g)",
+    "description": "Cannelle moulue, saveur fraiche longue duree. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "mccormick-ground-cinnamon-237oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "betty-crocker-fudge-brownie-mix-163oz",
+    "name": "Betty Crocker Melange a Brownies Fudge",
+    "brand": "Betty Crocker",
+    "categorySlug": "epicerie",
+    "size": "16.3 oz (1 lb 0.3 oz / 462 g)",
+    "description": "Melange a brownies saveur fudge, maintenant avec 25% plus de cacao. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "betty-crocker-fudge-brownie-mix-163oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "crest-scope-toothpaste-085oz",
+    "name": "Crest + Scope Dentifrice Blanchissant",
+    "brand": "Crest",
+    "categorySlug": "soins-personnels",
+    "size": "0.85 oz (24 g)",
+    "description": "Dentifrice fluore anticarie avec blanchiment, elimine des millions de germes causant la mauvaise haleine, format voyage rayures menthe fraiche. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "crest-scope-toothpaste-085oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "sudafed-pe-sinus-congestion-18ct",
+    "name": "Sudafed PE Congestion Sinusale",
+    "brand": "Sudafed",
+    "categorySlug": "soins-personnels",
+    "size": "18 tablets",
+    "description": "Decongestionnant nasal, chlorhydrate de phenylephrine, force maximale contre la pression et la congestion sinusale, non somnolent. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "sudafed-pe-sinus-congestion-18ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "aveeno-daily-moisturizing-lotion-12oz",
+    "name": "Aveeno Lotion Hydratante Quotidienne",
+    "brand": "Aveeno",
+    "categorySlug": "soins-personnels",
+    "size": "12 fl oz (354 mL)",
+    "description": "Lotion corporelle hydratante quotidienne, sans parfum, a l'avoine prebiotique. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "aveeno-daily-moisturizing-lotion-12oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "pillsbury-chocolate-chip-cookie-dough-24ct",
+    "name": "Pillsbury Pate a Biscuits Pepites de Chocolat",
+    "brand": "Pillsbury",
+    "categorySlug": "produits-surgeles",
+    "size": "24 cookies",
+    "description": "Pate a biscuits pepites de chocolat, sans danger a consommer crue, a manger telle quelle ou a cuire; produit a chaine du froid. Classee dans produits surgeles faute de categorie refrigeree dediee dans le catalogue - a reevaluer si une categorie produits laitiers/refrigeres est creee. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "pillsbury-chocolate-chip-cookie-dough-24ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "dove-deodorant-fresh-26oz",
+    "name": "Dove Fresh Antisudorifique",
+    "brand": "Dove",
+    "categorySlug": "soins-personnels",
+    "size": "2.6 oz (74 g)",
+    "description": "Deodorant antisudorifique solide invisible 24h, nouvelle formule. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "dove-deodorant-fresh-26oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "colgate-extra-clean-toothbrush-4pack",
+    "name": "Colgate Extra Clean Brosses a Dents (paquet de 4)",
+    "brand": "Colgate",
+    "categorySlug": "soins-personnels",
+    "size": "4 brosses a dents",
+    "description": "Brosses a dents souples avec soies circulaires ultra performantes, paquet economique de 4. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "colgate-extra-clean-toothbrush-4pack.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "old-el-paso-flour-tortillas-10ct",
+    "name": "Old El Paso Tortillas de Farine (10)",
+    "brand": "Old El Paso",
+    "categorySlug": "epicerie",
+    "size": "10 tortillas",
+    "description": "Tortillas de farine pour tacos mous et fajitas. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "old-el-paso-flour-tortillas-10ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "listerine-freshburst-500ml",
+    "name": "Listerine Freshburst Antiseptique",
+    "brand": "Listerine",
+    "categorySlug": "soins-personnels",
+    "size": "500 mL (1.05 pt)",
+    "description": "Rince-bouche antiseptique/antiplaque, tue 99.9% des germes causant la mauvaise haleine, la plaque et la gingivite. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "listerine-freshburst-500ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "dove-body-wash-deep-moisture-20oz",
+    "name": "Dove Deep Moisture Nettoyant Corporel",
+    "brand": "Dove",
+    "categorySlug": "soins-personnels",
+    "size": "20 fl oz (591 mL)",
+    "description": "Nettoyant corporel nourrissant pour peau tres seche, MicroMoisture renouvelante 24h. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "dove-body-wash-deep-moisture-20oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "daves-killer-bread-epic-everything-bagels",
+    "name": "Dave's Killer Bread Bagels Epic Everything",
+    "brand": "Dave's Killer Bread",
+    "categorySlug": "pain-petit-dejeuner",
+    "size": "16.75 oz (1 lb 0.75 oz / 475 g)",
+    "description": "Bagels biologiques everything, 26g de grains entiers et 13g de proteines par portion. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "daves-killer-bread-epic-everything-bagels.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "pepto-bismol-chews-berry-mint-24ct",
+    "name": "Pepto-Bismol Pastilles a Macher Berry Mint",
+    "brand": "Pepto-Bismol",
+    "categorySlug": "soins-personnels",
+    "size": "24 comprimes a macher",
+    "description": "Pastilles a macher au sous-salicylate de bismuth, soulagement de 5 symptomes digestifs (nausee, brulures d'estomac, indigestion, mal d'estomac, diarrhee). Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "pepto-bismol-chews-berry-mint-24ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "vicks-dayquil-nyquil-day-night-pack-2x12oz",
+    "name": "Vicks DayQuil & NyQuil Rhume et Grippe (pack Jour et Nuit)",
+    "brand": "Vicks",
+    "categorySlug": "soins-personnels",
+    "size": "2 x 12 fl oz",
+    "description": "Pack combine DayQuil (jour) et NyQuil (nuit) contre le rhume et la grippe: maux de tete, fievre, mal de gorge, douleurs, congestion nasale et toux le jour; eternuements, nez qui coule et toux la nuit. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "vicks-dayquil-nyquil-day-night-pack-2x12oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "tostitos-chunky-salsa-mild-155oz",
+    "name": "Tostitos Salsa Chunky Douce (Mild)",
+    "brand": "Tostitos",
+    "categorySlug": "collations",
+    "size": "15.5 oz (439.4 g)",
+    "description": "Salsa epaisse douce aux tomates, oignons et jalapenos. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "tostitos-chunky-salsa-mild-155oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "dove-men-care-clean-comfort-body-wash-18oz",
+    "name": "Dove Men+Care Clean Comfort Nettoyant Corps et Visage",
+    "brand": "Dove Men+Care",
+    "categorySlug": "soins-personnels",
+    "size": "18 fl oz (532 mL)",
+    "description": "Nettoyant corps et visage hydratant, MicroMoisture nourrissante 24h. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "dove-men-care-clean-comfort-body-wash-18oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "dove-men-care-extra-fresh-body-wash-18oz",
+    "name": "Dove Men+Care Extra Fresh Nettoyant Corps et Visage",
+    "brand": "Dove Men+Care",
+    "categorySlug": "soins-personnels",
+    "size": "18 fl oz (532 mL)",
+    "description": "Nettoyant corps et visage rafraichissant, MicroMoisture nourrissante 24h, nouvelle formule. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "dove-men-care-extra-fresh-body-wash-18oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "barilla-penne-1lb",
+    "name": "Barilla Penne",
+    "brand": "Barilla",
+    "categorySlug": "epicerie",
+    "size": "1 lb (454 g)",
+    "description": "Pates penne, perfection al dente en 11-12 minutes, marque de pates no.1 en Italie. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "barilla-penne-1lb.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "raos-homemade-alfredo-15oz",
+    "name": "Rao's Homemade Alfredo",
+    "brand": "Rao's Homemade",
+    "categorySlug": "epicerie",
+    "size": "15 oz",
+    "description": "Sauce alfredo premium, traditionnellement preparee. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "raos-homemade-alfredo-15oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "daisy-sour-cream-14oz",
+    "name": "Daisy Sour Cream Pure & Natural",
+    "brand": "Daisy",
+    "categorySlug": "epicerie",
+    "size": "14 oz (397 g)",
+    "description": "Creme sure pure et naturelle, format tube a presser. Produit refrigere - a conserver au frais; classee dans epicerie faute de categorie produits laitiers/refrigeres dediee, comme les charcuteries et les oeufs deja au catalogue. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "daisy-sour-cream-14oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "dove-men-care-extra-fresh-deodorant-27oz",
+    "name": "Dove Men+Care Extra Fresh Antisudorifique",
+    "brand": "Dove Men+Care",
+    "categorySlug": "soins-personnels",
+    "size": "2.7 oz (76 g)",
+    "description": "Deodorant antisudorifique non irritant, protection puissante 48h. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "dove-men-care-extra-fresh-deodorant-27oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "therabreath-fresh-breath-oral-rinse-icy-mint",
+    "name": "TheraBreath Rince-Bouche Fresh Breath Icy Mint",
+    "brand": "TheraBreath",
+    "categorySlug": "soins-personnels",
+    "size": null,
+    "description": "Rince-bouche formule par des dentistes, combat la mauvaise haleine pendant 12 heures, sans alcool, pH equilibre, ne brule pas. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock, le format exact et la disponibilite locale avant publication.)",
+    "imageFile": "therabreath-fresh-breath-oral-rinse-icy-mint.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "nestle-toll-house-chocolate-chip-cookie-dough-24ct",
+    "name": "Nestle Toll House Pate a Biscuits Pepites de Chocolat",
+    "brand": "Nestle Toll House",
+    "categorySlug": "produits-surgeles",
+    "size": "24 cookies",
+    "description": "Pate a biscuits aux pepites de chocolat, faite avec du vrai chocolat a 100%. Produit a chaine du froid; classee dans produits surgeles faute de categorie refrigeree dediee dans le catalogue (meme traitement que la pate a biscuits Pillsbury du lot precedent) - a reevaluer si une categorie produits laitiers/refrigeres est creee. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "nestle-toll-house-chocolate-chip-cookie-dough-24ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "barilla-ready-pasta-rotini-7oz",
+    "name": "Barilla Ready Pasta Rotini",
+    "brand": "Barilla",
+    "categorySlug": "epicerie",
+    "size": "7 oz",
+    "description": "Pates rotini pretes en 60 secondes, entierement cuites, format single serving, sachet micro-ondable. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "barilla-ready-pasta-rotini-7oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "heinz-tomato-ketchup-20oz",
+    "name": "Heinz Ketchup",
+    "brand": "Heinz",
+    "categorySlug": "epicerie",
+    "size": "20 oz (1 lb 4 oz / 567 g)",
+    "description": "Ketchup tomate classique, 57 varietes. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "heinz-tomato-ketchup-20oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "arm-hammer-baking-soda-1lb",
+    "name": "Arm & Hammer Bicarbonate de Soude Pur",
+    "brand": "Arm & Hammer",
+    "categorySlug": "epicerie",
+    "size": "1 lb (453 g)",
+    "description": "Bicarbonate de soude pur, marque numero 1 de confiance en Amerique, plus de 100 usages. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "arm-hammer-baking-soda-1lb.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "betty-crocker-super-moist-yellow-cake-mix-1325oz",
+    "name": "Betty Crocker Super Moist Melange a Gateau Jaune",
+    "brand": "Betty Crocker",
+    "categorySlug": "epicerie",
+    "size": "13.25 oz (375 g)",
+    "description": "Melange a gateau super moelleux, saveur jaune, du bol au four en quelques minutes. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "betty-crocker-super-moist-yellow-cake-mix-1325oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "chips-ahoy-original",
+    "name": "Chips Ahoy! Original",
+    "brand": "Chips Ahoy!",
+    "categorySlug": "collations",
+    "size": null,
+    "description": "Vrais biscuits aux pepites de chocolat, recette originale. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock, le format exact et la disponibilite locale avant publication.)",
+    "imageFile": "chips-ahoy-original.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "earth-balance-original-buttery-spread-15oz",
+    "name": "Earth Balance Tartinade Original",
+    "brand": "Earth Balance",
+    "categorySlug": "epicerie",
+    "size": "15 oz (425 g)",
+    "description": "Tartinade vegane a base de 77% d'huiles vegetales, sans OGM, gout riche. Produit refrigere - a conserver au frais; classee dans epicerie faute de categorie produits laitiers/refrigeres dediee, comme les charcuteries et les oeufs deja au catalogue. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "earth-balance-original-buttery-spread-15oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "oreo-original-sandwich-cookies",
+    "name": "Oreo Original (biscuit sandwich au chocolat)",
+    "brand": "Oreo",
+    "categorySlug": "collations",
+    "size": null,
+    "description": "Biscuits sandwich au chocolat, le biscuit prefere avec du lait, cacao 100% durable. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock, le format exact et la disponibilite locale avant publication.)",
+    "imageFile": "oreo-original-sandwich-cookies.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "oscar-mayer-classic-wieners-10ct",
+    "name": "Oscar Mayer Wieners Classic",
+    "brand": "Oscar Mayer",
+    "categorySlug": "epicerie",
+    "size": "10 saucisses",
+    "description": "Saucisses hot-dog classiques, a base de poulet, dinde et porc. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "oscar-mayer-classic-wieners-10ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "tums-chewy-bites-assorted-berries-60ct",
+    "name": "Tums Chewy Bites Assorted Berries",
+    "brand": "Tums",
+    "categorySlug": "soins-personnels",
+    "size": "60 comprimes a macher",
+    "description": "Antiacide au carbonate de calcium, format bouchees a macher, extra fort 750, saveurs de baies assorties. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "tums-chewy-bites-assorted-berries-60ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "tostitos-creamy-spinach-dip-15oz",
+    "name": "Tostitos Trempette Cremeuse aux Epinards",
+    "brand": "Tostitos",
+    "categorySlug": "collations",
+    "size": "15 oz (425.2 g)",
+    "description": "Trempette cremeuse aux epinards. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "tostitos-creamy-spinach-dip-15oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "red-roses-bouquet-dozen",
+    "name": "Bouquet de Roses Rouges (douzaine)",
+    "brand": null,
+    "categorySlug": "fleurs",
+    "categoryName": "Fleurs",
+    "size": "12 roses",
+    "description": "Bouquet d'une douzaine de roses rouges fraiches. Premiere entree de la categorie Fleurs, creee car ce produit ne correspondait a aucune categorie existante du catalogue. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock, la fraicheur/perissabilite et la disponibilite locale avant publication.)",
+    "imageFile": "red-roses-bouquet-dozen.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "old-el-paso-taco-seasoning-mix-1oz",
+    "name": "Old El Paso Melange d'Assaisonnement pour Tacos Original",
+    "brand": "Old El Paso",
+    "categorySlug": "epicerie",
+    "size": "1 oz (28 g)",
+    "description": "Sachet de melange d'assaisonnement original pour tacos. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "old-el-paso-taco-seasoning-mix-1oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "nabisco-variety-pack-20packs",
+    "name": "Nabisco Variety Pack (Oreo Mini, Ritz Bits, Nutter Butter Bites, Mini Chips Ahoy)",
+    "brand": "Nabisco",
+    "categorySlug": "collations",
+    "size": "20 sachets",
+    "description": "Boite variete de collations individuelles: Oreo Mini, Ritz Bits Fromage, Nutter Butter Bites et Mini Chips Ahoy, 5 sachets de chaque. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "nabisco-variety-pack-20packs.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "gillette-clearshield-cool-wave-deodorant-38oz",
+    "name": "Gillette ClearShield Cool Wave Antisudorifique",
+    "brand": "Gillette",
+    "categorySlug": "soins-personnels",
+    "size": "3.8 oz (107 g)",
+    "description": "Antisudorifique/deodorant gel clair, protection anti-transpiration 72h, saveur Cool Wave. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "gillette-clearshield-cool-wave-deodorant-38oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "vaseline-golden-hour-glow-gel-oil-vanilla-cocoa",
+    "name": "Vaseline Golden Hour Glow Huile Gel",
+    "brand": "Vaseline",
+    "categorySlug": "soins-personnels",
+    "size": null,
+    "description": "Huile gel corporelle scintillante, lipides ultra-hydratants et beurre de cacao 100% pur, saveur vanille cacao. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock, le format exact et la disponibilite locale avant publication.)",
+    "imageFile": "vaseline-golden-hour-glow-gel-oil-vanilla-cocoa.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "mixed-flower-bouquet",
+    "name": "Bouquet de Fleurs Melangees",
+    "brand": null,
+    "categorySlug": "fleurs",
+    "size": null,
+    "description": "Bouquet mixte: tournesols, lys, roses, oeillets, alstroemerias et marguerites. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock, la composition exacte, la fraicheur/perissabilite et la disponibilite locale avant publication.)",
+    "imageFile": "mixed-flower-bouquet.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "carnation-evaporated-milk-12oz",
+    "name": "Nestle Carnation Lait Evapore",
+    "brand": "Carnation",
+    "categorySlug": "epicerie",
+    "size": "12 fl oz (354 mL)",
+    "description": "Lait evapore, vitamine D ajoutee, sans rBST, ideal pour la cuisine. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "carnation-evaporated-milk-12oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "prego-marinara",
+    "name": "Prego Sauce Italienne Marinara",
+    "brand": "Prego",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Sauce italienne marinara aux tomates et basilic. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock, le format exact et la disponibilite locale avant publication.)",
+    "imageFile": "prego-marinara.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "sargento-4-cheese-mexican-shredded-8oz",
+    "name": "Sargento 4 Fromages Mexicains Rapes",
+    "brand": "Sargento",
+    "categorySlug": "epicerie",
+    "size": "8 oz (226 g)",
+    "description": "Fromage naturel rape hors du bloc, melange de Monterey Jack, Asadero, cheddar et queso quesadilla, coupe fine. Produit refrigere; classee dans epicerie faute de categorie produits laitiers/refrigeres dediee, comme les charcuteries, oeufs et autres produits laitiers deja au catalogue. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "sargento-4-cheese-mexican-shredded-8oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "kraft-real-mayo-12oz",
+    "name": "Kraft Mayo (Vraie Mayonnaise)",
+    "brand": "Kraft",
+    "categorySlug": "epicerie",
+    "size": "12 fl oz (354 mL)",
+    "description": "Vraie mayonnaise, sans aromes artificiels. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "kraft-real-mayo-12oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "daisy-sour-cream-16oz",
+    "name": "Daisy Sour Cream Pure & Natural (pot 16 oz)",
+    "brand": "Daisy",
+    "categorySlug": "epicerie",
+    "size": "16 oz (1 lb / 454 g)",
+    "description": "Creme sure pure et naturelle, format pot. Produit refrigere - a conserver au frais; classee dans epicerie faute de categorie produits laitiers/refrigeres dediee, meme traitement que le format tube a presser 14 oz deja au catalogue. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "daisy-sour-cream-16oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "nabisco-teddy-grahams-variety-pack-20packs",
+    "name": "Nabisco Variety Pack (Teddy Grahams Miel & Cacao, Mini Chips Ahoy, Barnum's Animals)",
+    "brand": "Nabisco",
+    "categorySlug": "collations",
+    "size": "20 sachets",
+    "description": "Boite variete de collations individuelles: Teddy Grahams miel, Teddy Grahams cacao, Mini Chips Ahoy et biscuits Barnum's Animals, 5 sachets de chaque. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "nabisco-teddy-grahams-variety-pack-20packs.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "mccormick-garlic-powder-312oz",
+    "name": "McCormick Poudre d'Ail",
+    "brand": "McCormick",
+    "categorySlug": "epicerie",
+    "size": "3.12 oz (88 g)",
+    "description": "Poudre d'ail, saveur fraiche longue duree. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "mccormick-garlic-powder-312oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "vicks-dayquil-cold-flu-24liquicaps",
+    "name": "Vicks DayQuil Rhume et Grippe",
+    "brand": "Vicks",
+    "categorySlug": "soins-personnels",
+    "size": "24 liquicaps",
+    "description": "Soulagement multi-symptomes non somnolent: maux de tete, fievre, mal de gorge, douleurs, congestion nasale et toux. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "vicks-dayquil-cold-flu-24liquicaps.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "sweet-baby-rays-bbq-sauce-18oz",
+    "name": "Sweet Baby Ray's Sauce Barbecue",
+    "brand": "Sweet Baby Ray's",
+    "categorySlug": "epicerie",
+    "size": "18 oz (1 lb 2 oz / 510 g)",
+    "description": "Sauce barbecue primee, format souple a presser. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "sweet-baby-rays-bbq-sauce-18oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "crest-prohealth-advanced-mouthwash-500ml",
+    "name": "Crest Pro-Health Advanced Multi-Protection Rince-Bouche",
+    "brand": "Crest",
+    "categorySlug": "soins-personnels",
+    "size": "500 mL (16.9 fl oz)",
+    "description": "Rince-bouche fluore anticarie, sans alcool, renforce l'email affaibli, protege contre les caries et rafraichit l'haleine. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock et la disponibilite locale avant publication.)",
+    "imageFile": "crest-prohealth-advanced-mouthwash-500ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "horizon-organic-milk-halfgal",
+    "name": "Horizon Organic Lait Biologique",
+    "brand": "Horizon Organic",
+    "categorySlug": "boissons",
+    "size": "64 fl oz (1/2 gal)",
+    "description": "Lait biologique, format demi-gallon. Photo produit fournie directement par vous. (Produit brouillon - verifier le prix, le stock, le taux de matiere grasse et la disponibilite locale avant publication.)",
+    "imageFile": "horizon-organic-milk-halfgal.webp",
+    "imageQualityStatus": "approved"
+  }
+]

@@ -1,0 +1,16 @@
+I uploaded RapideVite_real_packshots_batch2_50.zip.
+
+Do the following:
+
+1. Extract the ZIP inside the RapideVite project.
+2. Run:
+   python3 fetch_real_packshots.py
+3. Open review_contact_sheet.html and matched_products.csv.
+4. Do not import anything automatically yet.
+5. Show me the match results grouped into HIGH, REVIEW, LOW, and FAILED.
+6. Use only the products I approve.
+7. Never replace these images with AI-generated pictures or shelf crops.
+8. After approval, upload the accepted images from product_images to Supabase Storage.
+9. Create the accepted products as hidden draft products with price and stock set to 0.
+10. Preserve image source URLs and barcodes in the product records or import notes.
+11. Do not change or delete any existing RapideVite products.
