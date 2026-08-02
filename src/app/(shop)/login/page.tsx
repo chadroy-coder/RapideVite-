@@ -58,6 +58,11 @@ function LoginForm() {
           />
           {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>}
         </div>
+        <div className="text-right -mt-2">
+          <Link href="/mot-de-passe-oublie" className="text-xs text-brand-orange font-medium">
+            Mot de passe oublie ?
+          </Link>
+        </div>
         <button
           type="submit"
           disabled={submitting}
