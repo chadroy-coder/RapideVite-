@@ -1,5 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
-import type { Category, Product, ProductVariant } from "@/types/database";
+import type { Address, Category, Product, ProductVariant } from "@/types/database";
 
 // Shared read helpers used by Server Components across the storefront.
 // All reads go through the RLS-protected anon/user session client, so only
@@ -156,4 +156,22 @@ export async function getCurrentUserAndProfile() {
   if (!user) return { user: null, profile: null };
   const { data: profile } = await supabase.from("profiles").select("*").eq("id", user.id).single();
   return { user, profile };
+}
+
+// Returns the signed-in user's saved addresses, most-recently-marked-default
+// first, so the checkout form can be pre-filled instead of asking the
+// customer to retype their name/address on every order.
+export async function getMyAddresses(): Promise<Address[]> {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return [];
+  const { data } = await supabase
+    .from("addresses")
+    .select("*")
+    .eq("user_id", user.id)
+    .order("is_default", { ascending: false })
+    .order("created_at", { ascending: false });
+  return (data ?? []) as Address[];
 }

@@ -129,6 +129,9 @@ export async function placeOrder(cartLines: CartLine[], input: CheckoutInput) {
   }
 
   if (parsed.data.save_address) {
+    // Only one address should be "default" at a time - that's the one the
+    // checkout form pre-fills next time, so clear the old default first.
+    await supabase.from("addresses").update({ is_default: false }).eq("user_id", user.id);
     await supabase.from("addresses").insert({
       user_id: user.id,
       label: "Livraison",
@@ -137,8 +140,16 @@ export async function placeOrder(cartLines: CartLine[], input: CheckoutInput) {
       neighborhood: parsed.data.neighborhood || null,
       street: parsed.data.street,
       delivery_instructions: parsed.data.delivery_instructions || null,
+      is_default: true,
     });
   }
+
+  // Keep the profile's name/phone in sync so future checkouts (and the
+  // account page) reflect the latest details the customer typed in.
+  await supabase
+    .from("profiles")
+    .update({ full_name: parsed.data.customer_name, phone: parsed.data.customer_phone })
+    .eq("id", user.id);
 
   return { error: null, orderId: order.id as string, orderNumber: order.order_number as string };
 }
