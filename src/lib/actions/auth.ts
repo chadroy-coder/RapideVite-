@@ -13,7 +13,7 @@ export async function signIn(input: LoginInput) {
     email: parsed.data.email,
     password: parsed.data.password,
   });
-  if (error) return { error: "Courriel ou mot de passe incorrect." };
+  if (error) return { error: "Email ou mot de passe incorrect." };
   return { error: null };
 }
 

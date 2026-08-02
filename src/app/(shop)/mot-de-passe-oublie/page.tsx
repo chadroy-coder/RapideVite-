@@ -40,7 +40,7 @@ export default function ForgotPasswordPage() {
   if (sent) {
     return (
       <div className="max-w-sm mx-auto px-4 py-10 text-center">
-        <h1 className="font-bold text-xl text-brand-ink mb-2">Verifiez vos courriels</h1>
+        <h1 className="font-bold text-xl text-brand-ink mb-2">Verifiez vos emails</h1>
         <p className="text-brand-gray text-sm">
           Si un compte existe avec cette adresse, un lien de reinitialisation vient d&apos;etre envoye.
         </p>
@@ -55,7 +55,7 @@ export default function ForgotPasswordPage() {
     <div className="max-w-sm mx-auto px-4 py-10">
       <h1 className="font-bold text-xl text-brand-ink mb-1">Mot de passe oublie</h1>
       <p className="text-brand-gray text-sm mb-6">
-        Entrez votre courriel et nous vous enverrons un lien pour reinitialiser votre mot de passe.
+        Entrez votre email et nous vous enverrons un lien pour reinitialiser votre mot de passe.
       </p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

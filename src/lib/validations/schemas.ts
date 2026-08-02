@@ -28,7 +28,7 @@ export const checkoutSchema = z.object({
 export type CheckoutInput = z.input<typeof checkoutSchema>;
 
 export const loginSchema = z.object({
-  email: z.string().email("Courriel invalide"),
+  email: z.string().email("Email invalide"),
   password: z.string().min(6, "Mot de passe trop court"),
 });
 export type LoginInput = z.infer<typeof loginSchema>;
@@ -37,7 +37,7 @@ export const registerSchema = z
   .object({
     full_name: z.string().min(2, "Nom requis"),
     phone: z.string().min(8, "Numero invalide"),
-    email: z.string().email("Courriel invalide"),
+    email: z.string().email("Email invalide"),
     password: z.string().min(6, "Au moins 6 caracteres"),
     confirm_password: z.string().min(6),
   })
@@ -48,7 +48,7 @@ export const registerSchema = z
 export type RegisterInput = z.infer<typeof registerSchema>;
 
 export const forgotPasswordSchema = z.object({
-  email: z.string().email("Courriel invalide"),
+  email: z.string().email("Email invalide"),
 });
 export type ForgotPasswordInput = z.infer<typeof forgotPasswordSchema>;
 

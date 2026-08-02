@@ -28,7 +28,7 @@ export default function RegisterPage() {
       push(result.error, "error");
       return;
     }
-    push("Compte cree ! Verifiez votre courriel pour confirmer.", "success");
+    push("Compte cree ! Verifiez votre email pour confirmer.", "success");
     router.push("/login");
   }
 
@@ -58,7 +58,7 @@ export default function RegisterPage() {
           <input
             {...register("email")}
             type="email"
-            placeholder="Courriel"
+            placeholder="Email"
             className="w-full border border-brand-border rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40"
           />
           {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}

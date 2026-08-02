@@ -12,7 +12,7 @@ export default function HelpPage() {
           <p>+509 0000 0000</p>
         </div>
         <div className="border border-brand-border rounded-2xl p-5">
-          <p className="font-semibold text-brand-ink mb-1">Courriel</p>
+          <p className="font-semibold text-brand-ink mb-1">Email</p>
           <p>support@rapidevite.ht</p>
         </div>
         <div className="border border-brand-border rounded-2xl p-5">
