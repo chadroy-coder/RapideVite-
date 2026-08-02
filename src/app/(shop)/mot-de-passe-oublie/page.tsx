@@ -27,8 +27,11 @@ export default function ForgotPasswordPage() {
     });
     setSubmitting(false);
     if (error) {
-      // TEMP: showing the raw Supabase error to diagnose the live failure.
-      setError(`Erreur: ${error.message}`);
+      if (error.status === 429 || /rate limit/i.test(error.message)) {
+        setError("Trop de tentatives. Veuillez patienter une minute avant de reessayer.");
+      } else {
+        setError("Une erreur est survenue. Veuillez reessayer.");
+      }
       return;
     }
     setSent(true);
@@ -60,7 +63,7 @@ export default function ForgotPasswordPage() {
           <input
             {...register("email")}
             type="email"
-            placeholder="Courriel"
+            placeholder="Email"
             className="w-full border border-brand-border rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40"
           />
           {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
