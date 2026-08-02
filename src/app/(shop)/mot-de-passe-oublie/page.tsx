@@ -27,7 +27,8 @@ export default function ForgotPasswordPage() {
     });
     setSubmitting(false);
     if (error) {
-      setError("Une erreur est survenue. Veuillez reessayer.");
+      // TEMP: showing the raw Supabase error to diagnose the live failure.
+      setError(`Erreur: ${error.message}`);
       return;
     }
     setSent(true);
