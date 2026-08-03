@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   CupSoda,
-  Droplet,
   Cookie,
   ShoppingBasket,
   SprayCan,
@@ -16,28 +15,39 @@ import {
   Flower2,
   Package,
   Beef,
-  Sandwich,
+  Milk,
+  Fish,
+  Coffee,
+  Pill,
+  FileText,
+  ChefHat,
+  PawPrint,
   type LucideIcon,
 } from "lucide-react";
 import type { Category } from "@/types/database";
 
 export const CATEGORY_ICONS: Record<string, LucideIcon> = {
   boissons: CupSoda,
-  eau: Droplet,
-  collations: Cookie,
+  "collations-friandises": Cookie,
   epicerie: ShoppingBasket,
   "produits-menagers": SprayCan,
-  "soins-personnels": Sparkles,
+  "hygiene-soins-personnels": Sparkles,
   "produits-bebe": Baby,
   "produits-surgeles": Snowflake,
   "fruits-legumes": Apple,
-  "pain-petit-dejeuner": Croissant,
-  "credit-telephone": Smartphone,
+  "pain-patisserie": Croissant,
+  "electronique-accessoires": Smartphone,
   promotions: Tag,
-  "alcool-spiritueux": Wine,
+  "alcools-spiritueux": Wine,
   fleurs: Flower2,
-  viande: Beef,
-  "charcuterie-saucisses": Sandwich,
+  "viandes-charcuterie": Beef,
+  "produits-laitiers-oeufs": Milk,
+  "poissons-fruits-de-mer": Fish,
+  "petit-dejeuner": Coffee,
+  "sante-pharmacie": Pill,
+  "papier-produits-jetables": FileText,
+  "cuisine-maison": ChefHat,
+  "produits-animaux": PawPrint,
 };
 
 export function CategoryCarousel({ categories }: { categories: Category[] }) {
