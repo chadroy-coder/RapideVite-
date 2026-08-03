@@ -59,7 +59,7 @@ async function RecentSection() {
   if (products.length === 0) return null;
   return (
     <section className="px-4 py-5">
-      <h2 className="font-bold text-lg text-brand-ink mb-3">Ajoutes recemment</h2>
+      <h2 className="font-bold text-lg text-brand-orange mb-3">Ajoutes recemment</h2>
       <ProductGrid products={products as (Product & { variants: ProductVariant[] })[]} />
     </section>
   );
