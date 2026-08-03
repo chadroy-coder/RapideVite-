@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Plus } from "lucide-react";
 import type { Product, ProductVariant } from "@/types/database";
-import { formatHTG } from "@/lib/format";
+import { formatUSD } from "@/lib/format";
 import { useCartStore } from "@/store/cart-store";
 
 export function ProductCard({ product }: { product: Product & { variants: ProductVariant[] } }) {
@@ -63,10 +63,10 @@ export function ProductCard({ product }: { product: Product & { variants: Produc
         {variant.size && <p className="text-xs text-brand-gray">{variant.size}</p>}
         <div className="mt-auto flex items-center justify-between pt-1">
           <div className="flex flex-col">
-            <span className="font-bold text-brand-ink text-sm">{formatHTG(variant.selling_price)}</span>
+            <span className="font-bold text-brand-ink text-sm">{formatUSD(variant.selling_price)}</span>
             {onSale && (
               <span className="text-xs text-brand-gray line-through">
-                {formatHTG(variant.previous_price!)}
+                {formatUSD(variant.previous_price!)}
               </span>
             )}
           </div>

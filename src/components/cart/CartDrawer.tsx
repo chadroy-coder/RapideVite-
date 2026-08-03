@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { X, Minus, Plus, Trash2 } from "lucide-react";
 import { useCartStore } from "@/store/cart-store";
-import { formatHTG } from "@/lib/format";
+import { formatUSD } from "@/lib/format";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { ShoppingBag } from "lucide-react";
 
@@ -53,7 +53,7 @@ export function CartDrawer() {
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-brand-ink line-clamp-1">{item.name}</p>
                     {item.size && <p className="text-xs text-brand-gray">{item.size}</p>}
-                    <p className="text-sm font-bold text-brand-ink mt-1">{formatHTG(item.unitPrice)}</p>
+                    <p className="text-sm font-bold text-brand-ink mt-1">{formatUSD(item.unitPrice)}</p>
                   </div>
                   <div className="flex flex-col items-end justify-between">
                     <button
@@ -91,7 +91,7 @@ export function CartDrawer() {
           <div className="border-t border-brand-border p-5 space-y-3 safe-bottom">
             <div className="flex justify-between text-sm text-brand-gray">
               <span>Sous-total</span>
-              <span className="font-semibold text-brand-ink">{formatHTG(subtotal())}</span>
+              <span className="font-semibold text-brand-ink">{formatUSD(subtotal())}</span>
             </div>
             <Link
               href="/panier"

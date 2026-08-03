@@ -1,7 +1,7 @@
 import { getOrderById } from "@/lib/actions/orders";
 import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
 import { OrderTracker } from "@/components/order/OrderTracker";
-import { formatHTG } from "@/lib/format";
+import { formatUSD } from "@/lib/format";
 import { PAYMENT_METHOD_LABELS } from "@/types/database";
 import { notFound } from "next/navigation";
 
@@ -34,13 +34,13 @@ export default async function OrderTrackingPage({
           {(order.items ?? []).map((item) => (
             <li key={item.id} className="flex justify-between text-sm">
               <span>{item.quantity} x {item.product_name}{item.variant_label ? ` (${item.variant_label})` : ""}</span>
-              <span className="text-brand-gray">{formatHTG(item.line_total)}</span>
+              <span className="text-brand-gray">{formatUSD(item.line_total)}</span>
             </li>
           ))}
         </ul>
         <div className="border-t border-brand-border pt-3 flex justify-between font-bold text-brand-ink">
           <span>Total</span>
-          <span>{formatHTG(order.total)}</span>
+          <span>{formatUSD(order.total)}</span>
         </div>
       </div>
 

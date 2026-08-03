@@ -110,7 +110,7 @@ public/templates/     downloadable CSV import template
 | `STRIPE_SECRET_KEY` | Stripe secret key — **server only**, used to create Checkout Sessions |
 | `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Stripe publishable key (safe for the browser; reserved for future use) |
 | `STRIPE_WEBHOOK_SECRET` | Signing secret for the `/api/webhooks/stripe` endpoint |
-| `STRIPE_CURRENCY` | Currency for Checkout line items, defaults to `htg` — set to `usd` if your Stripe account's country doesn't support settling in HTG |
+| `STRIPE_CURRENCY` | Currency for Checkout line items, defaults to `usd` |
 
 ## Importing real draft products (Open Food Facts)
 
@@ -197,8 +197,7 @@ Stripe Checkout (hosted page — no card data ever touches this app's server):
    stripe listen --forward-to localhost:3000/api/webhooks/stripe
    ```
    It prints a `whsec_...` secret — use that locally instead of the Dashboard one.
-5. `STRIPE_CURRENCY` defaults to `htg`. If your Stripe account's country doesn't support
-   settling in Haitian Gourde, set it to `usd`.
+5. `STRIPE_CURRENCY` defaults to `usd`, matching the storefront's prices.
 
 Flow: selecting "Carte bancaire" at checkout creates the order first (same as the other
 payment methods — inventory is reserved immediately), then redirects to Stripe Checkout.

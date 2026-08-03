@@ -9,12 +9,12 @@ import { HAITI_DEPARTMENTS, PAYMENT_METHOD_LABELS } from "@/types/database";
 import { useCartStore } from "@/store/cart-store";
 import { placeOrder } from "@/lib/actions/orders";
 import { createCheckoutSession } from "@/lib/actions/stripe";
-import { formatHTG } from "@/lib/format";
+import { formatUSD } from "@/lib/format";
 import { useToastStore } from "@/store/toast-store";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { ShoppingBag } from "lucide-react";
 
-const DELIVERY_FEE_ESTIMATE = Number(process.env.NEXT_PUBLIC_DEFAULT_DELIVERY_FEE ?? 150);
+const DELIVERY_FEE_ESTIMATE = Number(process.env.NEXT_PUBLIC_DEFAULT_DELIVERY_FEE ?? 1.15);
 
 export interface CheckoutInitialValues {
   customer_name?: string;
@@ -201,15 +201,15 @@ export function CheckoutForm({ initialValues }: { initialValues: CheckoutInitial
         <div className="border-t border-brand-border pt-4 space-y-1.5 text-sm">
           <div className="flex justify-between text-brand-gray">
             <span>Sous-total</span>
-            <span className="text-brand-ink font-medium">{formatHTG(subtotal())}</span>
+            <span className="text-brand-ink font-medium">{formatUSD(subtotal())}</span>
           </div>
           <div className="flex justify-between text-brand-gray">
             <span>Frais de livraison (estime)</span>
-            <span className="text-brand-ink font-medium">{formatHTG(DELIVERY_FEE_ESTIMATE)}</span>
+            <span className="text-brand-ink font-medium">{formatUSD(DELIVERY_FEE_ESTIMATE)}</span>
           </div>
           <div className="flex justify-between font-bold text-brand-ink text-base pt-1">
             <span>Total</span>
-            <span>{formatHTG(subtotal() + DELIVERY_FEE_ESTIMATE)}</span>
+            <span>{formatUSD(subtotal() + DELIVERY_FEE_ESTIMATE)}</span>
           </div>
         </div>
 

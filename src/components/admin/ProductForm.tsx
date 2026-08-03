@@ -169,7 +169,7 @@ export function ProductForm({
             <input {...register("barcode")} className="mt-1 w-full border border-brand-border rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40" />
           </div>
           <div>
-            <label className="text-sm font-medium text-brand-ink">Prix de vente (HTG)</label>
+            <label className="text-sm font-medium text-brand-ink">Prix de vente (USD)</label>
             <input type="number" step="0.01" {...register("selling_price")} className="mt-1 w-full border border-brand-border rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40" />
             {errors.selling_price && <p className="text-red-500 text-xs mt-1">{errors.selling_price.message}</p>}
           </div>

@@ -1,5 +1,5 @@
 import { requireStaff } from "@/lib/require-staff";
-import { formatHTG } from "@/lib/format";
+import { formatUSD } from "@/lib/format";
 
 export const dynamic = "force-dynamic";
 
@@ -37,7 +37,7 @@ export default async function AdminReportsPage() {
         </div>
         <div className="bg-white border border-brand-border rounded-2xl p-5">
           <p className="text-xs text-brand-gray font-medium">Revenu (livrees)</p>
-          <p className="text-2xl font-extrabold text-brand-ink mt-1">{formatHTG(totalRevenue)}</p>
+          <p className="text-2xl font-extrabold text-brand-ink mt-1">{formatUSD(totalRevenue)}</p>
         </div>
         <div className="bg-white border border-brand-border rounded-2xl p-5">
           <p className="text-xs text-brand-gray font-medium">Commandes annulees</p>

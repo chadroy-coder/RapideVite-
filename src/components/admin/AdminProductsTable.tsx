@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { formatHTG } from "@/lib/format";
+import { formatUSD } from "@/lib/format";
 import { ProductRowActions } from "@/components/admin/ProductRowActions";
 import {
   bulkUpdateCategory,
@@ -118,7 +118,7 @@ export function AdminProductsTable({
 
           <input
             type="number"
-            placeholder="Prix HTG"
+            placeholder="Prix USD"
             value={bulkPrice}
             onChange={(e) => setBulkPrice(e.target.value)}
             className="w-24 rounded-lg px-2 py-1.5 text-brand-ink"
@@ -212,7 +212,7 @@ export function AdminProductsTable({
                     </span>
                   </td>
                   <td className="px-4 py-3 text-brand-gray">{p.category?.name ?? "-"}</td>
-                  <td className="px-4 py-3 text-brand-ink">{variant ? formatHTG(variant.selling_price) : "-"}</td>
+                  <td className="px-4 py-3 text-brand-ink">{variant ? formatUSD(variant.selling_price) : "-"}</td>
                   <td className="px-4 py-3">
                     <span className={variant && variant.inventory_quantity <= variant.low_stock_threshold ? "text-amber-600 font-semibold" : "text-brand-ink"}>
                       {variant?.inventory_quantity ?? 0}

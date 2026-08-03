@@ -82,7 +82,7 @@ export async function placeOrder(cartLines: CartLine[], input: CheckoutInput) {
     .from("delivery_settings")
     .select("standard_delivery_fee")
     .single();
-  const deliveryFee = deliverySettings?.standard_delivery_fee ?? 150;
+  const deliveryFee = deliverySettings?.standard_delivery_fee ?? 1.15;
   const total = subtotal + deliveryFee;
 
   const { data: order, error: orderError } = await supabase

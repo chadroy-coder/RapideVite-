@@ -1,6 +1,6 @@
 import { requireStaff } from "@/lib/require-staff";
 import { InventoryRow } from "@/components/admin/InventoryRow";
-import { formatHTG } from "@/lib/format";
+import { formatUSD } from "@/lib/format";
 
 export const dynamic = "force-dynamic";
 
@@ -34,7 +34,7 @@ export default async function AdminInventoryPage() {
                     {(v.product as unknown as { name: string } | null)?.name ?? "Produit"} {v.size ? `(${v.size})` : ""}
                   </td>
                   <td className="px-4 py-3 text-brand-gray">{v.sku}</td>
-                  <td className="px-4 py-3 text-brand-ink">{formatHTG(v.selling_price)}</td>
+                  <td className="px-4 py-3 text-brand-ink">{formatUSD(v.selling_price)}</td>
                   <td className="px-4 py-3">
                     <span className={low ? "text-amber-600 font-semibold" : "text-brand-ink"}>{v.inventory_quantity}</span>
                   </td>

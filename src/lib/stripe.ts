@@ -15,11 +15,9 @@ export function getStripe(): Stripe {
   return stripeClient;
 }
 
-// Currency used for Stripe Checkout line items. Defaults to Haitian Gourde
-// to match the rest of the storefront (see src/lib/format.ts formatHTG).
-// If your Stripe account rejects HTG (some account countries only support
-// settling in a limited currency list), set STRIPE_CURRENCY=usd in
-// .env.local and adjust pricing/display accordingly.
+// Currency used for Stripe Checkout line items. Defaults to USD to match
+// the rest of the storefront (see src/lib/format.ts formatUSD) and the
+// Stripe account's settlement currency.
 export function getStripeCurrency(): string {
-  return (process.env.STRIPE_CURRENCY || "htg").toLowerCase();
+  return (process.env.STRIPE_CURRENCY || "usd").toLowerCase();
 }

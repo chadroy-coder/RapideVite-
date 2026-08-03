@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getDashboardStats } from "@/lib/actions/admin-stats";
-import { formatHTG } from "@/lib/format";
+import { formatUSD } from "@/lib/format";
 import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
 import { AlertTriangle } from "lucide-react";
 
@@ -11,7 +11,7 @@ export default async function AdminOverviewPage() {
 
   const cards = [
     { label: "Commandes aujourd'hui", value: stats.ordersTodayCount },
-    { label: "Revenu aujourd'hui", value: formatHTG(stats.revenueToday) },
+    { label: "Revenu aujourd'hui", value: formatUSD(stats.revenueToday) },
     { label: "Commandes en attente", value: stats.pendingOrdersCount },
     { label: "Produits en stock faible", value: stats.lowStockItems.length },
   ];
@@ -43,7 +43,7 @@ export default async function AdminOverviewPage() {
                     className="flex items-center justify-between text-sm py-2 border-b border-brand-border last:border-0"
                   >
                     <span className="font-medium text-brand-ink">{o.order_number}</span>
-                    <span className="text-brand-gray">{formatHTG(o.total)}</span>
+                    <span className="text-brand-gray">{formatUSD(o.total)}</span>
                     <OrderStatusBadge status={o.status} />
                   </Link>
                 </li>

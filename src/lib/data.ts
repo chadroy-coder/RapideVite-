@@ -145,7 +145,7 @@ export async function getProductBySlug(slug: string) {
 export async function getDeliveryFee(): Promise<number> {
   const supabase = await createClient();
   const { data } = await supabase.from("delivery_settings").select("standard_delivery_fee").single();
-  return data?.standard_delivery_fee ?? 150;
+  return data?.standard_delivery_fee ?? 1.15;
 }
 
 export async function getCurrentUserAndProfile() {

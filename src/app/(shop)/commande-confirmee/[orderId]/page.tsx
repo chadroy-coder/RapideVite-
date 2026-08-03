@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CheckCircle2, XCircle } from "lucide-react";
 import { getOrderById } from "@/lib/actions/orders";
-import { formatHTG } from "@/lib/format";
+import { formatUSD } from "@/lib/format";
 import { notFound } from "next/navigation";
 
 export default async function OrderConfirmationPage({
@@ -60,22 +60,22 @@ export default async function OrderConfirmationPage({
                 {item.quantity} x {item.product_name}
                 {item.variant_label ? ` (${item.variant_label})` : ""}
               </span>
-              <span className="text-brand-gray">{formatHTG(item.line_total)}</span>
+              <span className="text-brand-gray">{formatUSD(item.line_total)}</span>
             </li>
           ))}
         </ul>
         <div className="border-t border-brand-border pt-3 space-y-1 text-sm">
           <div className="flex justify-between text-brand-gray">
             <span>Sous-total</span>
-            <span>{formatHTG(order.subtotal)}</span>
+            <span>{formatUSD(order.subtotal)}</span>
           </div>
           <div className="flex justify-between text-brand-gray">
             <span>Livraison</span>
-            <span>{formatHTG(order.delivery_fee)}</span>
+            <span>{formatUSD(order.delivery_fee)}</span>
           </div>
           <div className="flex justify-between font-bold text-brand-ink">
             <span>Total</span>
-            <span>{formatHTG(order.total)}</span>
+            <span>{formatUSD(order.total)}</span>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { listOrdersAdmin } from "@/lib/actions/admin-orders";
 import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
-import { formatHTG } from "@/lib/format";
+import { formatUSD } from "@/lib/format";
 import { ORDER_STATUS_LABELS, type OrderStatus } from "@/types/database";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { ClipboardList } from "lucide-react";
@@ -65,7 +65,7 @@ export default async function AdminOrdersPage({
                     </Link>
                   </td>
                   <td className="px-4 py-3 text-brand-gray">{o.customer_name}</td>
-                  <td className="px-4 py-3 text-brand-ink">{formatHTG(o.total)}</td>
+                  <td className="px-4 py-3 text-brand-ink">{formatUSD(o.total)}</td>
                   <td className="px-4 py-3"><OrderStatusBadge status={o.status} /></td>
                   <td className="px-4 py-3 text-brand-gray">{new Date(o.created_at).toLocaleDateString("fr-HT")}</td>
                 </tr>

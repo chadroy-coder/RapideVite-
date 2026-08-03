@@ -1,8 +1,9 @@
-export function formatHTG(amount: number): string {
-  return new Intl.NumberFormat("fr-HT", {
+export function formatUSD(amount: number): string {
+  return new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "HTG",
-    maximumFractionDigits: 0,
+    currency: "USD",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
   }).format(amount);
 }
 

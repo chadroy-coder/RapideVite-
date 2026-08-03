@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
 import { useCartStore } from "@/store/cart-store";
-import { formatHTG } from "@/lib/format";
+import { formatUSD } from "@/lib/format";
 import { EmptyState } from "@/components/ui/EmptyState";
 
 export default function CartPage() {
@@ -42,7 +42,7 @@ export default function CartPage() {
             <div className="flex-1 min-w-0">
               <p className="font-medium text-brand-ink line-clamp-2">{item.name}</p>
               {item.size && <p className="text-xs text-brand-gray">{item.size}</p>}
-              <p className="font-bold text-brand-ink mt-1">{formatHTG(item.unitPrice)}</p>
+              <p className="font-bold text-brand-ink mt-1">{formatUSD(item.unitPrice)}</p>
             </div>
             <div className="flex flex-col items-end justify-between">
               <button
@@ -74,7 +74,7 @@ export default function CartPage() {
       <div className="mt-6 space-y-2">
         <div className="flex justify-between text-sm text-brand-gray">
           <span>Sous-total</span>
-          <span className="font-semibold text-brand-ink">{formatHTG(subtotal())}</span>
+          <span className="font-semibold text-brand-ink">{formatUSD(subtotal())}</span>
         </div>
         <p className="text-xs text-brand-gray">Les frais de livraison seront calcules a l&apos;etape suivante.</p>
       </div>

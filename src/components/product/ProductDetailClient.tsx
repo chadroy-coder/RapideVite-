@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import type { Product, ProductVariant } from "@/types/database";
-import { formatHTG } from "@/lib/format";
+import { formatUSD } from "@/lib/format";
 import { useCartStore } from "@/store/cart-store";
 
 export function ProductDetailClient({
@@ -70,10 +70,10 @@ export function ProductDetailClient({
         )}
 
         <div className="flex items-baseline gap-2 mt-4">
-          <span className="text-2xl font-bold text-brand-ink">{formatHTG(variant.selling_price)}</span>
+          <span className="text-2xl font-bold text-brand-ink">{formatUSD(variant.selling_price)}</span>
           {onSale && (
             <span className="text-brand-gray line-through text-sm">
-              {formatHTG(variant.previous_price!)}
+              {formatUSD(variant.previous_price!)}
             </span>
           )}
         </div>

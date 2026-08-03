@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { getOrderAdmin } from "@/lib/actions/admin-orders";
 import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
 import { OrderStatusForm } from "@/components/admin/OrderStatusForm";
-import { formatHTG } from "@/lib/format";
+import { formatUSD } from "@/lib/format";
 import { PAYMENT_METHOD_LABELS } from "@/types/database";
 
 export default async function AdminOrderDetailPage({
@@ -28,15 +28,15 @@ export default async function AdminOrderDetailPage({
             {order.items.map((item) => (
               <li key={item.id} className="flex justify-between text-sm py-2 border-b border-brand-border last:border-0">
                 <span>{item.quantity} x {item.product_name}{item.variant_label ? ` (${item.variant_label})` : ""}</span>
-                <span className="text-brand-gray">{formatHTG(item.line_total)}</span>
+                <span className="text-brand-gray">{formatUSD(item.line_total)}</span>
               </li>
             ))}
           </ul>
           <div className="border-t border-brand-border mt-3 pt-3 space-y-1 text-sm">
-            <div className="flex justify-between text-brand-gray"><span>Sous-total</span><span>{formatHTG(order.subtotal)}</span></div>
-            <div className="flex justify-between text-brand-gray"><span>Livraison</span><span>{formatHTG(order.delivery_fee)}</span></div>
-            {order.discount > 0 && <div className="flex justify-between text-brand-gray"><span>Remise</span><span>-{formatHTG(order.discount)}</span></div>}
-            <div className="flex justify-between font-bold text-brand-ink"><span>Total</span><span>{formatHTG(order.total)}</span></div>
+            <div className="flex justify-between text-brand-gray"><span>Sous-total</span><span>{formatUSD(order.subtotal)}</span></div>
+            <div className="flex justify-between text-brand-gray"><span>Livraison</span><span>{formatUSD(order.delivery_fee)}</span></div>
+            {order.discount > 0 && <div className="flex justify-between text-brand-gray"><span>Remise</span><span>-{formatUSD(order.discount)}</span></div>}
+            <div className="flex justify-between font-bold text-brand-ink"><span>Total</span><span>{formatUSD(order.total)}</span></div>
           </div>
         </div>
 
