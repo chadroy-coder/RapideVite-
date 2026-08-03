@@ -15,6 +15,8 @@ import {
   Wine,
   Flower2,
   Package,
+  Beef,
+  Sandwich,
   type LucideIcon,
 } from "lucide-react";
 import type { Category } from "@/types/database";
@@ -34,6 +36,8 @@ export const CATEGORY_ICONS: Record<string, LucideIcon> = {
   promotions: Tag,
   "alcool-spiritueux": Wine,
   fleurs: Flower2,
+  viande: Beef,
+  "charcuterie-saucisses": Sandwich,
 };
 
 export function CategoryCarousel({ categories }: { categories: Category[] }) {
