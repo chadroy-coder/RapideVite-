@@ -3,9 +3,9 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/Toaster";
 
 export const metadata: Metadata = {
-  title: "RapideVite — Tout sa w bezwen, rapid vit.",
+  title: "RapidVit — Tout sa w bezwen, rapid vit.",
   description:
-    "RapideVite livre epicerie, boissons et produits du quotidien rapidement partout en Haiti.",
+    "RapidVit livre epicerie, boissons et produits du quotidien rapidement partout en Haiti.",
 };
 
 export default function RootLayout({

@@ -23,7 +23,7 @@ export function Header({ isAuthed }: { isAuthed: boolean }) {
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <Logo className="w-9 h-9 shrink-0" />
-          <span className="hidden sm:block font-extrabold text-brand-ink text-lg">RapideVite</span>
+          <span className="hidden sm:block font-extrabold text-brand-ink text-lg">RapidVit</span>
         </Link>
 
         <button className="hidden md:flex items-center gap-1.5 text-sm text-brand-gray border border-brand-border rounded-full px-3 py-2 hover:border-brand-orange transition">

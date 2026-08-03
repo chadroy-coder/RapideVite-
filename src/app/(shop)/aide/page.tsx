@@ -4,7 +4,7 @@ export default function HelpPage() {
       <h1 className="font-bold text-xl text-brand-ink mb-4">Aide et contact</h1>
       <div className="space-y-4 text-sm text-brand-gray">
         <p>
-          Notre equipe RapideVite est disponible pour vous aider avec vos commandes, livraisons et
+          Notre equipe RapidVit est disponible pour vous aider avec vos commandes, livraisons et
           questions sur les produits.
         </p>
         <div className="border border-brand-border rounded-2xl p-5">

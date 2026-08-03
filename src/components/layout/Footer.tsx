@@ -8,7 +8,7 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-2">
             <Logo className="w-7 h-7 shrink-0" />
-            <p className="font-extrabold text-brand-ink text-lg">RapideVite</p>
+            <p className="font-extrabold text-brand-ink text-lg">RapidVit</p>
           </div>
           <p className="text-brand-gray mt-2">Tout sa w bezwen, rapid vit.</p>
         </div>

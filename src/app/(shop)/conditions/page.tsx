@@ -4,7 +4,7 @@ export default function TermsPage() {
       <h1 className="font-bold text-xl text-brand-ink mb-4">Conditions d&apos;utilisation</h1>
       <div className="space-y-4 text-sm text-brand-gray leading-relaxed">
         <p>
-          En utilisant RapideVite, vous acceptez nos conditions de service concernant les commandes,
+          En utilisant RapidVit, vous acceptez nos conditions de service concernant les commandes,
           les paiements, les livraisons et l&apos;utilisation de la plateforme.
         </p>
         <p>

@@ -34,7 +34,7 @@ export function AdminSidebar() {
       <div className="px-5 py-5 border-b border-brand-border flex items-center gap-2.5">
         <Logo className="w-8 h-8 shrink-0" />
         <div>
-          <span className="font-extrabold text-brand-ink text-lg leading-tight block">RapideVite</span>
+          <span className="font-extrabold text-brand-ink text-lg leading-tight block">RapidVit</span>
           <p className="text-xs text-brand-gray">Administration</p>
         </div>
       </div>

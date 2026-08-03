@@ -37,7 +37,7 @@ function LoginForm() {
   return (
     <div className="max-w-sm mx-auto px-4 py-10">
       <h1 className="font-bold text-xl text-brand-ink mb-1">Connexion</h1>
-      <p className="text-brand-gray text-sm mb-6">Accedez a votre compte RapideVite.</p>
+      <p className="text-brand-gray text-sm mb-6">Accedez a votre compte RapidVit.</p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
