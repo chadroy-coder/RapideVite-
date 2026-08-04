@@ -158,8 +158,11 @@ export async function getOrderById(orderId: string) {
   const supabase = await createClient();
   const { data: order } = await supabase.from("orders").select("*").eq("id", orderId).single();
   if (!order) return null;
-  const { data: items } = await supabase.from("order_items").select("*").eq("order_id", orderId);
-  return { ...(order as Order), items: (items ?? []) as OrderItem[] };
+  const { data: items } = await supabase
+    .from("order_items")
+    .select("*, product:products(image_url)")
+    .eq("order_id", orderId);
+  return { ...(order as Order), items: (items ?? []) as unknown as OrderItem[] };
 }
 
 export async function getMyOrders() {
@@ -170,8 +173,8 @@ export async function getMyOrders() {
   if (!user) return [];
   const { data } = await supabase
     .from("orders")
-    .select("*, items:order_items(*)")
+    .select("*, items:order_items(*, product:products(image_url))")
     .eq("user_id", user.id)
     .order("created_at", { ascending: false });
-  return (data ?? []) as (Order & { items: OrderItem[] })[];
+  return (data ?? []) as unknown as (Order & { items: OrderItem[] })[];
 }

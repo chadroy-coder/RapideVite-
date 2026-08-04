@@ -127,6 +127,9 @@ export interface OrderItem {
   unit_price: number;
   quantity: number;
   line_total: number;
+  // Joined in via getMyOrders()/getOrderById() for order-row thumbnails.
+  // Null if the product was deleted after the order was placed.
+  product?: { image_url: string | null } | null;
 }
 
 export const HAITI_DEPARTMENTS = [

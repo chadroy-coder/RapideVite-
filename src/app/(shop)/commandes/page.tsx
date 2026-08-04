@@ -2,7 +2,8 @@ import Link from "next/link";
 import { getMyOrders } from "@/lib/actions/orders";
 import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
 import { EmptyState } from "@/components/ui/EmptyState";
-import { formatUSD, summarizeOrderItems } from "@/lib/format";
+import { formatUSD } from "@/lib/format";
+import { OrderItemsPreview } from "@/components/order/OrderItemsPreview";
 import { ClipboardList } from "lucide-react";
 
 export default async function OrdersListPage() {
@@ -33,9 +34,7 @@ export default async function OrdersListPage() {
                   <p className="text-xs text-brand-gray mt-0.5">
                     {new Date(order.created_at).toLocaleDateString("fr-HT")} · {formatUSD(order.total)}
                   </p>
-                  {order.items.length > 0 && (
-                    <p className="text-xs text-brand-ink mt-1 truncate">{summarizeOrderItems(order.items)}</p>
-                  )}
+                  <OrderItemsPreview items={order.items} />
                 </div>
                 <OrderStatusBadge status={order.status} />
               </Link>
