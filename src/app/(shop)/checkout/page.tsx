@@ -1,6 +1,7 @@
 import { getCurrentUserAndProfile, getMyAddresses } from "@/lib/data";
 import { CheckoutForm } from "@/components/checkout/CheckoutForm";
-import { getMySubscription, isSubscriptionActive } from "@/lib/actions/subscription";
+import { getMySubscription } from "@/lib/actions/subscription";
+import { isSubscriptionActive } from "@/lib/subscription-utils";
 
 export default async function CheckoutPage() {
   const [{ profile }, addresses, subscription] = await Promise.all([

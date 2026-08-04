@@ -18,12 +18,6 @@ export async function getMySubscription(): Promise<Subscription | null> {
   return (data as Subscription | null) ?? null;
 }
 
-export function isSubscriptionActive(sub: Subscription | null): boolean {
-  if (!sub || sub.status !== "active") return false;
-  if (sub.current_period_end && new Date(sub.current_period_end) < new Date()) return false;
-  return true;
-}
-
 export async function createSubscriptionCheckout() {
   const supabase = await createClient();
   const {

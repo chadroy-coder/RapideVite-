@@ -1,7 +1,8 @@
 import { redirect } from "next/navigation";
 import { Check, Sparkles, CreditCard } from "lucide-react";
 import { getCurrentUserAndProfile } from "@/lib/data";
-import { getMySubscription, isSubscriptionActive } from "@/lib/actions/subscription";
+import { getMySubscription } from "@/lib/actions/subscription";
+import { isSubscriptionActive } from "@/lib/subscription-utils";
 import { SubscribeButton } from "@/components/subscription/SubscribeButton";
 import { formatUSD } from "@/lib/format";
 import { SUBSCRIPTION_PRICE_USD } from "@/types/database";
