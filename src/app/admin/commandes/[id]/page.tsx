@@ -16,8 +16,8 @@ export default async function AdminOrderDetailPage({
   if (!order) notFound();
 
   return (
-    <div className="grid lg:grid-cols-3 gap-6">
-      <div className="lg:col-span-2 space-y-6">
+    <div className="grid lg:grid-cols-2 gap-6">
+      <div className="space-y-6">
         <div className="flex items-center justify-between">
           <h1 className="font-bold text-2xl text-brand-ink">{order.order_number}</h1>
           <OrderStatusBadge status={order.status} />
