@@ -113,5 +113,6 @@ export const orderStatusUpdateSchema = z.object({
   ]),
   assigned_delivery_person: z.string().optional().or(z.literal("")),
   estimated_delivery_time: z.string().optional().or(z.literal("")),
+  driver_photo_url: z.string().optional().or(z.literal("")),
 });
 export type OrderStatusUpdateInput = z.infer<typeof orderStatusUpdateSchema>;

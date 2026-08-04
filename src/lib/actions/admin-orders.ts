@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { requireStaff } from "@/lib/require-staff";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { orderStatusUpdateSchema, type OrderStatusUpdateInput } from "@/lib/validations/schemas";
 import type { Order, OrderItem, OrderStatus } from "@/types/database";
 
@@ -36,10 +37,31 @@ export async function updateOrderStatus(input: OrderStatusUpdateInput) {
       status: d.status,
       assigned_delivery_person: d.assigned_delivery_person || null,
       estimated_delivery_time: d.estimated_delivery_time || null,
+      driver_photo_url: d.driver_photo_url || null,
     })
     .eq("id", d.order_id);
   if (error) return { error: "Impossible de mettre a jour la commande." };
   revalidatePath("/admin/commandes");
   revalidatePath(`/admin/commandes/${d.order_id}`);
+  revalidatePath(`/commandes/${d.order_id}`);
   return { error: null };
+}
+
+export async function uploadDriverPhoto(formData: FormData) {
+  await requireStaff();
+  const file = formData.get("file") as File | null;
+  if (!file || file.size === 0) return { error: "Aucun fichier fourni.", url: null };
+
+  const admin = createAdminClient();
+  const ext = file.name.split(".").pop() || "jpg";
+  const path = `drivers/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+
+  const { error } = await admin.storage
+    .from("product-images")
+    .upload(path, await file.arrayBuffer(), { contentType: file.type, upsert: false });
+
+  if (error) return { error: "Echec du telechargement de la photo.", url: null };
+
+  const { data } = admin.storage.from("product-images").getPublicUrl(path);
+  return { error: null, url: data.publicUrl };
 }

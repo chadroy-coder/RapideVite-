@@ -4,35 +4,57 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { orderStatusUpdateSchema, type OrderStatusUpdateInput } from "@/lib/validations/schemas";
-import { updateOrderStatus } from "@/lib/actions/admin-orders";
+import { updateOrderStatus, uploadDriverPhoto } from "@/lib/actions/admin-orders";
 import { useToastStore } from "@/store/toast-store";
 import { ORDER_STATUS_LABELS } from "@/types/database";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export function OrderStatusForm({
   orderId,
   currentStatus,
   assignedDeliveryPerson,
   estimatedDeliveryTime,
+  driverPhotoUrl,
 }: {
   orderId: string;
   currentStatus: string;
   assignedDeliveryPerson: string | null;
   estimatedDeliveryTime: string | null;
+  driverPhotoUrl: string | null;
 }) {
   const push = useToastStore((s) => s.push);
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [photoPreview, setPhotoPreview] = useState(driverPhotoUrl || "");
 
-  const { register, handleSubmit } = useForm<OrderStatusUpdateInput>({
+  const { register, handleSubmit, setValue } = useForm<OrderStatusUpdateInput>({
     resolver: zodResolver(orderStatusUpdateSchema),
     defaultValues: {
       order_id: orderId,
       status: currentStatus as OrderStatusUpdateInput["status"],
       assigned_delivery_person: assignedDeliveryPerson ?? "",
       estimated_delivery_time: estimatedDeliveryTime ?? "",
+      driver_photo_url: driverPhotoUrl ?? "",
     },
   });
+
+  async function handlePhotoUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    const formData = new FormData();
+    formData.append("file", file);
+    const result = await uploadDriverPhoto(formData);
+    setUploading(false);
+    if (result.error || !result.url) {
+      push(result.error ?? "Echec du telechargement.", "error");
+      return;
+    }
+    setValue("driver_photo_url", result.url);
+    setPhotoPreview(result.url);
+  }
 
   async function onSubmit(values: OrderStatusUpdateInput) {
     setSubmitting(true);
@@ -64,6 +86,19 @@ export function OrderStatusForm({
       <div>
         <label className="text-sm font-medium text-brand-ink">Heure de livraison estimee</label>
         <input type="datetime-local" {...register("estimated_delivery_time")} className="mt-1 w-full border border-brand-border rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40" />
+      </div>
+      <div>
+        <label className="text-sm font-medium text-brand-ink">Photo du livreur</label>
+        <div className="mt-1 flex items-center gap-3">
+          {photoPreview && (
+            <div className="relative w-14 h-14 rounded-full overflow-hidden border border-brand-border shrink-0">
+              <Image src={photoPreview} alt="Livreur" fill sizes="56px" className="object-cover" />
+            </div>
+          )}
+          <input type="file" accept="image/*" onChange={handlePhotoUpload} disabled={uploading} className="text-sm" />
+        </div>
+        {uploading && <p className="text-xs text-brand-gray mt-1">Telechargement...</p>}
+        <input type="hidden" {...register("driver_photo_url")} />
       </div>
       <button
         type="submit"

@@ -110,6 +110,7 @@ export interface Order {
   status: OrderStatus;
   assigned_delivery_person: string | null;
   estimated_delivery_time: string | null;
+  driver_photo_url: string | null;
   stripe_checkout_session_id?: string | null;
   stripe_payment_intent_id?: string | null;
   created_at: string;

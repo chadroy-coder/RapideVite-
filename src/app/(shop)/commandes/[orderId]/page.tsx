@@ -1,3 +1,5 @@
+import Image from "next/image";
+import { Bike, Clock } from "lucide-react";
 import { getOrderById } from "@/lib/actions/orders";
 import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
 import { OrderTracker } from "@/components/order/OrderTracker";
@@ -27,6 +29,30 @@ export default async function OrderTrackingPage({
       <div className="border border-brand-border rounded-2xl p-5 mb-6">
         <OrderTracker status={order.status} />
       </div>
+
+      {(order.assigned_delivery_person || order.estimated_delivery_time || order.driver_photo_url) && (
+        <div className="border border-brand-orange/30 bg-brand-orange/5 rounded-2xl p-5 mb-6 flex items-center gap-4">
+          <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-sm bg-brand-cream shrink-0 flex items-center justify-center">
+            {order.driver_photo_url ? (
+              <Image src={order.driver_photo_url} alt={order.assigned_delivery_person ?? "Livreur"} fill sizes="56px" className="object-cover" />
+            ) : (
+              <Bike className="w-6 h-6 text-brand-orange" />
+            )}
+          </div>
+          <div>
+            {order.assigned_delivery_person && (
+              <p className="font-semibold text-brand-ink text-sm">{order.assigned_delivery_person}</p>
+            )}
+            <p className="text-xs text-brand-gray">Votre livreur</p>
+            {order.estimated_delivery_time && (
+              <p className="flex items-center gap-1 text-xs text-brand-orange font-semibold mt-1">
+                <Clock className="w-3.5 h-3.5" />
+                Arrivee estimee: {new Date(order.estimated_delivery_time).toLocaleString("fr-HT", { dateStyle: "short", timeStyle: "short" })}
+              </p>
+            )}
+          </div>
+        </div>
+      )}
 
       <div className="border border-brand-border rounded-2xl p-5 space-y-3 mb-6">
         <h2 className="font-semibold text-brand-ink">Articles</h2>

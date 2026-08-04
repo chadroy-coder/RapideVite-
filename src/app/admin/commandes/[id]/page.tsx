@@ -55,6 +55,7 @@ export default async function AdminOrderDetailPage({
         currentStatus={order.status}
         assignedDeliveryPerson={order.assigned_delivery_person}
         estimatedDeliveryTime={order.estimated_delivery_time}
+        driverPhotoUrl={order.driver_photo_url}
       />
     </div>
   );
