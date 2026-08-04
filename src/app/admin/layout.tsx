@@ -18,9 +18,6 @@ export default async function AdminLayout({ children }: { children: React.ReactN
       <Toaster />
       <AdminSidebar />
       <div className="flex-1 min-w-0">
-        <header className="md:hidden flex items-center justify-between px-4 py-3 bg-white border-b border-brand-border">
-          <span className="font-extrabold text-brand-ink">RapidVit Admin</span>
-        </header>
         <main className="p-4 md:p-8">{children}</main>
       </div>
     </div>
