@@ -6,7 +6,7 @@ import { useState } from "react";
 import { orderStatusUpdateSchema, type OrderStatusUpdateInput } from "@/lib/validations/schemas";
 import { updateOrderStatus, uploadDriverPhoto } from "@/lib/actions/admin-orders";
 import { useToastStore } from "@/store/toast-store";
-import { ORDER_STATUS_LABELS } from "@/types/database";
+import { ORDER_STATUS_LABELS, type Driver } from "@/types/database";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
@@ -16,12 +16,14 @@ export function OrderStatusForm({
   assignedDeliveryPerson,
   estimatedDeliveryTime,
   driverPhotoUrl,
+  drivers,
 }: {
   orderId: string;
   currentStatus: string;
   assignedDeliveryPerson: string | null;
   estimatedDeliveryTime: string | null;
   driverPhotoUrl: string | null;
+  drivers: Driver[];
 }) {
   const push = useToastStore((s) => s.push);
   const router = useRouter();
@@ -39,6 +41,14 @@ export function OrderStatusForm({
       driver_photo_url: driverPhotoUrl ?? "",
     },
   });
+
+  function handleDriverPick(e: React.ChangeEvent<HTMLSelectElement>) {
+    const driver = drivers.find((d) => d.id === e.target.value);
+    if (!driver) return;
+    setValue("assigned_delivery_person", driver.name);
+    setValue("driver_photo_url", driver.photo_url ?? "");
+    setPhotoPreview(driver.photo_url ?? "");
+  }
 
   async function handlePhotoUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
@@ -79,6 +89,26 @@ export function OrderStatusForm({
           ))}
         </select>
       </div>
+      {drivers.length > 0 && (
+        <div>
+          <label className="text-sm font-medium text-brand-ink">Choisir un livreur enregistre</label>
+          <select
+            onChange={handleDriverPick}
+            defaultValue=""
+            className="mt-1 w-full border border-brand-border rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40"
+          >
+            <option value="" disabled>
+              Selectionner...
+            </option>
+            {drivers.map((d) => (
+              <option key={d.id} value={d.id}>
+                {d.name}
+                {!d.active ? " (inactif)" : ""}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
       <div>
         <label className="text-sm font-medium text-brand-ink">Livreur assigne</label>
         <input {...register("assigned_delivery_person")} className="mt-1 w-full border border-brand-border rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40" />

@@ -12,6 +12,7 @@ import {
   BarChart3,
   Upload,
   ArrowLeft,
+  Bike,
 } from "lucide-react";
 import { Logo } from "@/components/layout/Logo";
 
@@ -21,6 +22,7 @@ const links = [
   { href: "/admin/categories", label: "Categories", icon: FolderTree },
   { href: "/admin/inventaire", label: "Inventaire", icon: Boxes },
   { href: "/admin/commandes", label: "Commandes", icon: ClipboardList },
+  { href: "/admin/livreurs", label: "Livreurs", icon: Bike },
   { href: "/admin/clients", label: "Clients", icon: Users },
   { href: "/admin/rapports", label: "Rapports", icon: BarChart3 },
   { href: "/admin/import", label: "Importer produits", icon: Upload },

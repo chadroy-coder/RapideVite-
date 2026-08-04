@@ -100,6 +100,14 @@ export const categorySchema = z.object({
 });
 export type CategoryInput = z.input<typeof categorySchema>;
 
+export const driverSchema = z.object({
+  name: z.string().min(2, "Nom requis"),
+  phone: z.string().optional().or(z.literal("")),
+  photo_url: z.string().optional().or(z.literal("")),
+  active: z.boolean().optional().default(true),
+});
+export type DriverInput = z.input<typeof driverSchema>;
+
 export const orderStatusUpdateSchema = z.object({
   order_id: z.string().uuid(),
   status: z.enum([

@@ -77,6 +77,15 @@ export interface Product {
   variants?: ProductVariant[];
 }
 
+export interface Driver {
+  id: string;
+  name: string;
+  phone: string | null;
+  photo_url: string | null;
+  active: boolean;
+  created_at: string;
+}
+
 export interface Address {
   id: string;
   user_id: string;

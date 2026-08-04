@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getOrderAdmin } from "@/lib/actions/admin-orders";
+import { listDrivers } from "@/lib/actions/admin-drivers";
 import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
 import { OrderStatusForm } from "@/components/admin/OrderStatusForm";
 import { formatUSD } from "@/lib/format";
@@ -11,7 +12,7 @@ export default async function AdminOrderDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const order = await getOrderAdmin(id);
+  const [order, drivers] = await Promise.all([getOrderAdmin(id), listDrivers()]);
   if (!order) notFound();
 
   return (
@@ -56,6 +57,7 @@ export default async function AdminOrderDetailPage({
         assignedDeliveryPerson={order.assigned_delivery_person}
         estimatedDeliveryTime={order.estimated_delivery_time}
         driverPhotoUrl={order.driver_photo_url}
+        drivers={drivers}
       />
     </div>
   );
