@@ -16,12 +16,12 @@ export function OrderDriverLine({
   if (!name && !eta) return null;
 
   return (
-    <div className="flex items-center gap-1.5 mt-1.5 text-xs text-brand-orange font-medium">
-      <div className="relative w-5 h-5 rounded-full overflow-hidden border border-white shadow-sm bg-brand-cream shrink-0 flex items-center justify-center">
+    <div className="flex items-center gap-2 mt-1.5 text-xs text-brand-orange font-medium">
+      <div className="relative w-8 h-8 rounded-full overflow-hidden border-2 border-white shadow-sm bg-brand-cream shrink-0 flex items-center justify-center">
         {photoUrl ? (
-          <Image src={photoUrl} alt={name ?? "Livreur"} fill sizes="20px" className="object-cover" />
+          <Image src={photoUrl} alt={name ?? "Livreur"} fill sizes="32px" className="object-cover" />
         ) : (
-          <Bike className="w-3 h-3 text-brand-orange" />
+          <Bike className="w-4 h-4 text-brand-orange" />
         )}
       </div>
       <span className="truncate">
