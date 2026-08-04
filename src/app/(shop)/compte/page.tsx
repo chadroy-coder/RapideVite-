@@ -5,7 +5,7 @@ import { getCurrentUserAndProfile } from "@/lib/data";
 import { getMyOrders } from "@/lib/actions/orders";
 import { signOut } from "@/lib/actions/auth";
 import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
-import { formatUSD } from "@/lib/format";
+import { formatUSD, summarizeOrderItems } from "@/lib/format";
 
 const LIVE_STATUSES = new Set(["new", "confirmed", "preparing", "ready", "out_for_delivery"]);
 
@@ -39,13 +39,16 @@ export default async function AccountPage() {
               <li key={order.id}>
                 <Link
                   href={`/commandes/${order.id}`}
-                  className="flex items-center justify-between border border-brand-orange/30 bg-brand-orange/5 rounded-2xl px-4 py-3.5 hover:border-brand-orange transition"
+                  className="flex items-center justify-between gap-3 border border-brand-orange/30 bg-brand-orange/5 rounded-2xl px-4 py-3.5 hover:border-brand-orange transition"
                 >
-                  <div>
+                  <div className="min-w-0">
                     <p className="font-semibold text-brand-ink text-sm">{order.order_number}</p>
                     <p className="text-xs text-brand-gray mt-0.5">
                       {new Date(order.created_at).toLocaleDateString("fr-HT")} · {formatUSD(order.total)}
                     </p>
+                    {order.items.length > 0 && (
+                      <p className="text-xs text-brand-ink mt-1 truncate">{summarizeOrderItems(order.items)}</p>
+                    )}
                   </div>
                   <OrderStatusBadge status={order.status} />
                 </Link>

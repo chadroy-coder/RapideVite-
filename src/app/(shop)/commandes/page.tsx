@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getMyOrders } from "@/lib/actions/orders";
 import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
 import { EmptyState } from "@/components/ui/EmptyState";
-import { formatUSD } from "@/lib/format";
+import { formatUSD, summarizeOrderItems } from "@/lib/format";
 import { ClipboardList } from "lucide-react";
 
 export default async function OrdersListPage() {
@@ -26,13 +26,16 @@ export default async function OrdersListPage() {
             <li key={order.id}>
               <Link
                 href={`/commandes/${order.id}`}
-                className="flex items-center justify-between border border-brand-border rounded-2xl px-4 py-3.5 hover:border-brand-orange transition"
+                className="flex items-center justify-between gap-3 border border-brand-border rounded-2xl px-4 py-3.5 hover:border-brand-orange transition"
               >
-                <div>
+                <div className="min-w-0">
                   <p className="font-semibold text-brand-ink text-sm">{order.order_number}</p>
                   <p className="text-xs text-brand-gray mt-0.5">
                     {new Date(order.created_at).toLocaleDateString("fr-HT")} · {formatUSD(order.total)}
                   </p>
+                  {order.items.length > 0 && (
+                    <p className="text-xs text-brand-ink mt-1 truncate">{summarizeOrderItems(order.items)}</p>
+                  )}
                 </div>
                 <OrderStatusBadge status={order.status} />
               </Link>
