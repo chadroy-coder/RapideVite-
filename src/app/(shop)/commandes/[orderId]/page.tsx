@@ -3,7 +3,7 @@ import { Bike, Clock } from "lucide-react";
 import { getOrderById } from "@/lib/actions/orders";
 import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
 import { OrderTracker } from "@/components/order/OrderTracker";
-import { formatUSD } from "@/lib/format";
+import { formatUSD, formatHTGEstimate } from "@/lib/format";
 import { PAYMENT_METHOD_LABELS } from "@/types/database";
 import { notFound } from "next/navigation";
 
@@ -66,7 +66,10 @@ export default async function OrderTrackingPage({
         </ul>
         <div className="border-t border-brand-border pt-3 flex justify-between font-bold text-brand-ink">
           <span>Total</span>
-          <span>{formatUSD(order.total)}</span>
+          <div className="text-right">
+            <span>{formatUSD(order.total)}</span>
+            <p className="text-[11px] font-normal text-brand-gray">{formatHTGEstimate(order.total)}</p>
+          </div>
         </div>
       </div>
 

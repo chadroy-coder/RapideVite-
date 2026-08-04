@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CheckCircle2, XCircle } from "lucide-react";
 import { getOrderById } from "@/lib/actions/orders";
-import { formatUSD } from "@/lib/format";
+import { formatUSD, formatHTGEstimate } from "@/lib/format";
 import { notFound } from "next/navigation";
 
 export default async function OrderConfirmationPage({
@@ -75,7 +75,10 @@ export default async function OrderConfirmationPage({
           </div>
           <div className="flex justify-between font-bold text-brand-ink">
             <span>Total</span>
-            <span>{formatUSD(order.total)}</span>
+            <div className="text-right">
+              <span>{formatUSD(order.total)}</span>
+              <p className="text-[11px] font-normal text-brand-gray">{formatHTGEstimate(order.total)}</p>
+            </div>
           </div>
         </div>
       </div>

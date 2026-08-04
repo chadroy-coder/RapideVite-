@@ -9,7 +9,7 @@ import { HAITI_DEPARTMENTS, PAYMENT_METHOD_LABELS } from "@/types/database";
 import { useCartStore } from "@/store/cart-store";
 import { placeOrder } from "@/lib/actions/orders";
 import { createCheckoutSession } from "@/lib/actions/stripe";
-import { formatUSD } from "@/lib/format";
+import { formatUSD, formatHTGEstimate } from "@/lib/format";
 import { useToastStore } from "@/store/toast-store";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { ShoppingBag } from "lucide-react";
@@ -219,8 +219,16 @@ export function CheckoutForm({
           </div>
           <div className="flex justify-between font-bold text-brand-ink text-base pt-1">
             <span>Total</span>
-            <span>{formatUSD(subtotal() + (isPlusMember ? 0 : DELIVERY_FEE_ESTIMATE))}</span>
+            <div className="text-right">
+              <span>{formatUSD(subtotal() + (isPlusMember ? 0 : DELIVERY_FEE_ESTIMATE))}</span>
+              <p className="text-[11px] font-normal text-brand-gray">
+                {formatHTGEstimate(subtotal() + (isPlusMember ? 0 : DELIVERY_FEE_ESTIMATE))}
+              </p>
+            </div>
           </div>
+          <p className="text-[11px] text-brand-gray text-right">
+            Le paiement par carte est toujours effectue en USD.
+          </p>
         </div>
 
         <button

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import type { Product, ProductVariant } from "@/types/database";
-import { formatUSD } from "@/lib/format";
+import { formatUSD, formatHTGEstimate } from "@/lib/format";
 import { useCartStore } from "@/store/cart-store";
 
 export function ProductDetailClient({
@@ -77,6 +77,7 @@ export function ProductDetailClient({
             </span>
           )}
         </div>
+        <p className="text-xs text-brand-gray mt-0.5">{formatHTGEstimate(variant.selling_price)}</p>
 
         {variants.length > 1 && (
           <div className="mt-5">

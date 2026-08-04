@@ -4,7 +4,7 @@ import { getCurrentUserAndProfile } from "@/lib/data";
 import { getMySubscription } from "@/lib/actions/subscription";
 import { isSubscriptionActive } from "@/lib/subscription-utils";
 import { SubscribeButton } from "@/components/subscription/SubscribeButton";
-import { formatUSD } from "@/lib/format";
+import { formatUSD, formatHTGEstimate } from "@/lib/format";
 import { SUBSCRIPTION_PRICE_USD } from "@/types/database";
 
 const BENEFITS = [
@@ -30,6 +30,7 @@ export default async function AbonnementPage() {
         <p className="text-brand-gray text-sm mt-1">
           {formatUSD(SUBSCRIPTION_PRICE_USD)}/mois &middot; paiement par carte uniquement
         </p>
+        <p className="text-brand-gray text-xs mt-0.5">{formatHTGEstimate(SUBSCRIPTION_PRICE_USD)}/mois</p>
       </div>
 
       {active && (

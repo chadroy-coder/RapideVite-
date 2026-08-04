@@ -7,7 +7,7 @@ import { getMySubscription } from "@/lib/actions/subscription";
 import { isSubscriptionActive } from "@/lib/subscription-utils";
 import { signOut } from "@/lib/actions/auth";
 import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
-import { formatUSD } from "@/lib/format";
+import { formatUSD, formatHTGEstimate } from "@/lib/format";
 import { OrderItemsPreview } from "@/components/order/OrderItemsPreview";
 import { OrderDriverLine } from "@/components/order/OrderDriverLine";
 
@@ -67,7 +67,8 @@ export default async function AccountPage() {
                   <div className="min-w-0">
                     <p className="font-semibold text-brand-ink text-sm">{order.order_number}</p>
                     <p className="text-xs text-brand-gray mt-0.5">
-                      {new Date(order.created_at).toLocaleDateString("fr-HT")} · {formatUSD(order.total)}
+                      {new Date(order.created_at).toLocaleDateString("fr-HT")} · {formatUSD(order.total)} (
+                      {formatHTGEstimate(order.total)})
                     </p>
                     <OrderItemsPreview items={order.items} />
                     <OrderDriverLine
