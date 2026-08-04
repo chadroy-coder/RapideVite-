@@ -22,7 +22,7 @@ export default async function AccountPage() {
       <p className="text-brand-gray text-sm mb-6">{user.email}</p>
 
       <div className="border border-brand-border rounded-2xl p-5 mb-4">
-        <p className="font-semibold text-brand-ink">{profile?.full_name || "Client RapidVit"}</p>
+        <p className="font-bold text-lg text-brand-ink">{profile?.full_name || "Client RapidVit"}</p>
         {profile?.phone && <p className="text-brand-gray text-sm mt-1">{profile.phone}</p>}
         {profile?.role !== "customer" && (
           <span className="inline-flex items-center gap-1 mt-2 text-xs font-semibold text-brand-green">
