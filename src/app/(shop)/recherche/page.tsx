@@ -32,14 +32,14 @@ export default async function SearchPage({
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-5">
-      <h1 className="font-bold text-xl text-brand-orange mb-4">
+      <h1 className="font-bold text-xl text-brand-ink mb-4">
         {query ? `Resultats pour "${query}"` : "Rechercher un produit"}
       </h1>
 
       {!query && (
         <div className="space-y-8">
           <section>
-            <h2 className="font-bold text-lg text-brand-orange mb-3">Recherches populaires</h2>
+            <h2 className="font-bold text-lg text-brand-ink mb-3">Recherches populaires</h2>
             <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
               {POPULAR_SEARCHES.map((term) => (
                 <Link
@@ -55,7 +55,7 @@ export default async function SearchPage({
 
           {categories.length > 0 && (
             <section>
-              <h2 className="font-bold text-lg text-brand-orange mb-3">Magasiner par categorie</h2>
+              <h2 className="font-bold text-lg text-brand-ink mb-3">Magasiner par categorie</h2>
               <CategoryGrid categories={categories} />
             </section>
           )}
