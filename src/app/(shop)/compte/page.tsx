@@ -2,11 +2,19 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { LogOut, ClipboardList, MapPin, ShieldCheck } from "lucide-react";
 import { getCurrentUserAndProfile } from "@/lib/data";
+import { getMyOrders } from "@/lib/actions/orders";
 import { signOut } from "@/lib/actions/auth";
+import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
+import { formatUSD } from "@/lib/format";
+
+const LIVE_STATUSES = new Set(["new", "confirmed", "preparing", "ready", "out_for_delivery"]);
 
 export default async function AccountPage() {
   const { user, profile } = await getCurrentUserAndProfile();
   if (!user) redirect("/login?redirect=/compte");
+
+  const orders = await getMyOrders();
+  const liveOrders = orders.filter((o) => LIVE_STATUSES.has(o.status));
 
   return (
     <div className="max-w-lg mx-auto px-4 py-6">
@@ -22,6 +30,30 @@ export default async function AccountPage() {
           </span>
         )}
       </div>
+
+      {liveOrders.length > 0 && (
+        <div className="mb-4">
+          <h2 className="font-semibold text-sm text-brand-ink mb-2">Commandes en cours</h2>
+          <ul className="space-y-2">
+            {liveOrders.map((order) => (
+              <li key={order.id}>
+                <Link
+                  href={`/commandes/${order.id}`}
+                  className="flex items-center justify-between border border-brand-orange/30 bg-brand-orange/5 rounded-2xl px-4 py-3.5 hover:border-brand-orange transition"
+                >
+                  <div>
+                    <p className="font-semibold text-brand-ink text-sm">{order.order_number}</p>
+                    <p className="text-xs text-brand-gray mt-0.5">
+                      {new Date(order.created_at).toLocaleDateString("fr-HT")} · {formatUSD(order.total)}
+                    </p>
+                  </div>
+                  <OrderStatusBadge status={order.status} />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <nav className="space-y-2">
         <Link
