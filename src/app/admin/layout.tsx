@@ -14,7 +14,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   }
 
   return (
-    <div className="flex min-h-screen bg-brand-cream/40">
+    <div className="flex flex-col md:flex-row min-h-screen bg-brand-cream/40">
       <Toaster />
       <AdminSidebar />
       <div className="flex-1 min-w-0">
