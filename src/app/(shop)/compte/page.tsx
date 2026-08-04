@@ -63,10 +63,13 @@ export default async function AccountPage() {
           <ClipboardList className="w-5 h-5 text-brand-orange" />
           <span className="text-sm font-medium text-brand-ink">Mes commandes</span>
         </Link>
-        <div className="flex items-center gap-3 border border-brand-border rounded-xl px-4 py-3.5 opacity-60">
+        <Link
+          href="/compte/adresses"
+          className="flex items-center gap-3 border border-brand-border rounded-xl px-4 py-3.5 hover:border-brand-orange transition"
+        >
           <MapPin className="w-5 h-5 text-brand-orange" />
-          <span className="text-sm font-medium text-brand-ink">Mes adresses (bientot disponible)</span>
-        </div>
+          <span className="text-sm font-medium text-brand-ink">Mes adresses</span>
+        </Link>
         {(profile?.role === "admin" || profile?.role === "staff") && (
           <Link
             href="/admin"
