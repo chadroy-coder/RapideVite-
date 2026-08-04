@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getOrderAdmin } from "@/lib/actions/admin-orders";
 import { listDrivers } from "@/lib/actions/admin-drivers";
 import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
+import { OrderTracker } from "@/components/order/OrderTracker";
 import { OrderStatusForm } from "@/components/admin/OrderStatusForm";
 import { formatUSD } from "@/lib/format";
 import { PAYMENT_METHOD_LABELS } from "@/types/database";
@@ -21,6 +22,10 @@ export default async function AdminOrderDetailPage({
         <div className="flex items-center justify-between">
           <h1 className="font-bold text-2xl text-brand-ink">{order.order_number}</h1>
           <OrderStatusBadge status={order.status} />
+        </div>
+
+        <div className="bg-white border border-brand-border rounded-2xl p-5">
+          <OrderTracker status={order.status} />
         </div>
 
         <div className="bg-white border border-brand-border rounded-2xl p-5">

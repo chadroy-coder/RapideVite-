@@ -23,7 +23,7 @@ export function OrderTracker({ status }: { status: OrderStatus }) {
   const isDelivered = status === "delivered";
 
   return (
-    <ol className="space-y-0">
+    <ol className="space-y-0 max-w-xs mx-auto">
       {STEPS.map((step, i) => {
         // A step is fully "done" (checkmark) once we've passed it, or once
         // the whole order is delivered (every step is behind us by then).
