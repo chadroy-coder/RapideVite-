@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { LogOut, ClipboardList, MapPin, ShieldCheck } from "lucide-react";
+import { LogOut, ClipboardList, MapPin, ShieldCheck, Sparkles } from "lucide-react";
 import { getCurrentUserAndProfile, getMyAddresses } from "@/lib/data";
 import { getMyOrders } from "@/lib/actions/orders";
+import { getMySubscription, isSubscriptionActive } from "@/lib/actions/subscription";
 import { signOut } from "@/lib/actions/auth";
 import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
 import { formatUSD } from "@/lib/format";
@@ -15,9 +16,10 @@ export default async function AccountPage() {
   const { user, profile } = await getCurrentUserAndProfile();
   if (!user) redirect("/login?redirect=/compte");
 
-  const [orders, addresses] = await Promise.all([getMyOrders(), getMyAddresses()]);
+  const [orders, addresses, subscription] = await Promise.all([getMyOrders(), getMyAddresses(), getMySubscription()]);
   const liveOrders = orders.filter((o) => LIVE_STATUSES.has(o.status));
   const defaultAddress = addresses.find((a) => a.is_default) ?? addresses[0];
+  const isPlusMember = isSubscriptionActive(subscription);
 
   return (
     <div className="max-w-lg mx-auto px-4 py-6">
@@ -25,7 +27,14 @@ export default async function AccountPage() {
       <p className="text-brand-gray text-sm mb-6">{user.email}</p>
 
       <div className="border border-brand-border rounded-2xl p-5 mb-4">
-        <p className="font-bold text-lg text-brand-ink">{profile?.full_name || "Client RapidVit"}</p>
+        <div className="flex items-center gap-2">
+          <p className="font-bold text-lg text-brand-ink">{profile?.full_name || "Client RapidVit"}</p>
+          {isPlusMember && (
+            <span className="inline-flex items-center gap-1 bg-brand-orange/10 text-brand-orange text-xs font-bold px-2 py-0.5 rounded-full">
+              <Sparkles className="w-3 h-3" /> Plus+
+            </span>
+          )}
+        </div>
         {profile?.phone && <p className="text-brand-gray text-sm mt-1">{profile.phone}</p>}
         {defaultAddress && (
           <p className="flex items-start gap-1.5 text-brand-gray text-sm mt-1">
@@ -75,6 +84,19 @@ export default async function AccountPage() {
       )}
 
       <nav className="space-y-2">
+        <Link
+          href="/abonnement"
+          className={`flex items-center gap-3 rounded-xl px-4 py-3.5 transition ${
+            isPlusMember
+              ? "border border-brand-orange bg-brand-orange/5"
+              : "border border-brand-border hover:border-brand-orange"
+          }`}
+        >
+          <Sparkles className="w-5 h-5 text-brand-orange" />
+          <span className={`text-sm ${isPlusMember ? "font-semibold text-brand-orange" : "font-medium text-brand-ink"}`}>
+            {isPlusMember ? "Gerer RapidVit Plus+" : "Devenir membre RapidVit Plus+"}
+          </span>
+        </Link>
         <Link
           href="/commandes"
           className="flex items-center gap-3 border border-brand-border rounded-xl px-4 py-3.5 hover:border-brand-orange transition"

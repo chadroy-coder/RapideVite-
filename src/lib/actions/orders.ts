@@ -82,7 +82,20 @@ export async function placeOrder(cartLines: CartLine[], input: CheckoutInput) {
     .from("delivery_settings")
     .select("standard_delivery_fee")
     .single();
-  const deliveryFee = deliverySettings?.standard_delivery_fee ?? 1.15;
+
+  // RapidVit Plus+ members get unlimited free delivery for the month -
+  // waive the fee here so it's enforced server-side, not just in the UI.
+  const { data: subscription } = await supabase
+    .from("subscriptions")
+    .select("status, current_period_end")
+    .eq("user_id", user.id)
+    .maybeSingle();
+  const isPlusMember =
+    !!subscription &&
+    subscription.status === "active" &&
+    (!subscription.current_period_end || new Date(subscription.current_period_end) >= new Date());
+
+  const deliveryFee = isPlusMember ? 0 : (deliverySettings?.standard_delivery_fee ?? 1.15);
   const total = subtotal + deliveryFee;
 
   const { data: order, error: orderError } = await supabase

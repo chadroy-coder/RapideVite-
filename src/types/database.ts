@@ -14,6 +14,21 @@ export type OrderStatus =
 export type PaymentMethod = "cash_on_delivery" | "moncash" | "natcash" | "card";
 export type PaymentStatus = "pending" | "authorized" | "paid" | "failed" | "refunded";
 
+export type SubscriptionStatus = "active" | "past_due" | "canceled" | "inactive";
+
+export interface Subscription {
+  id: string;
+  user_id: string;
+  stripe_customer_id: string | null;
+  stripe_subscription_id: string | null;
+  status: SubscriptionStatus;
+  current_period_end: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export const SUBSCRIPTION_PRICE_USD = 30;
+
 export interface Profile {
   id: string;
   full_name: string | null;

@@ -29,7 +29,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
   }
 
-  if (event.type === "checkout.session.completed" || event.type === "checkout.session.async_payment_succeeded") {
+  if (
+    (event.type === "checkout.session.completed" || event.type === "checkout.session.async_payment_succeeded") &&
+    (event.data.object as Stripe.Checkout.Session).mode === "payment"
+  ) {
     const session = event.data.object as Stripe.Checkout.Session;
     const orderId = session.metadata?.order_id ?? session.client_reference_id;
 
@@ -58,6 +61,81 @@ export async function POST(req: NextRequest) {
     if (orderId) {
       const supabase = createAdminClient();
       await supabase.from("orders").update({ payment_status: "failed" }).eq("id", orderId);
+    }
+  }
+
+  // RapidVit Plus+ subscription checkout completed - link the Stripe
+  // customer/subscription to our user so the status-change events below
+  // can find the right row by subscription id alone (no user_id on those).
+  if (event.type === "checkout.session.completed" && (event.data.object as Stripe.Checkout.Session).mode === "subscription") {
+    const session = event.data.object as Stripe.Checkout.Session;
+    const userId = session.client_reference_id ?? session.metadata?.user_id;
+    const stripeCustomerId = typeof session.customer === "string" ? session.customer : (session.customer?.id ?? null);
+    const stripeSubscriptionId =
+      typeof session.subscription === "string" ? session.subscription : (session.subscription?.id ?? null);
+
+    if (userId && stripeSubscriptionId) {
+      const supabase = createAdminClient();
+      const stripe = getStripe();
+      const subscription = await stripe.subscriptions.retrieve(stripeSubscriptionId);
+      const periodEnd = subscription.items.data[0]?.current_period_end;
+
+      const { error } = await supabase.from("subscriptions").upsert(
+        {
+          user_id: userId,
+          stripe_customer_id: stripeCustomerId,
+          stripe_subscription_id: stripeSubscriptionId,
+          status: subscription.status === "active" || subscription.status === "trialing" ? "active" : subscription.status,
+          current_period_end: periodEnd ? new Date(periodEnd * 1000).toISOString() : null,
+        },
+        { onConflict: "user_id" }
+      );
+
+      if (error) {
+        console.error("Failed to record RapidVit Plus+ subscription:", error.message);
+      }
+    }
+  }
+
+  // Subscription renewed, went past due, or otherwise changed status.
+  if (event.type === "customer.subscription.updated") {
+    const subscription = event.data.object as Stripe.Subscription;
+    const supabase = createAdminClient();
+    const periodEnd = subscription.items.data[0]?.current_period_end;
+
+    const status =
+      subscription.status === "active" || subscription.status === "trialing"
+        ? "active"
+        : subscription.status === "past_due"
+          ? "past_due"
+          : subscription.status === "canceled" || subscription.status === "unpaid" || subscription.status === "incomplete_expired"
+            ? "canceled"
+            : "inactive";
+
+    const { error } = await supabase
+      .from("subscriptions")
+      .update({
+        status,
+        current_period_end: periodEnd ? new Date(periodEnd * 1000).toISOString() : null,
+      })
+      .eq("stripe_subscription_id", subscription.id);
+
+    if (error) {
+      console.error("Failed to update RapidVit Plus+ subscription:", error.message);
+    }
+  }
+
+  // Subscription cancelled (immediately, or at period end and now expired).
+  if (event.type === "customer.subscription.deleted") {
+    const subscription = event.data.object as Stripe.Subscription;
+    const supabase = createAdminClient();
+    const { error } = await supabase
+      .from("subscriptions")
+      .update({ status: "canceled" })
+      .eq("stripe_subscription_id", subscription.id);
+
+    if (error) {
+      console.error("Failed to cancel RapidVit Plus+ subscription:", error.message);
     }
   }
 

@@ -26,7 +26,13 @@ export interface CheckoutInitialValues {
   delivery_instructions?: string;
 }
 
-export function CheckoutForm({ initialValues }: { initialValues: CheckoutInitialValues }) {
+export function CheckoutForm({
+  initialValues,
+  isPlusMember = false,
+}: {
+  initialValues: CheckoutInitialValues;
+  isPlusMember?: boolean;
+}) {
   const router = useRouter();
   const { items, subtotal, clear } = useCartStore();
   const push = useToastStore((s) => s.push);
@@ -204,12 +210,16 @@ export function CheckoutForm({ initialValues }: { initialValues: CheckoutInitial
             <span className="text-brand-ink font-medium">{formatUSD(subtotal())}</span>
           </div>
           <div className="flex justify-between text-brand-gray">
-            <span>Frais de livraison (estime)</span>
-            <span className="text-brand-ink font-medium">{formatUSD(DELIVERY_FEE_ESTIMATE)}</span>
+            <span>Frais de livraison {isPlusMember ? "" : "(estime)"}</span>
+            {isPlusMember ? (
+              <span className="text-brand-green font-semibold">Gratuit avec Plus+</span>
+            ) : (
+              <span className="text-brand-ink font-medium">{formatUSD(DELIVERY_FEE_ESTIMATE)}</span>
+            )}
           </div>
           <div className="flex justify-between font-bold text-brand-ink text-base pt-1">
             <span>Total</span>
-            <span>{formatUSD(subtotal() + DELIVERY_FEE_ESTIMATE)}</span>
+            <span>{formatUSD(subtotal() + (isPlusMember ? 0 : DELIVERY_FEE_ESTIMATE))}</span>
           </div>
         </div>
 
