@@ -4,7 +4,7 @@ import type { OrderItem } from "@/types/database";
 // Small row of overlapping product thumbnails for compact order rows
 // (account page live orders, order history list). Shows up to `max`
 // images, then a "+N" badge for anything beyond that.
-export function OrderItemsPreview({ items, max = 3 }: { items: OrderItem[]; max?: number }) {
+export function OrderItemsPreview({ items, max = 6 }: { items: OrderItem[]; max?: number }) {
   if (items.length === 0) return null;
 
   const shown = items.slice(0, max);

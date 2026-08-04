@@ -7,6 +7,7 @@ import { signOut } from "@/lib/actions/auth";
 import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
 import { formatUSD } from "@/lib/format";
 import { OrderItemsPreview } from "@/components/order/OrderItemsPreview";
+import { OrderDriverLine } from "@/components/order/OrderDriverLine";
 
 const LIVE_STATUSES = new Set(["new", "confirmed", "preparing", "ready", "out_for_delivery"]);
 
@@ -59,6 +60,11 @@ export default async function AccountPage() {
                       {new Date(order.created_at).toLocaleDateString("fr-HT")} · {formatUSD(order.total)}
                     </p>
                     <OrderItemsPreview items={order.items} />
+                    <OrderDriverLine
+                      name={order.assigned_delivery_person}
+                      photoUrl={order.driver_photo_url}
+                      eta={order.estimated_delivery_time}
+                    />
                   </div>
                   <OrderStatusBadge status={order.status} />
                 </Link>

@@ -4,6 +4,7 @@ import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { formatUSD } from "@/lib/format";
 import { OrderItemsPreview } from "@/components/order/OrderItemsPreview";
+import { OrderDriverLine } from "@/components/order/OrderDriverLine";
 import { ClipboardList } from "lucide-react";
 
 export default async function OrdersListPage() {
@@ -35,6 +36,11 @@ export default async function OrdersListPage() {
                     {new Date(order.created_at).toLocaleDateString("fr-HT")} · {formatUSD(order.total)}
                   </p>
                   <OrderItemsPreview items={order.items} />
+                  <OrderDriverLine
+                    name={order.assigned_delivery_person}
+                    photoUrl={order.driver_photo_url}
+                    eta={order.estimated_delivery_time}
+                  />
                 </div>
                 <OrderStatusBadge status={order.status} />
               </Link>
