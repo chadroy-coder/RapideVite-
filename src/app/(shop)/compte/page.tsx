@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { LogOut, ClipboardList, MapPin, ShieldCheck } from "lucide-react";
-import { getCurrentUserAndProfile } from "@/lib/data";
+import { getCurrentUserAndProfile, getMyAddresses } from "@/lib/data";
 import { getMyOrders } from "@/lib/actions/orders";
 import { signOut } from "@/lib/actions/auth";
 import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
@@ -14,8 +14,9 @@ export default async function AccountPage() {
   const { user, profile } = await getCurrentUserAndProfile();
   if (!user) redirect("/login?redirect=/compte");
 
-  const orders = await getMyOrders();
+  const [orders, addresses] = await Promise.all([getMyOrders(), getMyAddresses()]);
   const liveOrders = orders.filter((o) => LIVE_STATUSES.has(o.status));
+  const defaultAddress = addresses.find((a) => a.is_default) ?? addresses[0];
 
   return (
     <div className="max-w-lg mx-auto px-4 py-6">
@@ -25,6 +26,16 @@ export default async function AccountPage() {
       <div className="border border-brand-border rounded-2xl p-5 mb-4">
         <p className="font-bold text-lg text-brand-ink">{profile?.full_name || "Client RapidVit"}</p>
         {profile?.phone && <p className="text-brand-gray text-sm mt-1">{profile.phone}</p>}
+        {defaultAddress && (
+          <p className="flex items-start gap-1.5 text-brand-gray text-sm mt-1">
+            <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0 text-brand-orange" />
+            <span>
+              {defaultAddress.street}
+              {defaultAddress.neighborhood ? `, ${defaultAddress.neighborhood}` : ""}, {defaultAddress.commune},{" "}
+              {defaultAddress.department}
+            </span>
+          </p>
+        )}
         {profile?.role !== "customer" && (
           <span className="inline-flex items-center gap-1 mt-2 text-xs font-semibold text-brand-green">
             <ShieldCheck className="w-3.5 h-3.5" /> Compte {profile?.role}
