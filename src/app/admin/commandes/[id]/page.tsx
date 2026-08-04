@@ -57,7 +57,7 @@ export default async function AdminOrderDetailPage({
         assignedDeliveryPerson={order.assigned_delivery_person}
         estimatedDeliveryTime={order.estimated_delivery_time}
         driverPhotoUrl={order.driver_photo_url}
-        drivers={drivers}
+        drivers={drivers.filter((d) => d.active)}
       />
     </div>
   );

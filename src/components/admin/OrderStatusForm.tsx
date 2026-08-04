@@ -91,7 +91,7 @@ export function OrderStatusForm({
       </div>
       {drivers.length > 0 && (
         <div>
-          <label className="text-sm font-medium text-brand-ink">Choisir un livreur enregistre</label>
+          <label className="text-sm font-medium text-brand-ink">Livreur disponible</label>
           <select
             onChange={handleDriverPick}
             defaultValue=""
@@ -103,7 +103,6 @@ export function OrderStatusForm({
             {drivers.map((d) => (
               <option key={d.id} value={d.id}>
                 {d.name}
-                {!d.active ? " (inactif)" : ""}
               </option>
             ))}
           </select>
