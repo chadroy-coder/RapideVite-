@@ -73,7 +73,6 @@ export function OrderTracker({ status }: { status: OrderStatus }) {
               }`}
             >
               {step.label}
-              {current && <span className="ml-1 text-xs font-normal">(en cours)</span>}
             </p>
           </li>
         );
