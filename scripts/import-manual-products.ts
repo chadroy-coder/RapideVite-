@@ -48,7 +48,8 @@ interface ManualProduct {
 }
 
 function draftPrice(): number {
-  return Math.round((80 + Math.random() * 220) / 5) * 5;
+  // USD placeholder band - a human sets the real price before publishing.
+  return Math.round((2 + Math.random() * 13) * 100) / 100;
 }
 
 function draftStock(): number {
