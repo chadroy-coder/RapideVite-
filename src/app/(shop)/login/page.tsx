@@ -12,6 +12,7 @@ import { useToastStore } from "@/store/toast-store";
 function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const redirectTo = searchParams.get("redirect");
   const push = useToastStore((s) => s.push);
   const [submitting, setSubmitting] = useState(false);
 
@@ -74,7 +75,10 @@ function LoginForm() {
 
       <p className="text-sm text-brand-gray mt-5 text-center">
         Pas encore de compte ?{" "}
-        <Link href="/register" className="text-brand-orange font-semibold">
+        <Link
+          href={redirectTo ? `/register?redirect=${encodeURIComponent(redirectTo)}` : "/register"}
+          className="text-brand-orange font-semibold"
+        >
           Creer un compte
         </Link>
       </p>

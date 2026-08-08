@@ -1,14 +1,17 @@
+import { redirect } from "next/navigation";
 import { getCurrentUserAndProfile, getMyAddresses } from "@/lib/data";
 import { CheckoutForm } from "@/components/checkout/CheckoutForm";
 import { getMySubscription } from "@/lib/actions/subscription";
 import { isSubscriptionActive } from "@/lib/subscription-utils";
 
 export default async function CheckoutPage() {
-  const [{ profile }, addresses, subscription] = await Promise.all([
-    getCurrentUserAndProfile(),
-    getMyAddresses(),
-    getMySubscription(),
-  ]);
+  const { user, profile } = await getCurrentUserAndProfile();
+  // Check auth before rendering the form, not after the customer fills it
+  // out and submits - placeOrder() would reject them anyway, but only after
+  // wasting their time typing name/address/payment method.
+  if (!user) redirect("/login?redirect=/checkout");
+
+  const [addresses, subscription] = await Promise.all([getMyAddresses(), getMySubscription()]);
   const defaultAddress = addresses[0];
 
   return (

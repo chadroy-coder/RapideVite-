@@ -2,15 +2,17 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { registerSchema, type RegisterInput } from "@/lib/validations/schemas";
 import { signUp } from "@/lib/actions/auth";
 import { useToastStore } from "@/store/toast-store";
 
-export default function RegisterPage() {
+function RegisterForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get("redirect");
   const push = useToastStore((s) => s.push);
   const [submitting, setSubmitting] = useState(false);
 
@@ -29,7 +31,7 @@ export default function RegisterPage() {
       return;
     }
     push("Compte cree ! Verifiez votre email pour confirmer.", "success");
-    router.push("/login");
+    router.push(redirectTo ? `/login?redirect=${encodeURIComponent(redirectTo)}` : "/login");
   }
 
   return (
@@ -94,10 +96,21 @@ export default function RegisterPage() {
 
       <p className="text-sm text-brand-gray mt-5 text-center">
         Deja un compte ?{" "}
-        <Link href="/login" className="text-brand-orange font-semibold">
+        <Link
+          href={redirectTo ? `/login?redirect=${encodeURIComponent(redirectTo)}` : "/login"}
+          className="text-brand-orange font-semibold"
+        >
           Se connecter
         </Link>
       </p>
     </div>
+  );
+}
+
+export default function RegisterPage() {
+  return (
+    <Suspense>
+      <RegisterForm />
+    </Suspense>
   );
 }
