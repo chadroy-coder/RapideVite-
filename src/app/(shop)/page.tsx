@@ -105,10 +105,15 @@ export default function HomePage() {
           className="absolute -bottom-20 -right-10 w-64 h-64 rounded-full bg-brand-green/10 blur-3xl"
         />
         <div className="relative px-4 pt-12 pb-10 max-w-xl mx-auto text-center">
-          <span className="inline-flex items-center gap-1.5 bg-white border border-brand-orange/20 text-brand-orange font-semibold text-xs px-3.5 py-1.5 rounded-full shadow-sm">
-            <MapPin className="w-3.5 h-3.5" />
-            <span aria-hidden>🇭🇹</span>
-            Port-au-Prince, Haiti · Livraison en moins d&apos;une heure
+          <span className="inline-flex items-center gap-1.5 max-w-full bg-white border border-brand-orange/20 text-brand-orange font-semibold text-xs px-3.5 py-1.5 rounded-full shadow-sm">
+            <MapPin className="w-3.5 h-3.5 shrink-0" />
+            <span aria-hidden className="shrink-0">🇭🇹</span>
+            <span className="truncate">
+              <span className="sm:hidden">Port-au-Prince, Haiti</span>
+              <span className="hidden sm:inline">
+                Port-au-Prince, Haiti · Livraison en moins d&apos;une heure
+              </span>
+            </span>
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-brand-ink mt-4 leading-tight">
             Tout sa w bezwen, rapid vit.
