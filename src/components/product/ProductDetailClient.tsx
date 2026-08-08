@@ -18,6 +18,7 @@ export function ProductDetailClient({
   );
   const [quantity, setQuantity] = useState(1);
   const addItem = useCartStore((s) => s.addItem);
+  const qtyInCart = useCartStore((s) => s.items.find((i) => i.variantId === variant?.id)?.quantity ?? 0);
 
   if (!variant) {
     return <p className="text-brand-gray">Ce produit n&apos;est pas disponible actuellement.</p>;
@@ -135,10 +136,15 @@ export function ProductDetailClient({
           <button
             onClick={handleAdd}
             disabled={outOfStock}
-            className="flex-1 flex items-center justify-center gap-2 rounded-full bg-brand-orange text-white font-semibold py-3.5 disabled:bg-brand-gray/40 hover:bg-brand-orange-dark transition"
+            className="relative flex-1 flex items-center justify-center gap-2 rounded-full bg-brand-orange text-white font-semibold py-3.5 disabled:bg-brand-gray/40 hover:bg-brand-orange-dark transition"
           >
             <ShoppingCart className="w-5 h-5" />
             Ajouter au panier
+            {qtyInCart > 0 && (
+              <span className="absolute -top-2 -right-2 bg-brand-ink text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">
+                {qtyInCart > 9 ? "9+" : qtyInCart}
+              </span>
+            )}
           </button>
         </div>
       </div>

@@ -10,6 +10,7 @@ import { useCartStore } from "@/store/cart-store";
 export function ProductCard({ product }: { product: Product & { variants: ProductVariant[] } }) {
   const variant = product.variants?.find((v) => v.is_default) ?? product.variants?.[0];
   const addItem = useCartStore((s) => s.addItem);
+  const qtyInCart = useCartStore((s) => s.items.find((i) => i.variantId === variant?.id)?.quantity ?? 0);
 
   if (!variant) return null;
 
@@ -75,9 +76,14 @@ export function ProductCard({ product }: { product: Product & { variants: Produc
             onClick={handleAdd}
             disabled={outOfStock}
             aria-label={`Ajouter ${product.name} au panier`}
-            className="w-8 h-8 rounded-full bg-brand-orange text-white flex items-center justify-center disabled:bg-brand-gray/40 hover:bg-brand-orange-dark transition"
+            className="relative w-8 h-8 rounded-full bg-brand-orange text-white flex items-center justify-center disabled:bg-brand-gray/40 hover:bg-brand-orange-dark transition"
           >
             <Plus className="w-4 h-4" />
+            {qtyInCart > 0 && (
+              <span className="absolute -top-1.5 -right-1.5 bg-brand-ink text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white">
+                {qtyInCart > 9 ? "9+" : qtyInCart}
+              </span>
+            )}
           </button>
         </div>
       </div>
