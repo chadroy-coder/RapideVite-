@@ -2146,5 +2146,125 @@
     "description": "Lait de croissance Bledina Nursie Croissance 3, avec Ferbiotik, Omega 3 et Calcium, 12-36 mois, 400 g.",
     "imageFile": "bledina-nursie-croissance-3-400g.webp",
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "huggies-little-snugglers-size2-29ct",
+    "name": "Huggies Little Snugglers Taille 2",
+    "brand": "Huggies",
+    "categorySlug": "produits-bebe",
+    "size": "Taille 2, 5-8 kg, 29 couches",
+    "description": "Couches Huggies Little Snugglers, taille 2, protection douce, 29 unites.",
+    "imageFile": "huggies-little-snugglers-size2-29ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "huggies-little-snugglers-size1-32ct",
+    "name": "Huggies Little Snugglers Taille 1",
+    "brand": "Huggies",
+    "categorySlug": "produits-bebe",
+    "size": "Taille 1, jusqu'a 6 kg, 32 couches",
+    "description": "Couches Huggies Little Snugglers, taille 1, protection douce jusqu'a 12h, 32 unites.",
+    "imageFile": "huggies-little-snugglers-size1-32ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "huggies-pullups-minnie-3t4t-20ct",
+    "name": "Huggies Pull-Ups Minnie",
+    "brand": "Huggies",
+    "categorySlug": "produits-bebe",
+    "size": "3T-4T, 20 unites",
+    "description": "Culottes d'apprentissage Huggies Pull-Ups, edition Minnie, taille 3T-4T, 20 unites.",
+    "imageFile": "huggies-pullups-minnie-3t4t-20ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "seapak-jumbo-butterfly-shrimp",
+    "name": "SeaPak Jumbo Butterfly Shrimp",
+    "brand": "SeaPak",
+    "categorySlug": "produits-surgeles",
+    "size": "Surgele",
+    "description": "Crevettes panees SeaPak Jumbo Butterfly Shrimp, Golden Crispy, surgelees.",
+    "imageFile": "seapak-jumbo-butterfly-shrimp.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "seapak-classic-popcorn-shrimp",
+    "name": "SeaPak Classic Popcorn Shrimp",
+    "brand": "SeaPak",
+    "categorySlug": "produits-surgeles",
+    "size": "Surgele",
+    "description": "Crevettes panees SeaPak Classic Popcorn Shrimp, Golden Crispy, surgelees.",
+    "imageFile": "seapak-classic-popcorn-shrimp.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "similac-advance-124oz",
+    "name": "Similac Advance",
+    "brand": "Similac",
+    "categorySlug": "produits-bebe",
+    "size": "12.4 oz (352 g)",
+    "description": "Lait maternise Similac Advance, nutrition complete pour la premiere annee, 0-12 mois.",
+    "imageFile": "similac-advance-124oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "similac-soy-isomil-308oz",
+    "name": "Similac Soy Isomil",
+    "brand": "Similac",
+    "categorySlug": "produits-bebe",
+    "size": "30.8 oz (873 g)",
+    "description": "Lait maternise Similac Soy Isomil, a base de soja, pour irritabilite et gaz, 0-12 mois.",
+    "imageFile": "similac-soy-isomil-308oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "similac-neosure-131oz",
+    "name": "Similac NeoSure",
+    "brand": "Similac",
+    "categorySlug": "produits-bebe",
+    "size": "13.1 oz (371 g)",
+    "description": "Lait maternise Similac NeoSure, nutrition enrichie pour bebes nes prematurement, 0-12 mois.",
+    "imageFile": "similac-neosure-131oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "similac-sensitive-125oz",
+    "name": "Similac Sensitive",
+    "brand": "Similac",
+    "categorySlug": "produits-bebe",
+    "size": "12.5 oz (354 g)",
+    "description": "Lait maternise Similac Sensitive, pour irritabilite et gaz dus a la sensibilite au lactose, 0-12 mois.",
+    "imageFile": "similac-sensitive-125oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "bledi-junior-800g",
+    "name": "Bledina Bledi Junior",
+    "brand": "Bledina",
+    "categorySlug": "produits-bebe",
+    "size": "3 a 7 ans, 800 g",
+    "description": "Lait de croissance Bledina Bledi Junior, pour enfants de 3 a 7 ans, 800 g.",
+    "imageFile": "bledi-junior-800g.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "bledilait-croissance-3-800g",
+    "name": "Bledina Bledilait Croissance 3",
+    "brand": "Bledina",
+    "categorySlug": "produits-bebe",
+    "size": "1 a 3 ans, 800 g",
+    "description": "Lait de croissance Bledina Bledilait Croissance 3, nouvelle formule, 1 a 3 ans, 800 g.",
+    "imageFile": "bledilait-croissance-3-800g.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "similac-360-total-care-206oz",
+    "name": "Similac 360 Total Care",
+    "brand": "Similac",
+    "categorySlug": "produits-bebe",
+    "size": "20.6 oz (584 g)",
+    "description": "Lait maternise Similac 360 Total Care, 5 HMO prebiotiques, formule la plus proche du lait maternel.",
+    "imageFile": "similac-360-total-care-206oz.webp",
+    "imageQualityStatus": "approved"
   }
 ]
