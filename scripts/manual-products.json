@@ -1766,5 +1766,115 @@
     "description": "Cava Freixenet Ice Rose, methode traditionnelle.",
     "imageFile": "freixenet-ice-rose-750ml.webp",
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "villa-jolanda-prosecco-750ml",
+    "name": "Villa Jolanda Prosecco Extra Dry",
+    "brand": "Villa Jolanda",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Prosecco Villa Jolanda, Extra Dry, Italie.",
+    "imageFile": "villa-jolanda-prosecco-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "grandial-brut-750ml",
+    "name": "Grandial Brut Blanc de Blancs",
+    "brand": "Grandial",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Vin mousseux Grandial Brut, Blanc de Blancs.",
+    "imageFile": "grandial-brut-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "trapiche-malbec-750ml",
+    "name": "Trapiche Malbec",
+    "brand": "Trapiche",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Vin rouge Trapiche Malbec, Argentine.",
+    "imageFile": "trapiche-malbec-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "luc-belaire-luxe-rose-750ml",
+    "name": "Luc Belaire Luxe Rose",
+    "brand": "Luc Belaire",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Vin mousseux Luc Belaire Luxe Rose, produit de France.",
+    "imageFile": "luc-belaire-luxe-rose-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "freixenet-excelencia-cava-750ml",
+    "name": "Freixenet Excelencia Cava Brut",
+    "brand": "Freixenet",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Cava Freixenet Excelencia, methode traditionnelle, Brut, Kosher.",
+    "imageFile": "freixenet-excelencia-cava-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "veuve-clicquot-brut-750ml",
+    "name": "Veuve Clicquot Brut",
+    "brand": "Veuve Clicquot",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Champagne Veuve Clicquot Brut, Reims, France.",
+    "imageFile": "veuve-clicquot-brut-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "softlove-diapers-m-36ct",
+    "name": "SoftLove Couches Taille M",
+    "brand": "SoftLove",
+    "categorySlug": "produits-bebe",
+    "size": "M, 5-10 kg, 36 couches",
+    "description": "Couches SoftLove Midi, taille M, dos respirant, 36 unites.",
+    "imageFile": "softlove-diapers-m-36ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "pampers-swaddlers-size7-44ct",
+    "name": "Pampers Swaddlers Taille 7",
+    "brand": "Pampers",
+    "categorySlug": "produits-bebe",
+    "size": "Taille 7, 44 couches",
+    "description": "Couches Pampers Swaddlers, taille 7 (41+ lb), 44 unites.",
+    "imageFile": "pampers-swaddlers-size7-44ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "pampers-swaddlers-size5-100ct",
+    "name": "Pampers Swaddlers Taille 5",
+    "brand": "Pampers",
+    "categorySlug": "produits-bebe",
+    "size": "Taille 5, 100 couches",
+    "description": "Couches Pampers Swaddlers, taille 5, protection anti-fuite, 100 unites.",
+    "imageFile": "pampers-swaddlers-size5-100ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "pampers-cruisers-size7-44ct",
+    "name": "Pampers Cruisers Taille 7",
+    "brand": "Pampers",
+    "categorySlug": "produits-bebe",
+    "size": "Taille 7, 44 couches",
+    "description": "Couches Pampers Cruisers, taille 7 (41+ lb), 44 unites.",
+    "imageFile": "pampers-cruisers-size7-44ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "pampers-cruisers360-size6-17ct",
+    "name": "Pampers Cruisers 360 Taille 6",
+    "brand": "Pampers",
+    "categorySlug": "produits-bebe",
+    "size": "Taille 6, 17 couches",
+    "description": "Couches-culottes Pampers Cruisers 360, taille 6, 17 unites.",
+    "imageFile": "pampers-cruisers360-size6-17ct.webp",
+    "imageQualityStatus": "approved"
   }
 ]
