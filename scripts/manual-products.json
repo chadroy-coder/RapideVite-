@@ -2266,5 +2266,205 @@
     "description": "Lait maternise Similac 360 Total Care, 5 HMO prebiotiques, formule la plus proche du lait maternel.",
     "imageFile": "similac-360-total-care-206oz.webp",
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "banquet-beef-pot-pie",
+    "name": "Banquet Beef Pot Pie",
+    "brand": "Banquet",
+    "categorySlug": "produits-surgeles",
+    "size": "7 oz (198 g)",
+    "description": "Tourte au boeuf Banquet, croute feuilletee faite a partir de zero, surgelee.",
+    "imageFile": "banquet-beef-pot-pie.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "gortons-crunchy-breaded-fish-fillets",
+    "name": "Gorton's Crunchy Breaded Fish Fillets",
+    "brand": "Gorton's",
+    "categorySlug": "produits-surgeles",
+    "size": "6 filets, 11.4 oz (323 g)",
+    "description": "Filets de poisson panes croustillants Gorton's, faits avec de la chapelure de pain frais, surgeles.",
+    "imageFile": "gortons-crunchy-breaded-fish-fillets.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "laoban-sesame-chicken-bao-buns",
+    "name": "Laoban Sesame Chicken Bao Buns",
+    "brand": "Laoban",
+    "categorySlug": "produits-surgeles",
+    "size": "10 oz (284 g)",
+    "description": "Bao buns au poulet sesame Laoban, poulet fermier, shiitake, surgeles, pret en 1 min au micro-ondes.",
+    "imageFile": "laoban-sesame-chicken-bao-buns.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "gortons-fish-sticks",
+    "name": "Gorton's Fish Sticks",
+    "brand": "Gorton's",
+    "categorySlug": "produits-surgeles",
+    "size": "18 batonnets, 11.4 oz (323 g)",
+    "description": "Batonnets de poisson panes Gorton's, faits de poisson minde, surgeles.",
+    "imageFile": "gortons-fish-sticks.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "bibigo-steamed-dumplings-chicken-vegetable",
+    "name": "Bibigo Steamed Dumplings Chicken & Vegetable",
+    "brand": "Bibigo",
+    "categorySlug": "produits-surgeles",
+    "size": "6 par barquette, avec sauce",
+    "description": "Dumplings vapeur Bibigo, poulet et legumes, sauce trempette incluse, entierement cuits, surgeles.",
+    "imageFile": "bibigo-steamed-dumplings-chicken-vegetable.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "stouffers-lasagna-family-57oz",
+    "name": "Stouffer's Classic Lasagna Family Size",
+    "brand": "Stouffer's",
+    "categorySlug": "produits-surgeles",
+    "size": "Family Size, 57 oz (3 lb 9 oz)",
+    "description": "Lasagne classique Stouffer's avec viande et sauce, 100% boeuf, sauce tomate et mozzarella, format familial, surgelee.",
+    "imageFile": "stouffers-lasagna-family-57oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "perdue-panko-chicken-nuggets",
+    "name": "Perdue Panko Breaded Chicken Breast Nuggets",
+    "brand": "Perdue",
+    "categorySlug": "produits-surgeles",
+    "size": "12 g proteines par portion",
+    "description": "Croquettes de poitrine de poulet panees panko Perdue, sans antibiotiques, viande blanche, surgelees.",
+    "imageFile": "perdue-panko-chicken-nuggets.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "banquet-brown-n-serve-turkey-sausage",
+    "name": "Banquet Brown'N Serve Turkey Sausage Links",
+    "brand": "Banquet",
+    "categorySlug": "produits-surgeles",
+    "size": "10 saucisses, 6.4 oz (181 g)",
+    "description": "Saucisses de dinde Banquet Brown'N Serve, entierement cuites, sans gluten, 8g proteines par portion, surgelees.",
+    "imageFile": "banquet-brown-n-serve-turkey-sausage.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "banquet-chicken-broccoli-pot-pie",
+    "name": "Banquet Chicken and Broccoli Pot Pie",
+    "brand": "Banquet",
+    "categorySlug": "produits-surgeles",
+    "size": "7 oz (198 g)",
+    "description": "Tourte au poulet et brocoli Banquet, croute feuilletee faite a partir de zero, surgelee.",
+    "imageFile": "banquet-chicken-broccoli-pot-pie.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "on-cor-lasagna-meat-sauce",
+    "name": "On-Cor Lasagna with Meat Sauce",
+    "brand": "On-Cor",
+    "categorySlug": "produits-surgeles",
+    "size": "28 oz (1 lb 12 oz / 793 g)",
+    "description": "Lasagne On-Cor avec sauce a la viande, pates fraichement faites, vraie mozzarella, surgelee.",
+    "imageFile": "on-cor-lasagna-meat-sauce.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "rudis-organic-spelt-bread",
+    "name": "Rudi's Organic Spelt Bread",
+    "brand": "Rudi's",
+    "categorySlug": "pain-patisserie",
+    "size": "20 oz (1 lb 4 oz / 567 g)",
+    "description": "Pain d'epeautre biologique Rudi's, non-OGM, vegane, Rocky Mountain Bakery.",
+    "imageFile": "rudis-organic-spelt-bread.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "seabest-frog-legs",
+    "name": "Sea Best Frog Legs",
+    "brand": "Sea Best",
+    "categorySlug": "produits-surgeles",
+    "size": "32 oz (2 lb / 907 g)",
+    "description": "Cuisses de grenouille Sea Best, viande blanche delicate et tendre, 17g proteines, surgelees.",
+    "imageFile": "seabest-frog-legs.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "seabest-snow-crab-clusters",
+    "name": "Sea Best Snow Crab Clusters",
+    "brand": "Sea Best",
+    "categorySlug": "produits-surgeles",
+    "size": "32 oz (2 lb / 907 g)",
+    "description": "Grappes de crabe des neiges Sea Best, entierement cuites, capture sauvage, surgelees.",
+    "imageFile": "seabest-snow-crab-clusters.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "bibigo-steamed-dumplings-pork-vegetable",
+    "name": "Bibigo Steamed Dumplings Pork & Vegetable",
+    "brand": "Bibigo",
+    "categorySlug": "produits-surgeles",
+    "size": "6 par barquette, avec sauce",
+    "description": "Dumplings vapeur Bibigo, porc et legumes, sauce trempette incluse, entierement cuits, surgeles.",
+    "imageFile": "bibigo-steamed-dumplings-pork-vegetable.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "panamei-snow-crab-clusters",
+    "name": "Panamei Snow Crab Clusters",
+    "brand": "Panamei Seafood",
+    "categorySlug": "produits-surgeles",
+    "size": "32 oz (2 lb / 907 g)",
+    "description": "Grappes de crabe des neiges Panamei Seafood, capture sauvage, tout naturel, surgelees.",
+    "imageFile": "panamei-snow-crab-clusters.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "udis-gf-french-baguettes",
+    "name": "Udi's Gluten Free French Baguettes",
+    "brand": "Udi's",
+    "categorySlug": "pain-patisserie",
+    "size": "2 baguettes",
+    "description": "Baguettes francaises sans gluten Udi's, croustillantes et delicieuses, 2 unites.",
+    "imageFile": "udis-gf-french-baguettes.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "goya-empanada-dough-tapas",
+    "name": "Goya Empanada Dough Tapas",
+    "brand": "Goya",
+    "categorySlug": "produits-surgeles",
+    "size": "5 pouces, 12 disques, 11.6 oz (329 g)",
+    "description": "Pate a empanada Goya, tapas, pate feuilletee 5 pouces, 12 disques avec separateurs, surgelee.",
+    "imageFile": "goya-empanada-dough-tapas.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "stouffers-lasagna-single-105oz",
+    "name": "Stouffer's Classic Lasagna Single",
+    "brand": "Stouffer's",
+    "categorySlug": "produits-surgeles",
+    "size": "10.5 oz (297 g)",
+    "description": "Lasagne classique Stouffer's avec viande et sauce, 100% boeuf, sauce tomate et mozzarella, portion individuelle, surgelee.",
+    "imageFile": "stouffers-lasagna-single-105oz.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "stouffers-cheesy-chicken-broccoli-pasta-bake",
+    "name": "Stouffer's Cheesy Chicken and Broccoli Pasta Bake",
+    "brand": "Stouffer's",
+    "categorySlug": "produits-surgeles",
+    "size": "Family Size, 40 oz (2 lb 8 oz)",
+    "description": "Gratin de pates Stouffer's, poulet et brocoli, sauce au vrai cheddar, format familial, surgele.",
+    "imageFile": "stouffers-cheesy-chicken-broccoli-pasta-bake.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "seapak-jumbo-coconut-shrimp",
+    "name": "SeaPak Jumbo Coconut Shrimp",
+    "brand": "SeaPak",
+    "categorySlug": "produits-surgeles",
+    "size": "Surgele, avec sauce marmelade a l'orange",
+    "description": "Crevettes panees a la noix de coco SeaPak Jumbo Coconut Shrimp, avec sauce marmelade a l'orange, surgelees.",
+    "imageFile": "seapak-jumbo-coconut-shrimp.webp",
+    "imageQualityStatus": "approved"
   }
 ]
