@@ -2466,5 +2466,95 @@
     "description": "Crevettes panees a la noix de coco SeaPak Jumbo Coconut Shrimp, avec sauce marmelade a l'orange, surgelees.",
     "imageFile": "seapak-jumbo-coconut-shrimp.webp",
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "banquet-turkey-pot-pie",
+    "name": "Banquet Turkey Pot Pie",
+    "brand": "Banquet",
+    "categorySlug": "produits-surgeles",
+    "size": "7 oz (198 g)",
+    "description": "Pot pie a la dinde Banquet, croute feuilletee faite maison, garni de dinde, legumes et sauce, surgele.",
+    "imageFile": "banquet-turkey-pot-pie.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "gortons-southern-style-fish-fillets",
+    "name": "Gorton's Southern Style Fish Fillets",
+    "brand": "Gorton's",
+    "categorySlug": "produits-surgeles",
+    "size": "6 filets, 11 oz (312 g)",
+    "description": "Filets de poisson pane Gorton's Southern Style, epices du sud et panure croustillante, surgeles.",
+    "imageFile": "gortons-southern-style-fish-fillets.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "gortons-garlic-herb-fish-fillets",
+    "name": "Gorton's Garlic & Herb Fish Fillets",
+    "brand": "Gorton's",
+    "categorySlug": "produits-surgeles",
+    "size": "6 filets, 11 oz (312 g)",
+    "description": "Filets de poisson pane Gorton's Garlic & Herb, ail roti et panure a l'italienne, surgeles.",
+    "imageFile": "gortons-garlic-herb-fish-fillets.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "brazi-bites-cheese-bread-everything",
+    "name": "Brazi Bites Brazilian Cheese Bread - Everything",
+    "brand": "Brazi Bites",
+    "categorySlug": "produits-surgeles",
+    "size": "Environ 18 pieces, 11.5 oz (330 g)",
+    "description": "Pain au fromage bresilien Brazi Bites, saveur Everything, sans gluten, sans soja, surgele.",
+    "imageFile": "brazi-bites-cheese-bread-everything.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "babina-gold-1-400g",
+    "name": "Babina Gold 1",
+    "brand": "Babina",
+    "categorySlug": "produits-bebe",
+    "size": "0-6 mois, 400 g",
+    "description": "Formule pour lactants Babina Gold 1, avec DHA, ARA et GOS, pour nourrissons de 0 a 6 mois.",
+    "imageFile": "babina-gold-1-400g.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "babina-gold-3-900g",
+    "name": "Babina Gold 3",
+    "brand": "Babina",
+    "categorySlug": "produits-bebe",
+    "size": "Des 12 mois, 900 g",
+    "description": "Formule de croissance Babina Gold 3, avec DHA et GOS, pour enfants des 12 mois.",
+    "imageFile": "babina-gold-3-900g.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "gallia-calisma-1-830g",
+    "name": "Gallia Calisma 1",
+    "brand": "Gallia",
+    "categorySlug": "produits-bebe",
+    "size": "0-6 mois, 830 g",
+    "description": "Lait infantile Gallia Calisma 1, des la naissance, avec DHA (Omega 3), sans huile de palme.",
+    "imageFile": "gallia-calisma-1-830g.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "gallia-calisma-2-800g",
+    "name": "Gallia Calisma 2",
+    "brand": "Gallia",
+    "categorySlug": "produits-bebe",
+    "size": "6-12 mois, 800 g",
+    "description": "Lait infantile Gallia Calisma 2, pour le systeme immunitaire, 6 a 12 mois.",
+    "imageFile": "gallia-calisma-2-800g.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "gallia-calisma-croissance-3-800g",
+    "name": "Gallia Calisma Croissance 3",
+    "brand": "Gallia",
+    "categorySlug": "produits-bebe",
+    "size": "Des 12 mois, 800 g",
+    "description": "Lait de croissance Gallia Calisma Croissance 3, fer, omega 3 et calcium, des 12 mois.",
+    "imageFile": "gallia-calisma-croissance-3-800g.webp",
+    "imageQualityStatus": "approved"
   }
 ]
