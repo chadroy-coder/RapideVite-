@@ -1686,5 +1686,85 @@
     "description": "Lait infantile Modilac Precision 1, sans huile de palme, avec DHA, pour bebes de 0 a 6 mois.",
     "imageFile": "modilac-precision-1.webp",
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "chandon-brut-750ml",
+    "name": "Chandon Brut",
+    "brand": "Chandon",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Vin mousseux Chandon Brut, methode traditionnelle.",
+    "imageFile": "chandon-brut-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "taittinger-prestige-rose-750ml",
+    "name": "Taittinger Prestige Rose",
+    "brand": "Taittinger",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Champagne Taittinger Prestige Rose, Brut, produit en France.",
+    "imageFile": "taittinger-prestige-rose-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "moet-chandon-imperial-brut-750ml",
+    "name": "Moet & Chandon Imperial Brut",
+    "brand": "Moet & Chandon",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Champagne Moet & Chandon Imperial Brut.",
+    "imageFile": "moet-chandon-imperial-brut-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "moet-chandon-rose-imperial-750ml",
+    "name": "Moet & Chandon Rose Imperial",
+    "brand": "Moet & Chandon",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Champagne Moet & Chandon Rose Imperial, coffret cadeau.",
+    "imageFile": "moet-chandon-rose-imperial-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "gh-mumm-cordon-rouge-750ml",
+    "name": "G.H. Mumm Cordon Rouge",
+    "brand": "G.H. Mumm",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Champagne G.H. Mumm Cordon Rouge, Brut.",
+    "imageFile": "gh-mumm-cordon-rouge-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "pommery-blanc-de-noirs-750ml",
+    "name": "Pommery Blanc de Noirs",
+    "brand": "Pommery",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Champagne Pommery Blanc de Noirs.",
+    "imageFile": "pommery-blanc-de-noirs-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "jp-chenet-ice-edition-750ml",
+    "name": "JP. Chenet Ice Edition Demi-Sec",
+    "brand": "JP. Chenet",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Vin mousseux JP. Chenet Ice Edition, Demi-Sec.",
+    "imageFile": "jp-chenet-ice-edition-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "freixenet-ice-rose-750ml",
+    "name": "Freixenet Ice Rose",
+    "brand": "Freixenet",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Cava Freixenet Ice Rose, methode traditionnelle.",
+    "imageFile": "freixenet-ice-rose-750ml.webp",
+    "imageQualityStatus": "approved"
   }
 ]
