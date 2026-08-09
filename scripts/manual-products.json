@@ -1966,5 +1966,75 @@
     "description": "Defroisseur vapeur portatif Hamilton Beach, avec brosse a tissu incluse.",
     "imageFile": "hamilton-beach-garment-steamer.webp",
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "chateau-haut-brion-750ml",
+    "name": "Chateau Haut-Brion Premier Grand Cru Classe",
+    "brand": "Chateau Haut-Brion",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Vin rouge Chateau Haut-Brion, Premier Grand Cru Classe, Pessac.",
+    "imageFile": "chateau-haut-brion-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "chateau-de-lhospital-graves-750ml",
+    "name": "Chateau de l'Hospital Graves 2016",
+    "brand": "Chateau de l'Hospital",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Vin rouge Chateau de l'Hospital, Graves, Grand Vin de Bordeaux, 2016.",
+    "imageFile": "chateau-de-lhospital-graves-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "chateau-sansonnet-saint-emilion-750ml",
+    "name": "Chateau Sansonnet Grand Cru Classe",
+    "brand": "Chateau Sansonnet",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Vin rouge Chateau Sansonnet, Grand Cru Classe, Saint-Emilion Grand Cru, 2023.",
+    "imageFile": "chateau-sansonnet-saint-emilion-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "kikolastic-talla5-40ct",
+    "name": "Kikolastic Couches Taille 5",
+    "brand": "Kikolastic",
+    "categorySlug": "produits-bebe",
+    "size": "X-Grande, 12-16 kg, 40 unites",
+    "description": "Couches Kikolastic, taille 5 X-Grande, 40 unites.",
+    "imageFile": "kikolastic-talla5-40ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "kikolastic-talla4-40ct",
+    "name": "Kikolastic Couches Taille 4",
+    "brand": "Kikolastic",
+    "categorySlug": "produits-bebe",
+    "size": "Grande, 9-13 kg, 40 unites",
+    "description": "Couches Kikolastic, taille 4 Grande, 40 unites.",
+    "imageFile": "kikolastic-talla4-40ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "kikolastic-talla3-40ct",
+    "name": "Kikolastic Couches Taille 3",
+    "brand": "Kikolastic",
+    "categorySlug": "produits-bebe",
+    "size": "Mediano, 7-10 kg, 40 unites",
+    "description": "Couches Kikolastic, taille 3 Mediano, 40 unites.",
+    "imageFile": "kikolastic-talla3-40ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "chateau-teyssier-montagne-saint-emilion-750ml",
+    "name": "Chateau Teyssier Montagne Saint-Emilion",
+    "brand": "Chateau Teyssier",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Vin rouge Chateau Teyssier, Montagne Saint-Emilion, 2015.",
+    "imageFile": "chateau-teyssier-montagne-saint-emilion-750ml.webp",
+    "imageQualityStatus": "approved"
   }
 ]
