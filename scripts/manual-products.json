@@ -1656,5 +1656,35 @@
     "description": "Lait biologique, format demi-gallon.",
     "imageFile": "horizon-organic-milk-halfgal.webp",
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "membersmark-jasmine-rice-25lb",
+    "name": "Member's Mark Thai Hom Mali Jasmine Rice",
+    "brand": "Member's Mark",
+    "categorySlug": "epicerie",
+    "size": "25 lb (11.34 kg)",
+    "description": "Riz jasmin thailandais Thai Hom Mali, grain long parfume, sac de 25 lb.",
+    "imageFile": "membersmark-jasmine-rice-25lb.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "daawat-ultima-basmati-rice-10lb",
+    "name": "Daawat Ultima Basmati Rice",
+    "brand": "Daawat",
+    "categorySlug": "epicerie",
+    "size": "10 lb (4.54 kg)",
+    "description": "Riz basmati Daawat Ultima, grains extra longs, vieilli jusqu'a 2 ans.",
+    "imageFile": "daawat-ultima-basmati-rice-10lb.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "modilac-precision-1",
+    "name": "Modilac Precision 1",
+    "brand": "Modilac",
+    "categorySlug": "produits-bebe",
+    "size": "0-6 mois",
+    "description": "Lait infantile Modilac Precision 1, sans huile de palme, avec DHA, pour bebes de 0 a 6 mois.",
+    "imageFile": "modilac-precision-1.webp",
+    "imageQualityStatus": "approved"
   }
 ]
