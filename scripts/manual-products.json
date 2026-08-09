@@ -1876,5 +1876,95 @@
     "description": "Couches-culottes Pampers Cruisers 360, taille 6, 17 unites.",
     "imageFile": "pampers-cruisers360-size6-17ct.webp",
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "thomas-barton-reserve-margaux-750ml",
+    "name": "Thomas Barton Reserve Margaux",
+    "brand": "Thomas Barton",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Vin rouge Thomas Barton Reserve, appellation Margaux controlee, France.",
+    "imageFile": "thomas-barton-reserve-margaux-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "chateau-beychevelle-saint-julien-750ml",
+    "name": "Chateau Beychevelle Grand Vin",
+    "brand": "Chateau Beychevelle",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Vin rouge Chateau Beychevelle Grand Vin, Saint-Julien, France.",
+    "imageFile": "chateau-beychevelle-saint-julien-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "chateau-haut-bailly-pessac-leognan-750ml",
+    "name": "Chateau Haut-Bailly 1999",
+    "brand": "Chateau Haut-Bailly",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Vin rouge Chateau Haut-Bailly, Grand Cru Classe de Graves, Pessac-Leognan, 1999.",
+    "imageFile": "chateau-haut-bailly-pessac-leognan-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "chateau-tour-de-pez-saint-estephe-750ml",
+    "name": "Chateau Tour de Pez",
+    "brand": "Chateau Tour de Pez",
+    "categorySlug": "alcools-spiritueux",
+    "size": "750 mL (25.4 fl oz)",
+    "description": "Vin rouge Chateau Tour de Pez, Saint-Estephe, Cru Bourgeois, France.",
+    "imageFile": "chateau-tour-de-pez-saint-estephe-750ml.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "kiddies-antifugas-talla6-40ct",
+    "name": "Kiddies Antifugas Couches Taille 6",
+    "brand": "Kiddies",
+    "categorySlug": "produits-bebe",
+    "size": "XX-Grande, 13-16 kg, 40 unites",
+    "description": "Couches Kiddies Antifugas, taille 6 XX-Grande, edition Justice League, 40 unites.",
+    "imageFile": "kiddies-antifugas-talla6-40ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "kiddies-antifugas-talla5-40ct",
+    "name": "Kiddies Antifugas Couches Taille 5",
+    "brand": "Kiddies",
+    "categorySlug": "produits-bebe",
+    "size": "X-Grande, 11-14 kg, 40 unites",
+    "description": "Couches Kiddies Antifugas, taille 5 X-Grande, edition Justice League, 40 unites.",
+    "imageFile": "kiddies-antifugas-talla5-40ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "kiddies-antifugas-talla4-36ct",
+    "name": "Kiddies Antifugas Couches Taille 4",
+    "brand": "Kiddies",
+    "categorySlug": "produits-bebe",
+    "size": "Grande, 9-12 kg, 36 unites",
+    "description": "Couches Kiddies Antifugas, taille 4 Grande, edition Justice League, 36 unites.",
+    "imageFile": "kiddies-antifugas-talla4-36ct.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "hamilton-beach-steam-iron",
+    "name": "Hamilton Beach Fer a Repasser Vapeur",
+    "brand": "Hamilton Beach",
+    "categorySlug": "cuisine-maison",
+    "size": "Unite",
+    "description": "Fer a repasser vapeur Hamilton Beach, reservoir d'eau transparent, semelle antiadhesive.",
+    "imageFile": "hamilton-beach-steam-iron.webp",
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "hamilton-beach-garment-steamer",
+    "name": "Hamilton Beach Defroisseur Vapeur Portatif",
+    "brand": "Hamilton Beach",
+    "categorySlug": "cuisine-maison",
+    "size": "Unite, avec brosse",
+    "description": "Defroisseur vapeur portatif Hamilton Beach, avec brosse a tissu incluse.",
+    "imageFile": "hamilton-beach-garment-steamer.webp",
+    "imageQualityStatus": "approved"
   }
 ]
