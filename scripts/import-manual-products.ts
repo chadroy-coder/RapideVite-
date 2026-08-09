@@ -83,6 +83,21 @@ async function main() {
   }
   const categoryIdBySlug = new Map(categories.map((c) => [c.slug as string, c.id as string]));
 
+  // Products already in the DB may have been reviewed and published via the
+  // admin "Marquer verifie" bulk action (which sets is_draft_product = false
+  // directly in Supabase, outside this manifest). Re-running this script
+  // must not silently re-draft / un-publish those. Only brand-new slugs get
+  // is_draft_product: true; existing slugs keep whatever draft status they
+  // currently have in the DB.
+  const { data: existingProducts, error: existingErr } = await supabase
+    .from("products")
+    .select("slug");
+  if (existingErr) {
+    console.error("Could not load existing products from Supabase:", existingErr.message);
+    process.exit(1);
+  }
+  const existingSlugs = new Set((existingProducts ?? []).map((p) => p.slug as string));
+
   console.log(`\nImporting ${manifest.length} manually-sourced product(s)...\n`);
 
   const imported: { name: string; brand: string; category: string }[] = [];
@@ -140,22 +155,27 @@ async function main() {
     }
     const { data: publicUrlData } = supabase.storage.from("product-images").getPublicUrl(storagePath);
 
+    const isNewProduct = !existingSlugs.has(entry.slug);
+    const productPayload: Record<string, unknown> = {
+      name: entry.name,
+      slug: entry.slug,
+      description: entry.description,
+      brand: entry.brand,
+      category_id: categoryId,
+      image_url: publicUrlData.publicUrl,
+      active: true,
+      image_quality_status: entry.imageQualityStatus ?? "needs_replacement",
+    };
+    // Only force is_draft_product on brand-new products. Existing products
+    // may have already been reviewed and published via "Marquer verifie" in
+    // the admin UI - don't clobber that back to draft on every re-run.
+    if (isNewProduct) {
+      productPayload.is_draft_product = true;
+    }
+
     const { data: product, error: productError } = await supabase
       .from("products")
-      .upsert(
-        {
-          name: entry.name,
-          slug: entry.slug,
-          description: entry.description,
-          brand: entry.brand,
-          category_id: categoryId,
-          image_url: publicUrlData.publicUrl,
-          active: true,
-          is_draft_product: true,
-          image_quality_status: entry.imageQualityStatus ?? "needs_replacement",
-        },
-        { onConflict: "slug" }
-      )
+      .upsert(productPayload, { onConflict: "slug" })
       .select("id")
       .single();
 
