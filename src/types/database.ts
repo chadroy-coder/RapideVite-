@@ -11,6 +11,11 @@ export type OrderStatus =
   | "delivered"
   | "cancelled";
 
+// Statuses where the order is still actively moving toward the customer -
+// used to decide when to show a "you have an order in progress" indicator
+// (account page live-orders section, bottom nav badge).
+export const LIVE_ORDER_STATUSES: OrderStatus[] = ["new", "confirmed", "preparing", "ready", "out_for_delivery"];
+
 export type PaymentMethod = "cash_on_delivery" | "moncash" | "natcash" | "sogebank" | "card";
 export type PaymentStatus = "pending" | "authorized" | "paid" | "failed" | "refunded";
 

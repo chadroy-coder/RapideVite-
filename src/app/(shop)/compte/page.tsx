@@ -10,15 +10,14 @@ import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
 import { formatUSD, formatHTGEstimate } from "@/lib/format";
 import { OrderItemsPreview } from "@/components/order/OrderItemsPreview";
 import { OrderDriverLine } from "@/components/order/OrderDriverLine";
-
-const LIVE_STATUSES = new Set(["new", "confirmed", "preparing", "ready", "out_for_delivery"]);
+import { LIVE_ORDER_STATUSES } from "@/types/database";
 
 export default async function AccountPage() {
   const { user, profile } = await getCurrentUserAndProfile();
   if (!user) redirect("/login?redirect=/compte");
 
   const [orders, addresses, subscription] = await Promise.all([getMyOrders(), getMyAddresses(), getMySubscription()]);
-  const liveOrders = orders.filter((o) => LIVE_STATUSES.has(o.status));
+  const liveOrders = orders.filter((o) => LIVE_ORDER_STATUSES.includes(o.status));
   const defaultAddress = addresses.find((a) => a.is_default) ?? addresses[0];
   const isPlusMember = isSubscriptionActive(subscription);
 

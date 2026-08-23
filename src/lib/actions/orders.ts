@@ -3,7 +3,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { checkoutSchema, type CheckoutInput } from "@/lib/validations/schemas";
-import type { Order, OrderItem } from "@/types/database";
+import { LIVE_ORDER_STATUSES, type Order, type OrderItem } from "@/types/database";
 
 export interface CartLine {
   variantId: string;
@@ -285,6 +285,23 @@ export async function respondToSubstitute(orderId: string, itemId: string, accep
     .eq("order_id", orderId);
   if (error) return { error: "Impossible d'enregistrer votre reponse." };
   return { error: null };
+}
+
+// Powers the "order in progress" badge on the bottom nav's Commandes icon -
+// deliberately just a boolean-ish count, not the full order list, so it's
+// cheap enough to poll every so often while the customer browses.
+export async function getLiveOrderCount() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return 0;
+  const { count } = await supabase
+    .from("orders")
+    .select("*", { count: "exact", head: true })
+    .eq("user_id", user.id)
+    .in("status", LIVE_ORDER_STATUSES);
+  return count ?? 0;
 }
 
 export async function getMyOrders() {
