@@ -11,7 +11,7 @@ export type OrderStatus =
   | "delivered"
   | "cancelled";
 
-export type PaymentMethod = "cash_on_delivery" | "moncash" | "natcash" | "card";
+export type PaymentMethod = "cash_on_delivery" | "moncash" | "natcash" | "sogebank" | "card";
 export type PaymentStatus = "pending" | "authorized" | "paid" | "failed" | "refunded";
 
 export type SubscriptionStatus = "active" | "past_due" | "canceled" | "inactive";
@@ -137,6 +137,10 @@ export interface Order {
   driver_photo_url: string | null;
   stripe_checkout_session_id?: string | null;
   stripe_payment_intent_id?: string | null;
+  // Storage path of the customer-uploaded MonCash/NatCash/Sogebank transfer
+  // screenshot, set after order creation via uploadPaymentProof(). Null for
+  // card and cash_on_delivery orders.
+  payment_proof_url?: string | null;
   created_at: string;
   updated_at: string;
   items?: OrderItem[];
@@ -184,5 +188,10 @@ export const PAYMENT_METHOD_LABELS: Record<PaymentMethod, string> = {
   cash_on_delivery: "Paiement a la livraison",
   moncash: "MonCash",
   natcash: "NatCash",
+  sogebank: "Sogebank (virement)",
   card: "Carte bancaire",
 };
+
+// Methods where the customer sends money manually and must upload a
+// screenshot of the transaction as proof before the order is confirmed.
+export const PROOF_REQUIRED_PAYMENT_METHODS: PaymentMethod[] = ["moncash", "natcash", "sogebank"];

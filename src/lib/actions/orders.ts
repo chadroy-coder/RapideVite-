@@ -1,6 +1,7 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { checkoutSchema, type CheckoutInput } from "@/lib/validations/schemas";
 import type { Order, OrderItem } from "@/types/database";
 
@@ -165,6 +166,57 @@ export async function placeOrder(cartLines: CartLine[], input: CheckoutInput) {
     .eq("id", user.id);
 
   return { error: null, orderId: order.id as string, orderNumber: order.order_number as string };
+}
+
+// Uploads the customer's MonCash/NatCash/Sogebank transfer screenshot for an
+// order they just placed, and records its storage path on the order. Runs
+// with the service-role client (customers have no update grant on orders -
+// see orders_staff_update in 0002_rls.sql) but only after verifying the
+// order actually belongs to the calling user, so a customer can never attach
+// a "proof" to someone else's order.
+export async function uploadPaymentProof(orderId: string, formData: FormData) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return { error: "Veuillez vous connecter.", url: null };
+
+  const { data: order } = await supabase
+    .from("orders")
+    .select("id, user_id")
+    .eq("id", orderId)
+    .single();
+  if (!order || order.user_id !== user.id) {
+    return { error: "Commande introuvable.", url: null };
+  }
+
+  const file = formData.get("file") as File | null;
+  if (!file || file.size === 0) return { error: "Aucun fichier fourni.", url: null };
+  if (file.size > 20 * 1024 * 1024) {
+    return { error: "Fichier trop volumineux (max 20 Mo).", url: null };
+  }
+
+  const admin = createAdminClient();
+  const ext = file.name.split(".").pop() || "jpg";
+  const path = `${orderId}/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+  const { error: uploadError } = await admin.storage
+    .from("payment-proofs")
+    .upload(path, await file.arrayBuffer(), { contentType: file.type, upsert: false });
+
+  if (uploadError) {
+    return { error: "Echec du telechargement de la preuve de paiement.", url: null };
+  }
+
+  const { error: updateError } = await admin
+    .from("orders")
+    .update({ payment_proof_url: path })
+    .eq("id", orderId);
+
+  if (updateError) {
+    return { error: "Preuve envoyee mais impossible de l'associer a la commande.", url: null };
+  }
+
+  return { error: null, url: path };
 }
 
 export async function getOrderById(orderId: string) {

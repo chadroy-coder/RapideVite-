@@ -4,8 +4,9 @@ import { listDrivers } from "@/lib/actions/admin-drivers";
 import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
 import { OrderTracker } from "@/components/order/OrderTracker";
 import { OrderStatusForm } from "@/components/admin/OrderStatusForm";
+import { PaymentProofPanel } from "@/components/admin/PaymentProofPanel";
 import { formatUSD } from "@/lib/format";
-import { PAYMENT_METHOD_LABELS } from "@/types/database";
+import { PAYMENT_METHOD_LABELS, PROOF_REQUIRED_PAYMENT_METHODS } from "@/types/database";
 
 export default async function AdminOrderDetailPage({
   params,
@@ -54,6 +55,15 @@ export default async function AdminOrderDetailPage({
           {order.delivery_instructions && <p className="text-brand-gray italic">{order.delivery_instructions}</p>}
           <p className="text-brand-gray mt-2">Paiement: {PAYMENT_METHOD_LABELS[order.payment_method]} · Statut paiement: {order.payment_status}</p>
         </div>
+
+        {PROOF_REQUIRED_PAYMENT_METHODS.includes(order.payment_method) && (
+          <PaymentProofPanel
+            orderId={order.id}
+            paymentMethod={order.payment_method}
+            paymentStatus={order.payment_status}
+            proofSignedUrl={order.paymentProofSignedUrl}
+          />
+        )}
       </div>
 
       <OrderStatusForm

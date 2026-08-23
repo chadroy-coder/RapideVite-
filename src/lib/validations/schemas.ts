@@ -22,7 +22,7 @@ export const checkoutSchema = z.object({
   neighborhood: z.string().max(120).optional().or(z.literal("")),
   street: z.string().min(3, "Adresse requise"),
   delivery_instructions: z.string().max(500).optional().or(z.literal("")),
-  payment_method: z.enum(["cash_on_delivery", "moncash", "natcash", "card"]),
+  payment_method: z.enum(["cash_on_delivery", "moncash", "natcash", "sogebank", "card"]),
   save_address: z.boolean().optional().default(false),
 });
 export type CheckoutInput = z.input<typeof checkoutSchema>;

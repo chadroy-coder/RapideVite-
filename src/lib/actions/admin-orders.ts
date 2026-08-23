@@ -23,7 +23,37 @@ export async function getOrderAdmin(id: string) {
   const { data: order } = await supabase.from("orders").select("*").eq("id", id).single();
   if (!order) return null;
   const { data: items } = await supabase.from("order_items").select("*").eq("order_id", id);
-  return { ...(order as Order), items: (items ?? []) as OrderItem[] };
+
+  // payment-proofs is a private bucket (screenshots can contain personal
+  // financial info), so admins view it via a short-lived signed URL rather
+  // than a public one.
+  let paymentProofSignedUrl: string | null = null;
+  if (order.payment_proof_url) {
+    const admin = createAdminClient();
+    const { data: signed } = await admin.storage
+      .from("payment-proofs")
+      .createSignedUrl(order.payment_proof_url, 60 * 15);
+    paymentProofSignedUrl = signed?.signedUrl ?? null;
+  }
+
+  return { ...(order as Order), items: (items ?? []) as OrderItem[], paymentProofSignedUrl };
+}
+
+// For MonCash/NatCash/Sogebank orders: after checking the uploaded
+// screenshot, staff mark the transfer as confirmed ("paid") or rejected
+// ("failed"). Does not touch card/cash_on_delivery orders - those flow
+// through Stripe or get paid at the door.
+export async function verifyOrderPayment(orderId: string, approve: boolean) {
+  const { supabase } = await requireStaff();
+  const { error } = await supabase
+    .from("orders")
+    .update({ payment_status: approve ? "paid" : "failed" })
+    .eq("id", orderId);
+  if (error) return { error: "Impossible de mettre a jour le statut du paiement." };
+  revalidatePath("/admin/commandes");
+  revalidatePath(`/admin/commandes/${orderId}`);
+  revalidatePath(`/commandes/${orderId}`);
+  return { error: null };
 }
 
 export async function updateOrderStatus(input: OrderStatusUpdateInput) {
