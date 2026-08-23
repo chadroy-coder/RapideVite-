@@ -225,7 +225,9 @@ export async function getOrderById(orderId: string) {
   if (!order) return null;
   const { data: items } = await supabase
     .from("order_items")
-    .select("*, product:products(image_url), substitute_product:products!order_items_substitute_product_id_fkey(name, image_url)")
+    .select(
+      "*, product:products!order_items_product_id_fkey(image_url), substitute_product:products!order_items_substitute_product_id_fkey(name, image_url)"
+    )
     .eq("order_id", orderId);
   return { ...(order as Order), items: (items ?? []) as unknown as OrderItem[] };
 }
@@ -293,7 +295,7 @@ export async function getMyOrders() {
   if (!user) return [];
   const { data } = await supabase
     .from("orders")
-    .select("*, items:order_items(*, product:products(image_url))")
+    .select("*, items:order_items(*, product:products!order_items_product_id_fkey(image_url))")
     .eq("user_id", user.id)
     .order("created_at", { ascending: false });
   return (data ?? []) as unknown as (Order & { items: OrderItem[] })[];
