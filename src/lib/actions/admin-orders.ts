@@ -4,18 +4,36 @@ import { revalidatePath } from "next/cache";
 import { requireStaff } from "@/lib/require-staff";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { orderStatusUpdateSchema, type OrderStatusUpdateInput } from "@/lib/validations/schemas";
-import type { Order, OrderItem, OrderStatus } from "@/types/database";
+import { PROOF_REQUIRED_PAYMENT_METHODS, type Order, type OrderItem, type OrderStatus } from "@/types/database";
 
-export async function listOrdersAdmin(filters?: { status?: OrderStatus; query?: string }) {
+export async function listOrdersAdmin(filters?: { status?: OrderStatus; query?: string; pendingPayment?: boolean }) {
   const { supabase } = await requireStaff();
   let q = supabase.from("orders").select("*").order("created_at", { ascending: false });
   if (filters?.status) q = q.eq("status", filters.status);
   if (filters?.query) {
     q = q.or(`order_number.ilike.%${filters.query}%,customer_name.ilike.%${filters.query}%,customer_phone.ilike.%${filters.query}%`);
   }
+  // MonCash/NatCash/Sogebank orders whose screenshot hasn't been reviewed yet -
+  // used by the "A verifier" quick filter on the admin orders list.
+  if (filters?.pendingPayment) {
+    q = q.eq("payment_status", "pending").in("payment_method", PROOF_REQUIRED_PAYMENT_METHODS);
+  }
   const { data, error } = await q;
   if (error) throw error;
   return data ?? [];
+}
+
+// Count of manual-method orders awaiting a payment verification decision -
+// powers the badge on the admin nav / orders list quick filter.
+export async function countPendingPaymentVerifications() {
+  const { supabase } = await requireStaff();
+  const { count, error } = await supabase
+    .from("orders")
+    .select("*", { count: "exact", head: true })
+    .eq("payment_status", "pending")
+    .in("payment_method", PROOF_REQUIRED_PAYMENT_METHODS);
+  if (error) return 0;
+  return count ?? 0;
 }
 
 export async function getOrderAdmin(id: string) {

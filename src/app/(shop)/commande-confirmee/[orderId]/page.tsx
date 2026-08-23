@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CheckCircle2, XCircle } from "lucide-react";
 import { getOrderById } from "@/lib/actions/orders";
 import { formatUSD, formatHTGEstimate } from "@/lib/format";
+import { PROOF_REQUIRED_PAYMENT_METHODS } from "@/types/database";
 import { notFound } from "next/navigation";
 
 export default async function OrderConfirmationPage({
@@ -19,6 +20,7 @@ export default async function OrderConfirmationPage({
   const isCardOrder = order.payment_method === "card";
   const cardCancelled = isCardOrder && paiement === "annule" && order.payment_status !== "paid";
   const cardPaid = isCardOrder && order.payment_status === "paid";
+  const isManualPaymentOrder = PROOF_REQUIRED_PAYMENT_METHODS.includes(order.payment_method);
 
   return (
     <div className="max-w-xl mx-auto px-4 py-10 text-center">
@@ -50,6 +52,24 @@ export default async function OrderConfirmationPage({
             {isCardOrder && (cardPaid ? " Paiement recu." : " Paiement en cours de confirmation.")}
           </p>
         </>
+      )}
+
+      {isManualPaymentOrder && order.payment_status === "pending" && (
+        <div className="mt-6 border border-amber-200 bg-amber-50 rounded-2xl p-4 text-left text-sm text-amber-800">
+          Votre capture d&apos;ecran a bien ete recue. Nous verifions votre paiement - vous serez notifie des que
+          la commande est confirmee, generalement sous peu.
+        </div>
+      )}
+      {isManualPaymentOrder && order.payment_status === "failed" && (
+        <div className="mt-6 border border-red-200 bg-red-50 rounded-2xl p-4 text-left text-sm text-red-700">
+          Nous n&apos;avons pas pu confirmer votre paiement. Contactez-nous ou passez a nouveau votre commande avec
+          une capture d&apos;ecran claire de la transaction.
+        </div>
+      )}
+      {isManualPaymentOrder && order.payment_status === "paid" && (
+        <div className="mt-6 border border-brand-green/30 bg-brand-green/5 rounded-2xl p-4 text-left text-sm text-brand-green font-medium">
+          Paiement confirme. Merci !
+        </div>
       )}
 
       <div className="mt-6 border border-brand-border rounded-2xl p-5 text-left space-y-3">

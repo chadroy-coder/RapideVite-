@@ -4,7 +4,7 @@ import { getOrderById } from "@/lib/actions/orders";
 import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
 import { OrderTracker } from "@/components/order/OrderTracker";
 import { formatUSD, formatHTGEstimate } from "@/lib/format";
-import { PAYMENT_METHOD_LABELS } from "@/types/database";
+import { PAYMENT_METHOD_LABELS, PROOF_REQUIRED_PAYMENT_METHODS } from "@/types/database";
 import { notFound } from "next/navigation";
 
 export default async function OrderTrackingPage({
@@ -77,7 +77,17 @@ export default async function OrderTrackingPage({
         <h2 className="font-semibold text-brand-ink mb-2">Livraison</h2>
         <p className="text-brand-gray">{order.street}, {order.neighborhood ? `${order.neighborhood}, ` : ""}{order.commune}, {order.department}</p>
         {order.delivery_instructions && <p className="text-brand-gray italic">{order.delivery_instructions}</p>}
-        <p className="text-brand-gray mt-2">Paiement: {PAYMENT_METHOD_LABELS[order.payment_method]}</p>
+        <p className="text-brand-gray mt-2">
+          Paiement: {PAYMENT_METHOD_LABELS[order.payment_method]}
+          {PROOF_REQUIRED_PAYMENT_METHODS.includes(order.payment_method) && (
+            <>
+              {" "}·{" "}
+              {order.payment_status === "paid" && <span className="text-brand-green font-medium">Confirme</span>}
+              {order.payment_status === "pending" && <span className="text-amber-600 font-medium">En attente de verification</span>}
+              {order.payment_status === "failed" && <span className="text-red-600 font-medium">Rejete - contactez-nous</span>}
+            </>
+          )}
+        </p>
       </div>
     </div>
   );
