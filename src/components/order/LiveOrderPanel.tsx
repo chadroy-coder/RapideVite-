@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { Check, X, RefreshCw, PackageX } from "lucide-react";
 import { getOrderLiveState, respondToSubstitute } from "@/lib/actions/orders";
 import { useToastStore } from "@/store/toast-store";
@@ -108,12 +109,23 @@ export function LiveOrderPanel({
       <ul className="space-y-2">
         {items.map((item) => (
           <li key={item.id} className="text-sm border-b border-brand-border last:border-0 pb-2 last:pb-0">
-            <div className="flex justify-between items-center">
-              <span className={item.fulfillment_status === "refunded" ? "text-brand-gray line-through" : "text-brand-ink"}>
-                {item.quantity} x {item.product_name}
-                {item.variant_label ? ` (${item.variant_label})` : ""}
-              </span>
-              <div className="flex items-center gap-2">
+            <div className="flex justify-between items-center gap-3">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <div className="relative w-9 h-9 rounded-lg overflow-hidden bg-brand-cream border border-brand-border shrink-0">
+                  <Image
+                    src={item.product?.image_url || "/products/placeholder.svg"}
+                    alt={item.product_name}
+                    fill
+                    sizes="36px"
+                    className="object-cover"
+                  />
+                </div>
+                <span className={item.fulfillment_status === "refunded" ? "text-brand-gray line-through" : "text-brand-ink"}>
+                  {item.quantity} x {item.product_name}
+                  {item.variant_label ? ` (${item.variant_label})` : ""}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
                 <span className="text-brand-gray">{formatUSD(item.line_total)}</span>
                 <ItemStatusBadge status={item.fulfillment_status} />
               </div>
