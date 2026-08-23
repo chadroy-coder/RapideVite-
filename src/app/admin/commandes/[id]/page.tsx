@@ -5,8 +5,17 @@ import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
 import { OrderTracker } from "@/components/order/OrderTracker";
 import { OrderStatusForm } from "@/components/admin/OrderStatusForm";
 import { PaymentProofPanel } from "@/components/admin/PaymentProofPanel";
+import { DriverLinkCard } from "@/components/admin/DriverLinkCard";
 import { formatUSD } from "@/lib/format";
-import { PAYMENT_METHOD_LABELS, PROOF_REQUIRED_PAYMENT_METHODS } from "@/types/database";
+import { PAYMENT_METHOD_LABELS, PROOF_REQUIRED_PAYMENT_METHODS, type ItemFulfillmentStatus } from "@/types/database";
+
+const FULFILLMENT_LABELS: Record<ItemFulfillmentStatus, string> = {
+  pending: "",
+  found: "Trouve",
+  unavailable: "Indisponible",
+  substituted: "Remplace",
+  refunded: "Rembourse",
+};
 
 export default async function AdminOrderDetailPage({
   params,
@@ -35,7 +44,12 @@ export default async function AdminOrderDetailPage({
             {order.items.map((item) => (
               <li key={item.id} className="flex justify-between text-sm py-2 border-b border-brand-border last:border-0">
                 <span>{item.quantity} x {item.product_name}{item.variant_label ? ` (${item.variant_label})` : ""}</span>
-                <span className="text-brand-gray">{formatUSD(item.line_total)}</span>
+                <span className="flex items-center gap-2">
+                  {item.fulfillment_status !== "pending" && (
+                    <span className="text-[11px] font-semibold text-brand-orange">{FULFILLMENT_LABELS[item.fulfillment_status]}</span>
+                  )}
+                  <span className="text-brand-gray">{formatUSD(item.line_total)}</span>
+                </span>
               </li>
             ))}
           </ul>
@@ -64,6 +78,8 @@ export default async function AdminOrderDetailPage({
             proofSignedUrl={order.paymentProofSignedUrl}
           />
         )}
+
+        <DriverLinkCard url={`${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/livreur/${order.driver_access_token}`} />
       </div>
 
       <OrderStatusForm

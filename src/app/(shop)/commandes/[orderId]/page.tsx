@@ -3,6 +3,7 @@ import { Bike, Clock } from "lucide-react";
 import { getOrderById } from "@/lib/actions/orders";
 import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
 import { OrderTracker } from "@/components/order/OrderTracker";
+import { LiveOrderPanel } from "@/components/order/LiveOrderPanel";
 import { formatUSD, formatHTGEstimate } from "@/lib/format";
 import { PAYMENT_METHOD_LABELS, PROOF_REQUIRED_PAYMENT_METHODS } from "@/types/database";
 import { notFound } from "next/navigation";
@@ -56,14 +57,15 @@ export default async function OrderTrackingPage({
 
       <div className="border border-brand-border rounded-2xl p-5 space-y-3 mb-6">
         <h2 className="font-semibold text-brand-ink">Articles</h2>
-        <ul className="space-y-2">
-          {(order.items ?? []).map((item) => (
-            <li key={item.id} className="flex justify-between text-sm">
-              <span>{item.quantity} x {item.product_name}{item.variant_label ? ` (${item.variant_label})` : ""}</span>
-              <span className="text-brand-gray">{formatUSD(item.line_total)}</span>
-            </li>
-          ))}
-        </ul>
+        <LiveOrderPanel
+          orderId={order.id}
+          initialItems={order.items ?? []}
+          initialDriverLocation={{
+            lat: order.driver_lat ?? null,
+            lng: order.driver_lng ?? null,
+            updatedAt: order.driver_location_updated_at ?? null,
+          }}
+        />
         <div className="border-t border-brand-border pt-3 flex justify-between font-bold text-brand-ink">
           <span>Total</span>
           <div className="text-right">

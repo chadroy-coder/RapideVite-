@@ -141,10 +141,19 @@ export interface Order {
   // screenshot, set after order creation via uploadPaymentProof(). Null for
   // card and cash_on_delivery orders.
   payment_proof_url?: string | null;
+  // Magic-link token for the driver/picker page (/livreur/[token]) - the
+  // only "auth" that page has. Never expose this to the customer.
+  driver_access_token?: string;
+  driver_lat?: number | null;
+  driver_lng?: number | null;
+  driver_location_updated_at?: string | null;
   created_at: string;
   updated_at: string;
   items?: OrderItem[];
 }
+
+export type ItemFulfillmentStatus = "pending" | "found" | "unavailable" | "substituted" | "refunded";
+export type SubstituteStatus = "proposed" | "accepted" | "declined" | "auto_applied";
 
 export interface OrderItem {
   id: string;
@@ -156,6 +165,14 @@ export interface OrderItem {
   unit_price: number;
   quantity: number;
   line_total: number;
+  fulfillment_status: ItemFulfillmentStatus;
+  substitute_product_id?: string | null;
+  substitute_variant_id?: string | null;
+  substitute_status?: SubstituteStatus | null;
+  substitute_proposed_at?: string | null;
+  // Joined in when a substitute has been proposed/applied, so the UI can
+  // show its name/price without a second round trip.
+  substitute_product?: { name: string; image_url: string | null } | null;
   // Joined in via getMyOrders()/getOrderById() for order-row thumbnails.
   // Null if the product was deleted after the order was placed.
   product?: { image_url: string | null } | null;

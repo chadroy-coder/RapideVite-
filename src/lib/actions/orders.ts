@@ -225,9 +225,64 @@ export async function getOrderById(orderId: string) {
   if (!order) return null;
   const { data: items } = await supabase
     .from("order_items")
-    .select("*, product:products(image_url)")
+    .select("*, product:products(image_url), substitute_product:products!order_items_substitute_product_id_fkey(name, image_url)")
     .eq("order_id", orderId);
   return { ...(order as Order), items: (items ?? []) as unknown as OrderItem[] };
+}
+
+// Lightweight poll target for the customer's order tracking page - driver
+// location + per-item status only, so the page can refresh every few
+// seconds without re-fetching the whole order.
+export async function getOrderLiveState(orderId: string) {
+  const supabase = await createClient();
+  const { data: order } = await supabase
+    .from("orders")
+    .select("driver_lat, driver_lng, driver_location_updated_at, status, payment_status")
+    .eq("id", orderId)
+    .single();
+  const { data: items } = await supabase
+    .from("order_items")
+    .select("id, fulfillment_status, substitute_status, substitute_product_id, substitute_variant_id, substitute_product:products!order_items_substitute_product_id_fkey(name, image_url)")
+    .eq("order_id", orderId);
+  return { order: order ?? null, items: (items ?? []) as unknown as OrderItem[] };
+}
+
+// Customer's response to a picker-proposed substitute. Ownership is
+// verified against the session user, then applied with the service-role
+// client since customers have no direct update grant on order_items
+// (order_items_staff_all is the only update policy - see 0002_rls.sql).
+export async function respondToSubstitute(orderId: string, itemId: string, accept: boolean) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return { error: "Veuillez vous connecter." };
+
+  const { data: order } = await supabase.from("orders").select("id, user_id").eq("id", orderId).single();
+  if (!order || order.user_id !== user.id) return { error: "Commande introuvable." };
+
+  const admin = createAdminClient();
+  const { data: item } = await admin
+    .from("order_items")
+    .select("substitute_status")
+    .eq("id", itemId)
+    .eq("order_id", orderId)
+    .single();
+  if (item?.substitute_status !== "proposed") {
+    return { error: "Cette proposition n'est plus disponible." };
+  }
+
+  const { error } = await admin
+    .from("order_items")
+    .update(
+      accept
+        ? { fulfillment_status: "substituted", substitute_status: "accepted" }
+        : { fulfillment_status: "refunded", substitute_status: "declined" }
+    )
+    .eq("id", itemId)
+    .eq("order_id", orderId);
+  if (error) return { error: "Impossible d'enregistrer votre reponse." };
+  return { error: null };
 }
 
 export async function getMyOrders() {
