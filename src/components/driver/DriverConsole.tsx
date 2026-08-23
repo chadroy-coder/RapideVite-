@@ -17,6 +17,7 @@ import {
 import { useToastStore } from "@/store/toast-store";
 import { formatUSD } from "@/lib/format";
 import type { ItemFulfillmentStatus, SubstituteStatus } from "@/types/database";
+import { LiveMap } from "@/components/order/LiveMap";
 
 const LOCATION_PING_MS = 15000;
 const ITEM_POLL_MS = 5000;
@@ -50,14 +51,20 @@ export function DriverConsole({
   orderNumber,
   customerName,
   street,
+  neighborhood,
   commune,
+  customerLat,
+  customerLng,
   initialItems,
 }: {
   token: string;
   orderNumber: string;
   customerName: string;
   street: string;
-  commune: string;
+  neighborhood: string | null;
+  commune: string | null;
+  customerLat?: number | null;
+  customerLng?: number | null;
   initialItems: DriverItem[];
 }) {
   const push = useToastStore((s) => s.push);
@@ -168,9 +175,19 @@ export function DriverConsole({
         <h1 className="font-bold text-xl text-brand-ink">{orderNumber}</h1>
         <p className="text-sm text-brand-gray">{customerName}</p>
         <p className="text-sm text-brand-gray flex items-center gap-1 mt-0.5">
-          <MapPin className="w-3.5 h-3.5" /> {street}, {commune}
+          <MapPin className="w-3.5 h-3.5 shrink-0" />
+          {street}
+          {neighborhood ? `, ${neighborhood}` : ""}
+          {commune ? `, ${commune}` : ""}
         </p>
       </div>
+
+      {customerLat != null && customerLng != null && (
+        <div>
+          <h2 className="text-sm font-semibold text-brand-ink mb-2">Position exacte du client</h2>
+          <LiveMap lat={customerLat} lng={customerLng} label="Client" color="#2563eb" />
+        </div>
+      )}
 
       <div
         className={`rounded-xl px-4 py-2.5 text-sm font-medium flex items-center gap-2 ${

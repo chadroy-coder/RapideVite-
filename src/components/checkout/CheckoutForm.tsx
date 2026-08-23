@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { checkoutSchema, type CheckoutInput } from "@/lib/validations/schemas";
-import { HAITI_DEPARTMENTS, PAYMENT_METHOD_LABELS, PROOF_REQUIRED_PAYMENT_METHODS, type PaymentMethod } from "@/types/database";
+import { PAYMENT_METHOD_LABELS, PROOF_REQUIRED_PAYMENT_METHODS, type PaymentMethod } from "@/types/database";
 import { MANUAL_PAYMENT_ACCOUNTS } from "@/lib/payment-accounts";
 import { useCartStore } from "@/store/cart-store";
 import { placeOrder, uploadPaymentProof } from "@/lib/actions/orders";
@@ -14,15 +14,13 @@ import { createCheckoutSession } from "@/lib/actions/stripe";
 import { formatUSD, formatHTGEstimate } from "@/lib/format";
 import { useToastStore } from "@/store/toast-store";
 import { EmptyState } from "@/components/ui/EmptyState";
-import { ShoppingBag } from "lucide-react";
+import { ShoppingBag, MapPin, Check } from "lucide-react";
 
 const DELIVERY_FEE_ESTIMATE = Number(process.env.NEXT_PUBLIC_DEFAULT_DELIVERY_FEE ?? 1.15);
 
 export interface CheckoutInitialValues {
   customer_name?: string;
   customer_phone?: string;
-  department?: string;
-  commune?: string;
   neighborhood?: string;
   street?: string;
   delivery_instructions?: string;
@@ -42,6 +40,8 @@ export function CheckoutForm({
   const [hydrated, setHydrated] = useState(false);
   const [proofFile, setProofFile] = useState<File | null>(null);
   const [proofError, setProofError] = useState<string | null>(null);
+  const [locationStatus, setLocationStatus] = useState<"idle" | "requesting" | "shared" | "denied">("idle");
+  const [customerLocation, setCustomerLocation] = useState<{ lat: number; lng: number } | null>(null);
 
   // Standard Zustand + Next.js hydration guard: avoids an SSR/client mismatch
   // by waiting for the persisted cart to be read from localStorage before
@@ -61,8 +61,6 @@ export function CheckoutForm({
     defaultValues: {
       customer_name: initialValues.customer_name ?? "",
       customer_phone: initialValues.customer_phone ?? "",
-      department: initialValues.department ?? "",
-      commune: initialValues.commune ?? "",
       neighborhood: initialValues.neighborhood ?? "",
       street: initialValues.street ?? "",
       delivery_instructions: initialValues.delivery_instructions ?? "",
@@ -70,6 +68,22 @@ export function CheckoutForm({
       save_address: false,
     },
   });
+
+  function handleShareLocation() {
+    if (!navigator.geolocation) {
+      setLocationStatus("denied");
+      return;
+    }
+    setLocationStatus("requesting");
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setCustomerLocation({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+        setLocationStatus("shared");
+      },
+      () => setLocationStatus("denied"),
+      { enableHighAccuracy: true, timeout: 10000 }
+    );
+  }
 
   const selectedPaymentMethod = watch("payment_method") as PaymentMethod;
   const manualAccount =
@@ -100,7 +114,7 @@ export function CheckoutForm({
     setProofError(null);
     setSubmitting(true);
     const lines = items.map((i) => ({ variantId: i.variantId, quantity: i.quantity }));
-    const result = await placeOrder(lines, values);
+    const result = await placeOrder(lines, values, customerLocation ?? undefined);
 
     if (result.error) {
       setSubmitting(false);
@@ -171,26 +185,6 @@ export function CheckoutForm({
         <div>
           <h2 className="font-semibold text-brand-ink mb-2">Adresse de livraison</h2>
           <div className="space-y-3">
-            <div>
-              <select
-                {...register("department")}
-                className="w-full border border-brand-border rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40"
-              >
-                <option value="" disabled>Departement</option>
-                {HAITI_DEPARTMENTS.map((d) => (
-                  <option key={d} value={d}>{d}</option>
-                ))}
-              </select>
-              {errors.department && <p className="text-red-500 text-xs mt-1">{errors.department.message}</p>}
-            </div>
-            <div>
-              <input
-                {...register("commune")}
-                placeholder="Commune"
-                className="w-full border border-brand-border rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40"
-              />
-              {errors.commune && <p className="text-red-500 text-xs mt-1">{errors.commune.message}</p>}
-            </div>
             <input
               {...register("neighborhood")}
               placeholder="Quartier (optionnel)"
@@ -214,6 +208,35 @@ export function CheckoutForm({
               <input type="checkbox" {...register("save_address")} className="rounded" />
               Enregistrer cette adresse pour la prochaine fois
             </label>
+
+            <div className="border border-brand-border rounded-xl p-3.5 flex items-center justify-between gap-3">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-brand-orange mt-0.5 shrink-0" />
+                <div>
+                  <p className="text-sm text-brand-ink font-medium">Partager ma position avec le livreur</p>
+                  <p className="text-xs text-brand-gray">
+                    Optionnel - aide le livreur a vous trouver exactement (une seule fois, pas de suivi continu).
+                  </p>
+                </div>
+              </div>
+              {locationStatus === "shared" ? (
+                <span className="shrink-0 flex items-center gap-1 text-xs font-semibold text-brand-green">
+                  <Check className="w-3.5 h-3.5" /> Partagee
+                </span>
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleShareLocation}
+                  disabled={locationStatus === "requesting"}
+                  className="shrink-0 text-xs font-semibold text-brand-orange border border-brand-orange rounded-full px-3 py-1.5 hover:bg-brand-orange/5 disabled:opacity-60"
+                >
+                  {locationStatus === "requesting" ? "..." : "Partager"}
+                </button>
+              )}
+            </div>
+            {locationStatus === "denied" && (
+              <p className="text-xs text-red-500">Localisation refusee ou indisponible - pas de souci, votre adresse suffit.</p>
+            )}
           </div>
         </div>
 

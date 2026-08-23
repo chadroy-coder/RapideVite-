@@ -65,7 +65,22 @@ export default async function AdminOrderDetailPage({
           <h2 className="font-semibold text-brand-ink mb-2">Client et livraison</h2>
           <p className="text-brand-ink font-medium">{order.customer_name}</p>
           <p className="text-brand-gray">{order.customer_phone}</p>
-          <p className="text-brand-gray">{order.street}, {order.neighborhood ? `${order.neighborhood}, ` : ""}{order.commune}, {order.department}</p>
+          <p className="text-brand-gray">
+            {order.street}
+            {order.neighborhood ? `, ${order.neighborhood}` : ""}
+            {order.commune ? `, ${order.commune}` : ""}
+            {order.department ? `, ${order.department}` : ""}
+          </p>
+          {order.customer_lat != null && order.customer_lng != null && (
+            <a
+              href={`https://www.openstreetmap.org/?mlat=${order.customer_lat}&mlon=${order.customer_lng}#map=17/${order.customer_lat}/${order.customer_lng}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-brand-orange font-semibold hover:underline"
+            >
+              Voir la position exacte partagee par le client
+            </a>
+          )}
           {order.delivery_instructions && <p className="text-brand-gray italic">{order.delivery_instructions}</p>}
           <p className="text-brand-gray mt-2">Paiement: {PAYMENT_METHOD_LABELS[order.payment_method]} · Statut paiement: {order.payment_status}</p>
         </div>

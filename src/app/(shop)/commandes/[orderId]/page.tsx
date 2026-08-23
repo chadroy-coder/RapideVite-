@@ -77,7 +77,15 @@ export default async function OrderTrackingPage({
 
       <div className="border border-brand-border rounded-2xl p-5 space-y-1 text-sm">
         <h2 className="font-semibold text-brand-ink mb-2">Livraison</h2>
-        <p className="text-brand-gray">{order.street}, {order.neighborhood ? `${order.neighborhood}, ` : ""}{order.commune}, {order.department}</p>
+        <p className="text-brand-gray">
+          {order.street}
+          {order.neighborhood ? `, ${order.neighborhood}` : ""}
+          {order.commune ? `, ${order.commune}` : ""}
+          {order.department ? `, ${order.department}` : ""}
+        </p>
+        {order.customer_lat != null && order.customer_lng != null && (
+          <p className="text-xs text-brand-green">Position exacte partagee avec le livreur</p>
+        )}
         {order.delivery_instructions && <p className="text-brand-gray italic">{order.delivery_instructions}</p>}
         <p className="text-brand-gray mt-2">
           Paiement: {PAYMENT_METHOD_LABELS[order.payment_method]}

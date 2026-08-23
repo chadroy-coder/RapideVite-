@@ -110,8 +110,10 @@ export interface Address {
   id: string;
   user_id: string;
   label: string | null;
-  department: string;
-  commune: string;
+  // Kept nullable for backward compat with rows saved before department/
+  // commune was dropped from the address form - new rows won't set these.
+  department: string | null;
+  commune: string | null;
   neighborhood: string | null;
   street: string;
   delivery_instructions: string | null;
@@ -125,8 +127,8 @@ export interface Order {
   user_id: string | null;
   customer_name: string;
   customer_phone: string;
-  department: string;
-  commune: string;
+  department: string | null;
+  commune: string | null;
   neighborhood: string | null;
   street: string;
   delivery_instructions: string | null;
@@ -152,6 +154,12 @@ export interface Order {
   driver_lat?: number | null;
   driver_lng?: number | null;
   driver_location_updated_at?: string | null;
+  // One-time pin the customer optionally shares at checkout ("share your
+  // location so the driver can find you") - separate from driver_lat/lng
+  // above, which is the driver's own continuously-updating position.
+  customer_lat?: number | null;
+  customer_lng?: number | null;
+  customer_location_shared_at?: string | null;
   created_at: string;
   updated_at: string;
   items?: OrderItem[];

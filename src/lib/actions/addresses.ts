@@ -28,8 +28,6 @@ export async function addAddress(input: AddressInput) {
   const { error } = await supabase.from("addresses").insert({
     user_id: user.id,
     label: parsed.data.label,
-    department: parsed.data.department,
-    commune: parsed.data.commune,
     neighborhood: parsed.data.neighborhood || null,
     street: parsed.data.street,
     delivery_instructions: parsed.data.delivery_instructions || null,
@@ -62,8 +60,6 @@ export async function updateAddress(id: string, input: AddressInput) {
     .from("addresses")
     .update({
       label: parsed.data.label,
-      department: parsed.data.department,
-      commune: parsed.data.commune,
       neighborhood: parsed.data.neighborhood || null,
       street: parsed.data.street,
       delivery_instructions: parsed.data.delivery_instructions || null,

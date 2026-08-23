@@ -24,7 +24,10 @@ export default async function DriverOrderPage({
       orderNumber={order.order_number}
       customerName={order.customer_name}
       street={order.street}
+      neighborhood={order.neighborhood}
       commune={order.commune}
+      customerLat={order.customer_lat}
+      customerLng={order.customer_lng}
       initialItems={items}
     />
   );

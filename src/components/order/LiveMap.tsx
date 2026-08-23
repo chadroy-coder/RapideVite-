@@ -4,7 +4,17 @@ import { useEffect, useRef } from "react";
 
 // Leaflet + OpenStreetMap tiles - no API key, no billing, unlike Google
 // Maps. Loaded dynamically (client-only) since Leaflet touches `window`.
-export function LiveMap({ lat, lng, label }: { lat: number; lng: number; label?: string }) {
+export function LiveMap({
+  lat,
+  lng,
+  label,
+  color = "#f97316",
+}: {
+  lat: number;
+  lng: number;
+  label?: string;
+  color?: string;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- leaflet has no shipped types here (see src/types/leaflet.d.ts)
   const mapRef = useRef<any>(null);
@@ -34,7 +44,7 @@ export function LiveMap({ lat, lng, label }: { lat: number; lng: number; label?:
         }).addTo(mapRef.current);
         const icon = L.divIcon({
           className: "",
-          html: '<div style="background:#f97316;width:16px;height:16px;border-radius:50%;border:3px solid white;box-shadow:0 0 6px rgba(0,0,0,0.4)"></div>',
+          html: `<div style="background:${color};width:16px;height:16px;border-radius:50%;border:3px solid white;box-shadow:0 0 6px rgba(0,0,0,0.4)"></div>`,
           iconSize: [16, 16],
         });
         markerRef.current = L.marker([lat, lng], { icon }).addTo(mapRef.current);
@@ -49,7 +59,7 @@ export function LiveMap({ lat, lng, label }: { lat: number; lng: number; label?:
     return () => {
       cancelled = true;
     };
-  }, [lat, lng, label]);
+  }, [lat, lng, label, color]);
 
   useEffect(() => {
     return () => {

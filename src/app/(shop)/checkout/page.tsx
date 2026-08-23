@@ -20,8 +20,6 @@ export default async function CheckoutPage() {
       initialValues={{
         customer_name: profile?.full_name ?? "",
         customer_phone: profile?.phone ?? "",
-        department: defaultAddress?.department ?? "",
-        commune: defaultAddress?.commune ?? "",
         neighborhood: defaultAddress?.neighborhood ?? "",
         street: defaultAddress?.street ?? "",
         delivery_instructions: defaultAddress?.delivery_instructions ?? "",

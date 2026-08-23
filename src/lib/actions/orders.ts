@@ -14,7 +14,11 @@ export interface CartLine {
 // re-read from the database here - the client only supplies variant IDs
 // and quantities, so a tampered localStorage cart can never change what
 // gets charged.
-export async function placeOrder(cartLines: CartLine[], input: CheckoutInput) {
+export async function placeOrder(
+  cartLines: CartLine[],
+  input: CheckoutInput,
+  customerLocation?: { lat: number; lng: number }
+) {
   if (cartLines.length === 0) {
     return { error: "Votre panier est vide.", orderId: null, orderNumber: null };
   }
@@ -105,8 +109,6 @@ export async function placeOrder(cartLines: CartLine[], input: CheckoutInput) {
       user_id: user.id,
       customer_name: parsed.data.customer_name,
       customer_phone: parsed.data.customer_phone,
-      department: parsed.data.department,
-      commune: parsed.data.commune,
       neighborhood: parsed.data.neighborhood || null,
       street: parsed.data.street,
       delivery_instructions: parsed.data.delivery_instructions || null,
@@ -117,6 +119,13 @@ export async function placeOrder(cartLines: CartLine[], input: CheckoutInput) {
       payment_method: parsed.data.payment_method,
       payment_status: "pending",
       status: "new",
+      ...(customerLocation
+        ? {
+            customer_lat: customerLocation.lat,
+            customer_lng: customerLocation.lng,
+            customer_location_shared_at: new Date().toISOString(),
+          }
+        : {}),
     })
     .select()
     .single();
@@ -149,8 +158,6 @@ export async function placeOrder(cartLines: CartLine[], input: CheckoutInput) {
     await supabase.from("addresses").insert({
       user_id: user.id,
       label: "Livraison",
-      department: parsed.data.department,
-      commune: parsed.data.commune,
       neighborhood: parsed.data.neighborhood || null,
       street: parsed.data.street,
       delivery_instructions: parsed.data.delivery_instructions || null,

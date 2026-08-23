@@ -2,8 +2,6 @@ import { z } from "zod";
 
 export const addressSchema = z.object({
   label: z.string().min(1).max(50).default("Home"),
-  department: z.string().min(1, "Le departement est requis"),
-  commune: z.string().min(1, "La commune est requise"),
   neighborhood: z.string().max(120).optional().or(z.literal("")),
   street: z.string().min(3, "L'adresse est requise"),
   delivery_instructions: z.string().max(500).optional().or(z.literal("")),
@@ -17,8 +15,6 @@ export const checkoutSchema = z.object({
     .string()
     .min(8, "Numero de telephone invalide")
     .max(20),
-  department: z.string().min(1, "Departement requis"),
-  commune: z.string().min(1, "Commune requise"),
   neighborhood: z.string().max(120).optional().or(z.literal("")),
   street: z.string().min(3, "Adresse requise"),
   delivery_instructions: z.string().max(500).optional().or(z.literal("")),

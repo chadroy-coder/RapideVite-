@@ -41,8 +41,9 @@ export default async function AccountPage() {
             <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0 text-brand-orange" />
             <span>
               {defaultAddress.street}
-              {defaultAddress.neighborhood ? `, ${defaultAddress.neighborhood}` : ""}, {defaultAddress.commune},{" "}
-              {defaultAddress.department}
+              {defaultAddress.neighborhood ? `, ${defaultAddress.neighborhood}` : ""}
+              {defaultAddress.commune ? `, ${defaultAddress.commune}` : ""}
+              {defaultAddress.department ? `, ${defaultAddress.department}` : ""}
             </span>
           </p>
         )}

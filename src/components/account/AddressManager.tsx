@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MapPin, Star, Pencil, Trash2, Plus } from "lucide-react";
 import { addressSchema, type AddressInput } from "@/lib/validations/schemas";
-import { HAITI_DEPARTMENTS, type Address } from "@/types/database";
+import type { Address } from "@/types/database";
 import { addAddress, updateAddress, deleteAddress, setDefaultAddress } from "@/lib/actions/addresses";
 import { useToastStore } from "@/store/toast-store";
 
@@ -26,8 +26,6 @@ export function AddressManager({ addresses }: { addresses: Address[] }) {
   function openNew() {
     reset({
       label: "Maison",
-      department: "",
-      commune: "",
       neighborhood: "",
       street: "",
       delivery_instructions: "",
@@ -39,8 +37,6 @@ export function AddressManager({ addresses }: { addresses: Address[] }) {
   function openEdit(addr: Address) {
     reset({
       label: addr.label ?? "Maison",
-      department: addr.department,
-      commune: addr.commune,
       neighborhood: addr.neighborhood ?? "",
       street: addr.street,
       delivery_instructions: addr.delivery_instructions ?? "",
@@ -93,30 +89,6 @@ export function AddressManager({ addresses }: { addresses: Address[] }) {
             className="w-full border border-brand-border rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40"
           />
           {errors.label && <p className="text-red-500 text-xs mt-1">{errors.label.message}</p>}
-        </div>
-        <div>
-          <select
-            {...register("department")}
-            className="w-full border border-brand-border rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40"
-          >
-            <option value="" disabled>
-              Departement
-            </option>
-            {HAITI_DEPARTMENTS.map((d) => (
-              <option key={d} value={d}>
-                {d}
-              </option>
-            ))}
-          </select>
-          {errors.department && <p className="text-red-500 text-xs mt-1">{errors.department.message}</p>}
-        </div>
-        <div>
-          <input
-            {...register("commune")}
-            placeholder="Commune"
-            className="w-full border border-brand-border rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40"
-          />
-          {errors.commune && <p className="text-red-500 text-xs mt-1">{errors.commune.message}</p>}
         </div>
         <input
           {...register("neighborhood")}
@@ -190,7 +162,9 @@ export function AddressManager({ addresses }: { addresses: Address[] }) {
                   </div>
                   <p className="text-sm text-brand-gray mt-1">
                     {addr.street}
-                    {addr.neighborhood ? `, ${addr.neighborhood}` : ""}, {addr.commune}, {addr.department}
+                    {addr.neighborhood ? `, ${addr.neighborhood}` : ""}
+                    {addr.commune ? `, ${addr.commune}` : ""}
+                    {addr.department ? `, ${addr.department}` : ""}
                   </p>
                   {addr.delivery_instructions && (
                     <p className="text-xs text-brand-gray mt-1 italic">{addr.delivery_instructions}</p>
