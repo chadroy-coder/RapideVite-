@@ -32,6 +32,7 @@ interface DriverItem {
   fulfillment_status: ItemFulfillmentStatus;
   substitute_status: SubstituteStatus | null;
   substitute_proposed_at: string | null;
+  product?: { image_url: string | null } | null;
   substitute_product?: { name: string; image_url: string | null } | null;
 }
 
@@ -190,12 +191,23 @@ export function DriverConsole({
         {items.map((item) => (
           <div key={item.id} className="border border-brand-border rounded-2xl p-4 bg-white">
             <div className="flex justify-between items-start gap-3">
-              <div>
-                <p className="font-medium text-brand-ink text-sm">
-                  {item.quantity} x {item.product_name}
-                  {item.variant_label ? ` (${item.variant_label})` : ""}
-                </p>
-                <p className="text-xs text-brand-gray">{formatUSD(item.line_total)}</p>
+              <div className="flex items-start gap-3 min-w-0">
+                <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-brand-cream border border-brand-border shrink-0">
+                  <Image
+                    src={item.product?.image_url || "/products/placeholder.svg"}
+                    alt={item.product_name}
+                    fill
+                    sizes="48px"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="min-w-0">
+                  <p className="font-medium text-brand-ink text-sm">
+                    {item.quantity} x {item.product_name}
+                    {item.variant_label ? ` (${item.variant_label})` : ""}
+                  </p>
+                  <p className="text-xs text-brand-gray">{formatUSD(item.line_total)}</p>
+                </div>
               </div>
               <StatusPill status={item.fulfillment_status} />
             </div>

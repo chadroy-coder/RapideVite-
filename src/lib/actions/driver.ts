@@ -31,7 +31,9 @@ export async function getOrderForDriver(token: string) {
 
   const { data: items } = await admin
     .from("order_items")
-    .select("*, substitute_product:products!order_items_substitute_product_id_fkey(name, image_url)")
+    .select(
+      "*, product:products!order_items_product_id_fkey(image_url), substitute_product:products!order_items_substitute_product_id_fkey(name, image_url)"
+    )
     .eq("order_id", order.id);
 
   return { order, items: items ?? [] };
