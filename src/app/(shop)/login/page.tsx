@@ -9,6 +9,7 @@ import { loginSchema, type LoginInput } from "@/lib/validations/schemas";
 import { signIn } from "@/lib/actions/auth";
 import { useToastStore } from "@/store/toast-store";
 import { PhoneAuthForm } from "@/components/auth/PhoneAuthForm";
+import { GoogleSignInButton } from "@/components/auth/GoogleSignInButton";
 
 function LoginForm() {
   const router = useRouter();
@@ -41,6 +42,14 @@ function LoginForm() {
     <div className="max-w-sm mx-auto px-4 py-10">
       <h1 className="font-bold text-xl text-brand-ink mb-1">Connexion</h1>
       <p className="text-brand-gray text-sm mb-6">Accedez a votre compte RapidVit.</p>
+
+      <GoogleSignInButton redirectTo={redirectTo} />
+
+      <div className="flex items-center gap-3 my-5">
+        <div className="h-px flex-1 bg-brand-border" />
+        <span className="text-xs text-brand-gray">ou</span>
+        <div className="h-px flex-1 bg-brand-border" />
+      </div>
 
       <div className="flex gap-2 mb-6 bg-brand-cream rounded-full p-1">
         <button
