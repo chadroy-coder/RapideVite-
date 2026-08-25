@@ -63,7 +63,7 @@ function RegisterForm() {
       </div>
 
       {mode === "phone" ? (
-        <PhoneAuthForm redirectTo={redirectTo} />
+        <PhoneAuthForm mode="register" redirectTo={redirectTo} />
       ) : (
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>

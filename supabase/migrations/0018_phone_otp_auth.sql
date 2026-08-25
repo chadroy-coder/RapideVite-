@@ -1,4 +1,4 @@
--- Phone-number sign-in/sign-up (SMS OTP via Supabase Auth phone provider).
+-- Phone-number sign-in/sign-up (phone + password, no SMS).
 -- Phone-auth users get their phone number in the native auth.users.phone
 -- column, not in raw_user_meta_data like email signups - the profile
 -- trigger needs to check both so profiles.phone gets populated either way.

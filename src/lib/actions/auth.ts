@@ -4,12 +4,12 @@ import { createClient } from "@/lib/supabase/server";
 import {
   loginSchema,
   registerSchema,
-  phoneNumberSchema,
-  phoneOtpSchema,
+  phoneLoginSchema,
+  phoneRegisterSchema,
   type LoginInput,
   type RegisterInput,
-  type PhoneNumberInput,
-  type PhoneOtpInput,
+  type PhoneLoginInput,
+  type PhoneRegisterInput,
 } from "@/lib/validations/schemas";
 
 export async function signIn(input: LoginInput) {
@@ -48,58 +48,44 @@ export async function signOut() {
   await supabase.auth.signOut();
 }
 
-// Sends a 6-digit SMS code to the given phone number. Works for both new
-// and returning users - Supabase creates the auth.users row on first use,
-// same account on repeat use, no separate "sign up" call needed.
-export async function sendPhoneOtp(input: PhoneNumberInput) {
-  const parsed = phoneNumberSchema.safeParse(input);
-  if (!parsed.success) {
-    return { error: parsed.error.issues[0]?.message ?? "Numero invalide" };
-  }
-  const supabase = await createClient();
-  const { error } = await supabase.auth.signInWithOtp({
-    phone: parsed.data.phone,
-    options: parsed.data.full_name ? { data: { full_name: parsed.data.full_name } } : undefined,
-  });
-  if (error) {
-    if (error.status === 429 || /rate limit/i.test(error.message)) {
-      return { error: "Trop de tentatives. Veuillez patienter une minute avant de reessayer." };
-    }
-    return { error: "Impossible d'envoyer le code. Verifiez le numero et reessayez." };
-  }
-  return { error: null };
-}
-
-// Verifies the SMS code and completes sign-in/sign-up in one step.
-export async function verifyPhoneOtp(input: PhoneOtpInput) {
-  const parsed = phoneOtpSchema.safeParse(input);
+// Phone number + password sign-in - no SMS involved, same idea as email
+// login but with `phone` instead of `email`.
+export async function signInWithPhone(input: PhoneLoginInput) {
+  const parsed = phoneLoginSchema.safeParse(input);
   if (!parsed.success) {
     return { error: parsed.error.issues[0]?.message ?? "Donnees invalides" };
   }
   const supabase = await createClient();
-  const { error } = await supabase.auth.verifyOtp({
+  const { error } = await supabase.auth.signInWithPassword({
     phone: parsed.data.phone,
-    token: parsed.data.token,
-    type: "sms",
+    password: parsed.data.password,
   });
-  if (error) return { error: "Code incorrect ou expire." };
+  if (error) return { error: "Numero ou mot de passe incorrect." };
+  return { error: null };
+}
 
-  // Full name only reaches raw_user_meta_data (and the profiles trigger) on
-  // the account's first ever OTP send. If this is a first-time signup that
-  // included a name, make sure it actually lands on the profile row too.
-  if (parsed.data.full_name) {
-    await supabase.auth.updateUser({ data: { full_name: parsed.data.full_name } });
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    if (user) {
-      await supabase
-        .from("profiles")
-        .update({ full_name: parsed.data.full_name })
-        .eq("id", user.id)
-        .is("full_name", null);
-    }
+// Phone number + password sign-up. Requires "Confirm phone" to be turned
+// OFF under Authentication > Providers > Phone in the Supabase dashboard -
+// otherwise Supabase expects to send a confirmation SMS (which needs a
+// paid SMS provider we're intentionally not using).
+export async function signUpWithPhone(input: PhoneRegisterInput) {
+  const parsed = phoneRegisterSchema.safeParse(input);
+  if (!parsed.success) {
+    return { error: parsed.error.issues[0]?.message ?? "Donnees invalides" };
   }
-
+  const supabase = await createClient();
+  const { error } = await supabase.auth.signUp({
+    phone: parsed.data.phone,
+    password: parsed.data.password,
+    options: {
+      data: { full_name: parsed.data.full_name },
+    },
+  });
+  if (error) {
+    if (/already registered|already exists/i.test(error.message)) {
+      return { error: "Ce numero est deja utilise. Essayez de vous connecter." };
+    }
+    return { error: error.message };
+  }
   return { error: null };
 }

@@ -53,18 +53,24 @@ export type ForgotPasswordInput = z.infer<typeof forgotPasswordSchema>;
 // valid international number to be entered.
 const E164 = /^\+[1-9]\d{7,14}$/;
 
-export const phoneNumberSchema = z.object({
-  full_name: z.string().min(2, "Nom requis").optional(),
+export const phoneLoginSchema = z.object({
   phone: z.string().regex(E164, "Numero invalide (format: +509 XXXX XXXX)"),
+  password: z.string().min(6, "Mot de passe trop court"),
 });
-export type PhoneNumberInput = z.infer<typeof phoneNumberSchema>;
+export type PhoneLoginInput = z.infer<typeof phoneLoginSchema>;
 
-export const phoneOtpSchema = z.object({
-  phone: z.string().regex(E164, "Numero invalide"),
-  full_name: z.string().min(2).optional(),
-  token: z.string().length(6, "Le code doit contenir 6 chiffres"),
-});
-export type PhoneOtpInput = z.infer<typeof phoneOtpSchema>;
+export const phoneRegisterSchema = z
+  .object({
+    full_name: z.string().min(2, "Nom requis"),
+    phone: z.string().regex(E164, "Numero invalide (format: +509 XXXX XXXX)"),
+    password: z.string().min(6, "Au moins 6 caracteres"),
+    confirm_password: z.string().min(6),
+  })
+  .refine((data) => data.password === data.confirm_password, {
+    message: "Les mots de passe ne correspondent pas",
+    path: ["confirm_password"],
+  });
+export type PhoneRegisterInput = z.infer<typeof phoneRegisterSchema>;
 
 export const resetPasswordSchema = z
   .object({
