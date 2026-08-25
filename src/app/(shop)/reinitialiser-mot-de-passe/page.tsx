@@ -2,14 +2,15 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { resetPasswordSchema, type ResetPasswordInput } from "@/lib/validations/schemas";
 import { createClient } from "@/lib/supabase/client";
 
-export default function ResetPasswordPage() {
+function ResetPasswordForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [status, setStatus] = useState<"checking" | "ready" | "invalid" | "done">("checking");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -23,16 +24,27 @@ export default function ResetPasswordPage() {
   useEffect(() => {
     const supabase = createClient();
 
-    // The reset link redirects here with the recovery tokens in the URL.
-    // The browser client parses them automatically and fires this event
-    // once the recovery session is established.
+    // createBrowserClient uses the PKCE flow, so Supabase's recovery link
+    // lands here as `?code=...` (not the old hash-based `#access_token=...`).
+    // We have to explicitly exchange that code for a session - without this,
+    // the page just sits there with no session and the reset silently fails.
+    const code = searchParams.get("code");
+    if (code) {
+      supabase.auth.exchangeCodeForSession(code).then(({ error }) => {
+        setStatus(error ? "invalid" : "ready");
+      });
+      return;
+    }
+
+    // Fallback: older-style recovery links that use hash tokens instead of
+    // a `code` query param. The browser client parses these automatically
+    // and fires this event once the recovery session is established.
     const { data: subscription } = supabase.auth.onAuthStateChange((event) => {
       if (event === "PASSWORD_RECOVERY") {
         setStatus("ready");
       }
     });
 
-    // Fallback in case the event already fired before this component mounted.
     supabase.auth.getSession().then(({ data }) => {
       if (data.session) setStatus((s) => (s === "checking" ? "ready" : s));
     });
@@ -45,7 +57,7 @@ export default function ResetPasswordPage() {
       subscription.subscription.unsubscribe();
       clearTimeout(timeout);
     };
-  }, []);
+  }, [searchParams]);
 
   async function onSubmit(values: ResetPasswordInput) {
     setSubmitting(true);
@@ -124,5 +136,13 @@ export default function ResetPasswordPage() {
         </button>
       </form>
     </div>
+  );
+}
+
+export default function ResetPasswordPage() {
+  return (
+    <Suspense>
+      <ResetPasswordForm />
+    </Suspense>
   );
 }
