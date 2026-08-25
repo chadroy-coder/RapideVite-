@@ -11,7 +11,7 @@ const config: CapacitorConfig = {
   appName: "RapidVit",
   webDir: "public",
   server: {
-    url: "https://rapidevite.com",
+    url: "https://www.rapidevite.com",
     androidScheme: "https",
     cleartext: false,
   },
