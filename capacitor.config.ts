@@ -7,11 +7,11 @@ import type { CapacitorConfig } from "@capacitor/cli";
 // app" mobile apps. Update `server.url` if the production domain changes
 // (e.g. once rapidvit.ht is live).
 const config: CapacitorConfig = {
-  appId: "com.rapidvite.app",
-  appName: "RapidVite",
+  appId: "com.rapidvitht.app",
+  appName: "RapidVit",
   webDir: "public",
   server: {
-    url: "https://rapide-vite.vercel.app",
+    url: "https://rapidevite.com",
     androidScheme: "https",
     cleartext: false,
   },
