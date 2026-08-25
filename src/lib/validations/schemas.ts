@@ -48,6 +48,24 @@ export const forgotPasswordSchema = z.object({
 });
 export type ForgotPasswordInput = z.infer<typeof forgotPasswordSchema>;
 
+// E.164 format required by Supabase phone auth (e.g. +50941234567).
+// We default the input to a +509 (Haiti) prefix in the UI, but allow any
+// valid international number to be entered.
+const E164 = /^\+[1-9]\d{7,14}$/;
+
+export const phoneNumberSchema = z.object({
+  full_name: z.string().min(2, "Nom requis").optional(),
+  phone: z.string().regex(E164, "Numero invalide (format: +509 XXXX XXXX)"),
+});
+export type PhoneNumberInput = z.infer<typeof phoneNumberSchema>;
+
+export const phoneOtpSchema = z.object({
+  phone: z.string().regex(E164, "Numero invalide"),
+  full_name: z.string().min(2).optional(),
+  token: z.string().length(6, "Le code doit contenir 6 chiffres"),
+});
+export type PhoneOtpInput = z.infer<typeof phoneOtpSchema>;
+
 export const resetPasswordSchema = z
   .object({
     password: z.string().min(6, "Au moins 6 caracteres"),

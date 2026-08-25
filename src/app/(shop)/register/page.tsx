@@ -8,6 +8,7 @@ import { Suspense, useState } from "react";
 import { registerSchema, type RegisterInput } from "@/lib/validations/schemas";
 import { signUp } from "@/lib/actions/auth";
 import { useToastStore } from "@/store/toast-store";
+import { PhoneAuthForm } from "@/components/auth/PhoneAuthForm";
 
 function RegisterForm() {
   const router = useRouter();
@@ -15,6 +16,7 @@ function RegisterForm() {
   const redirectTo = searchParams.get("redirect");
   const push = useToastStore((s) => s.push);
   const [submitting, setSubmitting] = useState(false);
+  const [mode, setMode] = useState<"email" | "phone">("email");
 
   const {
     register,
@@ -39,6 +41,30 @@ function RegisterForm() {
       <h1 className="font-bold text-xl text-brand-ink mb-1">Creer un compte</h1>
       <p className="text-brand-gray text-sm mb-6">Rejoignez RapidVit en quelques secondes.</p>
 
+      <div className="flex gap-2 mb-6 bg-brand-cream rounded-full p-1">
+        <button
+          type="button"
+          onClick={() => setMode("email")}
+          className={`flex-1 rounded-full py-2 text-sm font-semibold transition ${
+            mode === "email" ? "bg-white text-brand-ink shadow-sm" : "text-brand-gray"
+          }`}
+        >
+          Email
+        </button>
+        <button
+          type="button"
+          onClick={() => setMode("phone")}
+          className={`flex-1 rounded-full py-2 text-sm font-semibold transition ${
+            mode === "phone" ? "bg-white text-brand-ink shadow-sm" : "text-brand-gray"
+          }`}
+        >
+          Telephone
+        </button>
+      </div>
+
+      {mode === "phone" ? (
+        <PhoneAuthForm redirectTo={redirectTo} />
+      ) : (
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
           <input
@@ -93,6 +119,7 @@ function RegisterForm() {
           {submitting ? "Creation..." : "Creer mon compte"}
         </button>
       </form>
+      )}
 
       <p className="text-sm text-brand-gray mt-5 text-center">
         Deja un compte ?{" "}
