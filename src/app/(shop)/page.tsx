@@ -127,17 +127,17 @@ export default function HomePage() {
       <div className="px-4 pt-3">
         <Link
           href="/woulib"
-          className="relative flex items-center justify-center gap-3 rounded-2xl bg-brand-orange text-white px-5 py-5 shadow-sm hover:bg-brand-orange-dark transition"
+          className="flex items-center gap-2 rounded-2xl bg-brand-orange text-white px-4 py-4 shadow-sm hover:bg-brand-orange-dark transition"
         >
-          <div className="flex items-center gap-1.5 shrink-0">
-            <Car className="w-7 h-7" />
-            <Motorbike className="w-7 h-7" />
+          <div className="flex items-center gap-1 shrink-0">
+            <Car className="w-6 h-6" />
+            <Motorbike className="w-6 h-6" />
           </div>
-          <p className="flex items-baseline gap-2 flex-wrap justify-center">
-            <span className="font-extrabold text-2xl tracking-tight">Woulib</span>
-            <span className="text-white/80 text-xs">Ton chofè, nenpot kote, rapid vit.</span>
+          <p className="flex-1 min-w-0 flex items-baseline gap-1.5 justify-center overflow-hidden whitespace-nowrap">
+            <span className="font-extrabold text-lg tracking-tight shrink-0">Woulib</span>
+            <span className="text-white/80 text-[11px] truncate">Ton chofè, nenpot kote, rapid vit.</span>
           </p>
-          <ChevronRight className="w-5 h-5 text-white/70 shrink-0 absolute right-5" />
+          <ChevronRight className="w-5 h-5 text-white/70 shrink-0" />
         </Link>
       </div>
 
