@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { LogOut, ClipboardList, MapPin, ShieldCheck, Sparkles, Car } from "lucide-react";
+import { LogOut, ClipboardList, MapPin, ShieldCheck, Sparkles, Car, Download } from "lucide-react";
 import { getCurrentUserAndProfile, getMyAddresses } from "@/lib/data";
 import { getMyOrders } from "@/lib/actions/orders";
 import { getMySubscription } from "@/lib/actions/subscription";
@@ -119,6 +119,13 @@ export default async function AccountPage() {
         >
           <MapPin className="w-5 h-5 text-brand-orange" />
           <span className="text-sm font-medium text-brand-ink">Mes adresses</span>
+        </Link>
+        <Link
+          href="/telecharger"
+          className="flex items-center gap-3 border border-brand-border rounded-xl px-4 py-3.5 hover:border-brand-orange transition"
+        >
+          <Download className="w-5 h-5 text-brand-orange" />
+          <span className="text-sm font-medium text-brand-ink">Telecharger l&apos;application</span>
         </Link>
         {(profile?.role === "admin" || profile?.role === "staff") && (
           <Link
