@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { getWoulibLiveState, cancelWoulibRequest } from "@/lib/actions/woulib";
 import { useToastStore } from "@/store/toast-store";
 import { WoulibTracker } from "./WoulibTracker";
-import { LiveMap } from "@/components/order/LiveMap";
+import { LiveRouteMap } from "./LiveRouteMap";
 import type { WoulibStatus } from "@/types/database";
 
 const POLL_MS = 8000;
@@ -23,10 +23,14 @@ export function WoulibLivePanel({
   requestId,
   initialStatus,
   initialDriverLocation,
+  pickup,
+  dropoff,
 }: {
   requestId: string;
   initialStatus: WoulibStatus;
   initialDriverLocation: DriverLocation;
+  pickup: { lat: number; lng: number; address: string | null };
+  dropoff: { lat: number; lng: number; address: string | null };
 }) {
   const router = useRouter();
   const push = useToastStore((s) => s.push);
@@ -91,8 +95,22 @@ export function WoulibLivePanel({
 
       {showMap && (
         <div>
-          <h2 className="font-semibold text-brand-ink mb-2 text-sm">Position du chauffeur</h2>
-          <LiveMap lat={driverLocation.lat!} lng={driverLocation.lng!} label="Votre chauffeur" color="#0F8A5F" />
+          <h2 className="font-semibold text-brand-ink mb-2 text-sm">
+            {status === "picked_up" || status === "en_route_dropoff" ? "Route vers l'arrivee" : "Route vers le depart"}
+          </h2>
+          <LiveRouteMap
+            driver={{ lat: driverLocation.lat!, lng: driverLocation.lng! }}
+            destination={
+              status === "picked_up" || status === "en_route_dropoff"
+                ? { lat: dropoff.lat, lng: dropoff.lng }
+                : { lat: pickup.lat, lng: pickup.lng }
+            }
+            destinationLabel={
+              status === "picked_up" || status === "en_route_dropoff"
+                ? dropoff.address ?? "Arrivee"
+                : pickup.address ?? "Depart"
+            }
+          />
         </div>
       )}
 

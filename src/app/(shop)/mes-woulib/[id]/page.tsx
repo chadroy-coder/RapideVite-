@@ -57,6 +57,8 @@ export default async function WoulibDetailPage({
             lng: request.driver_lng,
             updatedAt: request.driver_location_updated_at,
           }}
+          pickup={{ lat: request.pickup_lat, lng: request.pickup_lng, address: request.pickup_address }}
+          dropoff={{ lat: request.dropoff_lat, lng: request.dropoff_lng, address: request.dropoff_address }}
         />
       </div>
 
