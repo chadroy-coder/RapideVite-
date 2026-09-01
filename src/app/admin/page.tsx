@@ -14,6 +14,7 @@ export default async function AdminOverviewPage() {
     { label: "Revenu aujourd'hui", value: formatUSD(stats.revenueToday) },
     { label: "Commandes en attente", value: stats.pendingOrdersCount },
     { label: "Produits en stock faible", value: stats.lowStockItems.length },
+    { label: "Telechargements APK", value: stats.apkDownloadsCount },
   ];
 
   return (

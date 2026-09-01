@@ -7,7 +7,7 @@ export async function getDashboardStats() {
   const todayStart = new Date();
   todayStart.setHours(0, 0, 0, 0);
 
-  const [ordersToday, pendingOrders, lowStock, recentOrders, bestSellers] = await Promise.all([
+  const [ordersToday, pendingOrders, lowStock, recentOrders, bestSellers, apkDownloads] = await Promise.all([
     supabase.from("orders").select("id, total", { count: "exact" }).gte("created_at", todayStart.toISOString()),
     supabase.from("orders").select("id", { count: "exact" }).in("status", ["new", "confirmed", "preparing", "ready"]),
     supabase
@@ -20,6 +20,9 @@ export async function getDashboardStats() {
     supabase
       .from("order_items")
       .select("product_name, quantity"),
+    // Sideloaded APK downloads (see /telecharger + /api/download-apk) -
+    // relevant while the app is waiting on Play Store review.
+    supabase.from("apk_downloads").select("id", { count: "exact", head: true }),
   ]);
 
   const revenueToday = (ordersToday.data ?? []).reduce((sum, o) => sum + Number(o.total), 0);
@@ -40,6 +43,7 @@ export async function getDashboardStats() {
     lowStockItems: lowStock.data ?? [],
     recentOrders: recentOrders.data ?? [],
     topProducts,
+    apkDownloadsCount: apkDownloads.count ?? 0,
   };
 }
 

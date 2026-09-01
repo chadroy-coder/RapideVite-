@@ -10,8 +10,7 @@ export default function DownloadPage() {
       </p>
 
       <a
-        href="/downloads/RapidVit.apk"
-        download
+        href="/api/download-apk"
         className="flex items-center justify-center gap-2 rounded-full bg-brand-orange text-white font-semibold py-3.5 px-6 shadow-sm hover:bg-brand-orange-dark transition mb-8"
       >
         <Download className="w-5 h-5" />
