@@ -129,7 +129,7 @@ export default function HomePage() {
           href="/woulib"
           className="relative flex items-center justify-center gap-3 rounded-2xl bg-brand-orange text-white px-5 py-5 shadow-sm hover:bg-brand-orange-dark transition"
         >
-          <div className="flex items-center -space-x-1.5 shrink-0">
+          <div className="flex items-center gap-1.5 shrink-0">
             <Car className="w-7 h-7" />
             <Motorbike className="w-7 h-7" />
           </div>
