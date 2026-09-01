@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import { MapPin, ChevronRight, Car, Bike } from "lucide-react";
+import { MapPin, ChevronRight, Car, Motorbike } from "lucide-react";
 import {
   getCategories,
   getCategoriesWithProducts,
@@ -129,9 +129,11 @@ export default function HomePage() {
           href="/woulib"
           className="relative flex items-center justify-center gap-3 rounded-2xl bg-brand-orange text-white px-5 py-5 shadow-sm hover:bg-brand-orange-dark transition"
         >
-          <Car className="w-7 h-7 shrink-0" />
+          <div className="flex items-center -space-x-1.5 shrink-0">
+            <Car className="w-7 h-7" />
+            <Motorbike className="w-7 h-7" />
+          </div>
           <p className="font-extrabold text-2xl tracking-tight">Woulib</p>
-          <Bike className="w-7 h-7 shrink-0" />
           <ChevronRight className="w-5 h-5 text-white/70 shrink-0 absolute right-5" />
         </Link>
       </div>
