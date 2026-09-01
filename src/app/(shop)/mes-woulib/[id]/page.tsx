@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { notFound, redirect } from "next/navigation";
-import { Car, Phone } from "lucide-react";
+import { Car, Motorbike, Phone } from "lucide-react";
 import { getCurrentUserAndProfile } from "@/lib/data";
 import { getWoulibRequestById } from "@/lib/actions/woulib";
 import { WoulibStatusBadge } from "@/components/woulib/WoulibStatusBadge";
@@ -28,9 +28,25 @@ export default async function WoulibDetailPage({
         <h1 className="font-bold text-xl text-brand-ink">{request.request_number}</h1>
         <WoulibStatusBadge status={request.status} />
       </div>
-      <p className="text-brand-gray text-sm mb-6">
+      <p className="text-brand-gray text-sm mb-4">
         {new Date(request.created_at).toLocaleString("fr-HT")} · {request.service_type === "ride" ? "Course" : "Colis"}
       </p>
+
+      <div className="flex items-center gap-3 border border-brand-border rounded-2xl p-4 mb-6">
+        <div className="w-11 h-11 rounded-full bg-brand-orange/10 flex items-center justify-center shrink-0">
+          {request.vehicle_type?.kind === "moto" ? (
+            <Motorbike className="w-6 h-6 text-brand-orange" />
+          ) : (
+            <Car className="w-6 h-6 text-brand-orange" />
+          )}
+        </div>
+        <div>
+          <p className="font-semibold text-brand-ink text-sm">{request.vehicle_type?.name ?? "Vehicule"}</p>
+          <p className="text-xs text-brand-gray">
+            {request.driver ? "Chauffeur en route" : "En attente d'un chauffeur"}
+          </p>
+        </div>
+      </div>
 
       <div className="mb-6">
         <WoulibLivePanel
@@ -49,6 +65,8 @@ export default async function WoulibDetailPage({
           <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-sm bg-brand-cream shrink-0 flex items-center justify-center">
             {request.driver.photo_url ? (
               <Image src={request.driver.photo_url} alt={request.driver.name} fill sizes="56px" className="object-cover" />
+            ) : request.vehicle_type?.kind === "moto" ? (
+              <Motorbike className="w-6 h-6 text-brand-orange" />
             ) : (
               <Car className="w-6 h-6 text-brand-orange" />
             )}
