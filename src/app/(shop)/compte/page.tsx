@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { LogOut, ClipboardList, MapPin, ShieldCheck, Sparkles } from "lucide-react";
+import { LogOut, ClipboardList, MapPin, ShieldCheck, Sparkles, Car } from "lucide-react";
 import { getCurrentUserAndProfile, getMyAddresses } from "@/lib/data";
 import { getMyOrders } from "@/lib/actions/orders";
 import { getMySubscription } from "@/lib/actions/subscription";
@@ -105,6 +105,13 @@ export default async function AccountPage() {
         >
           <ClipboardList className="w-5 h-5 text-brand-orange" />
           <span className="text-sm font-medium text-brand-ink">Mes commandes</span>
+        </Link>
+        <Link
+          href="/mes-woulib"
+          className="flex items-center gap-3 border border-brand-border rounded-xl px-4 py-3.5 hover:border-brand-orange transition"
+        >
+          <Car className="w-5 h-5 text-brand-orange" />
+          <span className="text-sm font-medium text-brand-ink">Mes Woulib</span>
         </Link>
         <Link
           href="/compte/adresses"

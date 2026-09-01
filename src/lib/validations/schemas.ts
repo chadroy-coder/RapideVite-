@@ -144,3 +144,20 @@ export const orderStatusUpdateSchema = z.object({
   driver_photo_url: z.string().optional().or(z.literal("")),
 });
 export type OrderStatusUpdateInput = z.infer<typeof orderStatusUpdateSchema>;
+
+export const woulibRequestSchema = z.object({
+  service_type: z.enum(["ride", "package"]),
+  vehicle_type_id: z.string().uuid("Choisissez un type de vehicule"),
+  pickup_lat: z.number(),
+  pickup_lng: z.number(),
+  pickup_address: z.string().optional().or(z.literal("")),
+  dropoff_lat: z.number(),
+  dropoff_lng: z.number(),
+  dropoff_address: z.string().optional().or(z.literal("")),
+  contact_name: z.string().min(2, "Nom requis"),
+  contact_phone: z.string().min(8, "Numero invalide"),
+  package_description: z.string().max(300).optional().or(z.literal("")),
+  notes: z.string().max(500).optional().or(z.literal("")),
+  payment_method: z.enum(["cash_on_delivery", "moncash", "natcash", "sogebank", "card"]),
+});
+export type WoulibRequestInput = z.infer<typeof woulibRequestSchema>;

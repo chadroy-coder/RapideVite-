@@ -14,6 +14,7 @@ import {
   Upload,
   ArrowLeft,
   Bike,
+  Car,
   Menu,
   X,
 } from "lucide-react";
@@ -26,6 +27,7 @@ const links = [
   { href: "/admin/inventaire", label: "Inventaire", icon: Boxes },
   { href: "/admin/commandes", label: "Commandes", icon: ClipboardList },
   { href: "/admin/livreurs", label: "Livreurs", icon: Bike },
+  { href: "/admin/woulib", label: "Woulib", icon: Car },
   { href: "/admin/clients", label: "Clients", icon: Users },
   { href: "/admin/rapports", label: "Rapports", icon: BarChart3 },
   { href: "/admin/import", label: "Importer produits", icon: Upload },

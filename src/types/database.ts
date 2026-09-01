@@ -225,3 +225,82 @@ export const PAYMENT_METHOD_LABELS: Record<PaymentMethod, string> = {
 // Methods where the customer sends money manually and must upload a
 // screenshot of the transaction as proof before the order is confirmed.
 export const PROOF_REQUIRED_PAYMENT_METHODS: PaymentMethod[] = ["moncash", "natcash", "sogebank"];
+
+// ---------- Woulib (ride + package delivery) ----------
+// Uses the same driver roster (Driver, above) as grocery orders - see
+// supabase/migrations/0019_woulib.sql for the full reasoning.
+
+export type WoulibServiceType = "ride" | "package";
+export type WoulibVehicleKind = "car" | "moto";
+
+export type WoulibStatus =
+  | "requested"
+  | "accepted"
+  | "en_route_pickup"
+  | "picked_up"
+  | "en_route_dropoff"
+  | "completed"
+  | "cancelled";
+
+export const WOULIB_LIVE_STATUSES: WoulibStatus[] = [
+  "requested",
+  "accepted",
+  "en_route_pickup",
+  "picked_up",
+  "en_route_dropoff",
+];
+
+export const WOULIB_STATUS_LABELS: Record<WoulibStatus, string> = {
+  requested: "Demande envoyee",
+  accepted: "Chauffeur assigne",
+  en_route_pickup: "En route vers le depart",
+  picked_up: "Recupere",
+  en_route_dropoff: "En route vers l'arrivee",
+  completed: "Termine",
+  cancelled: "Annule",
+};
+
+export interface WoulibVehicleType {
+  id: string;
+  name: string;
+  kind: WoulibVehicleKind;
+  base_fare: number;
+  price_per_km: number;
+  price_per_minute: number;
+  active: boolean;
+  sort_order: number;
+  created_at: string;
+}
+
+export interface WoulibRequest {
+  id: string;
+  request_number: string;
+  user_id: string;
+  service_type: WoulibServiceType;
+  vehicle_type_id: string;
+  pickup_lat: number;
+  pickup_lng: number;
+  pickup_address: string | null;
+  dropoff_lat: number;
+  dropoff_lng: number;
+  dropoff_address: string | null;
+  contact_name: string;
+  contact_phone: string;
+  package_description: string | null;
+  notes: string | null;
+  distance_km: number | null;
+  duration_minutes: number | null;
+  estimated_price: number | null;
+  final_price: number | null;
+  payment_method: PaymentMethod;
+  status: WoulibStatus;
+  assigned_driver_id: string | null;
+  driver_access_token?: string;
+  driver_lat: number | null;
+  driver_lng: number | null;
+  driver_location_updated_at: string | null;
+  created_at: string;
+  updated_at: string;
+  vehicle_type?: WoulibVehicleType | null;
+  driver?: { name: string; phone: string | null; photo_url: string | null } | null;
+}

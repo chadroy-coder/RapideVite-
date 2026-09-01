@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import { MapPin, ChevronRight } from "lucide-react";
+import { MapPin, ChevronRight, Car } from "lucide-react";
 import {
   getCategories,
   getCategoriesWithProducts,
@@ -123,6 +123,22 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
+      <div className="px-4 pt-4">
+        <Link
+          href="/woulib"
+          className="flex items-center gap-3 rounded-2xl bg-brand-ink text-white px-5 py-4 shadow-sm hover:opacity-90 transition"
+        >
+          <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center shrink-0">
+            <Car className="w-5 h-5" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="font-bold text-sm">Woulib - course ou colis</p>
+            <p className="text-white/70 text-xs">Reservez un chauffeur, prix calcule en temps reel</p>
+          </div>
+          <ChevronRight className="w-5 h-5 text-white/70 shrink-0" />
+        </Link>
+      </div>
 
       <div className="py-4">
         <Suspense fallback={<CategoryPillsSkeleton />}>
