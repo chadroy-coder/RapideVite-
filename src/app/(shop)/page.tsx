@@ -104,7 +104,7 @@ export default function HomePage() {
           aria-hidden
           className="absolute -bottom-20 -right-10 w-64 h-64 rounded-full bg-brand-green/10 blur-3xl"
         />
-        <div className="relative px-4 pt-12 pb-10 max-w-xl mx-auto text-center">
+        <div className="relative px-4 pt-8 pb-6 max-w-xl mx-auto text-center">
           <span className="inline-flex items-center gap-1.5 max-w-full bg-white border border-brand-orange/20 text-brand-orange font-semibold text-xs px-3.5 py-1.5 rounded-full shadow-sm">
             <MapPin className="w-3.5 h-3.5 shrink-0" />
             <span aria-hidden className="shrink-0">🇭🇹</span>
@@ -115,16 +115,16 @@ export default function HomePage() {
               </span>
             </span>
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-brand-ink mt-4 leading-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-brand-ink mt-3 leading-tight">
             Tout sa w bezwen, rapid vit.
           </h1>
-          <p className="text-brand-gray text-base mt-3">
+          <p className="text-brand-gray text-base mt-2">
             On livre directement chez vous, partout a Port-au-Prince.
           </p>
         </div>
       </section>
 
-      <div className="px-4 pt-4">
+      <div className="px-4 pt-3">
         <Link
           href="/woulib"
           className="flex items-center gap-3 rounded-2xl bg-brand-ink text-white px-5 py-4 shadow-sm hover:opacity-90 transition"
