@@ -133,7 +133,10 @@ export default function HomePage() {
             <Car className="w-7 h-7" />
             <Motorbike className="w-7 h-7" />
           </div>
-          <p className="font-extrabold text-2xl tracking-tight">Woulib</p>
+          <div>
+            <p className="font-extrabold text-2xl tracking-tight text-center">Woulib</p>
+            <p className="text-white/80 text-xs text-center mt-0.5">Ton chofè, nenpot kote, rapid vit.</p>
+          </div>
           <ChevronRight className="w-5 h-5 text-white/70 shrink-0 absolute right-5" />
         </Link>
       </div>
