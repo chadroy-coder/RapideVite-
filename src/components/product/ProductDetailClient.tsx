@@ -112,9 +112,7 @@ export function ProductDetailClient({
           {outOfStock ? (
             <p className="text-sm font-semibold text-red-500">Rupture de stock</p>
           ) : (
-            <p className="text-sm text-brand-green font-medium">
-              En stock ({variant.inventory_quantity} disponibles)
-            </p>
+            <p className="text-sm text-brand-green font-medium">En stock</p>
           )}
         </div>
 
