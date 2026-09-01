@@ -27,6 +27,7 @@ export function LocationPicker({
     onChangeRef.current = onChange;
   });
   const [locating, setLocating] = useState(false);
+  const [locationError, setLocationError] = useState<string | null>(null);
 
   // Default center: Port-au-Prince, used until the user shares their
   // location or clicks the map themselves.
@@ -126,14 +127,31 @@ export function LocationPicker({
   }, []);
 
   function useMyLocation() {
-    if (!navigator.geolocation) return;
+    setLocationError(null);
+    if (!navigator.geolocation) {
+      setLocationError("Votre navigateur ne supporte pas la localisation.");
+      return;
+    }
+    if (typeof window !== "undefined" && window.isSecureContext === false) {
+      setLocationError("La localisation necessite une connexion securisee (https).");
+      return;
+    }
     setLocating(true);
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         onChange({ lat: pos.coords.latitude, lng: pos.coords.longitude });
         setLocating(false);
       },
-      () => setLocating(false),
+      (err) => {
+        setLocating(false);
+        if (err.code === err.PERMISSION_DENIED) {
+          setLocationError("Localisation refusee - autorisez l'acces a votre position dans les parametres du navigateur.");
+        } else if (err.code === err.TIMEOUT) {
+          setLocationError("La recherche de votre position a pris trop de temps. Reessayez.");
+        } else {
+          setLocationError("Impossible d'obtenir votre position. Touchez la carte pour placer le point manuellement.");
+        }
+      },
       { enableHighAccuracy: true, timeout: 10000 }
     );
   }
@@ -150,8 +168,12 @@ export function LocationPicker({
         <Locate className="w-3.5 h-3.5 text-brand-orange" />
         {locating ? "..." : "Ma position"}
       </button>
-      {!value && (
-        <p className="text-xs text-brand-gray mt-1.5">Touchez la carte pour placer le point, ou utilisez votre position.</p>
+      {locationError ? (
+        <p className="text-xs text-red-600 mt-1.5">{locationError}</p>
+      ) : (
+        !value && (
+          <p className="text-xs text-brand-gray mt-1.5">Touchez la carte pour placer le point, ou utilisez votre position.</p>
+        )
       )}
     </div>
   );
