@@ -3,10 +3,11 @@ import { getWoulibRequestAdmin } from "@/lib/actions/admin-woulib";
 import { listDrivers } from "@/lib/actions/admin-drivers";
 import { WoulibStatusBadge } from "@/components/woulib/WoulibStatusBadge";
 import { WoulibStatusForm } from "@/components/admin/WoulibStatusForm";
+import { WoulibPaymentProofPanel } from "@/components/admin/WoulibPaymentProofPanel";
 import { DriverLinkCard } from "@/components/admin/DriverLinkCard";
 import { LiveMap } from "@/components/order/LiveMap";
 import { formatUSD } from "@/lib/format";
-import { PAYMENT_METHOD_LABELS } from "@/types/database";
+import { PAYMENT_METHOD_LABELS, PROOF_REQUIRED_PAYMENT_METHODS } from "@/types/database";
 
 export default async function AdminWoulibDetailPage({
   params,
@@ -75,6 +76,15 @@ export default async function AdminWoulibDetailPage({
         {request.driver_access_token && (
           <DriverLinkCard
             url={`${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/woulib-livreur/${request.driver_access_token}`}
+          />
+        )}
+
+        {PROOF_REQUIRED_PAYMENT_METHODS.includes(request.payment_method) && (
+          <WoulibPaymentProofPanel
+            requestId={request.id}
+            paymentMethod={request.payment_method}
+            paymentStatus={request.payment_status}
+            proofSignedUrl={request.paymentProofSignedUrl}
           />
         )}
       </div>

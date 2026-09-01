@@ -1,6 +1,7 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { estimateRoute, calculateFare } from "@/lib/woulib";
 import { woulibRequestSchema, type WoulibRequestInput } from "@/lib/validations/schemas";
 import { WOULIB_LIVE_STATUSES, type WoulibRequest, type WoulibVehicleType } from "@/types/database";
@@ -93,6 +94,7 @@ export async function createWoulibRequest(input: WoulibRequestInput) {
       package_description: parsed.data.package_description || null,
       notes: parsed.data.notes || null,
       payment_method: parsed.data.payment_method,
+      payment_status: "pending",
       distance_km: Math.round(route.distanceKm * 10) / 10,
       duration_minutes: Math.round(route.durationMinutes),
       estimated_price: price,
@@ -106,6 +108,58 @@ export async function createWoulibRequest(input: WoulibRequestInput) {
   }
 
   return { error: null, requestId: request.id as string, requestNumber: request.request_number as string };
+}
+
+// Uploads the customer's MonCash/NatCash/Sogebank transfer screenshot for a
+// Woulib request they just created, mirroring uploadPaymentProof() in
+// orders.ts. Reuses the same private "payment-proofs" bucket under a
+// woulib/ prefix (its RLS policy is bucket-scoped, not path-scoped). Runs
+// with the service-role client since customers have no update grant on
+// woulib_requests (see woulib_requests_staff_all in 0019_woulib.sql), but
+// only after verifying the request actually belongs to the calling user.
+export async function uploadWoulibPaymentProof(requestId: string, formData: FormData) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return { error: "Veuillez vous connecter.", url: null };
+
+  const { data: request } = await supabase
+    .from("woulib_requests")
+    .select("id, user_id")
+    .eq("id", requestId)
+    .single();
+  if (!request || request.user_id !== user.id) {
+    return { error: "Demande introuvable.", url: null };
+  }
+
+  const file = formData.get("file") as File | null;
+  if (!file || file.size === 0) return { error: "Aucun fichier fourni.", url: null };
+  if (file.size > 20 * 1024 * 1024) {
+    return { error: "Fichier trop volumineux (max 20 Mo).", url: null };
+  }
+
+  const admin = createAdminClient();
+  const ext = file.name.split(".").pop() || "jpg";
+  const path = `woulib/${requestId}/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+  const { error: uploadError } = await admin.storage
+    .from("payment-proofs")
+    .upload(path, await file.arrayBuffer(), { contentType: file.type, upsert: false });
+
+  if (uploadError) {
+    return { error: "Echec du telechargement de la preuve de paiement.", url: null };
+  }
+
+  const { error: updateError } = await admin
+    .from("woulib_requests")
+    .update({ payment_proof_url: path })
+    .eq("id", requestId);
+
+  if (updateError) {
+    return { error: "Preuve envoyee mais impossible de l'associer a la demande.", url: null };
+  }
+
+  return { error: null, url: path };
 }
 
 export async function getMyWoulibRequests() {

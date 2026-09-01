@@ -6,7 +6,7 @@ import { getWoulibRequestById } from "@/lib/actions/woulib";
 import { WoulibStatusBadge } from "@/components/woulib/WoulibStatusBadge";
 import { WoulibLivePanel } from "@/components/woulib/WoulibLivePanel";
 import { formatUSD, formatHTGEstimate } from "@/lib/format";
-import { PAYMENT_METHOD_LABELS } from "@/types/database";
+import { PAYMENT_METHOD_LABELS, PROOF_REQUIRED_PAYMENT_METHODS } from "@/types/database";
 
 export default async function WoulibDetailPage({
   params,
@@ -130,7 +130,26 @@ export default async function WoulibDetailPage({
             )}
           </div>
         </div>
-        <p className="text-brand-gray">Paiement: {PAYMENT_METHOD_LABELS[request.payment_method]}</p>
+        <div className="flex items-center gap-2">
+          <p className="text-brand-gray">Paiement: {PAYMENT_METHOD_LABELS[request.payment_method]}</p>
+          {PROOF_REQUIRED_PAYMENT_METHODS.includes(request.payment_method) && (
+            <span
+              className={`text-[11px] font-semibold px-2 py-0.5 rounded-full ${
+                request.payment_status === "paid"
+                  ? "bg-brand-green/10 text-brand-green"
+                  : request.payment_status === "failed"
+                  ? "bg-red-50 text-red-600"
+                  : "bg-amber-50 text-amber-700"
+              }`}
+            >
+              {request.payment_status === "paid"
+                ? "Confirme"
+                : request.payment_status === "failed"
+                ? "Rejete - contactez-nous"
+                : "En attente de verification"}
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );

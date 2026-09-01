@@ -293,6 +293,8 @@ export interface WoulibRequest {
   estimated_price: number | null;
   final_price: number | null;
   payment_method: PaymentMethod;
+  payment_status: PaymentStatus;
+  payment_proof_url: string | null;
   status: WoulibStatus;
   assigned_driver_id: string | null;
   driver_access_token?: string;

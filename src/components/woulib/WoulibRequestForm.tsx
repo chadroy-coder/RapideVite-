@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import { Car, Bike, Package, Users } from "lucide-react";
-import { quoteWoulib, createWoulibRequest } from "@/lib/actions/woulib";
+import { quoteWoulib, createWoulibRequest, uploadWoulibPaymentProof } from "@/lib/actions/woulib";
 import { formatUSD, formatHTGEstimate } from "@/lib/format";
-import { PAYMENT_METHOD_LABELS } from "@/types/database";
+import { PAYMENT_METHOD_LABELS, PROOF_REQUIRED_PAYMENT_METHODS } from "@/types/database";
 import type { PaymentMethod, WoulibServiceType, WoulibVehicleType } from "@/types/database";
+import { MANUAL_PAYMENT_ACCOUNTS } from "@/lib/payment-accounts";
 import { useToastStore } from "@/store/toast-store";
 
 // LocationPicker touches `window` via Leaflet - load it client-only.
@@ -33,10 +35,16 @@ export function WoulibRequestForm({ vehicleTypes }: { vehicleTypes: WoulibVehicl
   const [packageDescription, setPackageDescription] = useState("");
   const [notes, setNotes] = useState("");
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("cash_on_delivery");
+  const [proofFile, setProofFile] = useState<File | null>(null);
+  const [proofError, setProofError] = useState<string | null>(null);
 
   const [quote, setQuote] = useState<{ distanceKm: number; durationMinutes: number; price: number } | null>(null);
   const [quoting, setQuoting] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+
+  const manualAccount = PROOF_REQUIRED_PAYMENT_METHODS.includes(paymentMethod)
+    ? MANUAL_PAYMENT_ACCOUNTS[paymentMethod as "moncash" | "natcash" | "sogebank"]
+    : null;
 
   // Re-quote whenever pickup, dropoff, or the chosen vehicle changes -
   // debounced slightly since dragging the pin fires many updates.
@@ -59,6 +67,14 @@ export function WoulibRequestForm({ vehicleTypes }: { vehicleTypes: WoulibVehicl
 
   async function onSubmit() {
     if (!pickup || !dropoff) return;
+
+    const needsProof = PROOF_REQUIRED_PAYMENT_METHODS.includes(paymentMethod);
+    if (needsProof && !proofFile) {
+      setProofError("Veuillez joindre une capture d'ecran du transfert avant de continuer.");
+      return;
+    }
+    setProofError(null);
+
     setSubmitting(true);
     const result = await createWoulibRequest({
       service_type: serviceType,
@@ -75,12 +91,25 @@ export function WoulibRequestForm({ vehicleTypes }: { vehicleTypes: WoulibVehicl
       notes,
       payment_method: paymentMethod,
     });
-    setSubmitting(false);
 
     if (result.error) {
+      setSubmitting(false);
       push(result.error, "error");
       return;
     }
+
+    if (needsProof && proofFile) {
+      const formData = new FormData();
+      formData.append("file", proofFile);
+      const proofResult = await uploadWoulibPaymentProof(result.requestId!, formData);
+      if (proofResult.error) {
+        setSubmitting(false);
+        push(proofResult.error, "error");
+        return;
+      }
+    }
+
+    setSubmitting(false);
     push("Demande envoyee !", "success");
     router.push(`/mes-woulib/${result.requestId}`);
   }
@@ -231,6 +260,62 @@ export function WoulibRequestForm({ vehicleTypes }: { vehicleTypes: WoulibVehicl
               </label>
             ))}
           </div>
+
+          {manualAccount && (
+            <div className="mt-3 border border-brand-orange/30 bg-brand-orange/5 rounded-xl p-4 space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="relative w-12 h-12 rounded-lg overflow-hidden border border-brand-border bg-white shrink-0">
+                  <Image src={manualAccount.logo} alt={PAYMENT_METHOD_LABELS[paymentMethod]} fill sizes="48px" className="object-contain" />
+                </div>
+                <p className="text-sm text-brand-ink font-medium">
+                  Envoyez le montant total ci-dessous, puis joignez une capture d&apos;ecran de la transaction.
+                </p>
+              </div>
+
+              <div className="text-sm space-y-1 bg-white rounded-lg border border-brand-border p-3">
+                <p>
+                  <span className="text-brand-gray">Titulaire du compte : </span>
+                  <span className="font-semibold text-brand-ink">{manualAccount.accountHolder}</span>
+                </p>
+                {manualAccount.phone && (
+                  <p>
+                    <span className="text-brand-gray">Numero {PAYMENT_METHOD_LABELS[paymentMethod]} : </span>
+                    <span className="font-semibold text-brand-ink">{manualAccount.phone}</span>
+                  </p>
+                )}
+                {manualAccount.accountNumber && (
+                  <p>
+                    <span className="text-brand-gray">Numero de compte : </span>
+                    <span className="font-semibold text-brand-ink">{manualAccount.accountNumber}</span>
+                  </p>
+                )}
+                {manualAccount.email && (
+                  <p>
+                    <span className="text-brand-gray">Email : </span>
+                    <span className="font-semibold text-brand-ink">{manualAccount.email}</span>
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-brand-ink block mb-1">
+                  Capture d&apos;ecran de la transaction
+                </label>
+                <input
+                  type="file"
+                  accept="image/*,.pdf"
+                  onChange={(e) => {
+                    setProofFile(e.target.files?.[0] ?? null);
+                    setProofError(null);
+                  }}
+                  className="w-full text-sm border border-brand-border rounded-xl px-3 py-2 bg-white"
+                />
+                <p className="text-[11px] text-brand-gray mt-1">.jpg, .jpeg, .png ou .pdf - max 20 Mo</p>
+                {proofFile && <p className="text-xs text-brand-green mt-1">Fichier selectionne : {proofFile.name}</p>}
+                {proofError && <p className="text-xs text-red-500 mt-1">{proofError}</p>}
+              </div>
+            </div>
+          )}
         </div>
 
         <button
