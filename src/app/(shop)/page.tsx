@@ -127,15 +127,12 @@ export default function HomePage() {
       <div className="px-4 pt-3">
         <Link
           href="/woulib"
-          className="flex items-center gap-3 rounded-2xl bg-brand-ink text-white px-5 py-4 shadow-sm hover:opacity-90 transition"
+          className="flex items-center gap-3 rounded-2xl bg-brand-orange text-white px-5 py-4 shadow-sm hover:bg-brand-orange-dark transition"
         >
           <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center shrink-0">
             <Car className="w-5 h-5" />
           </div>
-          <div className="flex-1 min-w-0">
-            <p className="font-bold text-sm">Woulib - course ou colis</p>
-            <p className="text-white/70 text-xs">Reservez un chauffeur, prix calcule en temps reel</p>
-          </div>
+          <p className="flex-1 min-w-0 font-bold text-sm">Woulib</p>
           <ChevronRight className="w-5 h-5 text-white/70 shrink-0" />
         </Link>
       </div>
