@@ -20,7 +20,19 @@ const RouteLocationPicker = dynamic(() => import("./RouteLocationPicker").then((
 
 type LatLng = { lat: number; lng: number };
 
-export function WoulibRequestForm({ vehicleTypes }: { vehicleTypes: WoulibVehicleType[] }) {
+export function WoulibRequestForm({
+  vehicleTypes,
+  customerName,
+  customerPhone,
+}: {
+  vehicleTypes: WoulibVehicleType[];
+  // Account holder's name/phone (from their profile) - used directly as the
+  // ride passenger's contact info so we don't ask for it again. A package
+  // delivery still asks separately below, since the recipient is often
+  // someone other than the account holder.
+  customerName: string;
+  customerPhone: string;
+}) {
   const router = useRouter();
   const push = useToastStore((s) => s.push);
 
@@ -30,6 +42,10 @@ export function WoulibRequestForm({ vehicleTypes }: { vehicleTypes: WoulibVehicl
   const [pickupAddress, setPickupAddress] = useState("");
   const [dropoffAddress, setDropoffAddress] = useState("");
   const [vehicleTypeId, setVehicleTypeId] = useState(vehicleTypes[0]?.id ?? "");
+  // Package recipient's name/phone - kept separate from the account holder's
+  // info, since a colis is often sent to someone else. A ride's passenger,
+  // by contrast, is the account holder, so it uses customerName/customerPhone
+  // directly (see effectiveContactName/Phone below) instead of asking again.
   const [contactName, setContactName] = useState("");
   const [contactPhone, setContactPhone] = useState("");
   const [packageDescription, setPackageDescription] = useState("");
@@ -62,8 +78,19 @@ export function WoulibRequestForm({ vehicleTypes }: { vehicleTypes: WoulibVehicl
     return () => clearTimeout(handle);
   }, [pickup, dropoff, vehicleTypeId]);
 
+  // Ride: the passenger is the account holder, so use their profile info
+  // directly instead of asking again. Package: the recipient is often
+  // someone else, so it keeps its own name/phone inputs below.
+  const effectiveContactName = serviceType === "ride" ? customerName : contactName;
+  const effectiveContactPhone = serviceType === "ride" ? customerPhone : contactPhone;
+  const rideMissingProfileInfo = serviceType === "ride" && (!customerName.trim() || !customerPhone.trim());
+
   const canSubmit =
-    !!pickup && !!dropoff && !!vehicleTypeId && contactName.trim().length > 1 && contactPhone.trim().length > 6;
+    !!pickup &&
+    !!dropoff &&
+    !!vehicleTypeId &&
+    effectiveContactName.trim().length > 1 &&
+    effectiveContactPhone.trim().length > 6;
 
   async function onSubmit() {
     if (!pickup || !dropoff) return;
@@ -85,8 +112,8 @@ export function WoulibRequestForm({ vehicleTypes }: { vehicleTypes: WoulibVehicl
       dropoff_lat: dropoff.lat,
       dropoff_lng: dropoff.lng,
       dropoff_address: dropoffAddress,
-      contact_name: contactName,
-      contact_phone: contactPhone,
+      contact_name: effectiveContactName,
+      contact_phone: effectiveContactPhone,
       package_description: serviceType === "package" ? packageDescription : "",
       notes,
       payment_method: paymentMethod,
@@ -213,18 +240,36 @@ export function WoulibRequestForm({ vehicleTypes }: { vehicleTypes: WoulibVehicl
             {serviceType === "ride" ? "Passager" : "Destinataire du colis"}
           </label>
           <div className="space-y-3">
-            <input
-              value={contactName}
-              onChange={(e) => setContactName(e.target.value)}
-              placeholder="Nom complet"
-              className="w-full border border-brand-border rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40"
-            />
-            <input
-              value={contactPhone}
-              onChange={(e) => setContactPhone(e.target.value)}
-              placeholder="Numero de telephone"
-              className="w-full border border-brand-border rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40"
-            />
+            {serviceType === "ride" ? (
+              rideMissingProfileInfo ? (
+                <p className="text-xs text-red-500 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                  Nom ou numero manquant sur votre compte. Completez votre profil dans{" "}
+                  <a href="/compte" className="font-semibold underline">
+                    Mon compte
+                  </a>{" "}
+                  avant de continuer.
+                </p>
+              ) : (
+                <p className="text-sm text-brand-ink bg-brand-cream/60 border border-brand-border rounded-xl px-4 py-3">
+                  {customerName} · {customerPhone}
+                </p>
+              )
+            ) : (
+              <>
+                <input
+                  value={contactName}
+                  onChange={(e) => setContactName(e.target.value)}
+                  placeholder="Nom complet"
+                  className="w-full border border-brand-border rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40"
+                />
+                <input
+                  value={contactPhone}
+                  onChange={(e) => setContactPhone(e.target.value)}
+                  placeholder="Numero de telephone"
+                  className="w-full border border-brand-border rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40"
+                />
+              </>
+            )}
             {serviceType === "package" && (
               <textarea
                 value={packageDescription}
