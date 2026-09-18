@@ -12,10 +12,10 @@ import type { PaymentMethod, WoulibServiceType, WoulibVehicleType } from "@/type
 import { MANUAL_PAYMENT_ACCOUNTS } from "@/lib/payment-accounts";
 import { useToastStore } from "@/store/toast-store";
 
-// LocationPicker touches `window` via Leaflet - load it client-only.
-const LocationPicker = dynamic(() => import("./LocationPicker").then((m) => m.LocationPicker), {
+// RouteLocationPicker touches `window` via Leaflet - load it client-only.
+const RouteLocationPicker = dynamic(() => import("./RouteLocationPicker").then((m) => m.RouteLocationPicker), {
   ssr: false,
-  loading: () => <div className="w-full h-52 rounded-xl bg-brand-cream animate-pulse" />,
+  loading: () => <div className="w-full h-64 rounded-xl bg-brand-cream animate-pulse" />,
 });
 
 type LatLng = { lat: number; lng: number };
@@ -142,25 +142,27 @@ export function WoulibRequestForm({ vehicleTypes }: { vehicleTypes: WoulibVehicl
 
       <div className="space-y-5">
         <div>
-          <label className="text-sm font-semibold text-brand-ink block mb-2">Point de depart</label>
-          <LocationPicker value={pickup} onChange={setPickup} color="#0F8A5F" />
-          <input
-            value={pickupAddress}
-            onChange={(e) => setPickupAddress(e.target.value)}
-            placeholder="Reperes pour le chauffeur (optionnel)"
-            className="w-full mt-2 border border-brand-border rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40"
+          <label className="text-sm font-semibold text-brand-ink block mb-2">Trajet</label>
+          <RouteLocationPicker
+            pickup={pickup}
+            dropoff={dropoff}
+            onPickupChange={setPickup}
+            onDropoffChange={setDropoff}
           />
-        </div>
-
-        <div>
-          <label className="text-sm font-semibold text-brand-ink block mb-2">Destination</label>
-          <LocationPicker value={dropoff} onChange={setDropoff} color="#E5231B" />
-          <input
-            value={dropoffAddress}
-            onChange={(e) => setDropoffAddress(e.target.value)}
-            placeholder="Reperes pour le chauffeur (optionnel)"
-            className="w-full mt-2 border border-brand-border rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40"
-          />
+          <div className="grid grid-cols-2 gap-2 mt-2">
+            <input
+              value={pickupAddress}
+              onChange={(e) => setPickupAddress(e.target.value)}
+              placeholder="Repere depart (optionnel)"
+              className="w-full border border-brand-border rounded-xl px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40"
+            />
+            <input
+              value={dropoffAddress}
+              onChange={(e) => setDropoffAddress(e.target.value)}
+              placeholder="Repere destination (optionnel)"
+              className="w-full border border-brand-border rounded-xl px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40"
+            />
+          </div>
         </div>
 
         <div>
