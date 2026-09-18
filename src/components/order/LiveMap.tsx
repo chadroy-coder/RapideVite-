@@ -47,6 +47,9 @@ export function LiveMap({
           disableDefaultUI: true,
           zoomControl: true,
           clickableIcons: false,
+          // Let one finger pan on touch instead of requiring two - see the
+          // matching comment in woulib/LiveRouteMap.tsx.
+          gestureHandling: "greedy",
         });
         markerRef.current = new google.maps.Marker({
           position: { lat, lng },

@@ -106,6 +106,11 @@ export function LiveRouteMap({
           disableDefaultUI: true,
           zoomControl: true,
           clickableIcons: false,
+          // Default gesture handling needs two fingers to pan on touch
+          // (one finger scrolls the page instead) - this map is the main
+          // thing the rider is watching/interacting with, so let one finger
+          // pan it directly, same as Uber/Lyft.
+          gestureHandling: "greedy",
         });
       }
       const map = mapRef.current;

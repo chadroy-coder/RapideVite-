@@ -88,6 +88,12 @@ export function RouteLocationPicker({
         disableDefaultUI: true,
         zoomControl: true,
         clickableIcons: false,
+        // Without this, Google Maps defaults to requiring two fingers to pan
+        // on touch (so a single-finger swipe scrolls the page instead) -
+        // fine for a map buried in a long page, but this map IS the main
+        // interaction (tapping/dragging to drop pins), so one finger should
+        // just work like every ride-hailing app.
+        gestureHandling: "greedy",
       });
       mapRef.current = map;
 

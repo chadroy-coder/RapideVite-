@@ -98,6 +98,9 @@ export function LiveRouteMap({
           disableDefaultUI: true,
           zoomControl: true,
           clickableIcons: false,
+          // Let one finger pan on touch instead of requiring two - see the
+          // matching comment in woulib/LiveRouteMap.tsx.
+          gestureHandling: "greedy",
         });
       }
       const map = mapRef.current;
