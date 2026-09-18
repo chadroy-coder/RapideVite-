@@ -20,7 +20,6 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
     "lucide-react": "^1.27.0",
-    "maplibre-gl": "^6.10.0",
     "next": "16.2.12",
     "papaparse": "^5.5.4",
     "react": "19.2.4",

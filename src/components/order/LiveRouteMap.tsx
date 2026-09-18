@@ -1,20 +1,17 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import "maplibre-gl/dist/maplibre-gl.css";
-import type { Map as MapLibreMap, Marker as MapLibreMarker, GeoJSONSource } from "maplibre-gl";
 import {
-  MAP_STYLE_URL,
+  loadGoogleMaps,
+  MAP_STYLES,
   bearingBetween,
   haversineMeters,
   easeInOutQuad,
-  buildPinElement,
-  buildVehicleElement,
-  setVehicleBearing,
-  ensureStyleLoaded,
-  toLngLat,
+  vehicleIcon,
+  dotIcon,
+  dashedLineIcons,
   type GeoPoint,
-} from "@/lib/maplibre-map";
+} from "@/lib/google-map";
 
 // Grocery-order counterpart to src/components/woulib/LiveRouteMap.tsx: same
 // smooth glide + rotating vehicle icon + road-following route + live ETA,
@@ -23,11 +20,8 @@ import {
 // customer has shared an exact location (order.customer_lat/lng) - without a
 // destination point there's nothing to route to, so LiveOrderPanel falls
 // back to the plain single-dot LiveMap in that case.
-const OSRM_BASE_URL = "https://router.project-osrm.org";
 const GLIDE_MS = 2500;
 const MIN_BEARING_DELTA_M = 3;
-const ROUTE_SOURCE_ID = "order-route";
-const ROUTE_LAYER_ID = "order-route-line";
 
 type Point = GeoPoint;
 
@@ -45,10 +39,16 @@ export function LiveRouteMap({
   destColor?: string;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<MapLibreMap | null>(null);
-  const driverMarkerRef = useRef<MapLibreMarker | null>(null);
-  const driverInnerRef = useRef<HTMLDivElement | null>(null);
-  const destMarkerRef = useRef<MapLibreMarker | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- no @types/google.maps here, see src/lib/google-map.ts
+  const mapRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const driverMarkerRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const destMarkerRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const routeLineRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const directionsServiceRef = useRef<any>(null);
   const glideFrameRef = useRef<number | null>(null);
   const prevDriverRef = useRef<Point | null>(null);
   const bearingRef = useRef(0);
@@ -59,16 +59,20 @@ export function LiveRouteMap({
   useEffect(() => {
     let cancelled = false;
 
-    function glideMarkerTo(marker: MapLibreMarker, to: Point) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- no @types/google.maps here, see src/lib/google-map.ts
+    function glideMarkerTo(google: any, marker: any, to: Point) {
       if (glideFrameRef.current != null) cancelAnimationFrame(glideFrameRef.current);
-      const from = marker.getLngLat();
-      if (haversineMeters({ lat: from.lat, lng: from.lng }, to) < 0.5) return;
+      const fromPos = marker.getPosition();
+      const from: Point = { lat: fromPos.lat(), lng: fromPos.lng() };
+      if (haversineMeters(from, to) < 0.5) return;
       const start = performance.now();
       function step(now: number) {
         if (cancelled) return;
         const t = Math.min(1, (now - start) / GLIDE_MS);
         const eased = easeInOutQuad(t);
-        marker.setLngLat([from.lng + (to.lng - from.lng) * eased, from.lat + (to.lat - from.lat) * eased]);
+        marker.setPosition(
+          new google.maps.LatLng(from.lat + (to.lat - from.lat) * eased, from.lng + (to.lng - from.lng) * eased)
+        );
         if (t < 1) {
           glideFrameRef.current = requestAnimationFrame(step);
         } else {
@@ -80,38 +84,26 @@ export function LiveRouteMap({
 
     async function init() {
       if (!containerRef.current) return;
-      const maplibregl = await import("maplibre-gl");
+      const google = await loadGoogleMaps();
       if (cancelled || !containerRef.current) return;
-
-      if (!mapRef.current) {
-        mapRef.current = new maplibregl.Map({
-          container: containerRef.current,
-          style: MAP_STYLE_URL,
-          center: toLngLat({ lat: driver.lat, lng: driver.lng }),
-          zoom: 14,
-          attributionControl: { compact: true },
-        });
-      }
-      const map = mapRef.current;
-      await ensureStyleLoaded(map);
-      if (cancelled) return;
-
-      if (!map.getSource(ROUTE_SOURCE_ID)) {
-        map.addSource(ROUTE_SOURCE_ID, {
-          type: "geojson",
-          data: { type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: [] } },
-        });
-        map.addLayer({
-          id: ROUTE_LAYER_ID,
-          type: "line",
-          source: ROUTE_SOURCE_ID,
-          layout: { "line-cap": "round", "line-join": "round" },
-          paint: { "line-color": driverColor, "line-width": 4, "line-opacity": 0.8, "line-dasharray": ["literal", [1]] },
-        });
-      }
 
       const driverPoint: Point = { lat: driver.lat, lng: driver.lng };
       const destPoint: Point = { lat: destination.lat, lng: destination.lng };
+
+      if (!mapRef.current) {
+        mapRef.current = new google.maps.Map(containerRef.current, {
+          center: driverPoint,
+          zoom: 14,
+          styles: MAP_STYLES,
+          disableDefaultUI: true,
+          zoomControl: true,
+          clickableIcons: false,
+        });
+      }
+      const map = mapRef.current;
+      if (!directionsServiceRef.current) {
+        directionsServiceRef.current = new google.maps.DirectionsService();
+      }
 
       // Heading: only recompute from real GPS movement (not the animated
       // in-between frames), and ignore sub-3m jitter from a driver who's
@@ -123,55 +115,50 @@ export function LiveRouteMap({
       const isFirstPlacement = !driverMarkerRef.current;
 
       if (isFirstPlacement) {
-        // Grocery drivers in this app aren't tracked by vehicle type (see
-        // Driver in types/database.ts) - default to the moto glyph, which
-        // matches the Bike fallback icon already used elsewhere for
-        // grocery delivery (order tracking page, driver photo placeholder).
-        const { el, inner } = buildVehicleElement("moto", driverColor);
-        setVehicleBearing(inner, bearingRef.current);
-        driverInnerRef.current = inner;
-        driverMarkerRef.current = new maplibregl.Marker({ element: el, anchor: "center" })
-          .setLngLat(toLngLat(driverPoint))
-          .addTo(map);
+        driverMarkerRef.current = new google.maps.Marker({
+          position: driverPoint,
+          map,
+          icon: vehicleIcon(google, driverColor, bearingRef.current),
+        });
       } else {
-        if (driverInnerRef.current) setVehicleBearing(driverInnerRef.current, bearingRef.current);
-        glideMarkerTo(driverMarkerRef.current!, driverPoint);
+        driverMarkerRef.current.setIcon(vehicleIcon(google, driverColor, bearingRef.current));
+        glideMarkerTo(google, driverMarkerRef.current, driverPoint);
       }
       prevDriverRef.current = driverPoint;
 
       if (!destMarkerRef.current) {
-        destMarkerRef.current = new maplibregl.Marker({ element: buildPinElement(destColor), anchor: "bottom" })
-          .setLngLat(toLngLat(destPoint))
-          .addTo(map);
-        if (destinationLabel) destMarkerRef.current.setPopup(new maplibregl.Popup({ offset: 12 }).setText(destinationLabel));
+        destMarkerRef.current = new google.maps.Marker({
+          position: destPoint,
+          map,
+          icon: dotIcon(google, destColor),
+          title: destinationLabel,
+        });
       }
 
-      // Try to draw the real road-following route; fall back to a straight
-      // dashed line if the routing server is unreachable so the customer
-      // still sees which direction the driver is coming from.
-      let coords: [number, number][] = [toLngLat(driverPoint), toLngLat(destPoint)];
+      // Try to draw the real road-following route via Google Directions;
+      // fall back to a straight dashed line if it's unreachable so the
+      // customer still sees which direction the driver is coming from.
+      let path: Point[] = [driverPoint, destPoint];
       let dashed = true;
       let routeDistanceM: number | null = null;
       let routeDurationS: number | null = null;
       try {
-        const coordStr = `${driverPoint.lng},${driverPoint.lat};${destPoint.lng},${destPoint.lat}`;
-        const res = await fetch(
-          `${OSRM_BASE_URL}/route/v1/driving/${coordStr}?overview=full&geometries=geojson`,
-          { cache: "no-store" }
-        );
-        if (res.ok) {
-          const data = await res.json();
-          const route = data?.routes?.[0];
-          const geometry = route?.geometry?.coordinates as [number, number][] | undefined;
-          if (geometry?.length) {
-            coords = geometry;
-            dashed = false;
-          }
-          if (typeof route?.distance === "number") routeDistanceM = route.distance;
-          if (typeof route?.duration === "number") routeDurationS = route.duration;
+        const result = await directionsServiceRef.current.route({
+          origin: driverPoint,
+          destination: destPoint,
+          travelMode: google.maps.TravelMode.DRIVING,
+        });
+        const route = result?.routes?.[0];
+        const overview = route?.overview_path as { lat: () => number; lng: () => number }[] | undefined;
+        if (overview?.length) {
+          path = overview.map((p) => ({ lat: p.lat(), lng: p.lng() }));
+          dashed = false;
         }
+        const leg = route?.legs?.[0];
+        if (leg?.distance?.value != null) routeDistanceM = leg.distance.value;
+        if (leg?.duration?.value != null) routeDurationS = leg.duration.value;
       } catch {
-        // Network hiccup - keep the straight-line fallback above.
+        // Directions unreachable/denied - keep the straight-line fallback above.
       }
 
       if (cancelled) return;
@@ -182,20 +169,33 @@ export function LiveRouteMap({
         setEta(null);
       }
 
-      const routeSource = map.getSource(ROUTE_SOURCE_ID) as GeoJSONSource | undefined;
-      routeSource?.setData({ type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: coords } });
-      map.setPaintProperty(ROUTE_LAYER_ID, "line-dasharray", dashed ? ["literal", [1.5, 1.5]] : ["literal", [1]]);
+      if (!routeLineRef.current) {
+        routeLineRef.current = new google.maps.Polyline({
+          path,
+          map,
+          strokeColor: driverColor,
+          strokeWeight: 4,
+          strokeOpacity: dashed ? 0 : 0.8,
+          icons: dashed ? dashedLineIcons(google, driverColor) : [],
+        });
+      } else {
+        routeLineRef.current.setPath(path);
+        routeLineRef.current.setOptions({ strokeOpacity: dashed ? 0 : 0.8, icons: dashed ? dashedLineIcons(google, driverColor) : [] });
+      }
 
       // Destination (the customer's shared location) never moves during a
       // delivery, so only the very first render needs to frame the whole
       // route - after that, only pan if the driver has drifted off-screen.
       if (isFirstPlacement && !hasFramedRef.current) {
-        const bounds = new maplibregl.LngLatBounds(coords[0], coords[0]);
-        for (const c of coords) bounds.extend(c);
-        map.fitBounds(bounds, { padding: 30 });
+        const bounds = new google.maps.LatLngBounds();
+        for (const p of path) bounds.extend(p);
+        map.fitBounds(bounds, 30);
         hasFramedRef.current = true;
-      } else if (!map.getBounds().contains(toLngLat(driverPoint))) {
-        map.panTo(toLngLat(driverPoint), { animate: true, duration: 800 });
+      } else {
+        const bounds = map.getBounds();
+        if (bounds && !bounds.contains(driverPoint)) {
+          map.panTo(driverPoint);
+        }
       }
     }
 
@@ -208,10 +208,13 @@ export function LiveRouteMap({
 
   useEffect(() => {
     return () => {
-      mapRef.current?.remove();
+      driverMarkerRef.current?.setMap(null);
+      destMarkerRef.current?.setMap(null);
+      routeLineRef.current?.setMap(null);
       mapRef.current = null;
       driverMarkerRef.current = null;
       destMarkerRef.current = null;
+      routeLineRef.current = null;
     };
   }, []);
 

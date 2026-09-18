@@ -2,9 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Locate, Check } from "lucide-react";
-import "maplibre-gl/dist/maplibre-gl.css";
-import type { Map as MapLibreMap, Marker as MapLibreMarker, GeoJSONSource } from "maplibre-gl";
-import { MAP_STYLE_URL, buildPinElement, toLngLat, type GeoPoint } from "@/lib/maplibre-map";
+import { loadGoogleMaps, MAP_STYLES, dotIcon, dashedLineIcons, type GeoPoint } from "@/lib/google-map";
 
 type LatLng = GeoPoint;
 type Pin = "pickup" | "dropoff";
@@ -12,16 +10,14 @@ type Pin = "pickup" | "dropoff";
 const PICKUP_COLOR = "#0F8A5F";
 const DROPOFF_COLOR = "#E5231B";
 // Default center: Port-au-Prince, used until the user shares their
-// location or taps the map themselves. MapLibre wants [lng, lat].
-const DEFAULT_CENTER: [number, number] = [-72.3074, 18.5944];
-const CONNECTOR_SOURCE_ID = "route-connector";
-const CONNECTOR_LAYER_ID = "route-connector-line";
+// location or taps the map themselves.
+const DEFAULT_CENTER: LatLng = { lat: 18.5944, lng: -72.3074 };
 
 // One map for both ends of the trip, Uber-style: tap the map to drop
 // whichever pin is currently active ("Depart" / "Destination" chips above
 // the map), drag either pin to fine-tune it, and the map auto-advances from
 // pickup to dropoff the first time so most riders only ever tap twice.
-// Built on MapLibre GL JS + OpenFreeMap vector tiles (see src/lib/maplibre-map.ts).
+// Built on the Google Maps JavaScript API (see src/lib/google-map.ts).
 export function RouteLocationPicker({
   pickup,
   dropoff,
@@ -34,10 +30,14 @@ export function RouteLocationPicker({
   onDropoffChange: (pos: LatLng) => void;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<MapLibreMap | null>(null);
-  const pickupMarkerRef = useRef<MapLibreMarker | null>(null);
-  const dropoffMarkerRef = useRef<MapLibreMarker | null>(null);
-  const styleLoadedRef = useRef(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- no @types/google.maps here, see src/lib/google-map.ts
+  const mapRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const pickupMarkerRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const dropoffMarkerRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const connectorRef = useRef<any>(null);
   const hasFramedRef = useRef(false);
 
   const [active, setActive] = useState<Pin>("pickup");
@@ -72,69 +72,27 @@ export function RouteLocationPicker({
     }
   }
 
-  function syncConnector(map: MapLibreMap) {
-    const source = map.getSource(CONNECTOR_SOURCE_ID) as GeoJSONSource | undefined;
-    if (!source) return;
-    const p = pickupRef.current;
-    const d = dropoffRef.current;
-    if (p && d) {
-      source.setData({
-        type: "Feature",
-        properties: {},
-        geometry: { type: "LineString", coordinates: [toLngLat(p), toLngLat(d)] },
-      });
-      if (map.getLayer(CONNECTOR_LAYER_ID)) {
-        map.setLayoutProperty(CONNECTOR_LAYER_ID, "visibility", "visible");
-      }
-    } else if (map.getLayer(CONNECTOR_LAYER_ID)) {
-      map.setLayoutProperty(CONNECTOR_LAYER_ID, "visibility", "none");
-    }
-  }
-
   useEffect(() => {
     let cancelled = false;
 
     async function init() {
       if (!containerRef.current || mapRef.current) return;
-      const maplibregl = await import("maplibre-gl");
+      const google = await loadGoogleMaps();
       if (cancelled || !containerRef.current) return;
 
-      const start: [number, number] = pickupRef.current ? toLngLat(pickupRef.current) : DEFAULT_CENTER;
-      const map = new maplibregl.Map({
-        container: containerRef.current,
-        style: MAP_STYLE_URL,
+      const start = pickupRef.current ?? DEFAULT_CENTER;
+      const map = new google.maps.Map(containerRef.current, {
         center: start,
         zoom: 14,
-        attributionControl: { compact: true },
+        styles: MAP_STYLES,
+        disableDefaultUI: true,
+        zoomControl: true,
+        clickableIcons: false,
       });
       mapRef.current = map;
-      map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-left");
 
-      map.on("load", () => {
-        if (cancelled) return;
-        map.addSource(CONNECTOR_SOURCE_ID, {
-          type: "geojson",
-          data: { type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: [start, start] } },
-        });
-        map.addLayer({
-          id: CONNECTOR_LAYER_ID,
-          type: "line",
-          source: CONNECTOR_SOURCE_ID,
-          layout: { "line-cap": "round", visibility: "none" },
-          paint: { "line-color": "#9CA3AF", "line-width": 2.5, "line-dasharray": [2, 2.5], "line-opacity": 0.8 },
-        });
-        styleLoadedRef.current = true;
-        syncConnector(map);
-        if (pickupRef.current && dropoffRef.current && !hasFramedRef.current) {
-          const bounds = new maplibregl.LngLatBounds(toLngLat(pickupRef.current), toLngLat(pickupRef.current));
-          bounds.extend(toLngLat(dropoffRef.current));
-          map.fitBounds(bounds, { padding: 36, maxZoom: 16 });
-          hasFramedRef.current = true;
-        }
-      });
-
-      map.on("click", (e) => {
-        place(activeRef.current, { lat: e.lngLat.lat, lng: e.lngLat.lng });
+      map.addListener("click", (e: { latLng: { lat: () => number; lng: () => number } }) => {
+        place(activeRef.current, { lat: e.latLng.lat(), lng: e.latLng.lng() });
       });
     }
 
@@ -149,21 +107,24 @@ export function RouteLocationPicker({
   useEffect(() => {
     if (!mapRef.current || !pickup) return;
     (async () => {
-      const maplibregl = await import("maplibre-gl");
+      const google = await loadGoogleMaps();
       const map = mapRef.current;
       if (!map) return;
       if (!pickupMarkerRef.current) {
-        const marker = new maplibregl.Marker({ element: buildPinElement(PICKUP_COLOR), draggable: true, anchor: "bottom" })
-          .setLngLat(toLngLat(pickup))
-          .addTo(map);
-        marker.on("dragend", () => {
-          const pos = marker.getLngLat();
+        const marker = new google.maps.Marker({
+          position: pickup,
+          map,
+          draggable: true,
+          icon: dotIcon(google, PICKUP_COLOR),
+        });
+        marker.addListener("dragend", () => {
+          const pos = marker.getPosition();
           setActive("pickup");
-          place("pickup", { lat: pos.lat, lng: pos.lng });
+          place("pickup", { lat: pos.lat(), lng: pos.lng() });
         });
         pickupMarkerRef.current = marker;
       } else {
-        pickupMarkerRef.current.setLngLat(toLngLat(pickup));
+        pickupMarkerRef.current.setPosition(pickup);
       }
     })();
   }, [pickup]);
@@ -172,21 +133,24 @@ export function RouteLocationPicker({
   useEffect(() => {
     if (!mapRef.current || !dropoff) return;
     (async () => {
-      const maplibregl = await import("maplibre-gl");
+      const google = await loadGoogleMaps();
       const map = mapRef.current;
       if (!map) return;
       if (!dropoffMarkerRef.current) {
-        const marker = new maplibregl.Marker({ element: buildPinElement(DROPOFF_COLOR), draggable: true, anchor: "bottom" })
-          .setLngLat(toLngLat(dropoff))
-          .addTo(map);
-        marker.on("dragend", () => {
-          const pos = marker.getLngLat();
+        const marker = new google.maps.Marker({
+          position: dropoff,
+          map,
+          draggable: true,
+          icon: dotIcon(google, DROPOFF_COLOR),
+        });
+        marker.addListener("dragend", () => {
+          const pos = marker.getPosition();
           setActive("dropoff");
-          place("dropoff", { lat: pos.lat, lng: pos.lng });
+          place("dropoff", { lat: pos.lat(), lng: pos.lng() });
         });
         dropoffMarkerRef.current = marker;
       } else {
-        dropoffMarkerRef.current.setLngLat(toLngLat(dropoff));
+        dropoffMarkerRef.current.setPosition(dropoff);
       }
     })();
   }, [dropoff]);
@@ -196,36 +160,55 @@ export function RouteLocationPicker({
   // plus view framing: fit both pins once they're both set, follow whichever
   // single pin is set before that, otherwise leave the default view alone.
   useEffect(() => {
-    const map = mapRef.current;
-    if (!map) return;
-
-    if (styleLoadedRef.current) syncConnector(map);
-
+    if (!mapRef.current) return;
     (async () => {
-      const maplibregl = await import("maplibre-gl");
+      const google = await loadGoogleMaps();
+      const map = mapRef.current;
+      if (!map) return;
+
       if (pickup && dropoff) {
+        if (!connectorRef.current) {
+          connectorRef.current = new google.maps.Polyline({
+            path: [pickup, dropoff],
+            strokeOpacity: 0,
+            icons: dashedLineIcons(google, "#9CA3AF"),
+            map,
+          });
+        } else {
+          connectorRef.current.setPath([pickup, dropoff]);
+          connectorRef.current.setMap(map);
+        }
         if (!hasFramedRef.current) {
-          const bounds = new maplibregl.LngLatBounds(toLngLat(pickup), toLngLat(pickup));
-          bounds.extend(toLngLat(dropoff));
-          map.fitBounds(bounds, { padding: 36, maxZoom: 16 });
+          const bounds = new google.maps.LatLngBounds();
+          bounds.extend(pickup);
+          bounds.extend(dropoff);
+          map.fitBounds(bounds, 36);
           hasFramedRef.current = true;
         }
-      } else if (pickup && !hasFramedRef.current) {
-        map.jumpTo({ center: toLngLat(pickup), zoom: 15 });
-        hasFramedRef.current = true;
-      } else if (dropoff && !hasFramedRef.current) {
-        map.jumpTo({ center: toLngLat(dropoff), zoom: 15 });
-        hasFramedRef.current = true;
+      } else {
+        connectorRef.current?.setMap(null);
+        if (pickup && !hasFramedRef.current) {
+          map.setCenter(pickup);
+          map.setZoom(15);
+          hasFramedRef.current = true;
+        } else if (dropoff && !hasFramedRef.current) {
+          map.setCenter(dropoff);
+          map.setZoom(15);
+          hasFramedRef.current = true;
+        }
       }
     })();
   }, [pickup, dropoff]);
 
   useEffect(() => {
     return () => {
-      mapRef.current?.remove();
+      pickupMarkerRef.current?.setMap(null);
+      dropoffMarkerRef.current?.setMap(null);
+      connectorRef.current?.setMap(null);
       mapRef.current = null;
       pickupMarkerRef.current = null;
       dropoffMarkerRef.current = null;
+      connectorRef.current = null;
     };
   }, []);
 
