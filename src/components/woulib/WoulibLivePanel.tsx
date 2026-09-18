@@ -25,12 +25,14 @@ export function WoulibLivePanel({
   initialDriverLocation,
   pickup,
   dropoff,
+  vehicleKind,
 }: {
   requestId: string;
   initialStatus: WoulibStatus;
   initialDriverLocation: DriverLocation;
   pickup: { lat: number; lng: number; address: string | null };
   dropoff: { lat: number; lng: number; address: string | null };
+  vehicleKind?: "moto" | "car";
 }) {
   const router = useRouter();
   const push = useToastStore((s) => s.push);
@@ -100,6 +102,7 @@ export function WoulibLivePanel({
           </h2>
           <LiveRouteMap
             driver={{ lat: driverLocation.lat!, lng: driverLocation.lng! }}
+            vehicleKind={vehicleKind}
             destination={
               status === "picked_up" || status === "en_route_dropoff"
                 ? { lat: dropoff.lat, lng: dropoff.lng }
