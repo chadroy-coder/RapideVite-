@@ -244,7 +244,7 @@ export function WoulibRequestForm({
               rideMissingProfileInfo ? (
                 <p className="text-xs text-red-500 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
                   Nom ou numero manquant sur votre compte. Completez votre profil dans{" "}
-                  <a href="/compte" className="font-semibold underline">
+                  <a href="/compte?edit=1" className="font-semibold underline">
                     Mon compte
                   </a>{" "}
                   avant de continuer.

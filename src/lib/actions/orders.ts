@@ -165,12 +165,11 @@ export async function placeOrder(
     });
   }
 
-  // Keep the profile's name/phone in sync so future checkouts (and the
-  // account page) reflect the latest details the customer typed in.
-  await supabase
-    .from("profiles")
-    .update({ full_name: parsed.data.customer_name, phone: parsed.data.customer_phone })
-    .eq("id", user.id);
+  // Deliberately NOT syncing profiles.full_name/phone from the checkout
+  // form here - this order's contact info might be for someone else (a
+  // gift, a different recipient) and shouldn't silently overwrite the
+  // account holder's own details. Account info is edited in one place now:
+  // /compte (see src/lib/actions/profile.ts).
 
   return { error: null, orderId: order.id as string, orderNumber: order.order_number as string };
 }

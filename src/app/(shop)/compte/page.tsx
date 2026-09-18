@@ -10,13 +10,25 @@ import { OrderStatusBadge } from "@/components/order/OrderStatusBadge";
 import { formatUSD, formatHTGEstimate } from "@/lib/format";
 import { OrderItemsPreview } from "@/components/order/OrderItemsPreview";
 import { OrderDriverLine } from "@/components/order/OrderDriverLine";
+import { ProfileEditForm } from "@/components/account/ProfileEditForm";
 import { LIVE_ORDER_STATUSES } from "@/types/database";
 
-export default async function AccountPage() {
+export default async function AccountPage({
+  searchParams,
+}: {
+  // Woulib links here with ?edit=1 when a ride can't be booked because the
+  // account is missing a name/phone.
+  searchParams: Promise<{ edit?: string }>;
+}) {
   const { user, profile } = await getCurrentUserAndProfile();
   if (!user) redirect("/login?redirect=/compte");
 
-  const [orders, addresses, subscription] = await Promise.all([getMyOrders(), getMyAddresses(), getMySubscription()]);
+  const [{ edit }, orders, addresses, subscription] = await Promise.all([
+    searchParams,
+    getMyOrders(),
+    getMyAddresses(),
+    getMySubscription(),
+  ]);
   const liveOrders = orders.filter((o) => LIVE_ORDER_STATUSES.includes(o.status));
   const defaultAddress = addresses.find((a) => a.is_default) ?? addresses[0];
   const isPlusMember = isSubscriptionActive(subscription);
@@ -27,17 +39,15 @@ export default async function AccountPage() {
       <p className="text-brand-gray text-sm mb-6">{user.email}</p>
 
       <div className="border border-brand-border rounded-2xl p-5 mb-4">
-        <div className="flex items-center gap-2">
-          <p className="font-bold text-lg text-brand-ink">{profile?.full_name || "Client RapidVit"}</p>
-          {isPlusMember && (
-            <span className="inline-flex items-center gap-1 bg-brand-orange/10 text-brand-orange text-xs font-bold px-2 py-0.5 rounded-full">
-              <Sparkles className="w-3 h-3" /> Plus+
-            </span>
-          )}
-        </div>
-        {profile?.phone && <p className="text-brand-gray text-sm mt-1">{profile.phone}</p>}
+        <ProfileEditForm
+          fullName={profile?.full_name ?? ""}
+          phone={profile?.phone ?? ""}
+          isPlusMember={isPlusMember}
+          role={profile?.role}
+          startInEditMode={edit === "1"}
+        />
         {defaultAddress && (
-          <p className="flex items-start gap-1.5 text-brand-gray text-sm mt-1">
+          <p className="flex items-start gap-1.5 text-brand-gray text-sm mt-3">
             <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0 text-brand-orange" />
             <span>
               {defaultAddress.street}
@@ -46,11 +56,6 @@ export default async function AccountPage() {
               {defaultAddress.department ? `, ${defaultAddress.department}` : ""}
             </span>
           </p>
-        )}
-        {profile?.role !== "customer" && (
-          <span className="inline-flex items-center gap-1 mt-2 text-xs font-semibold text-brand-green">
-            <ShieldCheck className="w-3.5 h-3.5" /> Compte {profile?.role}
-          </span>
         )}
       </div>
 

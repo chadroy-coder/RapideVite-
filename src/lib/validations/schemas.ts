@@ -23,6 +23,16 @@ export const checkoutSchema = z.object({
 });
 export type CheckoutInput = z.input<typeof checkoutSchema>;
 
+// Account profile (name/phone) - edited from /compte, separate from
+// checkoutSchema's customer_name/customer_phone so that placing an order for
+// someone else never has to touch (or be validated against) your own
+// account details.
+export const profileSchema = z.object({
+  full_name: z.string().min(2, "Nom requis").max(120),
+  phone: z.string().min(8, "Numero de telephone invalide").max(20),
+});
+export type ProfileInput = z.infer<typeof profileSchema>;
+
 export const loginSchema = z.object({
   email: z.string().email("Email invalide"),
   password: z.string().min(6, "Mot de passe trop court"),
