@@ -52,22 +52,11 @@ export function loadGoogleMaps(): Promise<any> {
   return loaderPromise;
 }
 
-// A clean, muted basemap ("Silver"-style) closer to Uber/Lyft's look than
-// Google's default candy-colored roads and heavy POI icons.
-export const MAP_STYLES = [
-  { elementType: "geometry", stylers: [{ color: "#f2f3f0" }] },
-  { elementType: "labels.icon", stylers: [{ visibility: "off" }] },
-  { elementType: "labels.text.fill", stylers: [{ color: "#616161" }] },
-  { elementType: "labels.text.stroke", stylers: [{ color: "#f2f3f0" }] },
-  { featureType: "administrative", elementType: "geometry", stylers: [{ color: "#c9c9c9" }] },
-  { featureType: "poi", stylers: [{ visibility: "off" }] },
-  { featureType: "road", elementType: "geometry", stylers: [{ color: "#ffffff" }] },
-  { featureType: "road", elementType: "geometry.stroke", stylers: [{ color: "#e2e2e2" }] },
-  { featureType: "road.arterial", elementType: "geometry", stylers: [{ color: "#ffffff" }] },
-  { featureType: "road.highway", elementType: "geometry", stylers: [{ color: "#ececec" }] },
-  { featureType: "transit", stylers: [{ visibility: "off" }] },
-  { featureType: "water", elementType: "geometry", stylers: [{ color: "#c2c8ca" }] },
-];
+// Standard Google Maps styling (default colors: blue water, green parks,
+// yellow/orange highways, standard POI icons) - no custom overrides. Kept as
+// an exported array (rather than removing the `styles` prop from every map
+// component) so switching visual styles later is a one-line change here.
+export const MAP_STYLES: unknown[] = [];
 
 function toRad(deg: number) {
   return (deg * Math.PI) / 180;
