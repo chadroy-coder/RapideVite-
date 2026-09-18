@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Locate, Check } from "lucide-react";
+import { ensureLeafletCss, addBaseTileLayer } from "@/lib/leaflet-map";
 
 type LatLng = { lat: number; lng: number };
 type Pin = "pickup" | "dropoff";
@@ -87,13 +88,7 @@ export function RouteLocationPicker({
 
     async function init() {
       if (!containerRef.current || mapRef.current) return;
-      if (!document.getElementById("leaflet-css")) {
-        const link = document.createElement("link");
-        link.id = "leaflet-css";
-        link.rel = "stylesheet";
-        link.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
-        document.head.appendChild(link);
-      }
+      ensureLeafletCss();
       const L = await import("leaflet");
       if (cancelled || !containerRef.current) return;
 
@@ -101,12 +96,7 @@ export function RouteLocationPicker({
         ? [pickupRef.current.lat, pickupRef.current.lng]
         : DEFAULT_CENTER;
       mapRef.current = L.map(containerRef.current).setView(start, 14);
-      L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-        attribution: '&copy; OpenStreetMap contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-        subdomains: "abcd",
-        maxZoom: 20,
-        detectRetina: true,
-      }).addTo(mapRef.current);
+      addBaseTileLayer(L, mapRef.current);
 
       mapRef.current.on("click", (e: { latlng: { lat: number; lng: number } }) => {
         place(activeRef.current, { lat: e.latlng.lat, lng: e.latlng.lng });

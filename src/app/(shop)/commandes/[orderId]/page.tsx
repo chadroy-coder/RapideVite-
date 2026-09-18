@@ -65,6 +65,11 @@ export default async function OrderTrackingPage({
             lng: order.driver_lng ?? null,
             updatedAt: order.driver_location_updated_at ?? null,
           }}
+          customerLocation={
+            order.customer_lat != null && order.customer_lng != null
+              ? { lat: order.customer_lat, lng: order.customer_lng }
+              : null
+          }
         />
         <div className="border-t border-brand-border pt-3 flex justify-between font-bold text-brand-ink">
           <span>Total</span>

@@ -8,6 +8,7 @@ import { useToastStore } from "@/store/toast-store";
 import { formatUSD } from "@/lib/format";
 import type { OrderItem } from "@/types/database";
 import { LiveMap } from "./LiveMap";
+import { LiveRouteMap } from "./LiveRouteMap";
 
 const POLL_MS = 8000;
 // If the driver's phone hasn't pinged in this long, treat the dot as stale
@@ -24,10 +25,16 @@ export function LiveOrderPanel({
   orderId,
   initialItems,
   initialDriverLocation,
+  customerLocation,
 }: {
   orderId: string;
   initialItems: OrderItem[];
   initialDriverLocation: DriverLocation;
+  // Only set if the customer used "Partager ma position" at checkout - when
+  // present, the map draws the actual road route + ETA toward it
+  // (Uber-style), same as Woulib ride tracking. Without it there's no fixed
+  // point to route to, so the map falls back to a plain moving dot.
+  customerLocation?: { lat: number; lng: number } | null;
 }) {
   const push = useToastStore((s) => s.push);
   const [items, setItems] = useState<OrderItem[]>(initialItems);
@@ -102,7 +109,15 @@ export function LiveOrderPanel({
       {showMap && (
         <div>
           <h2 className="font-semibold text-brand-ink mb-2 text-sm">Position du livreur</h2>
-          <LiveMap lat={driverLocation.lat!} lng={driverLocation.lng!} label="Votre livreur" />
+          {customerLocation ? (
+            <LiveRouteMap
+              driver={{ lat: driverLocation.lat!, lng: driverLocation.lng! }}
+              destination={customerLocation}
+              destinationLabel="Vous"
+            />
+          ) : (
+            <LiveMap lat={driverLocation.lat!} lng={driverLocation.lng!} label="Votre livreur" />
+          )}
         </div>
       )}
 

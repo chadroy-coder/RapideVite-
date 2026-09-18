@@ -11,22 +11,15 @@ import {
   type GeoPoint,
 } from "@/lib/leaflet-map";
 
-// Same free OSRM public routing server used server-side in src/lib/woulib.ts
-// for pricing - reused here client-side (with overview=full this time) to
-// draw the actual road-following path the driver marker sits on, Uber-style,
-// instead of just a lone dot. No API key/billing either way.
+// Grocery-order counterpart to src/components/woulib/LiveRouteMap.tsx: same
+// smooth glide + rotating vehicle icon + road-following route + live ETA,
+// applied to a delivery driver heading toward the customer's shared location
+// instead of a Woulib rider's pickup/dropoff. Only rendered when the
+// customer has shared an exact location (order.customer_lat/lng) - without a
+// destination point there's nothing to route to, so LiveOrderPanel falls
+// back to the plain single-dot LiveMap in that case.
 const OSRM_BASE_URL = "https://router.project-osrm.org";
-
-// How long the driver marker takes to glide from its last known position to
-// the newest GPS ping, instead of teleporting there the instant a poll
-// resolves. Pings arrive every POLL_MS (8s, see WoulibLivePanel) - a couple
-// of seconds of glide reads as smooth motion without ever looking like the
-// marker is "catching up" to a ping that's about to be overtaken by the next.
 const GLIDE_MS = 2500;
-// Ignore GPS jitter smaller than this (in meters) when deciding whether to
-// update the vehicle's heading - a stationary driver's raw lat/lng still
-// wobbles by a few meters between pings, which would otherwise spin the
-// icon randomly.
 const MIN_BEARING_DELTA_M = 3;
 
 type Point = GeoPoint;
@@ -34,15 +27,13 @@ type Point = GeoPoint;
 export function LiveRouteMap({
   driver,
   destination,
-  destinationLabel,
-  vehicleKind,
-  driverColor = "#0F8A5F",
-  destColor = "#E5231B",
+  destinationLabel = "Vous",
+  driverColor = "#f97316",
+  destColor = "#2563eb",
 }: {
   driver: Point;
   destination: Point;
   destinationLabel?: string;
-  vehicleKind?: "moto" | "car";
   driverColor?: string;
   destColor?: string;
 }) {
@@ -57,8 +48,8 @@ export function LiveRouteMap({
   const routeLineRef = useRef<any>(null);
   const glideFrameRef = useRef<number | null>(null);
   const prevDriverRef = useRef<Point | null>(null);
-  const prevDestRef = useRef<Point | null>(null);
   const bearingRef = useRef(0);
+  const hasFramedRef = useRef(false);
 
   const [eta, setEta] = useState<{ minutes: number; km: number } | null>(null);
 
@@ -69,8 +60,12 @@ export function LiveRouteMap({
     function buildDriverIcon(L: any, bearingDeg: number) {
       return L.divIcon({
         className: "",
+        // Grocery drivers in this app aren't tracked by vehicle type (see
+        // Driver in types/database.ts) - default to the moto glyph, which
+        // matches the Bike fallback icon already used elsewhere for
+        // grocery delivery (order tracking page, driver photo placeholder).
         html: `<div style="width:26px;height:26px;transform:rotate(${bearingDeg}deg);transition:transform 0.4s ease;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.35))">${vehicleGlyphSvg(
-          vehicleKind,
+          "moto",
           driverColor
         )}</div>`,
         iconSize: [26, 26],
@@ -114,16 +109,9 @@ export function LiveRouteMap({
       }
       const map = mapRef.current;
 
-      // Local copies built from the primitive lat/lng deps this effect
-      // actually declares, rather than closing over the `driver`/
-      // `destination` prop objects directly (whose identity isn't tracked
-      // by the dependency array below).
       const driverPoint: Point = { lat: driver.lat, lng: driver.lng };
       const destPoint: Point = { lat: destination.lat, lng: destination.lng };
 
-      // Heading: only recompute from real GPS movement (not the animated
-      // in-between frames), and ignore sub-3m jitter from a driver who's
-      // stopped, so the icon doesn't spin in place at a red light.
       if (prevDriverRef.current && haversineMeters(prevDriverRef.current, driverPoint) > MIN_BEARING_DELTA_M) {
         bearingRef.current = bearingBetween(prevDriverRef.current, driverPoint);
       }
@@ -139,22 +127,15 @@ export function LiveRouteMap({
       }
       prevDriverRef.current = driverPoint;
 
-      const destIcon = L.divIcon({
-        className: "",
-        html: `<div style="background:${destColor};width:18px;height:18px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:3px solid white;box-shadow:0 0 6px rgba(0,0,0,0.4)"></div>`,
-        iconSize: [18, 18],
-      });
-      const destChanged =
-        !prevDestRef.current ||
-        haversineMeters(prevDestRef.current, destPoint) > 3;
-
       if (!destMarkerRef.current) {
+        const destIcon = L.divIcon({
+          className: "",
+          html: `<div style="background:${destColor};width:18px;height:18px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:3px solid white;box-shadow:0 0 6px rgba(0,0,0,0.4)"></div>`,
+          iconSize: [18, 18],
+        });
         destMarkerRef.current = L.marker([destPoint.lat, destPoint.lng], { icon: destIcon }).addTo(map);
         if (destinationLabel) destMarkerRef.current.bindPopup(destinationLabel);
-      } else if (destChanged) {
-        destMarkerRef.current.setLatLng([destPoint.lat, destPoint.lng]);
       }
-      prevDestRef.current = destPoint;
 
       // Try to draw the real road-following route; fall back to a straight
       // dashed line if the routing server is unreachable so the customer
@@ -205,14 +186,12 @@ export function LiveRouteMap({
         dashArray: dashed ? "6 8" : undefined,
       }).addTo(map);
 
-      // Only re-frame the whole route on first load or when the destination
-      // itself changes (e.g. pickup -> dropoff leg). On routine driver
-      // pings, re-fitting the bounds every 8s would fight the glide
-      // animation and make the map feel jumpy - instead, gently pan back
-      // into view only if the driver has actually drifted off-screen,
-      // similar to Uber/Lyft's soft-follow behavior.
-      if (isFirstPlacement || destChanged) {
+      // Destination (the customer's shared location) never moves during a
+      // delivery, so only the very first render needs to frame the whole
+      // route - after that, only pan if the driver has drifted off-screen.
+      if (isFirstPlacement && !hasFramedRef.current) {
         map.fitBounds(routeLineRef.current.getBounds(), { padding: [30, 30] });
+        hasFramedRef.current = true;
       } else if (!map.getBounds().pad(-0.1).contains([driverPoint.lat, driverPoint.lng])) {
         map.panTo([driverPoint.lat, driverPoint.lng], { animate: true, duration: 0.8 });
       }
@@ -223,7 +202,7 @@ export function LiveRouteMap({
       cancelled = true;
       if (glideFrameRef.current != null) cancelAnimationFrame(glideFrameRef.current);
     };
-  }, [driver.lat, driver.lng, destination.lat, destination.lng, destinationLabel, vehicleKind, driverColor, destColor]);
+  }, [driver.lat, driver.lng, destination.lat, destination.lng, destinationLabel, driverColor, destColor]);
 
   useEffect(() => {
     return () => {
@@ -237,7 +216,7 @@ export function LiveRouteMap({
 
   return (
     <div className="relative">
-      <div ref={containerRef} className="w-full h-64 rounded-xl overflow-hidden border border-brand-border" />
+      <div ref={containerRef} className="w-full h-56 rounded-xl overflow-hidden border border-brand-border" />
       {eta && (
         <div className="absolute top-2 left-2 z-[1000] bg-white/95 backdrop-blur rounded-full shadow-sm border border-brand-border px-3 py-1.5 flex items-center gap-1.5">
           <span className="font-bold text-sm text-brand-ink">{eta.minutes} min</span>
