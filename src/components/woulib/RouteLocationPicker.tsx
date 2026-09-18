@@ -2,33 +2,26 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Locate, Check } from "lucide-react";
-import { ensureLeafletCss, addBaseTileLayer } from "@/lib/leaflet-map";
+import "maplibre-gl/dist/maplibre-gl.css";
+import type { Map as MapLibreMap, Marker as MapLibreMarker, GeoJSONSource } from "maplibre-gl";
+import { MAP_STYLE_URL, buildPinElement, toLngLat, type GeoPoint } from "@/lib/maplibre-map";
 
-type LatLng = { lat: number; lng: number };
+type LatLng = GeoPoint;
 type Pin = "pickup" | "dropoff";
 
 const PICKUP_COLOR = "#0F8A5F";
 const DROPOFF_COLOR = "#E5231B";
 // Default center: Port-au-Prince, used until the user shares their
-// location or taps the map themselves.
-const DEFAULT_CENTER: [number, number] = [18.5944, -72.3074];
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any -- leaflet has no shipped types here (see src/types/leaflet.d.ts)
-function pinIcon(L: any, color: string) {
-  return L.divIcon({
-    className: "",
-    html: `<div style="background:${color};width:18px;height:18px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:3px solid white;box-shadow:0 0 6px rgba(0,0,0,0.4)"></div>`,
-    iconSize: [18, 18],
-    iconAnchor: [9, 18],
-  });
-}
+// location or taps the map themselves. MapLibre wants [lng, lat].
+const DEFAULT_CENTER: [number, number] = [-72.3074, 18.5944];
+const CONNECTOR_SOURCE_ID = "route-connector";
+const CONNECTOR_LAYER_ID = "route-connector-line";
 
 // One map for both ends of the trip, Uber-style: tap the map to drop
 // whichever pin is currently active ("Depart" / "Destination" chips above
 // the map), drag either pin to fine-tune it, and the map auto-advances from
 // pickup to dropoff the first time so most riders only ever tap twice.
-// Replaces the old two-separate-maps layout (LocationPicker.tsx x2) on the
-// Woulib request form.
+// Built on MapLibre GL JS + OpenFreeMap vector tiles (see src/lib/maplibre-map.ts).
 export function RouteLocationPicker({
   pickup,
   dropoff,
@@ -41,14 +34,10 @@ export function RouteLocationPicker({
   onDropoffChange: (pos: LatLng) => void;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const mapRef = useRef<any>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const pickupMarkerRef = useRef<any>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const dropoffMarkerRef = useRef<any>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const connectorRef = useRef<any>(null);
+  const mapRef = useRef<MapLibreMap | null>(null);
+  const pickupMarkerRef = useRef<MapLibreMarker | null>(null);
+  const dropoffMarkerRef = useRef<MapLibreMarker | null>(null);
+  const styleLoadedRef = useRef(false);
   const hasFramedRef = useRef(false);
 
   const [active, setActive] = useState<Pin>("pickup");
@@ -83,23 +72,69 @@ export function RouteLocationPicker({
     }
   }
 
+  function syncConnector(map: MapLibreMap) {
+    const source = map.getSource(CONNECTOR_SOURCE_ID) as GeoJSONSource | undefined;
+    if (!source) return;
+    const p = pickupRef.current;
+    const d = dropoffRef.current;
+    if (p && d) {
+      source.setData({
+        type: "Feature",
+        properties: {},
+        geometry: { type: "LineString", coordinates: [toLngLat(p), toLngLat(d)] },
+      });
+      if (map.getLayer(CONNECTOR_LAYER_ID)) {
+        map.setLayoutProperty(CONNECTOR_LAYER_ID, "visibility", "visible");
+      }
+    } else if (map.getLayer(CONNECTOR_LAYER_ID)) {
+      map.setLayoutProperty(CONNECTOR_LAYER_ID, "visibility", "none");
+    }
+  }
+
   useEffect(() => {
     let cancelled = false;
 
     async function init() {
       if (!containerRef.current || mapRef.current) return;
-      ensureLeafletCss();
-      const L = await import("leaflet");
+      const maplibregl = await import("maplibre-gl");
       if (cancelled || !containerRef.current) return;
 
-      const start: [number, number] = pickupRef.current
-        ? [pickupRef.current.lat, pickupRef.current.lng]
-        : DEFAULT_CENTER;
-      mapRef.current = L.map(containerRef.current).setView(start, 14);
-      addBaseTileLayer(L, mapRef.current);
+      const start: [number, number] = pickupRef.current ? toLngLat(pickupRef.current) : DEFAULT_CENTER;
+      const map = new maplibregl.Map({
+        container: containerRef.current,
+        style: MAP_STYLE_URL,
+        center: start,
+        zoom: 14,
+        attributionControl: { compact: true },
+      });
+      mapRef.current = map;
+      map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-left");
 
-      mapRef.current.on("click", (e: { latlng: { lat: number; lng: number } }) => {
-        place(activeRef.current, { lat: e.latlng.lat, lng: e.latlng.lng });
+      map.on("load", () => {
+        if (cancelled) return;
+        map.addSource(CONNECTOR_SOURCE_ID, {
+          type: "geojson",
+          data: { type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: [start, start] } },
+        });
+        map.addLayer({
+          id: CONNECTOR_LAYER_ID,
+          type: "line",
+          source: CONNECTOR_SOURCE_ID,
+          layout: { "line-cap": "round", visibility: "none" },
+          paint: { "line-color": "#9CA3AF", "line-width": 2.5, "line-dasharray": [2, 2.5], "line-opacity": 0.8 },
+        });
+        styleLoadedRef.current = true;
+        syncConnector(map);
+        if (pickupRef.current && dropoffRef.current && !hasFramedRef.current) {
+          const bounds = new maplibregl.LngLatBounds(toLngLat(pickupRef.current), toLngLat(pickupRef.current));
+          bounds.extend(toLngLat(dropoffRef.current));
+          map.fitBounds(bounds, { padding: 36, maxZoom: 16 });
+          hasFramedRef.current = true;
+        }
+      });
+
+      map.on("click", (e) => {
+        place(activeRef.current, { lat: e.lngLat.lat, lng: e.lngLat.lng });
       });
     }
 
@@ -114,19 +149,21 @@ export function RouteLocationPicker({
   useEffect(() => {
     if (!mapRef.current || !pickup) return;
     (async () => {
-      const L = await import("leaflet");
+      const maplibregl = await import("maplibre-gl");
+      const map = mapRef.current;
+      if (!map) return;
       if (!pickupMarkerRef.current) {
-        pickupMarkerRef.current = L.marker([pickup.lat, pickup.lng], {
-          icon: pinIcon(L, PICKUP_COLOR),
-          draggable: true,
-        }).addTo(mapRef.current);
-        pickupMarkerRef.current.on("dragend", () => {
-          const pos = pickupMarkerRef.current.getLatLng();
+        const marker = new maplibregl.Marker({ element: buildPinElement(PICKUP_COLOR), draggable: true, anchor: "bottom" })
+          .setLngLat(toLngLat(pickup))
+          .addTo(map);
+        marker.on("dragend", () => {
+          const pos = marker.getLngLat();
           setActive("pickup");
           place("pickup", { lat: pos.lat, lng: pos.lng });
         });
+        pickupMarkerRef.current = marker;
       } else {
-        pickupMarkerRef.current.setLatLng([pickup.lat, pickup.lng]);
+        pickupMarkerRef.current.setLngLat(toLngLat(pickup));
       }
     })();
   }, [pickup]);
@@ -135,56 +172,49 @@ export function RouteLocationPicker({
   useEffect(() => {
     if (!mapRef.current || !dropoff) return;
     (async () => {
-      const L = await import("leaflet");
+      const maplibregl = await import("maplibre-gl");
+      const map = mapRef.current;
+      if (!map) return;
       if (!dropoffMarkerRef.current) {
-        dropoffMarkerRef.current = L.marker([dropoff.lat, dropoff.lng], {
-          icon: pinIcon(L, DROPOFF_COLOR),
-          draggable: true,
-        }).addTo(mapRef.current);
-        dropoffMarkerRef.current.on("dragend", () => {
-          const pos = dropoffMarkerRef.current.getLatLng();
+        const marker = new maplibregl.Marker({ element: buildPinElement(DROPOFF_COLOR), draggable: true, anchor: "bottom" })
+          .setLngLat(toLngLat(dropoff))
+          .addTo(map);
+        marker.on("dragend", () => {
+          const pos = marker.getLngLat();
           setActive("dropoff");
           place("dropoff", { lat: pos.lat, lng: pos.lng });
         });
+        dropoffMarkerRef.current = marker;
       } else {
-        dropoffMarkerRef.current.setLatLng([dropoff.lat, dropoff.lng]);
+        dropoffMarkerRef.current.setLngLat(toLngLat(dropoff));
       }
     })();
   }, [dropoff]);
 
-  // Light dashed connector between the two pins (purely a visual preview -
-  // the actual road-following route is computed separately for the fare
-  // quote) plus view framing: fit both pins once they're both set, follow
-  // whichever single pin is set before that, otherwise leave the default
-  // Port-au-Prince view alone.
+  // Dashed connector between the two pins (purely a visual preview - the
+  // actual road-following route is computed separately for the fare quote)
+  // plus view framing: fit both pins once they're both set, follow whichever
+  // single pin is set before that, otherwise leave the default view alone.
   useEffect(() => {
-    if (!mapRef.current) return;
+    const map = mapRef.current;
+    if (!map) return;
+
+    if (styleLoadedRef.current) syncConnector(map);
+
     (async () => {
-      const L = await import("leaflet");
-      const map = mapRef.current;
-
-      if (connectorRef.current) {
-        connectorRef.current.remove();
-        connectorRef.current = null;
-      }
-
+      const maplibregl = await import("maplibre-gl");
       if (pickup && dropoff) {
-        connectorRef.current = L.polyline(
-          [
-            [pickup.lat, pickup.lng],
-            [dropoff.lat, dropoff.lng],
-          ],
-          { color: "#9CA3AF", weight: 2.5, dashArray: "5 7", opacity: 0.8 }
-        ).addTo(map);
         if (!hasFramedRef.current) {
-          map.fitBounds(connectorRef.current.getBounds(), { padding: [36, 36] });
+          const bounds = new maplibregl.LngLatBounds(toLngLat(pickup), toLngLat(pickup));
+          bounds.extend(toLngLat(dropoff));
+          map.fitBounds(bounds, { padding: 36, maxZoom: 16 });
           hasFramedRef.current = true;
         }
       } else if (pickup && !hasFramedRef.current) {
-        map.setView([pickup.lat, pickup.lng], 15);
+        map.jumpTo({ center: toLngLat(pickup), zoom: 15 });
         hasFramedRef.current = true;
       } else if (dropoff && !hasFramedRef.current) {
-        map.setView([dropoff.lat, dropoff.lng], 15);
+        map.jumpTo({ center: toLngLat(dropoff), zoom: 15 });
         hasFramedRef.current = true;
       }
     })();
@@ -196,7 +226,6 @@ export function RouteLocationPicker({
       mapRef.current = null;
       pickupMarkerRef.current = null;
       dropoffMarkerRef.current = null;
-      connectorRef.current = null;
     };
   }, []);
 

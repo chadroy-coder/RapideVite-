@@ -1,15 +1,20 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import "maplibre-gl/dist/maplibre-gl.css";
+import type { Map as MapLibreMap, Marker as MapLibreMarker, GeoJSONSource } from "maplibre-gl";
 import {
-  ensureLeafletCss,
-  addBaseTileLayer,
+  MAP_STYLE_URL,
   bearingBetween,
   haversineMeters,
   easeInOutQuad,
-  vehicleGlyphSvg,
+  buildPinElement,
+  buildVehicleElement,
+  setVehicleBearing,
+  ensureStyleLoaded,
+  toLngLat,
   type GeoPoint,
-} from "@/lib/leaflet-map";
+} from "@/lib/maplibre-map";
 
 // Same free OSRM public routing server used server-side in src/lib/woulib.ts
 // for pricing - reused here client-side (with overview=full this time) to
@@ -28,6 +33,8 @@ const GLIDE_MS = 2500;
 // wobbles by a few meters between pings, which would otherwise spin the
 // icon randomly.
 const MIN_BEARING_DELTA_M = 3;
+const ROUTE_SOURCE_ID = "driver-route";
+const ROUTE_LAYER_ID = "driver-route-line";
 
 type Point = GeoPoint;
 
@@ -47,52 +54,31 @@ export function LiveRouteMap({
   destColor?: string;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- leaflet has no shipped types here (see src/types/leaflet.d.ts)
-  const mapRef = useRef<any>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const driverMarkerRef = useRef<any>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const destMarkerRef = useRef<any>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const routeLineRef = useRef<any>(null);
+  const mapRef = useRef<MapLibreMap | null>(null);
+  const driverMarkerRef = useRef<MapLibreMarker | null>(null);
+  const driverInnerRef = useRef<HTMLDivElement | null>(null);
+  const destMarkerRef = useRef<MapLibreMarker | null>(null);
   const glideFrameRef = useRef<number | null>(null);
   const prevDriverRef = useRef<Point | null>(null);
   const prevDestRef = useRef<Point | null>(null);
   const bearingRef = useRef(0);
+  const hasFramedRef = useRef(false);
 
   const [eta, setEta] = useState<{ minutes: number; km: number } | null>(null);
 
   useEffect(() => {
     let cancelled = false;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- leaflet has no shipped types here (see src/types/leaflet.d.ts)
-    function buildDriverIcon(L: any, bearingDeg: number) {
-      return L.divIcon({
-        className: "",
-        html: `<div style="width:26px;height:26px;transform:rotate(${bearingDeg}deg);transition:transform 0.4s ease;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.35))">${vehicleGlyphSvg(
-          vehicleKind,
-          driverColor
-        )}</div>`,
-        iconSize: [26, 26],
-        iconAnchor: [13, 13],
-      });
-    }
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- leaflet has no shipped types here (see src/types/leaflet.d.ts)
-    function glideMarkerTo(L: any, marker: any, to: Point) {
+    function glideMarkerTo(marker: MapLibreMarker, to: Point) {
       if (glideFrameRef.current != null) cancelAnimationFrame(glideFrameRef.current);
-      const from = marker.getLatLng();
-      const toLatLng = L.latLng(to.lat, to.lng);
-      if (from.distanceTo(toLatLng) < 0.5) return;
+      const from = marker.getLngLat();
+      if (haversineMeters({ lat: from.lat, lng: from.lng }, to) < 0.5) return;
       const start = performance.now();
       function step(now: number) {
         if (cancelled) return;
         const t = Math.min(1, (now - start) / GLIDE_MS);
         const eased = easeInOutQuad(t);
-        marker.setLatLng([
-          from.lat + (toLatLng.lat - from.lat) * eased,
-          from.lng + (toLatLng.lng - from.lng) * eased,
-        ]);
+        marker.setLngLat([from.lng + (to.lng - from.lng) * eased, from.lat + (to.lat - from.lat) * eased]);
         if (t < 1) {
           glideFrameRef.current = requestAnimationFrame(step);
         } else {
@@ -104,15 +90,35 @@ export function LiveRouteMap({
 
     async function init() {
       if (!containerRef.current) return;
-      ensureLeafletCss();
-      const L = await import("leaflet");
+      const maplibregl = await import("maplibre-gl");
       if (cancelled || !containerRef.current) return;
 
       if (!mapRef.current) {
-        mapRef.current = L.map(containerRef.current);
-        addBaseTileLayer(L, mapRef.current);
+        mapRef.current = new maplibregl.Map({
+          container: containerRef.current,
+          style: MAP_STYLE_URL,
+          center: toLngLat({ lat: driver.lat, lng: driver.lng }),
+          zoom: 14,
+          attributionControl: { compact: true },
+        });
       }
       const map = mapRef.current;
+      await ensureStyleLoaded(map);
+      if (cancelled) return;
+
+      if (!map.getSource(ROUTE_SOURCE_ID)) {
+        map.addSource(ROUTE_SOURCE_ID, {
+          type: "geojson",
+          data: { type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: [] } },
+        });
+        map.addLayer({
+          id: ROUTE_LAYER_ID,
+          type: "line",
+          source: ROUTE_SOURCE_ID,
+          layout: { "line-cap": "round", "line-join": "round" },
+          paint: { "line-color": driverColor, "line-width": 4, "line-opacity": 0.8, "line-dasharray": ["literal", [1]] },
+        });
+      }
 
       // Local copies built from the primitive lat/lng deps this effect
       // actually declares, rather than closing over the `driver`/
@@ -129,47 +135,43 @@ export function LiveRouteMap({
       }
 
       const isFirstPlacement = !driverMarkerRef.current;
-      const driverIcon = buildDriverIcon(L, bearingRef.current);
 
       if (isFirstPlacement) {
-        driverMarkerRef.current = L.marker([driverPoint.lat, driverPoint.lng], { icon: driverIcon }).addTo(map);
+        const { el, inner } = buildVehicleElement(vehicleKind, driverColor);
+        setVehicleBearing(inner, bearingRef.current);
+        driverInnerRef.current = inner;
+        driverMarkerRef.current = new maplibregl.Marker({ element: el, anchor: "center" })
+          .setLngLat(toLngLat(driverPoint))
+          .addTo(map);
       } else {
-        driverMarkerRef.current.setIcon(driverIcon);
-        glideMarkerTo(L, driverMarkerRef.current, driverPoint);
+        if (driverInnerRef.current) setVehicleBearing(driverInnerRef.current, bearingRef.current);
+        glideMarkerTo(driverMarkerRef.current!, driverPoint);
       }
       prevDriverRef.current = driverPoint;
 
-      const destIcon = L.divIcon({
-        className: "",
-        html: `<div style="background:${destColor};width:18px;height:18px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:3px solid white;box-shadow:0 0 6px rgba(0,0,0,0.4)"></div>`,
-        iconSize: [18, 18],
-      });
-      const destChanged =
-        !prevDestRef.current ||
-        haversineMeters(prevDestRef.current, destPoint) > 3;
+      const destChanged = !prevDestRef.current || haversineMeters(prevDestRef.current, destPoint) > 3;
 
       if (!destMarkerRef.current) {
-        destMarkerRef.current = L.marker([destPoint.lat, destPoint.lng], { icon: destIcon }).addTo(map);
-        if (destinationLabel) destMarkerRef.current.bindPopup(destinationLabel);
+        destMarkerRef.current = new maplibregl.Marker({ element: buildPinElement(destColor), anchor: "bottom" })
+          .setLngLat(toLngLat(destPoint))
+          .addTo(map);
+        if (destinationLabel) destMarkerRef.current.setPopup(new maplibregl.Popup({ offset: 12 }).setText(destinationLabel));
       } else if (destChanged) {
-        destMarkerRef.current.setLatLng([destPoint.lat, destPoint.lng]);
+        destMarkerRef.current.setLngLat(toLngLat(destPoint));
       }
       prevDestRef.current = destPoint;
 
       // Try to draw the real road-following route; fall back to a straight
       // dashed line if the routing server is unreachable so the customer
       // still sees which direction the driver is coming from.
-      let latLngs: [number, number][] = [
-        [driverPoint.lat, driverPoint.lng],
-        [destPoint.lat, destPoint.lng],
-      ];
+      let coords: [number, number][] = [toLngLat(driverPoint), toLngLat(destPoint)];
       let dashed = true;
       let routeDistanceM: number | null = null;
       let routeDurationS: number | null = null;
       try {
-        const coords = `${driverPoint.lng},${driverPoint.lat};${destPoint.lng},${destPoint.lat}`;
+        const coordStr = `${driverPoint.lng},${driverPoint.lat};${destPoint.lng},${destPoint.lat}`;
         const res = await fetch(
-          `${OSRM_BASE_URL}/route/v1/driving/${coords}?overview=full&geometries=geojson`,
+          `${OSRM_BASE_URL}/route/v1/driving/${coordStr}?overview=full&geometries=geojson`,
           { cache: "no-store" }
         );
         if (res.ok) {
@@ -177,7 +179,7 @@ export function LiveRouteMap({
           const route = data?.routes?.[0];
           const geometry = route?.geometry?.coordinates as [number, number][] | undefined;
           if (geometry?.length) {
-            latLngs = geometry.map(([lng, lat]) => [lat, lng]);
+            coords = geometry;
             dashed = false;
           }
           if (typeof route?.distance === "number") routeDistanceM = route.distance;
@@ -195,15 +197,9 @@ export function LiveRouteMap({
         setEta(null);
       }
 
-      if (routeLineRef.current) {
-        routeLineRef.current.remove();
-      }
-      routeLineRef.current = L.polyline(latLngs, {
-        color: driverColor,
-        weight: 4,
-        opacity: 0.8,
-        dashArray: dashed ? "6 8" : undefined,
-      }).addTo(map);
+      const routeSource = map.getSource(ROUTE_SOURCE_ID) as GeoJSONSource | undefined;
+      routeSource?.setData({ type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: coords } });
+      map.setPaintProperty(ROUTE_LAYER_ID, "line-dasharray", dashed ? ["literal", [1.5, 1.5]] : ["literal", [1]]);
 
       // Only re-frame the whole route on first load or when the destination
       // itself changes (e.g. pickup -> dropoff leg). On routine driver
@@ -212,9 +208,12 @@ export function LiveRouteMap({
       // into view only if the driver has actually drifted off-screen,
       // similar to Uber/Lyft's soft-follow behavior.
       if (isFirstPlacement || destChanged) {
-        map.fitBounds(routeLineRef.current.getBounds(), { padding: [30, 30] });
-      } else if (!map.getBounds().pad(-0.1).contains([driverPoint.lat, driverPoint.lng])) {
-        map.panTo([driverPoint.lat, driverPoint.lng], { animate: true, duration: 0.8 });
+        const bounds = new maplibregl.LngLatBounds(coords[0], coords[0]);
+        for (const c of coords) bounds.extend(c);
+        map.fitBounds(bounds, { padding: 30 });
+        hasFramedRef.current = true;
+      } else if (!map.getBounds().contains(toLngLat(driverPoint))) {
+        map.panTo(toLngLat(driverPoint), { animate: true, duration: 800 });
       }
     }
 
@@ -231,7 +230,6 @@ export function LiveRouteMap({
       mapRef.current = null;
       driverMarkerRef.current = null;
       destMarkerRef.current = null;
-      routeLineRef.current = null;
     };
   }, []);
 
