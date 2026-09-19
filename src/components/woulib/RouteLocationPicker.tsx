@@ -38,6 +38,8 @@ export function RouteLocationPicker({
   const dropoffMarkerRef = useRef<any>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const connectorRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const directionsServiceRef = useRef<any>(null);
   const hasFramedRef = useRef(false);
 
   const [active, setActive] = useState<Pin>("pickup");
@@ -161,27 +163,61 @@ export function RouteLocationPicker({
     })();
   }, [dropoff]);
 
-  // Dashed connector between the two pins (purely a visual preview - the
-  // actual road-following route is computed separately for the fare quote)
-  // plus view framing: fit both pins once they're both set, follow whichever
-  // single pin is set before that, otherwise leave the default view alone.
+  // Road-following connector between the two pins, via Google Directions -
+  // same idea as the live tracking maps (see google-map.ts / LiveRouteMap),
+  // so what the rider previews here actually matches the roads the driver
+  // will take, instead of a straight line cutting through blocks/terrain.
+  // Falls back to the old dashed straight line if Directions is unreachable.
+  // Also handles view framing: fit both pins once they're both set, follow
+  // whichever single pin is set before that, otherwise leave the view alone.
   useEffect(() => {
     if (!mapRef.current) return;
+    let cancelled = false;
     (async () => {
       const google = await loadGoogleMaps();
       const map = mapRef.current;
-      if (!map) return;
+      if (!map || cancelled) return;
 
       if (pickup && dropoff) {
+        if (!directionsServiceRef.current) {
+          directionsServiceRef.current = new google.maps.DirectionsService();
+        }
+
+        let path: LatLng[] = [pickup, dropoff];
+        let dashed = true;
+        try {
+          const result = await directionsServiceRef.current.route({
+            origin: pickup,
+            destination: dropoff,
+            travelMode: google.maps.TravelMode.DRIVING,
+          });
+          const overview = result?.routes?.[0]?.overview_path as
+            | { lat: () => number; lng: () => number }[]
+            | undefined;
+          if (overview?.length) {
+            path = overview.map((p) => ({ lat: p.lat(), lng: p.lng() }));
+            dashed = false;
+          }
+        } catch {
+          // Directions unreachable - keep the straight dashed fallback below.
+        }
+        if (cancelled) return;
+
         if (!connectorRef.current) {
           connectorRef.current = new google.maps.Polyline({
-            path: [pickup, dropoff],
-            strokeOpacity: 0,
-            icons: dashedLineIcons(google, "#9CA3AF"),
+            path,
             map,
+            strokeColor: "#9CA3AF",
+            strokeWeight: 4,
+            strokeOpacity: dashed ? 0 : 0.8,
+            icons: dashed ? dashedLineIcons(google, "#9CA3AF") : [],
           });
         } else {
-          connectorRef.current.setPath([pickup, dropoff]);
+          connectorRef.current.setPath(path);
+          connectorRef.current.setOptions({
+            strokeOpacity: dashed ? 0 : 0.8,
+            icons: dashed ? dashedLineIcons(google, "#9CA3AF") : [],
+          });
           connectorRef.current.setMap(map);
         }
         if (!hasFramedRef.current) {
@@ -204,6 +240,9 @@ export function RouteLocationPicker({
         }
       }
     })();
+    return () => {
+      cancelled = true;
+    };
   }, [pickup, dropoff]);
 
   useEffect(() => {
