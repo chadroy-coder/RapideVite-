@@ -149,8 +149,11 @@ export interface Order {
   // card and cash_on_delivery orders.
   payment_proof_url?: string | null;
   // Magic-link token for the driver/picker page (/livreur/[token]) - the
-  // only "auth" that page has. Never expose this to the customer.
+  // only "auth" that page has. Never expose this to the customer. Expires
+  // (see driver_access_token_expires_at) as a backstop even if the order
+  // never reaches a terminal status - see src/lib/actions/driver.ts.
   driver_access_token?: string;
+  driver_access_token_expires_at?: string | null;
   driver_lat?: number | null;
   driver_lng?: number | null;
   driver_location_updated_at?: string | null;
@@ -298,6 +301,7 @@ export interface WoulibRequest {
   status: WoulibStatus;
   assigned_driver_id: string | null;
   driver_access_token?: string;
+  driver_access_token_expires_at?: string | null;
   driver_lat: number | null;
   driver_lng: number | null;
   driver_location_updated_at: string | null;

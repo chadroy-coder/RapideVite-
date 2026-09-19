@@ -14,9 +14,27 @@
 import { revalidatePath } from "next/cache";
 import { createAdminClient } from "@/lib/supabase/admin";
 
+// Orders in these statuses are done moving - once an order lands here there
+// is no legitimate reason for the driver link to keep working (see
+// 0022_driver_token_expiry.sql for the full rationale: this plus the
+// expires_at backstop replace what used to be a forever-valid token).
+const TERMINAL_ORDER_STATUSES = ["delivered", "cancelled"];
+
+function isTokenRowUsable(row: { status: string; driver_access_token_expires_at: string | null } | null) {
+  if (!row) return false;
+  if (TERMINAL_ORDER_STATUSES.includes(row.status)) return false;
+  if (row.driver_access_token_expires_at && new Date(row.driver_access_token_expires_at) < new Date()) return false;
+  return true;
+}
+
 async function resolveOrderIdFromToken(token: string) {
   const admin = createAdminClient();
-  const { data } = await admin.from("orders").select("id").eq("driver_access_token", token).maybeSingle();
+  const { data } = await admin
+    .from("orders")
+    .select("id, status, driver_access_token_expires_at")
+    .eq("driver_access_token", token)
+    .maybeSingle();
+  if (!isTokenRowUsable(data)) return undefined;
   return data?.id as string | undefined;
 }
 
@@ -27,7 +45,7 @@ export async function getOrderForDriver(token: string) {
     .select("*")
     .eq("driver_access_token", token)
     .maybeSingle();
-  if (!order) return null;
+  if (!order || !isTokenRowUsable(order)) return null;
 
   const { data: items } = await admin
     .from("order_items")

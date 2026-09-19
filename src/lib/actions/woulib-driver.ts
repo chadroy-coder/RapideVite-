@@ -10,13 +10,29 @@ import { revalidatePath } from "next/cache";
 import { createAdminClient } from "@/lib/supabase/admin";
 import type { WoulibStatus } from "@/types/database";
 
+// Requests in these statuses are done moving - once a ride/delivery lands
+// here there is no legitimate reason for the driver link to keep working
+// (see 0022_driver_token_expiry.sql: this plus the expires_at backstop
+// replace what used to be a forever-valid token).
+const TERMINAL_WOULIB_STATUSES: WoulibStatus[] = ["completed", "cancelled"];
+
+function isTokenRowUsable(
+  row: { status: WoulibStatus; driver_access_token_expires_at: string | null } | null
+) {
+  if (!row) return false;
+  if (TERMINAL_WOULIB_STATUSES.includes(row.status)) return false;
+  if (row.driver_access_token_expires_at && new Date(row.driver_access_token_expires_at) < new Date()) return false;
+  return true;
+}
+
 async function resolveRequestIdFromToken(token: string) {
   const admin = createAdminClient();
   const { data } = await admin
     .from("woulib_requests")
-    .select("id")
+    .select("id, status, driver_access_token_expires_at")
     .eq("driver_access_token", token)
     .maybeSingle();
+  if (!isTokenRowUsable(data)) return undefined;
   return data?.id as string | undefined;
 }
 
@@ -27,7 +43,8 @@ export async function getWoulibRequestForDriver(token: string) {
     .select("*, vehicle_type:woulib_vehicle_types(*)")
     .eq("driver_access_token", token)
     .maybeSingle();
-  return request ?? null;
+  if (!request || !isTokenRowUsable(request)) return null;
+  return request;
 }
 
 export async function updateWoulibDriverLocation(token: string, lat: number, lng: number) {
