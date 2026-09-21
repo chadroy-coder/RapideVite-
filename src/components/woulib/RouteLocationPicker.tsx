@@ -9,6 +9,9 @@ type Pin = "pickup" | "dropoff";
 
 const PICKUP_COLOR = "#0F8A5F";
 const DROPOFF_COLOR = "#E5231B";
+// Route preview line - blue reads clearly against the map's light roads/
+// background (grey blended in too much to see at a glance).
+const ROUTE_COLOR = "#2563EB";
 // Default center: Port-au-Prince, used until the user shares their
 // location or taps the map themselves.
 const DEFAULT_CENTER: LatLng = { lat: 18.5944, lng: -72.3074 };
@@ -207,16 +210,16 @@ export function RouteLocationPicker({
           connectorRef.current = new google.maps.Polyline({
             path,
             map,
-            strokeColor: "#9CA3AF",
+            strokeColor: ROUTE_COLOR,
             strokeWeight: 4,
             strokeOpacity: dashed ? 0 : 0.8,
-            icons: dashed ? dashedLineIcons(google, "#9CA3AF") : [],
+            icons: dashed ? dashedLineIcons(google, ROUTE_COLOR) : [],
           });
         } else {
           connectorRef.current.setPath(path);
           connectorRef.current.setOptions({
             strokeOpacity: dashed ? 0 : 0.8,
-            icons: dashed ? dashedLineIcons(google, "#9CA3AF") : [],
+            icons: dashed ? dashedLineIcons(google, ROUTE_COLOR) : [],
           });
           connectorRef.current.setMap(map);
         }
