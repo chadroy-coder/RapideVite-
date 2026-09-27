@@ -264,7 +264,9 @@ export function WoulibRequestForm({
                 />
                 <input
                   value={contactPhone}
-                  onChange={(e) => setContactPhone(e.target.value)}
+                  onChange={(e) => setContactPhone(e.target.value.replace(/[^\d+\s-]/g, ""))}
+                  type="tel"
+                  inputMode="tel"
                   placeholder="Numero de telephone"
                   className="w-full border border-brand-border rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40"
                 />

@@ -184,7 +184,13 @@ export function CheckoutForm({
             </div>
             <div>
               <input
-                {...register("customer_phone")}
+                {...register("customer_phone", {
+                  onChange: (e) => {
+                    e.target.value = e.target.value.replace(/[^\d+\s-]/g, "");
+                  },
+                })}
+                type="tel"
+                inputMode="tel"
                 placeholder="Numero de telephone"
                 className="w-full border border-brand-border rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-orange/40"
               />
