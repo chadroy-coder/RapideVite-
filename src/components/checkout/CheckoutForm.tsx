@@ -14,7 +14,7 @@ import { createCheckoutSession } from "@/lib/actions/stripe";
 import { formatUSD, formatHTGEstimate } from "@/lib/format";
 import { useToastStore } from "@/store/toast-store";
 import { EmptyState } from "@/components/ui/EmptyState";
-import { ShoppingBag, MapPin, Check } from "lucide-react";
+import { ShoppingBag, MapPin } from "lucide-react";
 
 const DELIVERY_FEE_ESTIMATE = Number(process.env.NEXT_PUBLIC_DEFAULT_DELIVERY_FEE ?? 1.15);
 
@@ -83,6 +83,19 @@ export function CheckoutForm({
       () => setLocationStatus("denied"),
       { enableHighAccuracy: true, timeout: 10000 }
     );
+  }
+
+  // Toggle on: request location (same as before). Toggle off: the customer
+  // changed their mind before submitting - drop what we captured rather than
+  // silently keeping/sending it, since this is meant to be their explicit
+  // opt-in each time, not a one-way ratchet.
+  function handleToggleLocation() {
+    if (locationStatus === "shared") {
+      setLocationStatus("idle");
+      setCustomerLocation(null);
+      return;
+    }
+    handleShareLocation();
   }
 
   const selectedPaymentMethod = watch("payment_method") as PaymentMethod;
@@ -219,20 +232,23 @@ export function CheckoutForm({
                   </p>
                 </div>
               </div>
-              {locationStatus === "shared" ? (
-                <span className="shrink-0 flex items-center gap-1 text-xs font-semibold text-brand-green">
-                  <Check className="w-3.5 h-3.5" /> Partagee
-                </span>
-              ) : (
-                <button
-                  type="button"
-                  onClick={handleShareLocation}
-                  disabled={locationStatus === "requesting"}
-                  className="shrink-0 text-xs font-semibold text-brand-orange border border-brand-orange rounded-full px-3 py-1.5 hover:bg-brand-orange/5 disabled:opacity-60"
-                >
-                  {locationStatus === "requesting" ? "..." : "Partager"}
-                </button>
-              )}
+              <button
+                type="button"
+                role="switch"
+                aria-checked={locationStatus === "shared"}
+                aria-label="Partager ma position avec le livreur"
+                onClick={handleToggleLocation}
+                disabled={locationStatus === "requesting"}
+                className={`shrink-0 relative inline-flex h-6 w-11 items-center rounded-full transition-colors disabled:opacity-60 ${
+                  locationStatus === "shared" ? "bg-brand-green" : "bg-brand-border"
+                }`}
+              >
+                <span
+                  className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform ${
+                    locationStatus === "shared" ? "translate-x-6" : "translate-x-1"
+                  }`}
+                />
+              </button>
             </div>
             {locationStatus === "denied" && (
               <p className="text-xs text-red-500">Localisation refusee ou indisponible - pas de souci, votre adresse suffit.</p>
