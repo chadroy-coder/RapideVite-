@@ -64,5 +64,16 @@
     "imageFile": "poptarts-unfrosted-strawberry.jpg",
     "price": 6.7,
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "poptarts-frosted-cookies-creme",
+    "name": "Pop-Tarts Frosted Cookies & Creme",
+    "brand": "Pop-Tarts",
+    "categorySlug": "petit-dejeuner",
+    "size": "8 pastries - 384g total",
+    "description": "Patisseries a griller glacees, saveur biscuits et creme.",
+    "imageFile": "poptarts-frosted-cookies-creme.jpg",
+    "price": 6.7,
+    "imageQualityStatus": "approved"
   }
 ]
