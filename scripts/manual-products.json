@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "slug": "atkins-endulge-chocolate-coconut-bar",
+    "name": "Atkins Endulge Chocolate Coconut Bar",
+    "brand": "Atkins",
+    "categorySlug": "collations-friandises",
+    "size": "5 x 1.41 oz (40g) bars - 200g total",
+    "description": "Barres chocolat-noix de coco, 90% moins de sucre.",
+    "imageFile": "atkins-endulge-chocolate-coconut-v2.jpg",
+    "price": 13.2,
+    "imageQualityStatus": "approved"
+  }
+]
