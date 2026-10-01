@@ -20,5 +20,16 @@
     "imageFile": "atkins-caramel-chocolate-nut-roll.jpg",
     "price": 14.95,
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "earths-best-organic-sunny-days-snack-bars-strawberry",
+    "name": "Earth's Best Organic Sunny Days Snack Bars - Strawberry",
+    "brand": "Earth's Best",
+    "categorySlug": "produits-bebe",
+    "size": "7 x 0.67 oz (19g) bars - 133g total",
+    "description": "Barres collation bio pour enfants, saveur fraise, avec vraies fraises bio.",
+    "imageFile": "earths-best-sunny-days-strawberry.jpg",
+    "price": 8.45,
+    "imageQualityStatus": "approved"
   }
 ]
