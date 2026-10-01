@@ -75,5 +75,137 @@
     "imageFile": "poptarts-frosted-cookies-creme.jpg",
     "price": 6.7,
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "bruces-cut-sweet-potatoes-yams",
+    "name": "Bruce's Cut Sweet Potatoes in Syrup (Yams)",
+    "brand": "Bruce's",
+    "categorySlug": "epicerie",
+    "size": "8 oz",
+    "description": "Patates douces coupees dans sirop, style sudiste.",
+    "imageFile": "bruces-cut-sweet-potatoes-yams.jpg",
+    "price": 3.71,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "carrefour-classic-ananas-fruit-cups",
+    "name": "Classic Ananas (fruit cups)",
+    "brand": "Carrefour Classic'",
+    "categorySlug": "epicerie",
+    "size": "pack de 4",
+    "description": "Coupelles d'ananas, sans sucres ajoutes, lot de 4.",
+    "imageFile": "carrefour-classic-ananas-fruit-cups.jpg",
+    "price": 7.92,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "carrefour-bio-ananas-batonnets",
+    "name": "Carrefour Bio Ananas en Batonnets",
+    "brand": "Carrefour Bio",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Batonnets d'ananas biologique en conserve.",
+    "imageFile": "carrefour-bio-ananas-batonnets.jpg",
+    "price": 7.6,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "carrefour-classic-abricots",
+    "name": "Carrefour Classic Abricots (apricot halves)",
+    "brand": "Carrefour Classic'",
+    "categorySlug": "epicerie",
+    "size": "240 g",
+    "description": "Demi-abricots au sirop leger.",
+    "imageFile": "carrefour-classic-abricots.jpg",
+    "price": 3.0,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "carrefour-classic-ananas-morceaux",
+    "name": "Classic Ananas en Morceaux (pineapple chunks)",
+    "brand": "Carrefour Classic'",
+    "categorySlug": "epicerie",
+    "size": "340 g",
+    "description": "Morceaux d'ananas au jus d'ananas.",
+    "imageFile": "carrefour-classic-ananas-morceaux.jpg",
+    "price": 4.12,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "carrefour-classic-poires-williams",
+    "name": "Carrefour Classic Poires (pear halves)",
+    "brand": "Carrefour Classic'",
+    "categorySlug": "epicerie",
+    "size": "412 g",
+    "description": "Demi-poires Williams au sirop leger.",
+    "imageFile": "carrefour-classic-poires-williams.jpg",
+    "price": 3.0,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "delmonte-100cal-sliced-peaches",
+    "name": "Del Monte 100 Calorie Sliced Peaches",
+    "brand": "Del Monte",
+    "categorySlug": "epicerie",
+    "size": "8.25 oz",
+    "description": "Peches tranchees au sirop extra leger, 100 calories.",
+    "imageFile": "delmonte-100cal-sliced-peaches.jpg",
+    "price": 3.08,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "delmonte-100cal-fruit-cocktail",
+    "name": "Del Monte 100 Calorie Sliced Fruit cocktail",
+    "brand": "Del Monte",
+    "categorySlug": "epicerie",
+    "size": "8.25 oz",
+    "description": "Cocktail de fruits au sirop extra leger, 100 calories.",
+    "imageFile": "delmonte-100cal-fruit-cocktail.jpg",
+    "price": 3.08,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "delmonte-fruit-cocktail",
+    "name": "Del Monte Fruit Cocktail",
+    "brand": "Del Monte",
+    "categorySlug": "epicerie",
+    "size": "8.25 oz",
+    "description": "Cocktail de fruits classique au sirop.",
+    "imageFile": "delmonte-fruit-cocktail.jpg",
+    "price": 2.75,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "delmonte-lite-pear-halves",
+    "name": "Del Monte Lite Pear Halves",
+    "brand": "Del Monte",
+    "categorySlug": "epicerie",
+    "size": "15 oz",
+    "description": "Demi-poires Bartlett au sirop extra leger.",
+    "imageFile": "delmonte-lite-pear-halves.jpg",
+    "price": 5.96,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "delmonte-diced-mangoes",
+    "name": "Del Monte Diced Mangoes",
+    "brand": "Del Monte",
+    "categorySlug": "epicerie",
+    "size": "15 oz",
+    "description": "Mangues coupees en des au sirop leger.",
+    "imageFile": "delmonte-diced-mangoes.jpg",
+    "price": 5.96,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "delmonte-no-sugar-mandarin-oranges",
+    "name": "Del Monte No Sugar Added Mandarin Oranges",
+    "brand": "Del Monte",
+    "categorySlug": "epicerie",
+    "size": "15 oz",
+    "description": "Quartiers de mandarine dans l'eau, sans sucre ajoute.",
+    "imageFile": "delmonte-no-sugar-mandarin-oranges.jpg",
+    "price": 7.12,
+    "imageQualityStatus": "approved"
   }
 ]
