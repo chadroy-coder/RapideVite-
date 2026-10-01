@@ -9,5 +9,16 @@
     "imageFile": "atkins-endulge-chocolate-coconut-v2.jpg",
     "price": 13.2,
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "atkins-caramel-chocolate-nut-roll-protein-bar",
+    "name": "Atkins Caramel Chocolate Nut Roll Protein Snack Bar",
+    "brand": "Atkins",
+    "categorySlug": "collations-friandises",
+    "size": "5 x 1.55 oz (44g) bars - 220g total",
+    "description": "Barres proteinees, 85% moins de sucre que les barres chocolatees classiques.",
+    "imageFile": "atkins-caramel-chocolate-nut-roll.jpg",
+    "price": 14.95,
+    "imageQualityStatus": "approved"
   }
 ]
