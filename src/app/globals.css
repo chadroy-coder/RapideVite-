@@ -36,6 +36,16 @@ body {
   font-family: var(--font-sans);
 }
 
+/* Mobile Safari rubber-bands (elastic overscroll) at the top/bottom of the
+   page by default. That bounce is what makes the fixed bottom nav visibly
+   jump/flicker when you scroll to the bottom - Safari is recomputing its
+   position against a viewport that's momentarily overscrolled. Disabling
+   the bounce on the vertical axis removes the glitch; horizontal swipe
+   (back/forward navigation gesture) is untouched. */
+html, body {
+  overscroll-behavior-y: none;
+}
+
 /* Space for the sticky mobile bottom nav so content never hides behind it */
 .pb-bottom-nav {
   padding-bottom: calc(72px + env(safe-area-inset-bottom));

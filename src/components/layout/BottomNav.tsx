@@ -34,7 +34,13 @@ export function BottomNav({ initialHasLiveOrder = false }: { initialHasLiveOrder
   }, []);
 
   return (
-    <nav className="fixed bottom-0 inset-x-0 z-40 bg-white border-t border-brand-border md:hidden safe-bottom">
+    <nav
+      className="fixed bottom-0 inset-x-0 z-40 bg-white border-t border-brand-border md:hidden safe-bottom"
+      // Forces its own GPU compositing layer so iOS Safari doesn't repaint
+      // this bar mid-scroll (the visible jump/flicker the bounce fix above
+      // addresses from the other side).
+      style={{ transform: "translateZ(0)" }}
+    >
       <ul className="grid grid-cols-5">
         {items.map(({ href, label, icon: Icon }) => {
           const active = pathname === href;
