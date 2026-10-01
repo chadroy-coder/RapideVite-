@@ -31,5 +31,16 @@
     "imageFile": "earths-best-sunny-days-strawberry.jpg",
     "price": 8.45,
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "lucky-charms-cereal-treat-bars",
+    "name": "Lucky Charms Cereal Treat Bars",
+    "brand": "General Mills",
+    "categorySlug": "collations-friandises",
+    "size": "8 x 0.85 oz (24g) bars - 192g total",
+    "description": "Barres de cereales Lucky Charms, saveur guimauve.",
+    "imageFile": "lucky-charms-treat-bars.jpg",
+    "price": 5.1,
+    "imageQualityStatus": "approved"
   }
 ]
