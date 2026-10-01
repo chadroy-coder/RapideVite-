@@ -42,5 +42,16 @@
     "imageFile": "lucky-charms-treat-bars.jpg",
     "price": 5.1,
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "quaker-chewy-smores-granola-bars",
+    "name": "Quaker Chewy S'mores Granola Bars",
+    "brand": "Quaker",
+    "categorySlug": "collations-friandises",
+    "size": "8 x 0.84 oz (24g) bars - 192g total",
+    "description": "Barres granola moelleuses, saveur s'mores avec vrais morceaux de chocolat.",
+    "imageFile": "quaker-chewy-smores-granola-bars.jpg",
+    "price": 6.0,
+    "imageQualityStatus": "approved"
   }
 ]
