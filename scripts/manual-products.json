@@ -504,5 +504,170 @@
     "imageFile": "essential-whole-berry-cranberry-sauce.jpg",
     "price": 3.71,
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "beghin-say-sucre-vanille",
+    "name": "Beghin Say Sucre Saveur Vanille",
+    "brand": "Beghin Say",
+    "categorySlug": "epicerie",
+    "size": "650 g",
+    "description": "Sucre en poudre saveur vanille, format doseur.",
+    "imageFile": "beghin-say-sucre-vanille.jpg",
+    "price": 5.88,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "carrefour-bio-sucre-blond-poudre",
+    "name": "Carrefour Bio Sucre Blond en Poudre",
+    "brand": "Carrefour Bio",
+    "categorySlug": "epicerie",
+    "size": "500 g",
+    "description": "Sucre blond biologique en poudre.",
+    "imageFile": "carrefour-bio-sucre-blond-poudre.jpg",
+    "price": 3.88,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "carrefour-classic-cassonade",
+    "name": "Carrefour Classic Cassonade (brown cane sugar)",
+    "brand": "Carrefour Classic'",
+    "categorySlug": "epicerie",
+    "size": "750 g",
+    "description": "Cassonade, sucre de canne roux.",
+    "imageFile": "carrefour-classic-cassonade.jpg",
+    "price": 4.38,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "essential-confectioners-powdered-sugar",
+    "name": "Essential Confectioners Powdered Sugar (bag)",
+    "brand": "Essential Everyday",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Sucre glace en sachet.",
+    "imageFile": "essential-confectioners-powdered-sugar.jpg",
+    "price": 5.29,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "la-perruche-sucre-cubes-ambre",
+    "name": "La Perruche Sucre de Canne (cubes) Ambre",
+    "brand": "La Perruche",
+    "categorySlug": "epicerie",
+    "size": "475 g",
+    "description": "Sucre de canne ambre en mini cubes irreguliers.",
+    "imageFile": "la-perruche-sucre-cubes-ambre.jpg",
+    "price": 3.88,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "la-perruche-sucre-pack-ambre",
+    "name": "La Perruche Sucre de Canne (pack) Ambre",
+    "brand": "La Perruche",
+    "categorySlug": "epicerie",
+    "size": "750 g",
+    "description": "Sucre de canne ambre, format paquet.",
+    "imageFile": "la-perruche-sucre-pack-ambre.jpg",
+    "price": 5.54,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "la-perruche-sucre-blond",
+    "name": "La Perruche Sucre de Canne Blond",
+    "brand": "La Perruche",
+    "categorySlug": "epicerie",
+    "size": "1 kg",
+    "description": "Sucre de canne blond.",
+    "imageFile": "la-perruche-sucre-blond.jpg",
+    "price": 6.5,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "premium-pure-cane-dark-brown-sugar",
+    "name": "Premium Pure Cane Dark Brown Sugar (box)",
+    "brand": "Premium",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Sucre de canne brun fonce, boite.",
+    "imageFile": "premium-pure-cane-dark-brown-sugar.jpg",
+    "price": 3.29,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "premium-pure-cane-light-brown-sugar",
+    "name": "Premium Pure Cane Light Brown Sugar (box)",
+    "brand": "Premium",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Sucre de canne brun clair, boite.",
+    "imageFile": "premium-pure-cane-light-brown-sugar.jpg",
+    "price": 3.29,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "essential-pure-light-brown-sugar",
+    "name": "Essential Pure Light Brown Sugar (bag)",
+    "brand": "Essential Everyday",
+    "categorySlug": "epicerie",
+    "size": "32 oz",
+    "description": "Sucre brun clair, sachet.",
+    "imageFile": "essential-pure-light-brown-sugar.jpg",
+    "price": 5.38,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "rebo-sucre-blanc",
+    "name": "Rebo Sucre Blanc",
+    "brand": "Rebo",
+    "categorySlug": "epicerie",
+    "size": "1 lb",
+    "description": "Sucre blanc granule.",
+    "imageFile": "rebo-sucre-blanc.jpg",
+    "price": 1.38,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "regilait-lait-concentre-sucre-chocolat",
+    "name": "Regilait Lait Concentre Sucre- Chocolat",
+    "brand": "Regilait",
+    "categorySlug": "epicerie",
+    "size": "300 g",
+    "description": "Lait concentre sucre au chocolat.",
+    "imageFile": "regilait-lait-concentre-sucre-chocolat.jpg",
+    "price": 5.5,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "splenda-brown-sugar-blend",
+    "name": "Splenda Brown Sugar Blend",
+    "brand": "Splenda",
+    "categorySlug": "epicerie",
+    "size": "1 lb (454 g)",
+    "description": "Melange sucre brun et edulcorant Splenda.",
+    "imageFile": "splenda-brown-sugar-blend.jpg",
+    "price": 10.38,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "splenda-sugar-blend",
+    "name": "Splenda Sugar Blend",
+    "brand": "Splenda",
+    "categorySlug": "epicerie",
+    "size": "2 lb (906 g)",
+    "description": "Melange sucre et edulcorant Splenda.",
+    "imageFile": "splenda-sugar-blend.jpg",
+    "price": 14.5,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "sugar-in-the-raw-turbinado",
+    "name": "Sugar in the Raw - Turbinado Cane Sugar (box)",
+    "brand": "Sugar in the Raw",
+    "categorySlug": "epicerie",
+    "size": "25 packs",
+    "description": "Sucre de canne turbinado brut, boite de 25 sachets.",
+    "imageFile": "sugar-in-the-raw-turbinado.jpg",
+    "price": 6.38,
+    "imageQualityStatus": "approved"
   }
 ]
