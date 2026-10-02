@@ -1450,5 +1450,192 @@
     "imageFile": "wild-harvest-organic-whole-kernel-sweet-corn.jpg",
     "price": 3.5,
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "bushs-chick-peas-garbanzo",
+    "name": "Bush's Chick Peas / Garbanzo",
+    "brand": "Bush's",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Pois chiches en conserve.",
+    "imageFile": "bushs-chick-peas-garbanzo.jpg",
+    "price": 2.88,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "bushs-chili-beans-medium-chili-sauce",
+    "name": "Bush's Chili Beans- - Medium Chili Sauce",
+    "brand": "Bush's",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Haricots au chili, sauce chili moyenne.",
+    "imageFile": "bushs-chili-beans-medium-chili-sauce.jpg",
+    "price": 4.0,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "bushs-great-northern-beans",
+    "name": "Bush's Great Northern Beans",
+    "brand": "Bush's",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Haricots blancs Great Northern en conserve.",
+    "imageFile": "bushs-great-northern-beans.jpg",
+    "price": 3.92,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "carrefour-classic-choux-de-bruxelles",
+    "name": "Carrefour Classic Choux de Bruxelles (Brussels Sprouts)",
+    "brand": "Carrefour Classic'",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Choux de Bruxelles en conserve.",
+    "imageFile": "carrefour-classic-choux-de-bruxelles.jpg",
+    "price": 2.54,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "carrefour-classic-epinards-hache",
+    "name": "Carrefour Classic Epinards-Spinazie (Hache, canned)",
+    "brand": "Carrefour Classic'",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Epinards haches en conserve.",
+    "imageFile": "carrefour-classic-epinards-hache.jpg",
+    "price": 2.67,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "cassegrain-tajine-de-legumes-grilles",
+    "name": "Cassegrain Tajine de Legumes Grilles",
+    "brand": "Cassegrain",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Tajine de legumes grilles en conserve.",
+    "imageFile": "cassegrain-tajine-de-legumes-grilles.jpg",
+    "price": 10.79,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "daucy-flageolets-extra-fins",
+    "name": "d'aucy Flageolets Extra Fins",
+    "brand": "d'aucy",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Flageolets extra fins en conserve.",
+    "imageFile": "daucy-flageolets-extra-fins.jpg",
+    "price": 3.5,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "daucy-poelee-jardiniere",
+    "name": "d'aucy Poelee Jardiniere",
+    "brand": "d'aucy",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Poelee de legumes jardiniere en conserve.",
+    "imageFile": "daucy-poelee-jardiniere.jpg",
+    "price": 3.42,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "essential-everyday-blackeye-peas",
+    "name": "Essential Everyday Blackeye Peas",
+    "brand": "Essential Everyday",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Pois a oeil noir en conserve.",
+    "imageFile": "essential-everyday-blackeye-peas.jpg",
+    "price": 2.57,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "essential-everyday-cut-green-beans-no-salt",
+    "name": "Essential Everyday Cut Green Beans No Salt Added",
+    "brand": "Essential Everyday",
+    "categorySlug": "epicerie",
+    "size": "14.5 oz",
+    "description": "Haricots verts coupes, sans sel ajoute.",
+    "imageFile": "essential-everyday-cut-green-beans-no-salt.jpg",
+    "price": 2.13,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "essential-everyday-kidney-beans",
+    "name": "Essential Everyday Kidney Beans",
+    "brand": "Essential Everyday",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Haricots rouges en conserve.",
+    "imageFile": "essential-everyday-kidney-beans.jpg",
+    "price": 5.0,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "essential-everyday-sliced-potatoes",
+    "name": "Essential Everyday Sliced Potatoes",
+    "brand": "Essential Everyday",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Pommes de terre tranchees en conserve.",
+    "imageFile": "essential-everyday-sliced-potatoes.jpg",
+    "price": 2.92,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "essential-everyday-small-whole-beets",
+    "name": "Essential Everyday Small Whole Beets",
+    "brand": "Essential Everyday",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Petites betteraves entieres en conserve.",
+    "imageFile": "essential-everyday-small-whole-beets.jpg",
+    "price": 2.33,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "goya-peas-and-carrots",
+    "name": "Goya Peas and Carrots (Guisantes y Zanahorias)",
+    "brand": "Goya",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Petits pois et carottes en conserve.",
+    "imageFile": "goya-peas-and-carrots.jpg",
+    "price": 3.04,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "goya-pinto-beans",
+    "name": "Goya Pinto Beans (Frijoles Pintos)",
+    "brand": "Goya",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Haricots pinto en conserve.",
+    "imageFile": "goya-pinto-beans.jpg",
+    "price": 2.54,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "roland-black-beans",
+    "name": "Roland Black Beans (Habichuelas Negras)",
+    "brand": "Roland",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Haricots noirs en conserve.",
+    "imageFile": "roland-black-beans.jpg",
+    "price": 5.0,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "shoppers-value-carrots-sliced",
+    "name": "Shoppers Value Carrots sliced",
+    "brand": "Shoppers Value",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Carottes tranchees en conserve.",
+    "imageFile": "shoppers-value-carrots-sliced.jpg",
+    "price": 2.5,
+    "imageQualityStatus": "approved"
   }
 ]
