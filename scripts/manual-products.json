@@ -1637,5 +1637,203 @@
     "imageFile": "shoppers-value-carrots-sliced.jpg",
     "price": 2.5,
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "dixie-crystals-granulated-pure-cane-sugar",
+    "name": "Dixie Crystals Granulated Pure Cane Sugar",
+    "brand": "Dixie Crystals",
+    "categorySlug": "epicerie",
+    "size": "12 oz",
+    "description": "Sucre de canne pur granule.",
+    "imageFile": "dixie-crystals-granulated-pure-cane-sugar.jpg",
+    "price": 3.67,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "equal-original-sweetener",
+    "name": "Equal Original (sweetener)",
+    "brand": "Equal",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Edulcorant Equal original.",
+    "imageFile": "equal-original-sweetener.jpg",
+    "price": 6.67,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "essence-grenadine-perrier",
+    "name": "Essence Grenadine (Perrier)",
+    "brand": "Perrier",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Essence de grenadine.",
+    "imageFile": "essence-grenadine-perrier.jpg",
+    "price": 5.37,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "essence-of-noyau",
+    "name": "Essence of Noyau",
+    "brand": null,
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Essence de noyau.",
+    "imageFile": "essence-of-noyau.jpg",
+    "price": 1.75,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "essence-of-vanille-perrier",
+    "name": "Essence of Vanille Perrier",
+    "brand": "Perrier",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Essence de vanille.",
+    "imageFile": "essence-of-vanille-perrier.jpg",
+    "price": 4.42,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "essence-of-noyau-perrier",
+    "name": "Essence of Noyau (Perrier)",
+    "brand": "Perrier",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Essence de noyau.",
+    "imageFile": "essence-of-noyau-perrier.jpg",
+    "price": 4.58,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "essence-vanille",
+    "name": "Essence Vanille",
+    "brand": null,
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Essence de vanille.",
+    "imageFile": "essence-vanille.jpg",
+    "price": 3.17,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "essence-de-vanille-rebo",
+    "name": "Essence de vanille Rebo",
+    "brand": "Rebo",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Essence de vanille.",
+    "imageFile": "essence-de-vanille-rebo.jpg",
+    "price": 2.25,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "organic-stevia-in-the-raw-40-packets",
+    "name": "Organic Stevia In The Raw (40 packets)",
+    "brand": "Stevia In The Raw",
+    "categorySlug": "epicerie",
+    "size": "1.12 oz",
+    "description": "Edulcorant stevia biologique, 40 sachets.",
+    "imageFile": "organic-stevia-in-the-raw-40-packets.jpg",
+    "price": 6.04,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "splenda-zero-calorie-sweetener-200-packets",
+    "name": "Splenda Zero Calorie Sweetener (200 packets)",
+    "brand": "Splenda",
+    "categorySlug": "epicerie",
+    "size": "200 packets",
+    "description": "Edulcorant sans calorie, 200 sachets.",
+    "imageFile": "splenda-zero-calorie-sweetener-200-packets.jpg",
+    "price": 15.92,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "stevia-in-the-raw-40-packs",
+    "name": "Stevia In The Raw (zero calorie sweetener) 40 packs",
+    "brand": "Stevia In The Raw",
+    "categorySlug": "epicerie",
+    "size": "1.75 oz",
+    "description": "Edulcorant stevia sans calorie, 40 sachets.",
+    "imageFile": "stevia-in-the-raw-40-packs.jpg",
+    "price": 5.88,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "sucarol-0-calories-liquid-sweetener",
+    "name": "Sucarol 0 Calories (liquid sweetener)",
+    "brand": "Sucarol",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Edulcorant liquide sans calorie.",
+    "imageFile": "sucarol-0-calories-liquid-sweetener.jpg",
+    "price": 4.29,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "sweetn-low-zero-calorie-sweetener-50-packets",
+    "name": "Sweet'N Low Zero Calorie Sweetener (50 packets)",
+    "brand": "Sweet'N Low",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Edulcorant sans calorie, 50 sachets.",
+    "imageFile": "sweetn-low-zero-calorie-sweetener-50-packets.jpg",
+    "price": 4.17,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "sweetn-low-zero-calorie-sweetener-100-packets",
+    "name": "Sweet'N Low Zero Calorie Sweetener (100 packets)",
+    "brand": "Sweet'N Low",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Edulcorant sans calorie, 100 sachets.",
+    "imageFile": "sweetn-low-zero-calorie-sweetener-100-packets.jpg",
+    "price": 4.63,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "sweetn-low-zero-calorie-sweetener-250-packets",
+    "name": "Sweet'N Low Zero Calorie Sweetener (250 packets)",
+    "brand": "Sweet'N Low",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Edulcorant sans calorie, 250 sachets.",
+    "imageFile": "sweetn-low-zero-calorie-sweetener-250-packets.jpg",
+    "price": 10.83,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "truvia-stevia-leaf-40-packets",
+    "name": "Truvia Stevia Leaf (40 packets)",
+    "brand": "Truvia",
+    "categorySlug": "epicerie",
+    "size": "1.12 oz",
+    "description": "Edulcorant a base de feuille de stevia, 40 sachets.",
+    "imageFile": "truvia-stevia-leaf-40-packets.jpg",
+    "price": 6.0,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "truvia-stevia-leaf-80-packets",
+    "name": "Truvia Stevia Leaf (80 packets)",
+    "brand": "Truvia",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Edulcorant a base de feuille de stevia, 80 sachets.",
+    "imageFile": "truvia-stevia-leaf-80-packets.jpg",
+    "price": 10.58,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "splenda-stevia",
+    "name": "Splenda Stevia",
+    "brand": "Splenda",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Edulcorant a base de stevia.",
+    "imageFile": "splenda-stevia.jpg",
+    "price": 14.04,
+    "imageQualityStatus": "approved"
   }
 ]
