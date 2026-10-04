@@ -2462,5 +2462,71 @@
     "imageFile": "william-saurin-choucroute-royale.jpg",
     "price": 7.85,
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "old-el-paso-12-tostada-shells",
+    "name": "Old El Paso 12 Tostada Shells",
+    "brand": "Old El Paso",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Coquilles tostada, sans gluten.",
+    "imageFile": "old-el-paso-12-tostada-shells.jpg",
+    "price": 5.17,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "old-el-paso-family-size-20-taco-shells-stand-n-stuff",
+    "name": "Old El Paso Family Size 20 Taco Shells Stand 'n Stuff",
+    "brand": "Old El Paso",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Coquilles a taco format familial, tiennent debout pour le remplissage.",
+    "imageFile": "old-el-paso-family-size-20-taco-shells-stand-n-stuff.jpg",
+    "price": 9.25,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "old-el-paso-soft-tortilla-bowl",
+    "name": "Old El Paso Soft Tortilla Bowl",
+    "brand": "Old El Paso",
+    "categorySlug": "epicerie",
+    "size": null,
+    "description": "Bols de tortilla souple a la farine, 8 unites.",
+    "imageFile": "old-el-paso-soft-tortilla-bowl.jpg",
+    "price": 5.17,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "ortega-taco-shells-flavored-with-guacamole",
+    "name": "Ortega Taco Shells Flavored with Guacamole",
+    "brand": "Ortega",
+    "categorySlug": "epicerie",
+    "size": "4.1 oz (10 shells)",
+    "description": "Coquilles a taco aromatisees au guacamole.",
+    "imageFile": "ortega-taco-shells-flavored-with-guacamole.jpg",
+    "price": 3.92,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "ortega-yellow-corn-mini-taco-super-shells",
+    "name": "Ortega Yellow Corn Mini Taco Super Shells",
+    "brand": "Ortega",
+    "categorySlug": "epicerie",
+    "size": "4.4 oz (18 shells)",
+    "description": "Mini coquilles a taco en mais jaune.",
+    "imageFile": "ortega-yellow-corn-mini-taco-super-shells.jpg",
+    "price": 5.96,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "ortega-yellow-corn-taco-shells-value-pack",
+    "name": "Ortega Yellow Corn Taco Shells (Value Pack)",
+    "brand": "Ortega",
+    "categorySlug": "epicerie",
+    "size": "7.4 oz (18 shells)",
+    "description": "Coquilles a taco en mais jaune, format economique.",
+    "imageFile": "ortega-yellow-corn-taco-shells-value-pack.jpg",
+    "price": 4.83,
+    "imageQualityStatus": "approved"
   }
 ]
