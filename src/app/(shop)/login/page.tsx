@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Suspense, useState } from "react";
 import { loginSchema, type LoginInput } from "@/lib/validations/schemas";
-import { signIn } from "@/lib/actions/auth";
+import { signIn, resendConfirmationEmail } from "@/lib/actions/auth";
 import { useToastStore } from "@/store/toast-store";
 import { PhoneAuthForm } from "@/components/auth/PhoneAuthForm";
 import { GoogleSignInButton } from "@/components/auth/GoogleSignInButton";
@@ -18,6 +18,8 @@ function LoginForm() {
   const push = useToastStore((s) => s.push);
   const [submitting, setSubmitting] = useState(false);
   const [mode, setMode] = useState<"email" | "phone">("email");
+  const [unconfirmedEmail, setUnconfirmedEmail] = useState<string | null>(null);
+  const [resending, setResending] = useState(false);
 
   const {
     register,
@@ -27,15 +29,29 @@ function LoginForm() {
 
   async function onSubmit(values: LoginInput) {
     setSubmitting(true);
+    setUnconfirmedEmail(null);
     const result = await signIn(values);
     setSubmitting(false);
     if (result.error) {
       push(result.error, "error");
+      if (result.needsConfirmation) setUnconfirmedEmail(values.email);
       return;
     }
     push("Connexion reussie", "success");
     router.push(searchParams.get("redirect") || "/compte");
     router.refresh();
+  }
+
+  async function handleResend() {
+    if (!unconfirmedEmail) return;
+    setResending(true);
+    const result = await resendConfirmationEmail(unconfirmedEmail);
+    setResending(false);
+    if (result.error) {
+      push(result.error, "error");
+      return;
+    }
+    push("Email de confirmation renvoye. Verifiez votre boite de reception.", "success");
   }
 
   return (
@@ -107,6 +123,20 @@ function LoginForm() {
           {submitting ? "Connexion..." : "Se connecter"}
         </button>
       </form>
+      )}
+
+      {unconfirmedEmail && (
+        <div className="mt-4 rounded-xl border border-brand-orange/30 bg-brand-orange/5 px-4 py-3 text-sm text-brand-ink">
+          <p>Votre email n&apos;est pas encore confirme.</p>
+          <button
+            type="button"
+            onClick={handleResend}
+            disabled={resending}
+            className="mt-2 font-semibold text-brand-orange disabled:opacity-60"
+          >
+            {resending ? "Envoi..." : "Renvoyer l'email de confirmation"}
+          </button>
+        </div>
       )}
 
       <p className="text-sm text-brand-gray mt-5 text-center">

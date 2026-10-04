@@ -22,7 +22,33 @@ export async function signIn(input: LoginInput) {
     email: parsed.data.email,
     password: parsed.data.password,
   });
-  if (error) return { error: "Email ou mot de passe incorrect." };
+  if (error) {
+    if (isUnconfirmedEmailError(error)) {
+      return {
+        error:
+          "Veuillez confirmer votre email avant de vous connecter. Verifiez votre boite de reception (et vos spams).",
+        needsConfirmation: true,
+      };
+    }
+    return { error: "Email ou mot de passe incorrect." };
+  }
+  return { error: null };
+}
+
+// Supabase returns a generic AuthApiError for an unconfirmed email. Newer
+// supabase-js versions expose `error.code === "email_not_confirmed"`; as a
+// fallback (older versions / edge cases) we also match on the message text.
+function isUnconfirmedEmailError(error: { code?: string; message: string }) {
+  return (
+    error.code === "email_not_confirmed" ||
+    /email not confirmed/i.test(error.message)
+  );
+}
+
+export async function resendConfirmationEmail(email: string) {
+  const supabase = await createClient();
+  const { error } = await supabase.auth.resend({ type: "signup", email });
+  if (error) return { error: error.message };
   return { error: null };
 }
 
