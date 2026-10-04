@@ -2605,5 +2605,60 @@
     "imageFile": "oreo-puffs-cereal-cup.jpg",
     "price": 2.79,
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "multi-grain-cheerios-family-size",
+    "name": "General Mills Multi Grain Cheerios",
+    "brand": "General Mills",
+    "categorySlug": "petit-dejeuner",
+    "size": "18 oz (510g) Family Size",
+    "description": "Cereales Cheerios multigrains, legerement sucrees, sans gluten.",
+    "imageFile": "multi-grain-cheerios.jpg",
+    "price": 14.97,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "kelloggs-krave-chocolate-family-size",
+    "name": "Kellogg's Krave Chocolate Cereal",
+    "brand": "Kellogg's",
+    "categorySlug": "petit-dejeuner",
+    "size": "17.3 oz Family Size",
+    "description": "Cereales Krave au chocolat, coque croustillante, centre chocolate fondant.",
+    "imageFile": "krave-chocolate.jpg",
+    "price": 16.41,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "froot-loops-original-family-size",
+    "name": "Kellogg's Froot Loops Original Cereal",
+    "brand": "Kellogg's",
+    "categorySlug": "petit-dejeuner",
+    "size": "18.4 oz Family Size",
+    "description": "Cereales Froot Loops, saveurs fruitees naturelles.",
+    "imageFile": "froot-loops-original.jpg",
+    "price": 14.17,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "golden-grahams-cereal",
+    "name": "General Mills Golden Grahams Cereal",
+    "brand": "General Mills",
+    "categorySlug": "petit-dejeuner",
+    "size": "11.7 oz",
+    "description": "Cereales au gout de biscuit graham dore.",
+    "imageFile": "golden-grahams.jpg",
+    "price": 6.83,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "rice-krispies-giant-size",
+    "name": "Kellogg's Rice Krispies Giant Size",
+    "brand": "Kellogg's",
+    "categorySlug": "petit-dejeuner",
+    "size": "24 oz Giant Size",
+    "description": "Cereales de riz souffle Rice Krispies, format geant.",
+    "imageFile": "rice-krispies-giant-size.jpg",
+    "price": 10.08,
+    "imageQualityStatus": "approved"
   }
 ]
