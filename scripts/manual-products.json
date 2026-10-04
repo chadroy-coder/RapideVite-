@@ -2528,5 +2528,82 @@
     "imageFile": "ortega-yellow-corn-taco-shells-value-pack.jpg",
     "price": 4.83,
     "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "velveeta-shells-and-cheese-original",
+    "name": "Velveeta Shells and Cheese Original Macaroni and Cheese Dinner",
+    "brand": "Velveeta",
+    "categorySlug": "epicerie",
+    "size": "12 oz",
+    "description": "Macaroni et fromage Velveeta, coquilles, original.",
+    "imageFile": "velveeta-shells-and-cheese-original.jpg",
+    "price": 5.0,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "hersheys-syrup-zero-sugar",
+    "name": "Hershey's Syrup Zero Sugar Chocolate Flavor",
+    "brand": "Hershey's",
+    "categorySlug": "epicerie",
+    "size": "17.5 oz",
+    "description": "Sirop au chocolat Hershey's, sans sucre.",
+    "imageFile": "hersheys-syrup-zero-sugar.jpg",
+    "price": 10.04,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "cocoa-pebbles-cereal-cup",
+    "name": "Post Cocoa Pebbles Cereal Cup",
+    "brand": "Post",
+    "categorySlug": "petit-dejeuner",
+    "size": "2 oz",
+    "description": "Coupelle de cereales au chocolat, sans gluten, avec vrai cacao.",
+    "imageFile": "cocoa-pebbles-cereal-cup.jpg",
+    "price": 3.04,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "cheerios-cereal-cup",
+    "name": "Cheerios Cereal Cup",
+    "brand": "Cheerios",
+    "categorySlug": "petit-dejeuner",
+    "size": "1.3 oz",
+    "description": "Coupelle de cereales Cheerios, grains entiers grilles.",
+    "imageFile": "cheerios-cereal-cup.jpg",
+    "price": 2.17,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "cinnamon-toast-crunch-cereal-cup",
+    "name": "Cinnamon Toast Crunch Cereal Cup",
+    "brand": "General Mills",
+    "categorySlug": "petit-dejeuner",
+    "size": "2 oz",
+    "description": "Coupelle de cereales Cinnamon Toast Crunch, cannelle et sucre.",
+    "imageFile": "cinnamon-toast-crunch-cereal-cup.jpg",
+    "price": 2.17,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "fruity-pebbles-cereal-cup",
+    "name": "Post Fruity Pebbles Cereal Cup",
+    "brand": "Post",
+    "categorySlug": "petit-dejeuner",
+    "size": "2 oz",
+    "description": "Coupelle de cereales de riz sucrees, saveurs fruitees.",
+    "imageFile": "fruity-pebbles-cereal-cup.jpg",
+    "price": 3.43,
+    "imageQualityStatus": "approved"
+  },
+  {
+    "slug": "oreo-puffs-cereal-cup",
+    "name": "Post Oreo Puffs Cereal Cup",
+    "brand": "Post",
+    "categorySlug": "petit-dejeuner",
+    "size": "1 oz",
+    "description": "Coupelle de cereales Oreo Puffs, mais et avoine sucres avec guimauves.",
+    "imageFile": "oreo-puffs-cereal-cup.jpg",
+    "price": 2.79,
+    "imageQualityStatus": "approved"
   }
 ]
