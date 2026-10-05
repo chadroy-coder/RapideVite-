@@ -10,6 +10,7 @@ import {
 } from "@/lib/data";
 import { CategoryCarousel } from "@/components/product/CategoryCarousel";
 import { ProductCard } from "@/components/product/ProductCard";
+import { RecentProductsFeed } from "@/components/product/RecentProductsFeed";
 import { ProductGridSkeleton, CategoryPillsSkeleton } from "@/components/ui/Skeletons";
 import type { Product, ProductVariant } from "@/types/database";
 
@@ -60,7 +61,7 @@ async function RecentSection() {
   return (
     <section className="px-4 py-5">
       <h2 className="font-bold text-lg text-brand-orange mb-3">Ajoutes recemment</h2>
-      <ProductGrid products={products as (Product & { variants: ProductVariant[] })[]} />
+      <RecentProductsFeed initial={products as (Product & { variants: ProductVariant[] })[]} />
     </section>
   );
 }

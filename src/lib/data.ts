@@ -83,7 +83,7 @@ export async function getCategoriesWithProducts(perCategory = 8) {
     .filter((entry) => entry.products.length > 0);
 }
 
-export async function getRecentProducts(limit = 8) {
+export async function getRecentProducts(limit = 8, offset = 0) {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("products")
@@ -91,7 +91,8 @@ export async function getRecentProducts(limit = 8) {
     .eq("active", true)
     .eq("is_draft_product", false)
     .order("created_at", { ascending: false })
-    .limit(limit);
+    .order("id", { ascending: true })
+    .range(offset, offset + limit - 1);
   if (error) throw error;
   return (data ?? []) as unknown as Product[];
 }
