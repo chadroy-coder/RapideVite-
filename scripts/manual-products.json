@@ -1018,7 +1018,7 @@
     "categorySlug": "epicerie",
     "size": "12 oz",
     "description": "Rotini sans gluten.",
-    "imageFile": "ronzoni-gluten-free-rotini.jpg",
+    "imageFile": "ronzoni-gluten-free-rotini-clean.jpg",
     "price": 5.08,
     "imageQualityStatus": "approved"
   },
@@ -2712,7 +2712,7 @@
     "categorySlug": "petit-dejeuner",
     "size": "11 oz (312g)",
     "description": "Granola biologique a la vanille francaise et aux amandes.",
-    "imageFile": "cascadian-farm-french-vanilla-almond.jpg",
+    "imageFile": "cascadian-farm-french-vanilla-almond-clean.jpg",
     "price": 8.63,
     "imageQualityStatus": "approved"
   },
@@ -2965,7 +2965,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Kit salade de thon et crackers, pret a manger.",
-    "imageFile": "bumble-bee-snack-on-the-go-tuna-salad-crackers.jpg",
+    "imageFile": "bumble-bee-snack-on-the-go-tuna-salad-crackers-clean.jpg",
     "price": 3.83,
     "imageQualityStatus": "approved"
   },
@@ -3394,7 +3394,7 @@
     "categorySlug": "epicerie",
     "size": "14.5 oz",
     "description": "Toasted multi-grain cereal with honey oat clusters and almonds.",
-    "imageFile": "essential-everyday-honey-oat-clusters-with-almonds.jpg",
+    "imageFile": "essential-everyday-honey-oat-clusters-with-almonds-clean.jpg",
     "price": 6.67,
     "imageQualityStatus": "approved"
   },
@@ -3405,7 +3405,7 @@
     "categorySlug": "epicerie",
     "size": "14.5 oz",
     "description": "Toasted multi-grain cereal with honey oat clusters.",
-    "imageFile": "essential-everyday-honey-oat-clusters.jpg",
+    "imageFile": "essential-everyday-honey-oat-clusters-clean.jpg",
     "price": 6.67,
     "imageQualityStatus": "approved"
   },
@@ -3416,7 +3416,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Corn flakes cereal, Alberto.",
-    "imageFile": "alberto-corn-flakes.jpg",
+    "imageFile": "alberto-corn-flakes-clean.jpg",
     "price": 6.33,
     "imageQualityStatus": "approved"
   },
@@ -3427,7 +3427,7 @@
     "categorySlug": "epicerie",
     "size": "18 oz",
     "description": "The original corn flakes cereal, Hyde Park.",
-    "imageFile": "hyde-park-corn-flakes.jpg",
+    "imageFile": "hyde-park-corn-flakes-clean.jpg",
     "price": 5.25,
     "imageQualityStatus": "approved"
   },
@@ -3438,7 +3438,7 @@
     "categorySlug": "epicerie",
     "size": "18 oz",
     "description": "Corn flakes cereal, Bongu.",
-    "imageFile": "bongu-corn-flakes.jpg",
+    "imageFile": "bongu-corn-flakes-clean.jpg",
     "price": 2.67,
     "imageQualityStatus": "approved"
   },
@@ -3449,7 +3449,7 @@
     "categorySlug": "epicerie",
     "size": "18 oz",
     "description": "Premium quality corn flakes cereal, Red & White.",
-    "imageFile": "red-white-corn-flakes.jpg",
+    "imageFile": "red-white-corn-flakes-clean.jpg",
     "price": 3.67,
     "imageQualityStatus": "approved"
   },
@@ -3460,7 +3460,7 @@
     "categorySlug": "epicerie",
     "size": "14 oz",
     "description": "Frosted corn flakes cereal, Red & White.",
-    "imageFile": "red-white-frosted-flakes.jpg",
+    "imageFile": "red-white-frosted-flakes-clean.jpg",
     "price": 6.12,
     "imageQualityStatus": "approved"
   },
@@ -3471,7 +3471,7 @@
     "categorySlug": "epicerie",
     "size": "18 oz",
     "description": "Honey Bunches of Oats cereal with almonds, Family Size, Post.",
-    "imageFile": "post-honey-bunches-of-oats-with-almonds.jpg",
+    "imageFile": "post-honey-bunches-of-oats-with-almonds-clean.jpg",
     "price": 11.67,
     "imageQualityStatus": "approved"
   },
@@ -3482,7 +3482,7 @@
     "categorySlug": "epicerie",
     "size": "19 oz",
     "description": "Great Grains cereal with real pecans, Family Size, Post.",
-    "imageFile": "post-great-grains-crunchy-pecan.jpg",
+    "imageFile": "post-great-grains-crunchy-pecan-clean.jpg",
     "price": 11.88,
     "imageQualityStatus": "approved"
   },
@@ -3493,7 +3493,7 @@
     "categorySlug": "epicerie",
     "size": "11.4 oz",
     "description": "Sweetened corn & oat cereal made with real peanut butter.",
-    "imageFile": "capn-crunch-peanut-butter-crunch.jpg",
+    "imageFile": "capn-crunch-peanut-butter-crunch-clean.jpg",
     "price": 7.08,
     "imageQualityStatus": "approved"
   },
@@ -3504,7 +3504,7 @@
     "categorySlug": "epicerie",
     "size": "396 g",
     "description": "Sweetened cereal with a touch of honey, Post.",
-    "imageFile": "post-honey-ohs.jpg",
+    "imageFile": "post-honey-ohs-clean.jpg",
     "price": 9.5,
     "imageQualityStatus": "approved"
   },
@@ -3515,7 +3515,7 @@
     "categorySlug": "epicerie",
     "size": "18 oz",
     "description": "Honey Maid S'mores flavored cereal, Post.",
-    "imageFile": "post-honey-maid-smores-cereal.jpg",
+    "imageFile": "post-honey-maid-smores-cereal-clean.jpg",
     "price": 9.5,
     "imageQualityStatus": "approved"
   },
@@ -3526,7 +3526,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Whole grain wheat flakes cereal, Fitness Original, Nestle.",
-    "imageFile": "nestle-fitness-original.jpg",
+    "imageFile": "nestle-fitness-original-clean.jpg",
     "price": 7.21,
     "imageQualityStatus": "approved"
   },
@@ -3537,7 +3537,7 @@
     "categorySlug": "epicerie",
     "size": "x6",
     "description": "Fig granola bars, source of fibers, pack of 6.",
-    "imageFile": "carrefour-classic-figue-bars.jpg",
+    "imageFile": "carrefour-classic-figue-bars-clean.jpg",
     "price": 2.5,
     "imageQualityStatus": "approved"
   },
@@ -3548,7 +3548,7 @@
     "categorySlug": "epicerie",
     "size": "x6",
     "description": "Chocolate coconut flavored granola bars, 3 cereals, pack of 6.",
-    "imageFile": "carrefour-classic-chocolat-saveur-coco-bars.jpg",
+    "imageFile": "carrefour-classic-chocolat-saveur-coco-bars-clean.jpg",
     "price": 2.38,
     "imageQualityStatus": "approved"
   },
@@ -3570,7 +3570,7 @@
     "categorySlug": "epicerie",
     "size": "x6",
     "description": "Chocolate granola bars with 5 cereals, pack of 6.",
-    "imageFile": "lu-grany-chocolat-5-cereales-bars.jpg",
+    "imageFile": "lu-grany-chocolat-5-cereales-bars-clean.jpg",
     "price": 5.38,
     "imageQualityStatus": "approved"
   },
@@ -3581,7 +3581,7 @@
     "categorySlug": "epicerie",
     "size": "x6",
     "description": "Strawberry and raspberry granola bars, rich in fruit, pack of 6.",
-    "imageFile": "lu-grany-fraises-et-framboises-bars.jpg",
+    "imageFile": "lu-grany-fraises-et-framboises-bars-clean.jpg",
     "price": 5.38,
     "imageQualityStatus": "approved"
   },
@@ -3592,7 +3592,7 @@
     "categorySlug": "epicerie",
     "size": "400 g",
     "description": "Honey flavored crispy cereal clusters, 3 whole grains, Jordans.",
-    "imageFile": "jordans-pop-crisp-miel.jpg",
+    "imageFile": "jordans-pop-crisp-miel-clean.jpg",
     "price": 6.33,
     "imageQualityStatus": "approved"
   },
@@ -3603,7 +3603,7 @@
     "categorySlug": "epicerie",
     "size": "450 g",
     "description": "Milk chocolate granola cereal, Quaker Cruesli.",
-    "imageFile": "quaker-cruesli-chocolat-au-lait.jpg",
+    "imageFile": "quaker-cruesli-chocolat-au-lait-clean.jpg",
     "price": 7.08,
     "imageQualityStatus": "approved"
   },
@@ -3614,7 +3614,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Unsweetened original almondmilk, Blue Diamond Almond Breeze.",
-    "imageFile": "almond-breeze-unsweetened-original.jpg",
+    "imageFile": "almond-breeze-unsweetened-original-clean.jpg",
     "price": 6.12,
     "imageQualityStatus": "approved"
   },
@@ -3625,7 +3625,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Original almondmilk, 60 calories per serving, Blue Diamond Almond Breeze.",
-    "imageFile": "almond-breeze-original-60cal.jpg",
+    "imageFile": "almond-breeze-original-60cal-clean.jpg",
     "price": 6.12,
     "imageQualityStatus": "approved"
   },
@@ -3636,7 +3636,7 @@
     "categorySlug": "epicerie",
     "size": "32 fl oz",
     "description": "Unsweetened chocolate almondmilk, Blue Diamond Almond Breeze.",
-    "imageFile": "almond-breeze-unsweetened-chocolate.jpg",
+    "imageFile": "almond-breeze-unsweetened-chocolate-clean.jpg",
     "price": 6.12,
     "imageQualityStatus": "approved"
   },
@@ -3647,7 +3647,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Hazelnut plant-based drink, Carrefour Sensation.",
-    "imageFile": "carrefour-sensation-noisette-milk.jpg",
+    "imageFile": "carrefour-sensation-noisette-milk-clean.jpg",
     "price": 4.12,
     "imageQualityStatus": "approved"
   },
@@ -3658,7 +3658,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Unsweetened almond plant-based drink, Carrefour Sensation.",
-    "imageFile": "carrefour-sensation-amande-sans-sucres.jpg",
+    "imageFile": "carrefour-sensation-amande-sans-sucres-clean.jpg",
     "price": 3.83,
     "imageQualityStatus": "approved"
   },
@@ -3669,7 +3669,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Soy plant-based drink, Carrefour Sensation.",
-    "imageFile": "carrefour-sensation-soja-milk.jpg",
+    "imageFile": "carrefour-sensation-soja-milk-clean.jpg",
     "price": 2.96,
     "imageQualityStatus": "approved"
   },
@@ -3680,7 +3680,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Original soy milk, Silk.",
-    "imageFile": "silk-soy-milk-original.jpg",
+    "imageFile": "silk-soy-milk-original-clean.jpg",
     "price": 5.33,
     "imageQualityStatus": "approved"
   },
@@ -3691,7 +3691,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Vanilla flavored soy milk, Silk.",
-    "imageFile": "silk-soy-milk-vanilla.jpg",
+    "imageFile": "silk-soy-milk-vanilla-clean.jpg",
     "price": 5.75,
     "imageQualityStatus": "approved"
   },
@@ -3702,7 +3702,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Organic unsweetened soy milk, shelf-stable, Silk.",
-    "imageFile": "silk-organic-unsweetened-soy-milk.jpg",
+    "imageFile": "silk-organic-unsweetened-soy-milk-clean.jpg",
     "price": 6.29,
     "imageQualityStatus": "approved"
   },
@@ -3713,7 +3713,7 @@
     "categorySlug": "epicerie",
     "size": "32 fl oz",
     "description": "Unsweetened vanilla almondmilk, Silk.",
-    "imageFile": "silk-almondmilk-unsweet-vanilla.jpg",
+    "imageFile": "silk-almondmilk-unsweet-vanilla-clean.jpg",
     "price": 5.33,
     "imageQualityStatus": "approved"
   },
@@ -3724,7 +3724,7 @@
     "categorySlug": "epicerie",
     "size": "1 L",
     "description": "Whole UHT milk, Elle & Vire.",
-    "imageFile": "elle-vire-le-lait-entier.jpg",
+    "imageFile": "elle-vire-le-lait-entier-clean.jpg",
     "price": 3.21,
     "imageQualityStatus": "approved"
   },
@@ -3735,7 +3735,7 @@
     "categorySlug": "epicerie",
     "size": "1 L",
     "description": "Semi-skimmed UHT milk, Elle & Vire.",
-    "imageFile": "elle-vire-le-lait-demi-ecreme.jpg",
+    "imageFile": "elle-vire-le-lait-demi-ecreme-clean.jpg",
     "price": 3.21,
     "imageQualityStatus": "approved"
   },
@@ -3746,7 +3746,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Semi-thick soy cooking cream, organic, Bjorg.",
-    "imageFile": "bjorg-soja-cuisine-semi-epais.jpg",
+    "imageFile": "bjorg-soja-cuisine-semi-epais-clean.jpg",
     "price": 2.79,
     "imageQualityStatus": "approved"
   },
@@ -3757,7 +3757,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Almond cooking cream, organic, Bjorg.",
-    "imageFile": "bjorg-amande-cuisine.jpg",
+    "imageFile": "bjorg-amande-cuisine-clean.jpg",
     "price": 4.08,
     "imageQualityStatus": "approved"
   },
@@ -3768,7 +3768,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Oat cooking cream, organic, Bjorg.",
-    "imageFile": "bjorg-avoine-cuisine.jpg",
+    "imageFile": "bjorg-avoine-cuisine-clean.jpg",
     "price": 2.83,
     "imageQualityStatus": "approved"
   },
@@ -3779,7 +3779,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Almond milk cappuccino flavor, organic, Bjorg.",
-    "imageFile": "bjorg-amande-cappuccino.jpg",
+    "imageFile": "bjorg-amande-cappuccino-clean.jpg",
     "price": 8.08,
     "imageQualityStatus": "approved"
   },
@@ -3790,7 +3790,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Unsweetened cashew plant-based drink, organic, Bjorg.",
-    "imageFile": "bjorg-cajou-sans-sucres.jpg",
+    "imageFile": "bjorg-cajou-sans-sucres-clean.jpg",
     "price": 6.71,
     "imageQualityStatus": "approved"
   },
@@ -3801,7 +3801,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Fluid coconut milk drink, organic, Bjorg.",
-    "imageFile": "bjorg-lait-de-coco-fluide.jpg",
+    "imageFile": "bjorg-lait-de-coco-fluide-clean.jpg",
     "price": 4.88,
     "imageQualityStatus": "approved"
   },
@@ -3812,7 +3812,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Bel Gioioso American Grana, wedge cut cheese.",
-    "imageFile": "bel-gioioso-american-grana-wedge.jpg",
+    "imageFile": "bel-gioioso-american-grana-wedge-clean.jpg",
     "price": 8.79,
     "imageQualityStatus": "approved"
   },
@@ -3823,7 +3823,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Extra American Grana, cheese.",
-    "imageFile": "extra-american-grana.jpg",
+    "imageFile": "extra-american-grana-clean.jpg",
     "price": 17.71,
     "imageQualityStatus": "approved"
   },
@@ -3834,7 +3834,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Bel Gioioso Asiago, wedge cut cheese.",
-    "imageFile": "bel-gioioso-asiago-wedge.jpg",
+    "imageFile": "bel-gioioso-asiago-wedge-clean.jpg",
     "price": 6.75,
     "imageQualityStatus": "approved"
   },
@@ -3845,7 +3845,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Athenos Feta Traditional, cheese.",
-    "imageFile": "athenos-feta-traditional.jpg",
+    "imageFile": "athenos-feta-traditional-clean.jpg",
     "price": 11.67,
     "imageQualityStatus": "approved"
   },
@@ -3856,7 +3856,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Au Bouchon (fabrique et affine en Perigord), cheese.",
-    "imageFile": "au-bouchon-fabrique-et-affine-en-perigord.jpg",
+    "imageFile": "au-bouchon-fabrique-et-affine-en-perigord-clean.jpg",
     "price": 27.96,
     "imageQualityStatus": "approved"
   },
@@ -3878,7 +3878,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "BelGioioso Gorgonzola, wedge cut cheese.",
-    "imageFile": "belgioioso-gorgonzola-wedge.jpg",
+    "imageFile": "belgioioso-gorgonzola-wedge-clean.jpg",
     "price": 5.12,
     "imageQualityStatus": "approved"
   },
@@ -3889,7 +3889,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "BelGioioso Parmesan, wedge cut cheese.",
-    "imageFile": "belgioioso-parmesan-wedge.jpg",
+    "imageFile": "belgioioso-parmesan-wedge-clean.jpg",
     "price": 8.62,
     "imageQualityStatus": "approved"
   },
@@ -3900,7 +3900,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "BelGioioso Romano (grated, tub), grated cheese.",
-    "imageFile": "belgioioso-romano-grated-tub.jpg",
+    "imageFile": "belgioioso-romano-grated-tub-clean.jpg",
     "price": 5.25,
     "imageQualityStatus": "approved"
   },
@@ -3911,7 +3911,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Bistro Gourmet Simply Parmesan (freshly grated), grated cheese.",
-    "imageFile": "bistro-gourmet-simply-parmesan-freshly-grated.jpg",
+    "imageFile": "bistro-gourmet-simply-parmesan-freshly-grated-clean.jpg",
     "price": 17.67,
     "imageQualityStatus": "approved"
   },
@@ -3922,7 +3922,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Blue Bonnet Light margarine spread.",
-    "imageFile": "blue-bonnet-light.jpg",
+    "imageFile": "blue-bonnet-light-clean.jpg",
     "price": 4.08,
     "imageQualityStatus": "approved"
   },
@@ -3933,7 +3933,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Borden American Sliced Cheese, sliced cheese.",
-    "imageFile": "borden-american-sliced-cheese.jpg",
+    "imageFile": "borden-american-sliced-cheese-clean.jpg",
     "price": 5.83,
     "imageQualityStatus": "approved"
   },
@@ -3944,7 +3944,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Borden Colby & Monterey Jack Shredded Cheese Blend, shredded cheese.",
-    "imageFile": "borden-colby-monterey-jack-shredded-cheese-blend.jpg",
+    "imageFile": "borden-colby-monterey-jack-shredded-cheese-blend-clean.jpg",
     "price": 5.88,
     "imageQualityStatus": "approved"
   },
@@ -3955,7 +3955,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Borden Flavor Sensations Pepper Jack (slices), sliced cheese.",
-    "imageFile": "borden-flavor-sensations-pepper-jack-slices.jpg",
+    "imageFile": "borden-flavor-sensations-pepper-jack-slices-clean.jpg",
     "price": 5.83,
     "imageQualityStatus": "approved"
   },
@@ -3966,7 +3966,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Borden Gouda Cheese Snack Bars, cheese.",
-    "imageFile": "borden-gouda-cheese-snack-bars.jpg",
+    "imageFile": "borden-gouda-cheese-snack-bars-clean.jpg",
     "price": 6.17,
     "imageQualityStatus": "approved"
   },
@@ -3977,7 +3977,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Borden Gouda Shredded Cheese, shredded cheese.",
-    "imageFile": "borden-gouda-shredded-cheese.jpg",
+    "imageFile": "borden-gouda-shredded-cheese-clean.jpg",
     "price": 5.88,
     "imageQualityStatus": "approved"
   },
@@ -3988,7 +3988,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Borden Gouda Sliced Cheese, sliced cheese.",
-    "imageFile": "borden-gouda-sliced-cheese.jpg",
+    "imageFile": "borden-gouda-sliced-cheese-clean.jpg",
     "price": 5.83,
     "imageQualityStatus": "approved"
   },
@@ -3999,7 +3999,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Borden Lactose Free American Singles, cheese.",
-    "imageFile": "borden-lactose-free-american-singles.jpg",
+    "imageFile": "borden-lactose-free-american-singles-clean.jpg",
     "price": 3.75,
     "imageQualityStatus": "approved"
   },
@@ -4010,7 +4010,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Borden Mild Cheddar Cheese Snack Bars, cheese.",
-    "imageFile": "borden-mild-cheddar-cheese-snack-bars.jpg",
+    "imageFile": "borden-mild-cheddar-cheese-snack-bars-clean.jpg",
     "price": 6.17,
     "imageQualityStatus": "approved"
   },
@@ -4021,7 +4021,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Borden Mild Cheddar Shredded Cheese, shredded cheese.",
-    "imageFile": "borden-mild-cheddar-shredded-cheese.jpg",
+    "imageFile": "borden-mild-cheddar-shredded-cheese-clean.jpg",
     "price": 5.88,
     "imageQualityStatus": "approved"
   },
@@ -4032,7 +4032,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Borden Mild Cheddar Sliced Cheese, sliced cheese.",
-    "imageFile": "borden-mild-cheddar-sliced-cheese.jpg",
+    "imageFile": "borden-mild-cheddar-sliced-cheese-clean.jpg",
     "price": 5.83,
     "imageQualityStatus": "approved"
   },
@@ -4043,7 +4043,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Borden Mozzarella Shredded Cheese thick cut, shredded cheese.",
-    "imageFile": "borden-mozzarella-shredded-cheese-thick-cut.jpg",
+    "imageFile": "borden-mozzarella-shredded-cheese-thick-cut-clean.jpg",
     "price": 5.88,
     "imageQualityStatus": "approved"
   },
@@ -4054,7 +4054,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Borden Muenster Sliced Cheese, sliced cheese.",
-    "imageFile": "borden-muenster-sliced-cheese.jpg",
+    "imageFile": "borden-muenster-sliced-cheese-clean.jpg",
     "price": 5.83,
     "imageQualityStatus": "approved"
   },
@@ -4065,7 +4065,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Borden Sharp Cheddar Shredded Cheese, shredded cheese.",
-    "imageFile": "borden-sharp-cheddar-shredded-cheese.jpg",
+    "imageFile": "borden-sharp-cheddar-shredded-cheese-clean.jpg",
     "price": 5.88,
     "imageQualityStatus": "approved"
   },
@@ -4076,7 +4076,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Borden Simply Parmesan, cheese.",
-    "imageFile": "borden-simply-parmesan.jpg",
+    "imageFile": "borden-simply-parmesan-clean.jpg",
     "price": 8.58,
     "imageQualityStatus": "approved"
   },
@@ -4087,7 +4087,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Borden Triple Cheddar Shredded Cheese, shredded cheese.",
-    "imageFile": "borden-triple-cheddar-shredded-cheese.jpg",
+    "imageFile": "borden-triple-cheddar-shredded-cheese-clean.jpg",
     "price": 5.88,
     "imageQualityStatus": "approved"
   },
@@ -4098,7 +4098,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Boursin Salade Echalotte et Ciboulette, cheese.",
-    "imageFile": "boursin-salade-echalotte-et-ciboulette.jpg",
+    "imageFile": "boursin-salade-echalotte-et-ciboulette-clean.jpg",
     "price": 13.83,
     "imageQualityStatus": "approved"
   },
@@ -4109,7 +4109,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Butterball sliced turkey bologna.",
-    "imageFile": "butterball-turkey-bologna-sliced.jpg",
+    "imageFile": "butterball-turkey-bologna-sliced-clean.jpg",
     "price": 8.92,
     "imageQualityStatus": "approved"
   },
@@ -4120,7 +4120,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Cabot Creamery Extra Sharp Cheddar, cheese.",
-    "imageFile": "cabot-creamery-extra-sharp-cheddar.jpg",
+    "imageFile": "cabot-creamery-extra-sharp-cheddar-clean.jpg",
     "price": 8.04,
     "imageQualityStatus": "approved"
   },
@@ -4131,7 +4131,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Cabot Creamery Pepper Jack, cheese.",
-    "imageFile": "cabot-creamery-pepper-jack.jpg",
+    "imageFile": "cabot-creamery-pepper-jack-clean.jpg",
     "price": 8.04,
     "imageQualityStatus": "approved"
   },
@@ -4142,7 +4142,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Cabot Creamery Seriously Sharp Sheddar Cheese, cheese.",
-    "imageFile": "cabot-creamery-seriously-sharp-sheddar-cheese.jpg",
+    "imageFile": "cabot-creamery-seriously-sharp-sheddar-cheese-clean.jpg",
     "price": 8.04,
     "imageQualityStatus": "approved"
   },
@@ -4153,7 +4153,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Cabot Creamery Monterey Jack, cheese.",
-    "imageFile": "cabot-creamery-monterey-jack.jpg",
+    "imageFile": "cabot-creamery-monterey-jack-clean.jpg",
     "price": 8.04,
     "imageQualityStatus": "approved"
   },
@@ -4164,7 +4164,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Camembert Le Rustique Special Affine, cheese.",
-    "imageFile": "camembert-le-rustique-special-affine.jpg",
+    "imageFile": "camembert-le-rustique-special-affine-clean.jpg",
     "price": 18.88,
     "imageQualityStatus": "approved"
   },
@@ -4175,7 +4175,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Carrefour Classic Fromage de Brebis Schapenkaas, cheese.",
-    "imageFile": "carrefour-classic-fromage-de-brebis-schapenkaas.jpg",
+    "imageFile": "carrefour-classic-fromage-de-brebis-schapenkaas-clean.jpg",
     "price": 14.62,
     "imageQualityStatus": "approved"
   },
@@ -4186,7 +4186,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Carrefour Classic Gouda Tranches/Lonchas, cheese.",
-    "imageFile": "carrefour-classic-gouda-tranches-lonchas.jpg",
+    "imageFile": "carrefour-classic-gouda-tranches-lonchas-clean.jpg",
     "price": 11.33,
     "imageQualityStatus": "approved"
   },
@@ -4197,7 +4197,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Carrefour Des de Fromage Marines, cheese.",
-    "imageFile": "carrefour-des-de-fromage-marines.jpg",
+    "imageFile": "carrefour-des-de-fromage-marines-clean.jpg",
     "price": 21.67,
     "imageQualityStatus": "approved"
   },
@@ -4208,7 +4208,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Carrefour Meule Fruitee (6 mois d'affinage), cheese.",
-    "imageFile": "carrefour-meule-fruitee-6-mois-d-affinage.jpg",
+    "imageFile": "carrefour-meule-fruitee-6-mois-d-affinage-clean.jpg",
     "price": 22.46,
     "imageQualityStatus": "approved"
   },
@@ -4219,7 +4219,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Carrefour Tarti'Bon, cheese.",
-    "imageFile": "carrefour-tarti-bon.jpg",
+    "imageFile": "carrefour-tarti-bon-clean.jpg",
     "price": 7.38,
     "imageQualityStatus": "approved"
   },
@@ -4230,7 +4230,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Chaumes, cheese.",
-    "imageFile": "chaumes.jpg",
+    "imageFile": "chaumes-clean.jpg",
     "price": 15.42,
     "imageQualityStatus": "approved"
   },
@@ -4241,7 +4241,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Kraft Cheez Whiz cheese spread.",
-    "imageFile": "cheez-whiz-kraft.jpg",
+    "imageFile": "cheez-whiz-kraft-clean.jpg",
     "price": 10.62,
     "imageQualityStatus": "approved"
   },
@@ -4252,7 +4252,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Country Crock Homestyle butter spread.",
-    "imageFile": "country-crock-homestyle-butter.jpg",
+    "imageFile": "country-crock-homestyle-butter-clean.jpg",
     "price": 10.92,
     "imageQualityStatus": "approved"
   },
@@ -4263,7 +4263,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Crystal Farms Gouda Cheese, cheese.",
-    "imageFile": "crystal-farms-gouda-cheese.jpg",
+    "imageFile": "crystal-farms-gouda-cheese-clean.jpg",
     "price": 7.08,
     "imageQualityStatus": "approved"
   },
@@ -4274,7 +4274,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Crystal Farms Cream Cheese Chive & Onion.",
-    "imageFile": "crystal-farms-cream-cheese-chive-onion.jpg",
+    "imageFile": "crystal-farms-cream-cheese-chive-onion-clean.jpg",
     "price": 8.83,
     "imageQualityStatus": "approved"
   },
@@ -4285,7 +4285,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Crystal Farms Cream Cheese Original.",
-    "imageFile": "crystal-farms-cream-cheese-original.jpg",
+    "imageFile": "crystal-farms-cream-cheese-original-clean.jpg",
     "price": 9.29,
     "imageQualityStatus": "approved"
   },
@@ -4296,7 +4296,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Crystal Farms Grated Parmesan Cheese (shaker), grated cheese.",
-    "imageFile": "crystal-farms-grated-parmesan-cheese-shaker.jpg",
+    "imageFile": "crystal-farms-grated-parmesan-cheese-shaker-clean.jpg",
     "price": 12.21,
     "imageQualityStatus": "approved"
   },
@@ -4307,7 +4307,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Crystal Farms Whole Milk Ricotta Cheese, cheese.",
-    "imageFile": "crystal-farms-whole-milk-ricotta-cheese.jpg",
+    "imageFile": "crystal-farms-whole-milk-ricotta-cheese-clean.jpg",
     "price": 10.0,
     "imageQualityStatus": "approved"
   },
@@ -4340,7 +4340,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Essential Everyday Cheddar Melt Cheese Blend, cheese.",
-    "imageFile": "essential-everyday-cheddar-melt-cheese-blend.jpg",
+    "imageFile": "essential-everyday-cheddar-melt-cheese-blend-clean.jpg",
     "price": 4.46,
     "imageQualityStatus": "approved"
   },
@@ -4351,7 +4351,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Essential Everyday Colby Cheese (block), cheese.",
-    "imageFile": "essential-everyday-colby-cheese-block.jpg",
+    "imageFile": "essential-everyday-colby-cheese-block-clean.jpg",
     "price": 4.46,
     "imageQualityStatus": "approved"
   },
@@ -4373,7 +4373,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Essential Everyday Grated Parmesan & Romano Cheese (shaker), grated cheese.",
-    "imageFile": "essential-everyday-grated-parmesan-romano-cheese-shaker.jpg",
+    "imageFile": "essential-everyday-grated-parmesan-romano-cheese-shaker-clean.jpg",
     "price": 9.58,
     "imageQualityStatus": "approved"
   },
@@ -4384,7 +4384,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Essential Everyday Grated Parmesan Cheese (shaker), grated cheese.",
-    "imageFile": "essential-everyday-grated-parmesan-cheese-shaker.jpg",
+    "imageFile": "essential-everyday-grated-parmesan-cheese-shaker-clean.jpg",
     "price": 10.0,
     "imageQualityStatus": "approved"
   },
@@ -4395,7 +4395,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Essential Everyday Italian Six Cheese Blend, cheese.",
-    "imageFile": "essential-everyday-italian-six-cheese-blend.jpg",
+    "imageFile": "essential-everyday-italian-six-cheese-blend-clean.jpg",
     "price": 9.12,
     "imageQualityStatus": "approved"
   },
@@ -4406,7 +4406,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Essential Everyday Low-Moisture Part-Skim Mozzarella Cheese, cheese.",
-    "imageFile": "essential-everyday-low-moisture-part-skim-mozzarella-cheese.jpg",
+    "imageFile": "essential-everyday-low-moisture-part-skim-mozzarella-cheese-clean.jpg",
     "price": 9.12,
     "imageQualityStatus": "approved"
   },
@@ -4417,7 +4417,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Essential Everyday Mexican Four Cheese Blend, cheese.",
-    "imageFile": "essential-everyday-mexican-four-cheese-blend.jpg",
+    "imageFile": "essential-everyday-mexican-four-cheese-blend-clean.jpg",
     "price": 4.5,
     "imageQualityStatus": "approved"
   },
@@ -4428,7 +4428,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Essential Everyday Mild Cheddar Cheese (shredded) Classic Cut, shredded cheese.",
-    "imageFile": "essential-everyday-mild-cheddar-cheese-shredded-classic-cut.jpg",
+    "imageFile": "essential-everyday-mild-cheddar-cheese-shredded-classic-cut-clean.jpg",
     "price": 4.46,
     "imageQualityStatus": "approved"
   },
@@ -4439,7 +4439,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Essential Everyday Parmesan Cheese (shredded) Fancy Cut, shredded cheese.",
-    "imageFile": "essential-everyday-parmesan-cheese-shredded-fancy-cut.jpg",
+    "imageFile": "essential-everyday-parmesan-cheese-shredded-fancy-cut-clean.jpg",
     "price": 4.46,
     "imageQualityStatus": "approved"
   },
@@ -4450,7 +4450,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Essential Everyday Pizza Cheese Blend, cheese.",
-    "imageFile": "essential-everyday-pizza-cheese-blend.jpg",
+    "imageFile": "essential-everyday-pizza-cheese-blend-clean.jpg",
     "price": 4.5,
     "imageQualityStatus": "approved"
   },
@@ -4461,7 +4461,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Fleischmann's Original margarine spread.",
-    "imageFile": "fleischmann-s-original.jpg",
+    "imageFile": "fleischmann-s-original-clean.jpg",
     "price": 4.12,
     "imageQualityStatus": "approved"
   },
@@ -4472,7 +4472,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Grand Fermage butter with salt crystals from the sea.",
-    "imageFile": "grand-fermage-cristaux-de-sel-et-mer-butter.jpg",
+    "imageFile": "grand-fermage-cristaux-de-sel-et-mer-butter-clean.jpg",
     "price": 12.92,
     "imageQualityStatus": "approved"
   },
@@ -4483,7 +4483,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Jouvenceau (Lait de Chevre, goat cheese), cheese.",
-    "imageFile": "jouvenceau-lait-de-chevre-goat-cheese.jpg",
+    "imageFile": "jouvenceau-lait-de-chevre-goat-cheese-clean.jpg",
     "price": 24.83,
     "imageQualityStatus": "approved"
   },
@@ -4494,7 +4494,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Kraft Grated Parmesan & Romano Cheese, grated cheese.",
-    "imageFile": "kraft-grated-parmesan-romano-cheese.jpg",
+    "imageFile": "kraft-grated-parmesan-romano-cheese-clean.jpg",
     "price": 12.79,
     "imageQualityStatus": "approved"
   },
@@ -4505,7 +4505,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Kraft Grated Parmesan Cheese, grated cheese.",
-    "imageFile": "kraft-grated-parmesan-cheese.jpg",
+    "imageFile": "kraft-grated-parmesan-cheese-clean.jpg",
     "price": 11.96,
     "imageQualityStatus": "approved"
   },
@@ -4516,7 +4516,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Le Vigneron Ail et Fines Herbes, cheese.",
-    "imageFile": "le-vigneron-ail-et-fines-herbes.jpg",
+    "imageFile": "le-vigneron-ail-et-fines-herbes-clean.jpg",
     "price": 18.33,
     "imageQualityStatus": "approved"
   },
@@ -4527,7 +4527,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Le Vigneron Aux Truffes Blanches d'Ete, cheese.",
-    "imageFile": "le-vigneron-aux-truffes-blanches-d-ete.jpg",
+    "imageFile": "le-vigneron-aux-truffes-blanches-d-ete-clean.jpg",
     "price": 19.17,
     "imageQualityStatus": "approved"
   },
@@ -4538,7 +4538,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "LunchItas Sandwich Slices American White, sliced cheese.",
-    "imageFile": "lunchitas-sandwich-slices-american-white.jpg",
+    "imageFile": "lunchitas-sandwich-slices-american-white-clean.jpg",
     "price": 4.08,
     "imageQualityStatus": "approved"
   },
@@ -4549,7 +4549,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "LunchItas Sandwich Slices American Yellow, sliced cheese.",
-    "imageFile": "lunchitas-sandwich-slices-american-yellow.jpg",
+    "imageFile": "lunchitas-sandwich-slices-american-yellow-clean.jpg",
     "price": 2.96,
     "imageQualityStatus": "approved"
   },
@@ -4560,7 +4560,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Maroilles Fauquet, cheese.",
-    "imageFile": "maroilles-fauquet.jpg",
+    "imageFile": "maroilles-fauquet-clean.jpg",
     "price": 19.42,
     "imageQualityStatus": "approved"
   },
@@ -4571,7 +4571,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Reflet de France Morbier AOP, cheese.",
-    "imageFile": "reflet-de-france-morbier-aop.jpg",
+    "imageFile": "reflet-de-france-morbier-aop-clean.jpg",
     "price": 17.96,
     "imageQualityStatus": "approved"
   },
@@ -4582,7 +4582,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Olivio Original olive oil spread.",
-    "imageFile": "olivio-original.jpg",
+    "imageFile": "olivio-original-clean.jpg",
     "price": 12.75,
     "imageQualityStatus": "approved"
   },
@@ -4593,7 +4593,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Philadelphia Flavored (Chive and Onion), cheese.",
-    "imageFile": "philadelphia-flavored-chive-and-onion.jpg",
+    "imageFile": "philadelphia-flavored-chive-and-onion-clean.jpg",
     "price": 13.5,
     "imageQualityStatus": "approved"
   },
@@ -4604,7 +4604,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Philadelphia Flavored (Garden Vegetable), cheese.",
-    "imageFile": "philadelphia-flavored-garden-vegetable.jpg",
+    "imageFile": "philadelphia-flavored-garden-vegetable-clean.jpg",
     "price": 9.29,
     "imageQualityStatus": "approved"
   },
@@ -4615,7 +4615,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Philadelphia Flavored (Honey Pecan), cheese.",
-    "imageFile": "philadelphia-flavored-honey-pecan.jpg",
+    "imageFile": "philadelphia-flavored-honey-pecan-clean.jpg",
     "price": 12.58,
     "imageQualityStatus": "approved"
   },
@@ -4626,7 +4626,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Philadelphia Flavored (spicy Jalapeno), cheese.",
-    "imageFile": "philadelphia-flavored-spicy-jalapeno.jpg",
+    "imageFile": "philadelphia-flavored-spicy-jalapeno-clean.jpg",
     "price": 9.29,
     "imageQualityStatus": "approved"
   },
@@ -4637,7 +4637,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Philadelphia Flavored (Smoked Salmon), cheese.",
-    "imageFile": "philadelphia-flavored-smoked-salmon.jpg",
+    "imageFile": "philadelphia-flavored-smoked-salmon-clean.jpg",
     "price": 9.29,
     "imageQualityStatus": "approved"
   },
@@ -4670,7 +4670,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Philadelphia Original (cream cheese tub).",
-    "imageFile": "philadelphia-original-cream-cheese-tub.jpg",
+    "imageFile": "philadelphia-original-cream-cheese-tub-clean.jpg",
     "price": 8.71,
     "imageQualityStatus": "approved"
   },
@@ -4681,7 +4681,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "President light butter, easy to spread.",
-    "imageFile": "president-beurre-leger-light-butter-facile-a-tartiner.jpg",
+    "imageFile": "president-beurre-leger-light-butter-facile-a-tartiner-clean.jpg",
     "price": 8.33,
     "imageQualityStatus": "approved"
   },
@@ -4692,7 +4692,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "President Cheddar (sandwich), cheese.",
-    "imageFile": "president-cheddar-sandwich.jpg",
+    "imageFile": "president-cheddar-sandwich-clean.jpg",
     "price": 6.33,
     "imageQualityStatus": "approved"
   },
@@ -4703,7 +4703,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "President Comte Le Montarlier, cheese.",
-    "imageFile": "president-comte-le-montarlier.jpg",
+    "imageFile": "president-comte-le-montarlier-clean.jpg",
     "price": 23.46,
     "imageQualityStatus": "approved"
   },
@@ -4714,7 +4714,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "President Creamy Spreadable Cheese (Brie), cheese.",
-    "imageFile": "president-creamy-spreadable-cheese-brie.jpg",
+    "imageFile": "president-creamy-spreadable-cheese-brie-clean.jpg",
     "price": 7.5,
     "imageQualityStatus": "approved"
   },
@@ -4725,7 +4725,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "President Crema de Camembert, cheese.",
-    "imageFile": "president-crema-de-camembert.jpg",
+    "imageFile": "president-crema-de-camembert-clean.jpg",
     "price": 7.12,
     "imageQualityStatus": "approved"
   },
@@ -4736,7 +4736,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "President Crema de Emmental, cheese.",
-    "imageFile": "president-crema-de-emmental.jpg",
+    "imageFile": "president-crema-de-emmental-clean.jpg",
     "price": 7.12,
     "imageQualityStatus": "approved"
   },
@@ -4747,7 +4747,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "President Crema de Queso Cabra, cheese.",
-    "imageFile": "president-crema-de-queso-cabra.jpg",
+    "imageFile": "president-crema-de-queso-cabra-clean.jpg",
     "price": 7.12,
     "imageQualityStatus": "approved"
   },
@@ -4758,7 +4758,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "President Emmental (slices), sliced cheese.",
-    "imageFile": "president-emmental-slices.jpg",
+    "imageFile": "president-emmental-slices-clean.jpg",
     "price": 6.33,
     "imageQualityStatus": "approved"
   },
@@ -4769,7 +4769,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "President Light and tasty Slices, sliced cheese.",
-    "imageFile": "president-light-and-tasty-slices.jpg",
+    "imageFile": "president-light-and-tasty-slices-clean.jpg",
     "price": 6.29,
     "imageQualityStatus": "approved"
   },
@@ -4780,7 +4780,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "President Chedddar Burger (slices), sliced cheese.",
-    "imageFile": "president-chedddar-burger-slices.jpg",
+    "imageFile": "president-chedddar-burger-slices-clean.jpg",
     "price": 6.33,
     "imageQualityStatus": "approved"
   },
@@ -4802,7 +4802,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "President French unsalted butter (doux).",
-    "imageFile": "president-french-butter-unsalted-doux.jpg",
+    "imageFile": "president-french-butter-unsalted-doux-clean.jpg",
     "price": 9.25,
     "imageQualityStatus": "approved"
   },
@@ -4813,7 +4813,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "President Hamburger & Gratinar 4 Quesos, cheese.",
-    "imageFile": "president-hamburger-gratinar-4-quesos.jpg",
+    "imageFile": "president-hamburger-gratinar-4-quesos-clean.jpg",
     "price": 6.17,
     "imageQualityStatus": "approved"
   },
@@ -4824,7 +4824,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "President Le Blue, cheese.",
-    "imageFile": "president-le-blue.jpg",
+    "imageFile": "president-le-blue-clean.jpg",
     "price": 7.96,
     "imageQualityStatus": "approved"
   },
@@ -4835,7 +4835,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "President Petit Camembert, cheese.",
-    "imageFile": "president-petit-camembert.jpg",
+    "imageFile": "president-petit-camembert-clean.jpg",
     "price": 9.58,
     "imageQualityStatus": "approved"
   },
@@ -4846,7 +4846,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "President Petit Camembert en Campagne, cheese.",
-    "imageFile": "president-petit-camembert-en-campagne.jpg",
+    "imageFile": "president-petit-camembert-en-campagne-clean.jpg",
     "price": 9.58,
     "imageQualityStatus": "approved"
   },
@@ -4857,7 +4857,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Reblochon de Savoie (Les Hauts de Savoie), cheese.",
-    "imageFile": "reblochon-de-savoie-les-hauts-de-savoie.jpg",
+    "imageFile": "reblochon-de-savoie-les-hauts-de-savoie-clean.jpg",
     "price": 40.71,
     "imageQualityStatus": "approved"
   },
@@ -4868,7 +4868,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Sargento 4 Cheese Mexican (shredded), shredded cheese.",
-    "imageFile": "sargento-4-cheese-mexican-shredded.jpg",
+    "imageFile": "sargento-4-cheese-mexican-shredded-clean.jpg",
     "price": 8.17,
     "imageQualityStatus": "approved"
   },
@@ -4879,7 +4879,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Snowdonia Cheese Co Truffle Trove, cheese.",
-    "imageFile": "snowdonia-cheese-co-truffle-trove.jpg",
+    "imageFile": "snowdonia-cheese-co-truffle-trove-clean.jpg",
     "price": 31.33,
     "imageQualityStatus": "approved"
   },
@@ -4890,7 +4890,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Snowdonia Cheese Thunder, cheese.",
-    "imageFile": "snowdonia-cheese-thunder.jpg",
+    "imageFile": "snowdonia-cheese-thunder-clean.jpg",
     "price": 25.96,
     "imageQualityStatus": "approved"
   },
@@ -4901,7 +4901,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Snowdonia Cheese Red Devil, cheese.",
-    "imageFile": "snowdonia-cheese-red-devil.jpg",
+    "imageFile": "snowdonia-cheese-red-devil-clean.jpg",
     "price": 25.96,
     "imageQualityStatus": "approved"
   },
@@ -4912,7 +4912,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Societe Roquefort, cheese.",
-    "imageFile": "societe-roquefort.jpg",
+    "imageFile": "societe-roquefort-clean.jpg",
     "price": 12.0,
     "imageQualityStatus": "approved"
   },
@@ -4923,7 +4923,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Soumaintrain, cheese.",
-    "imageFile": "soumaintrain.jpg",
+    "imageFile": "soumaintrain-clean.jpg",
     "price": 20.42,
     "imageQualityStatus": "approved"
   },
@@ -4945,7 +4945,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Velveeta Original Slices, sliced cheese.",
-    "imageFile": "velveeta-original-slices.jpg",
+    "imageFile": "velveeta-original-slices-clean.jpg",
     "price": 12.29,
     "imageQualityStatus": "approved"
   },
@@ -4956,7 +4956,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Bel Gioioso Vino Rosso, wedge cut cheese.",
-    "imageFile": "bel-gioioso-vino-rosso-wedge.jpg",
+    "imageFile": "bel-gioioso-vino-rosso-wedge-clean.jpg",
     "price": 6.75,
     "imageQualityStatus": "approved"
   },
@@ -4967,7 +4967,7 @@
     "categorySlug": "epicerie",
     "size": null,
     "description": "Violife Blanc Grec Bloc (vegan), cheese.",
-    "imageFile": "violife-blanc-grec-bloc-vegan.jpg",
+    "imageFile": "violife-blanc-grec-bloc-vegan-clean.jpg",
     "price": 16.5,
     "imageQualityStatus": "approved"
   },
