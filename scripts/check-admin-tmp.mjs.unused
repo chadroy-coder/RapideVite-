@@ -1,0 +1,25 @@
+import { config } from "dotenv";
+import { createClient } from "@supabase/supabase-js";
+
+config({ path: ".env.local" });
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY,
+  { auth: { autoRefreshToken: false, persistSession: false } }
+);
+
+const { data: profiles, error: profErr } = await supabase
+  .from("profiles")
+  .select("id, full_name, phone, role");
+if (profErr) { console.error(profErr); process.exit(1); }
+
+const { data: usersData, error: usersErr } = await supabase.auth.admin.listUsers();
+if (usersErr) { console.error(usersErr); process.exit(1); }
+
+const emailById = new Map(usersData.users.map(u => [u.id, u.email]));
+
+console.log("All accounts:");
+for (const p of profiles) {
+  console.log(`- ${emailById.get(p.id) ?? "(no auth user?)"} | role: ${p.role} | name: ${p.full_name ?? "-"}`);
+}
