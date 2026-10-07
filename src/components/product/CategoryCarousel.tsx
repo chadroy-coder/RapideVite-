@@ -22,6 +22,14 @@ import {
   FileText,
   ChefHat,
   PawPrint,
+  Pizza,
+  Wheat,
+  Cherry,
+  Droplets,
+  Candy,
+  Container,
+  Soup,
+  Drumstick,
   type LucideIcon,
 } from "lucide-react";
 import type { Category } from "@/types/database";
@@ -48,6 +56,14 @@ export const CATEGORY_ICONS: Record<string, LucideIcon> = {
   "papier-produits-jetables": FileText,
   "cuisine-maison": ChefHat,
   "produits-animaux": PawPrint,
+  "fromages-beurre": Pizza,
+  "conserves-legumes-fruits": Container,
+  "conserves-viandes-poissons": Drumstick,
+  "plats-prepares": Soup,
+  "pates-riz": Wheat,
+  "confitures-tartinades": Cherry,
+  "miel-sirops": Droplets,
+  "sucre-edulcorants": Candy,
 };
 
 export function CategoryCarousel({ categories }: { categories: Category[] }) {
