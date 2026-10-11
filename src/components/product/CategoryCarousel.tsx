@@ -30,6 +30,7 @@ import {
   Container,
   Soup,
   Drumstick,
+  Popcorn,
   type LucideIcon,
 } from "lucide-react";
 import type { Category } from "@/types/database";
@@ -64,6 +65,7 @@ export const CATEGORY_ICONS: Record<string, LucideIcon> = {
   "confitures-tartinades": Cherry,
   "miel-sirops": Droplets,
   "sucre-edulcorants": Candy,
+  "chips-crackers": Popcorn,
 };
 
 export function CategoryCarousel({ categories }: { categories: Category[] }) {
